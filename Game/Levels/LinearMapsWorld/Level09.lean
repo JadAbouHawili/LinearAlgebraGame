@@ -5,29 +5,31 @@ namespace LinearAlgebraGame
 World "LinearMapsWorld"
 Level 9
 
-Title "Linear Maps Preserve Dimensions"
+Title "Injective Maps Preserve Independence"
 
 Introduction "
-Now we'll explore how linear maps interact with the dimensions of vector spaces.
+Now we'll explore a crucial property of injective linear maps: they preserve the distinction between zero and non-zero vectors.
 
 ## The Key Insight
 
-If $T : V \\to W$ is a linear map, then the dimension of $V$ equals the dimension of the null space plus the dimension of the range:
+If $T : V \\to W$ is an injective linear map and $T(v) = w$, then:
+- $v \\neq 0$ if and only if $w \\neq 0$
 
-$$\\dim V = \\dim(\\text{null } T) + \\dim(\\text{range } T)$$
-
-This prepares us for the **Fundamental Theorem of Linear Algebra**.
+This shows that injective maps preserve the **structure** of vector spaces - they never collapse non-zero vectors to zero.
 
 ## Why This Matters
 
-This relationship shows that linear maps have a very structured effect on dimensions. The input space gets 'split' between the null space (what gets mapped to zero) and the range (what gets output).
+This property is fundamental because:
+- It shows injective maps preserve linear independence
+- Non-zero vectors stay non-zero under injective transformations
+- This is a stepping stone to understanding how injective maps preserve dimensions
 
-## Building Toward Axler 3.21
+## Building Toward the Fundamental Theorem
 
-This level establishes a key property we'll need for the Fundamental Theorem. We'll prove that linear maps cannot increase dimension beyond certain bounds.
+This level establishes that injective linear maps preserve essential structural properties, which is crucial for the dimension theory in the Fundamental Theorem.
 
 ### Your Goal
-Prove that if T : V → W is injective, then the range has the same dimension as the domain.
+Prove that if T is injective and maps v to w, then v ≠ 0 if and only if w ≠ 0.
 "
 
 open VectorSpace
