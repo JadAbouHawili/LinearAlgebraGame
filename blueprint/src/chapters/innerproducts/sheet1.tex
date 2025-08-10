@@ -235,7 +235,8 @@
 
 \begin{theorem}
   \label{theorem : ortho_zero}
-  \leanok
+  % Note: This is a simple consequence of inner_zero_right, not a separate theorem in the game
+  % Not marked with \leanok as it's not a separate theorem in the Lean code
   \uses{definition : InnerProductSpace, lemma : inner_zero_right, definition : orthogonal}
   Every vector is orthogonal to the zero vector: $v \perp 0$ for all $v$.
 \end{theorem}
