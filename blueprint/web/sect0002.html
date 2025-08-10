@@ -143,7 +143,16 @@
   <a href="sect0005.html#a0000000033"><span class="toc_ref">5.2</span> <span class="toc_entry">Null Space and Range</span></a>
  </li>
 <li class="">
-  <a href="sect0005.html#a0000000034"><span class="toc_ref">5.3</span> <span class="toc_entry">Injectivity and Surjectivity</span></a>
+  <a href="sect0005.html#a0000000034"><span class="toc_ref">5.3</span> <span class="toc_entry">Linear Maps Preserve Structure</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html#a0000000035"><span class="toc_ref">5.4</span> <span class="toc_entry">Injectivity and Surjectivity</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html#a0000000036"><span class="toc_ref">5.5</span> <span class="toc_entry">The Fundamental Theorem</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html#a0000000037"><span class="toc_ref">5.6</span> <span class="toc_entry">Isomorphisms</span></a>
  </li>
 
   </ul>
@@ -201,22 +210,22 @@
   <p>  A <b class="bfseries">vector space</b> \(V\) over a field \(K\) is an abelian group equipped with scalar multiplication that satisfies four key axioms: </p>
 <ul class="itemize">
   <li><p><b class="bfseries">Distributivity over vector addition</b>: </p>
-<div class="displaymath" id="a0000000035">
+<div class="displaymath" id="a0000000038">
   \[ \forall a \in K, \forall x,y \in V: \quad a \cdot (x + y) = a \cdot x + a \cdot y \]
 </div>
 </li>
   <li><p><b class="bfseries">Distributivity over field addition</b>: </p>
-<div class="displaymath" id="a0000000036">
+<div class="displaymath" id="a0000000039">
   \[ \forall a,b \in K, \forall x \in V: \quad (a + b) \cdot x = a \cdot x + b \cdot x \]
 </div>
 </li>
   <li><p><b class="bfseries">Compatibility with field multiplication</b>: </p>
-<div class="displaymath" id="a0000000037">
+<div class="displaymath" id="a0000000040">
   \[ \forall a,b \in K, \forall x \in V: \quad (a \cdot b) \cdot x = a \cdot (b \cdot x) \]
 </div>
 </li>
   <li><p><b class="bfseries">Identity element</b>: </p>
-<div class="displaymath" id="a0000000038">
+<div class="displaymath" id="a0000000041">
   \[ \forall x \in V: \quad 1 \cdot x = x \]
 </div>
 </li>
@@ -237,7 +246,7 @@
 
     <a class="icon proof" href="sect0002.html#theorem : zero_smul">#</a>
     
-    <a class="icon proof" href="sect0002.html#a0000000039"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+    <a class="icon proof" href="sect0002.html#a0000000042"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
 </a>
     
     
@@ -285,13 +294,13 @@
   </div>
   <div class="theorem_thmcontent">
   <p>   In any vector space \(V\) over field \(K\), scalar multiplication by zero yields the zero vector: </p>
-<div class="displaymath" id="a0000000040">
+<div class="displaymath" id="a0000000043">
   \[ \forall v \in V: \quad 0 \cdot v = 0 \]
 </div>
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000039">
+<div class="proof_wrapper" id="a0000000042">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof
@@ -317,7 +326,7 @@
 
     <a class="icon proof" href="sect0002.html#theorem : smul_zero">#</a>
     
-    <a class="icon proof" href="sect0002.html#a0000000041"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+    <a class="icon proof" href="sect0002.html#a0000000044"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
 </a>
     
     
@@ -365,13 +374,13 @@
   </div>
   <div class="theorem_thmcontent">
   <p>   In any vector space \(V\) over field \(K\), scalar multiplication of any scalar by the zero vector yields the zero vector: </p>
-<div class="displaymath" id="a0000000042">
+<div class="displaymath" id="a0000000045">
   \[ \forall a \in K: \quad a \cdot 0 = 0 \]
 </div>
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000041">
+<div class="proof_wrapper" id="a0000000044">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof
@@ -397,7 +406,7 @@
 
     <a class="icon proof" href="sect0002.html#theorem : neg_one_smul">#</a>
     
-    <a class="icon proof" href="sect0002.html#a0000000043"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+    <a class="icon proof" href="sect0002.html#a0000000046"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
 </a>
     
     
@@ -445,13 +454,13 @@
   </div>
   <div class="theorem_thmcontent">
   <p>   In any vector space \(V\) over field \(K\), multiplying any vector by \(-1\) yields its additive inverse: </p>
-<div class="displaymath" id="a0000000044">
+<div class="displaymath" id="a0000000047">
   \[ \forall v \in V: \quad (-1) \cdot v = -v \]
 </div>
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000043">
+<div class="proof_wrapper" id="a0000000046">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof
@@ -528,7 +537,7 @@
 
     <a class="icon proof" href="sect0002.html#theorem : subspace_contains_zero">#</a>
     
-    <a class="icon proof" href="sect0002.html#a0000000045"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+    <a class="icon proof" href="sect0002.html#a0000000048"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
 </a>
     
     
@@ -583,7 +592,7 @@
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000045">
+<div class="proof_wrapper" id="a0000000048">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof
@@ -609,7 +618,7 @@
 
     <a class="icon proof" href="sect0002.html#theorem : subspace_neg">#</a>
     
-    <a class="icon proof" href="sect0002.html#a0000000046"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+    <a class="icon proof" href="sect0002.html#a0000000049"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
 </a>
     
     
@@ -661,13 +670,13 @@
   </div>
   <div class="theorem_thmcontent">
   <p>   If a subspace \(W\) contains a vector \(x\), then it also contains its additive inverse \(-x\): </p>
-<div class="displaymath" id="a0000000047">
+<div class="displaymath" id="a0000000050">
   \[ \forall x \in V: \quad x \in W \implies (-x) \in W \]
 </div>
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000046">
+<div class="proof_wrapper" id="a0000000049">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof

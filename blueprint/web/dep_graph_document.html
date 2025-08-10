@@ -148,7 +148,7 @@
       </span>
       <span class="definition_thmlabel">11</span></div>
     <div class="thm_thmcontent"><p>   Let \(V\) be a vector space over a field \(K\), and let \(S \subseteq V\). A vector \(x \in V\) is called a <b class="bfseries">linear combination</b> of vectors in \(S\) if there exist finitely many vectors \(v_1, v_2, \ldots , v_n \in S\) and scalars \(a_1, a_2, \ldots , a_n \in K\) such that </p>
-<div class="displaymath" id="a0000000048">
+<div class="displaymath" id="a0000000051">
   \[ x = a_1 v_1 + a_2 v_2 + \cdots + a_n v_n = \sum _{i=1}^{n} a_i v_i \]
 </div>
 </div>
@@ -181,7 +181,7 @@
       </span>
       <span class="definition_thmlabel">16</span></div>
     <div class="thm_thmcontent"><p>   A set of vectors \(S \subseteq V\) is <b class="bfseries">linearly independent</b> if the only solution to the equation </p>
-<div class="displaymath" id="a0000000053">
+<div class="displaymath" id="a0000000056">
   \[ a_1 v_1 + a_2 v_2 + \cdots + a_n v_n = 0 \]
 </div>
 <p> where \(v_1, v_2, \ldots , v_n \in S\) are distinct and \(a_1, a_2, \ldots , a_n \in K\), is the trivial solution \(a_1 = a_2 = \cdots = a_n = 0\). </p>
@@ -216,7 +216,7 @@
       </span>
       <span class="definition_thmlabel">36</span></div>
     <div class="thm_thmcontent"><p>   The <b class="bfseries">norm</b> of a vector \(v\) in an inner product space is defined as: </p>
-<div class="displaymath" id="a0000000074">
+<div class="displaymath" id="a0000000077">
   \[ \| v\|  = \sqrt{\text{Re}(\langle v, v \rangle )} \]
 </div>
 </div>
@@ -279,7 +279,7 @@
       </span>
       <span class="definition_thmlabel">13</span></div>
     <div class="thm_thmcontent"><p>   Let \(V\) be a vector space over a field \(K\), and let \(S \subseteq V\). The <b class="bfseries">span</b> of \(S\), denoted \(\text{span}(S)\) or \(\langle S \rangle \), is the set of all linear combinations of vectors in \(S\): </p>
-<div class="displaymath" id="a0000000050">
+<div class="displaymath" id="a0000000053">
   \[ \text{span}(S) = \left\{  \sum _{i=1}^{n} a_i v_i : n \in \mathbb {N}, v_i \in S, a_i \in K \right\}  \]
 </div>
 </div>
@@ -352,22 +352,22 @@
     <div class="thm_thmcontent"><p>  A <b class="bfseries">vector space</b> \(V\) over a field \(K\) is an abelian group equipped with scalar multiplication that satisfies four key axioms: </p>
 <ul class="itemize">
   <li><p><b class="bfseries">Distributivity over vector addition</b>: </p>
-<div class="displaymath" id="a0000000035">
+<div class="displaymath" id="a0000000038">
   \[ \forall a \in K, \forall x,y \in V: \quad a \cdot (x + y) = a \cdot x + a \cdot y \]
 </div>
 </li>
   <li><p><b class="bfseries">Distributivity over field addition</b>: </p>
-<div class="displaymath" id="a0000000036">
+<div class="displaymath" id="a0000000039">
   \[ \forall a,b \in K, \forall x \in V: \quad (a + b) \cdot x = a \cdot x + b \cdot x \]
 </div>
 </li>
   <li><p><b class="bfseries">Compatibility with field multiplication</b>: </p>
-<div class="displaymath" id="a0000000037">
+<div class="displaymath" id="a0000000040">
   \[ \forall a,b \in K, \forall x \in V: \quad (a \cdot b) \cdot x = a \cdot (b \cdot x) \]
 </div>
 </li>
   <li><p><b class="bfseries">Identity element</b>: </p>
-<div class="displaymath" id="a0000000038">
+<div class="displaymath" id="a0000000041">
   \[ \forall x \in V: \quad 1 \cdot x = x \]
 </div>
 </li>
@@ -378,6 +378,100 @@
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.VectorSpace">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="fundamental-principle_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="fundamental-principle" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">64</span></div>
+    <div class="thm_thmcontent"><p>   A linear map \(T : V \to W\) is both injective and surjective if and only if it is bijective. </p>
+</div>
+
+    <a class="latex_link" href="sect0005.html#fundamental-principle">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.fundamental_principle_demo">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="fundamental-theorem-educational_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="fundamental-theorem-educational" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">63</span></div>
+    <div class="thm_thmcontent"><p>   For a linear map \(T : V \to W\) between finite-dimensional vector spaces: </p>
+<div class="displaymath" id="a0000000104">
+  \[ \dim V = \dim (\text{null}(T)) + \dim (\text{range}(T)) \]
+</div>
+<p> This is the rank-nullity theorem, also known as the fundamental theorem of linear maps. </p>
+</div>
+
+    <a class="latex_link" href="sect0005.html#fundamental-theorem-educational">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.fundamental_theorem_educational">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="fundamental-theorem-insight_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="fundamental-theorem-insight" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">62</span></div>
+    <div class="thm_thmcontent"><p>   If \(T : V \to W\) is an injective linear map, then distinct vectors map to distinct vectors: if \(v_1 \neq v_2\), then \(T(v_1) \neq T(v_2)\). </p>
+</div>
+
+    <a class="latex_link" href="sect0005.html#fundamental-theorem-insight">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.fundamental_theorem_insight">Lean</a>
     
     
   
@@ -400,14 +494,134 @@
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">55</span></div>
-    <div class="thm_thmcontent"><p>  A linear map \(T : V \to W\) is injective if and only if \(\text{null}(T) = \{ 0\} \). </p>
+      <span class="theorem_thmlabel">60</span></div>
+    <div class="thm_thmcontent"><p>   A linear map \(T : V \to W\) is injective if and only if \(\text{null}(T) = \{ 0\} \). </p>
 </div>
 
     <a class="latex_link" href="sect0005.html#injective-characterization">LaTeX</a>
     
     
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.injective_implies_trivial_null">Lean</a>
+    
+    
   
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="injective-independence_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="injective-independence" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">61</span></div>
+    <div class="thm_thmcontent"><p>   Injective linear maps preserve linear independence: If \(T : V \to W\) is an injective linear map and \(\{ v_1, \ldots , v_n\} \) is linearly independent in \(V\), then \(\{ T(v_1), \ldots , T(v_n)\} \) is linearly independent in \(W\). </p>
+</div>
+
+    <a class="latex_link" href="sect0005.html#injective-independence">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.injective_preserves_independence">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="isomorphism-characterization_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="isomorphism-characterization" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">66</span></div>
+    <div class="thm_thmcontent"><p>   A linear map \(T : V \to W\) is an isomorphism if and only if it is bijective. </p>
+</div>
+
+    <a class="latex_link" href="sect0005.html#isomorphism-characterization">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.isomorphism_iff_bijective_linear">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="isomorphism-def_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="isomorphism-def" style="display: none">
+    <div class="thm_thmheading">
+      <span class="definition_thmcaption">
+      Definition
+      </span>
+      <span class="definition_thmlabel">65</span></div>
+    <div class="thm_thmcontent"><p>  An <b class="bfseries">isomorphism</b> is a linear map \(T : V \to W\) that is both injective and surjective (bijective). </p>
+</div>
+
+    <a class="latex_link" href="sect0005.html#isomorphism-def">LaTeX</a>
+    
+    
+  
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="isomorphism-preserves_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="isomorphism-preserves" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">67</span></div>
+    <div class="thm_thmcontent"><p>   Isomorphisms preserve all vector space structure. In particular, if \(T : V \to W\) is an isomorphism, then \(T\) and \(T^{-1}\) preserve linear combinations, linear independence, spanning sets, and bases. </p>
+</div>
+
+    <a class="latex_link" href="sect0005.html#isomorphism-preserves">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.isomorphism_preserves_structure">Lean</a>
     
     
   
@@ -809,6 +1023,40 @@
 
 
     
+    <div class="dep-modal-container" id="linear-combination-preservation_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="linear-combination-preservation" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">58</span></div>
+    <div class="thm_thmcontent"><p>   Linear maps preserve linear combinations: If \(T : V \to W\) is linear, then </p>
+<div class="displaymath" id="a0000000102">
+  \[ T(a_1 v_1 + a_2 v_2) = a_1 T(v_1) + a_2 T(v_2) \]
+</div>
+<p> for all \(a_1, a_2 \in K\) and \(v_1, v_2 \in V\). </p>
+</div>
+
+    <a class="latex_link" href="sect0005.html#linear-combination-preservation">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.linear_map_preserves_combination">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
     <div class="dep-modal-container" id="linear-map-def_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
@@ -857,13 +1105,43 @@
       Lemma
       </span>
       <span class="lemma_thmlabel">52</span></div>
-    <div class="thm_thmcontent"><p>  If \(T : V \to W\) is a linear map, then \(T(0) = 0\). </p>
+    <div class="thm_thmcontent"><p>   If \(T : V \to W\) is a linear map, then \(T(0) = 0\). </p>
 </div>
 
     <a class="latex_link" href="sect0005.html#linear-map-zero">LaTeX</a>
     
     
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.linear_map_preserves_zero">Lean</a>
+    
+    
   
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="mem-range_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="mem-range" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">56</span></div>
+    <div class="thm_thmcontent"><p>   If \(T(v) = w\) for some \(v \in V\), then \(w \in \text{range}(T)\). </p>
+</div>
+
+    <a class="latex_link" href="sect0005.html#mem-range">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.mem_range_of_map">Lean</a>
     
     
   
@@ -888,7 +1166,7 @@
       </span>
       <span class="definition_thmlabel">53</span></div>
     <div class="thm_thmcontent"><p>  The <b class="bfseries">null space</b> (or kernel) of a linear map \(T : V \to W\) is: </p>
-<div class="displaymath" id="a0000000097">
+<div class="displaymath" id="a0000000100">
   \[ \text{null}(T) = \{ v \in V : T(v) = 0\}  \]
 </div>
 </div>
@@ -919,9 +1197,9 @@
       <span class="definition_thmcaption">
       Definition
       </span>
-      <span class="definition_thmlabel">54</span></div>
+      <span class="definition_thmlabel">55</span></div>
     <div class="thm_thmcontent"><p>  The <b class="bfseries">range</b> (or image) of a linear map \(T : V \to W\) is: </p>
-<div class="displaymath" id="a0000000098">
+<div class="displaymath" id="a0000000101">
   \[ \text{range}(T) = \{ T(v) : v \in V\}  \]
 </div>
 </div>
@@ -930,6 +1208,66 @@
     
     
   
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="range-subspace_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="range-subspace" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">57</span></div>
+    <div class="thm_thmcontent"><p>   The range of a linear map \(T : V \to W\) is a subspace of \(W\). </p>
+</div>
+
+    <a class="latex_link" href="sect0005.html#range-subspace">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.range_is_subspace">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="surjective-characterization_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="surjective-characterization" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">59</span></div>
+    <div class="thm_thmcontent"><p>   A linear map \(T : V \to W\) is surjective if and only if \(\text{range}(T) = W\). </p>
+</div>
+
+    <a class="latex_link" href="sect0005.html#surjective-characterization">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.surjective_iff_range_eq">Lean</a>
     
     
   
@@ -1044,7 +1382,7 @@
       </span>
       <span class="theorem_thmlabel">20</span></div>
     <div class="thm_thmcontent"><p>   Let \(S \subseteq V\) be a linearly independent set. If </p>
-<div class="displaymath" id="a0000000058">
+<div class="displaymath" id="a0000000061">
   \[ \sum _{v \in T_1} a_v \cdot v = \sum _{v \in T_2} b_v \cdot v \]
 </div>
 <p> where \(T_1, T_2\) are finite subsets of \(S\), \(a_v = 0\) for \(v \notin T_1\), and \(b_v = 0\) for \(v \notin T_2\), then \(a_v = b_v\) for all \(v \in V\). </p>
@@ -1168,7 +1506,7 @@
       </span>
       <span class="theorem_thmlabel">7</span></div>
     <div class="thm_thmcontent"><p>   In any vector space \(V\) over field \(K\), multiplying any vector by \(-1\) yields its additive inverse: </p>
-<div class="displaymath" id="a0000000044">
+<div class="displaymath" id="a0000000047">
   \[ \forall v \in V: \quad (-1) \cdot v = -v \]
 </div>
 </div>
@@ -1441,7 +1779,7 @@
       </span>
       <span class="theorem_thmlabel">6</span></div>
     <div class="thm_thmcontent"><p>   In any vector space \(V\) over field \(K\), scalar multiplication of any scalar by the zero vector yields the zero vector: </p>
-<div class="displaymath" id="a0000000042">
+<div class="displaymath" id="a0000000045">
   \[ \forall a \in K: \quad a \cdot 0 = 0 \]
 </div>
 </div>
@@ -1594,7 +1932,7 @@
       </span>
       <span class="theorem_thmlabel">10</span></div>
     <div class="thm_thmcontent"><p>   If a subspace \(W\) contains a vector \(x\), then it also contains its additive inverse \(-x\): </p>
-<div class="displaymath" id="a0000000047">
+<div class="displaymath" id="a0000000050">
   \[ \forall x \in V: \quad x \in W \implies (-x) \in W \]
 </div>
 </div>
@@ -1687,7 +2025,7 @@
       </span>
       <span class="theorem_thmlabel">5</span></div>
     <div class="thm_thmcontent"><p>   In any vector space \(V\) over field \(K\), scalar multiplication by zero yields the zero vector: </p>
-<div class="displaymath" id="a0000000040">
+<div class="displaymath" id="a0000000043">
   \[ \forall v \in V: \quad 0 \cdot v = 0 \]
 </div>
 </div>
@@ -1794,6 +2132,36 @@
     
       </div>
     </div>
+
+
+    
+    <div class="dep-modal-container" id="zero-in-null_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="zero-in-null" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">54</span></div>
+    <div class="thm_thmcontent"><p>   For any linear map \(T : V \to W\), the zero vector is in the null space: \(0 \in \text{null}(T)\). </p>
+</div>
+
+    <a class="latex_link" href="sect0005.html#zero-in-null">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.zero_in_null_space">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
 </div>
 </div> <!-- content -->
 </div> <!-- wrapper -->
@@ -1813,7 +2181,7 @@ graphContainer.graphviz({useWorker: true})
     .width(width)
     .height(height)
     .fit(true)
-    .renderDot(`strict digraph "" {	graph [bgcolor=transparent];	node [label="\N",		penwidth=1.8	];	edge [arrowhead=vee];	"definition : linear_independent"	[color=green,		fillcolor="#B0ECA3",		label=" linear_independent",		shape=box,		style=filled];	"theorem : linear_independent_empty"	[color=green,		fillcolor="#A3D6FF",		label=" linear_independent_empty",		shape=ellipse,		style=filled];	"definition : linear_independent" -> "theorem : linear_independent_empty"	[style=dashed];	"theorem : linear_combination_unique"	[color=green,		fillcolor="#A3D6FF",		label=" linear_combination_unique",		shape=ellipse,		style=filled];	"definition : linear_independent" -> "theorem : linear_combination_unique"	[style=dashed];	"theorem : linear_independent_insert_of_not_in_span"	[color=green,		fillcolor="#A3D6FF",		label=" linear_independent_insert_of_not_in_span",		shape=ellipse,		style=filled];	"definition : linear_independent" -> "theorem : linear_independent_insert_of_not_in_span"	[style=dashed];	"theorem : span_remove_element"	[color=green,		fillcolor="#A3D6FF",		label=" span_remove_element",		shape=ellipse,		style=filled];	"definition : linear_independent" -> "theorem : span_remove_element"	[style=dashed];	"theorem : subset_linear_independent"	[color=green,		fillcolor="#A3D6FF",		label=" subset_linear_independent",		shape=ellipse,		style=filled];	"definition : linear_independent" -> "theorem : subset_linear_independent"	[style=dashed];	"definition : norm"	[color=green,		fillcolor="#B0ECA3",		label=" norm",		shape=box,		style=filled];	"theorem : norm_zero"	[color=green,		fillcolor="#A3D6FF",		label=" norm_zero",		shape=ellipse,		style=filled];	"definition : norm" -> "theorem : norm_zero"	[style=dashed];	"theorem : norm_nonneg"	[color=green,		fillcolor="#A3D6FF",		label=" norm_nonneg",		shape=ellipse,		style=filled];	"definition : norm" -> "theorem : norm_nonneg"	[style=dashed];	"theorem : norm_sq_eq"	[color=green,		fillcolor="#A3D6FF",		label=" norm_sq_eq",		shape=ellipse,		style=filled];	"definition : norm" -> "theorem : norm_sq_eq"	[style=dashed];	"theorem : pythagorean"	[color=green,		fillcolor="#A3D6FF",		label=" pythagorean",		shape=ellipse,		style=filled];	"definition : norm" -> "theorem : pythagorean"	[style=dashed];	"theorem : ortho_decom"	[color=green,		fillcolor="#A3D6FF",		label=" ortho_decom",		shape=ellipse,		style=filled];	"theorem : norm_zero" -> "theorem : ortho_decom"	[style=dashed];	"theorem : sca_mul"	[color=green,		fillcolor="#A3D6FF",		label=" sca_mul",		shape=ellipse,		style=filled];	"theorem : norm_nonneg" -> "theorem : sca_mul"	[style=dashed];	"theorem : norm_sq_eq" -> "theorem : ortho_decom"	[style=dashed];	"theorem : Cauchy_Schwarz"	[color=green,		fillcolor="#A3D6FF",		label=" Cauchy_Schwarz",		shape=ellipse,		style=filled];	"theorem : pythagorean" -> "theorem : Cauchy_Schwarz"	[style=dashed];	"theorem : ortho_decom" -> "theorem : Cauchy_Schwarz"	[style=dashed];	"theorem : sca_mul" -> "theorem : Cauchy_Schwarz"	[style=dashed];	"theorem : triangle"	[color=green,		fillcolor="#A3D6FF",		label=" triangle",		shape=ellipse,		style=filled];	"theorem : Cauchy_Schwarz" -> "theorem : triangle"	[style=dashed];	"null-space-def"	[color=blue,		fillcolor="#A3D6FF",		label="null-space-def",		shape=box,		style=filled];	"injective-characterization"	[label="injective-characterization",		shape=ellipse];	"null-space-def" -> "injective-characterization"	[style=dashed];	"range-def"	[color=blue,		fillcolor="#A3D6FF",		label="range-def",		shape=box,		style=filled];	"lemma : inner_zero_right"	[color=green,		fillcolor="#A3D6FF",		label=" inner_zero_right",		shape=ellipse,		style=filled];	"lemma : inner_zero_right" -> "theorem : Cauchy_Schwarz"	[style=dashed];	"theorem : ortho_zero"	[color=green,		fillcolor="#A3D6FF",		label=" ortho_zero",		shape=ellipse,		style=filled];	"lemma : inner_zero_right" -> "theorem : ortho_zero"	[style=dashed];	"lemma : left_smul_ortho"	[color=green,		fillcolor="#A3D6FF",		label=" left_smul_ortho",		shape=ellipse,		style=filled];	"lemma : left_smul_ortho" -> "theorem : Cauchy_Schwarz"	[style=dashed];	"linear-map-zero"	[label="linear-map-zero",		shape=ellipse];	"theorem : subspace_contains_zero"	[color=green,		fillcolor="#A3D6FF",		label=" subspace_contains_zero",		shape=ellipse,		style=filled];	"definition : orthogonal"	[color=green,		fillcolor="#B0ECA3",		label=" orthogonal",		shape=box,		style=filled];	"definition : orthogonal" -> "theorem : pythagorean"	[style=dashed];	"definition : orthogonal" -> "theorem : ortho_decom"	[style=dashed];	"definition : orthogonal" -> "theorem : ortho_zero"	[style=dashed];	"definition : orthogonal" -> "lemma : left_smul_ortho"	[style=dashed];	"lemma : ortho_swap"	[color=green,		fillcolor="#A3D6FF",		label=" ortho_swap",		shape=ellipse,		style=filled];	"definition : orthogonal" -> "lemma : ortho_swap"	[style=dashed];	"theorem : ortho_self_zero"	[color=green,		fillcolor="#A3D6FF",		label=" ortho_self_zero",		shape=ellipse,		style=filled];	"definition : orthogonal" -> "theorem : ortho_self_zero"	[style=dashed];	"lemma : ortho_swap" -> "theorem : Cauchy_Schwarz"	[style=dashed];	"theorem : subspace_neg"	[color=green,		fillcolor="#A3D6FF",		label=" subspace_neg",		shape=ellipse,		style=filled];	"theorem : mem_span_of_mem"	[color=green,		fillcolor="#A3D6FF",		label=" mem_span_of_mem",		shape=ellipse,		style=filled];	"definition : VectorSpace"	[color=green,		fillcolor="#B0ECA3",		label=" VectorSpace",		shape=box,		style=filled];	"definition : VectorSpace" -> "definition : linear_independent"	[style=dashed];	"definition : InnerProductSpace_real"	[color=green,		fillcolor="#B0ECA3",		label=" InnerProductSpace_real",		shape=box,		style=filled];	"definition : VectorSpace" -> "definition : InnerProductSpace_real"	[style=dashed];	"definition : InnerProductSpace"	[color=green,		fillcolor="#B0ECA3",		label=" InnerProductSpace",		shape=box,		style=filled];	"definition : VectorSpace" -> "definition : InnerProductSpace"	[style=dashed];	"theorem : neg_one_smul"	[color=green,		fillcolor="#A3D6FF",		label=" neg_one_smul",		shape=ellipse,		style=filled];	"definition : VectorSpace" -> "theorem : neg_one_smul"	[style=dashed];	"theorem : zero_smul"	[color=green,		fillcolor="#A3D6FF",		label=" zero_smul",		shape=ellipse,		style=filled];	"definition : VectorSpace" -> "theorem : zero_smul"	[style=dashed];	"definition : linear_combination"	[color=green,		fillcolor="#B0ECA3",		label=" linear_combination",		shape=box,		style=filled];	"definition : VectorSpace" -> "definition : linear_combination"	[style=dashed];	"theorem : smul_zero"	[color=green,		fillcolor="#A3D6FF",		label=" smul_zero",		shape=ellipse,		style=filled];	"definition : VectorSpace" -> "theorem : smul_zero"	[style=dashed];	"definition : InnerProductSpace" -> "definition : norm"	[style=dashed];	"definition : InnerProductSpace" -> "definition : orthogonal"	[style=dashed];	"lemma : inner_add_right"	[color=green,		fillcolor="#A3D6FF",		label=" inner_add_right",		shape=ellipse,		style=filled];	"definition : InnerProductSpace" -> "lemma : inner_add_right"	[style=dashed];	"lemma : inner_self_real"	[color=green,		fillcolor="#A3D6FF",		label=" inner_self_real",		shape=ellipse,		style=filled];	"definition : InnerProductSpace" -> "lemma : inner_self_real"	[style=dashed];	"lemma : inner_smul_right"	[color=green,		fillcolor="#A3D6FF",		label=" inner_smul_right",		shape=ellipse,		style=filled];	"definition : InnerProductSpace" -> "lemma : inner_smul_right"	[style=dashed];	"theorem : le_of_sq_le_sq"	[color=green,		fillcolor="#A3D6FF",		label=" le_of_sq_le_sq",		shape=ellipse,		style=filled];	"definition : InnerProductSpace" -> "theorem : le_of_sq_le_sq"	[style=dashed];	"lemma : inner_minus_left"	[color=green,		fillcolor="#A3D6FF",		label=" inner_minus_left",		shape=ellipse,		style=filled];	"definition : InnerProductSpace" -> "lemma : inner_minus_left"	[style=dashed];	"lemma : inner_self_re"	[color=green,		fillcolor="#A3D6FF",		label=" inner_self_re",		shape=ellipse,		style=filled];	"definition : InnerProductSpace" -> "lemma : inner_self_re"	[style=dashed];	"lemma : inner_zero_left"	[color=green,		fillcolor="#A3D6FF",		label=" inner_zero_left",		shape=ellipse,		style=filled];	"definition : InnerProductSpace" -> "lemma : inner_zero_left"	[style=dashed];	"theorem : neg_one_smul" -> "theorem : subspace_neg"	[style=dashed];	"theorem : zero_smul" -> "theorem : linear_combination_unique"	[style=dashed];	"theorem : zero_smul" -> "theorem : subspace_contains_zero"	[style=dashed];	"definition : linear_combination" -> "theorem : linear_independent_insert_of_not_in_span"	[style=dashed];	"definition : linear_combination" -> "theorem : mem_span_of_mem"	[style=dashed];	"definition : span"	[color=green,		fillcolor="#B0ECA3",		label=" span",		shape=box,		style=filled];	"definition : linear_combination" -> "definition : span"	[style=dashed];	"theorem : linear_combination_of_mem"	[color=green,		fillcolor="#A3D6FF",		label=" linear_combination_of_mem",		shape=ellipse,		style=filled];	"definition : linear_combination" -> "theorem : linear_combination_of_mem"	[style=dashed];	"lemma : inner_add_right" -> "theorem : pythagorean"	[style=dashed];	"lemma : inner_self_real" -> "theorem : ortho_decom"	[style=dashed];	"lemma : inner_smul_right" -> "theorem : sca_mul"	[style=dashed];	"theorem : le_of_sq_le_sq" -> "theorem : Cauchy_Schwarz"	[style=dashed];	"lemma : inner_minus_left" -> "theorem : ortho_decom"	[style=dashed];	"lemma : inner_self_re" -> "theorem : ortho_decom"	[style=dashed];	"lemma : inner_zero_left" -> "lemma : inner_zero_right"	[style=dashed];	"definition : span" -> "theorem : span_remove_element"	[style=dashed];	"theorem : span_mono"	[color=green,		fillcolor="#A3D6FF",		label=" span_mono",		shape=ellipse,		style=filled];	"definition : span" -> "theorem : span_mono"	[style=dashed];	"definition : Subspace"	[color=green,		fillcolor="#B0ECA3",		label=" Subspace",		shape=box,		style=filled];	"definition : Subspace" -> "theorem : subspace_contains_zero"	[style=dashed];	"definition : Subspace" -> "theorem : subspace_neg"	[style=dashed];	"tutorial-zero-add"	[color=blue,		label="tutorial-zero-add",		shape=ellipse];	"lemma : conj_inj"	[color=green,		fillcolor="#A3D6FF",		label=" conj_inj",		shape=ellipse,		style=filled];	"lemma : conj_inj" -> "lemma : inner_add_right"	[style=dashed];	"lemma : conj_inj" -> "lemma : inner_smul_right"	[style=dashed];	"lemma : conj_mull"	[color=green,		fillcolor="#A3D6FF",		label=" conj_mull",		shape=ellipse,		style=filled];	"lemma : conj_mull" -> "lemma : inner_smul_right"	[style=dashed];	"theorem : superset_span_full"	[color=green,		fillcolor="#A3D6FF",		label=" superset_span_full",		shape=ellipse,		style=filled];	"theorem : span_mono" -> "theorem : superset_span_full"	[style=dashed];	"linear-map-def"	[color=blue,		fillcolor="#A3D6FF",		label="linear-map-def",		shape=box,		style=filled];	"linear-map-def" -> "linear-map-zero"	[style=dashed];	"lemma : conj_zero"	[color=green,		fillcolor="#A3D6FF",		label=" conj_zero",		shape=ellipse,		style=filled];	"lemma : conj_zero" -> "theorem : pythagorean"	[style=dashed];	"lemma : conj_zero" -> "lemma : inner_zero_right"	[style=dashed];	"tutorial-reflexivity"	[color=blue,		fillcolor="#A3D6FF",		label="tutorial-reflexivity",		shape=ellipse,		style=filled];	"tutorial-add-zero"	[color=blue,		label="tutorial-add-zero",		shape=ellipse];	"lemma : conj_add"	[color=green,		fillcolor="#A3D6FF",		label=" conj_add",		shape=ellipse,		style=filled];	"lemma : conj_add" -> "lemma : inner_add_right"	[style=dashed];}`)
+    .renderDot(`strict digraph "" {	graph [bgcolor=transparent];	node [label="\N",		penwidth=1.8	];	edge [arrowhead=vee];	"definition : VectorSpace"	[color=green,		fillcolor="#B0ECA3",		label=" VectorSpace",		shape=box,		style=filled];	"theorem : smul_zero"	[color=green,		fillcolor="#A3D6FF",		label=" smul_zero",		shape=ellipse,		style=filled];	"definition : VectorSpace" -> "theorem : smul_zero"	[style=dashed];	"theorem : neg_one_smul"	[color=green,		fillcolor="#A3D6FF",		label=" neg_one_smul",		shape=ellipse,		style=filled];	"definition : VectorSpace" -> "theorem : neg_one_smul"	[style=dashed];	"definition : InnerProductSpace_real"	[color=green,		fillcolor="#B0ECA3",		label=" InnerProductSpace_real",		shape=box,		style=filled];	"definition : VectorSpace" -> "definition : InnerProductSpace_real"	[style=dashed];	"definition : InnerProductSpace"	[color=green,		fillcolor="#B0ECA3",		label=" InnerProductSpace",		shape=box,		style=filled];	"definition : VectorSpace" -> "definition : InnerProductSpace"	[style=dashed];	"definition : linear_independent"	[color=green,		fillcolor="#B0ECA3",		label=" linear_independent",		shape=box,		style=filled];	"definition : VectorSpace" -> "definition : linear_independent"	[style=dashed];	"definition : linear_combination"	[color=green,		fillcolor="#B0ECA3",		label=" linear_combination",		shape=box,		style=filled];	"definition : VectorSpace" -> "definition : linear_combination"	[style=dashed];	"theorem : zero_smul"	[color=green,		fillcolor="#A3D6FF",		label=" zero_smul",		shape=ellipse,		style=filled];	"definition : VectorSpace" -> "theorem : zero_smul"	[style=dashed];	"theorem : subspace_neg"	[color=green,		fillcolor="#A3D6FF",		label=" subspace_neg",		shape=ellipse,		style=filled];	"theorem : neg_one_smul" -> "theorem : subspace_neg"	[style=dashed];	"lemma : inner_smul_right"	[color=green,		fillcolor="#A3D6FF",		label=" inner_smul_right",		shape=ellipse,		style=filled];	"definition : InnerProductSpace" -> "lemma : inner_smul_right"	[style=dashed];	"definition : norm"	[color=green,		fillcolor="#B0ECA3",		label=" norm",		shape=box,		style=filled];	"definition : InnerProductSpace" -> "definition : norm"	[style=dashed];	"definition : orthogonal"	[color=green,		fillcolor="#B0ECA3",		label=" orthogonal",		shape=box,		style=filled];	"definition : InnerProductSpace" -> "definition : orthogonal"	[style=dashed];	"lemma : inner_self_re"	[color=green,		fillcolor="#A3D6FF",		label=" inner_self_re",		shape=ellipse,		style=filled];	"definition : InnerProductSpace" -> "lemma : inner_self_re"	[style=dashed];	"lemma : inner_add_right"	[color=green,		fillcolor="#A3D6FF",		label=" inner_add_right",		shape=ellipse,		style=filled];	"definition : InnerProductSpace" -> "lemma : inner_add_right"	[style=dashed];	"lemma : inner_self_real"	[color=green,		fillcolor="#A3D6FF",		label=" inner_self_real",		shape=ellipse,		style=filled];	"definition : InnerProductSpace" -> "lemma : inner_self_real"	[style=dashed];	"theorem : le_of_sq_le_sq"	[color=green,		fillcolor="#A3D6FF",		label=" le_of_sq_le_sq",		shape=ellipse,		style=filled];	"definition : InnerProductSpace" -> "theorem : le_of_sq_le_sq"	[style=dashed];	"lemma : inner_zero_left"	[color=green,		fillcolor="#A3D6FF",		label=" inner_zero_left",		shape=ellipse,		style=filled];	"definition : InnerProductSpace" -> "lemma : inner_zero_left"	[style=dashed];	"lemma : inner_minus_left"	[color=green,		fillcolor="#A3D6FF",		label=" inner_minus_left",		shape=ellipse,		style=filled];	"definition : InnerProductSpace" -> "lemma : inner_minus_left"	[style=dashed];	"theorem : linear_combination_unique"	[color=green,		fillcolor="#A3D6FF",		label=" linear_combination_unique",		shape=ellipse,		style=filled];	"definition : linear_independent" -> "theorem : linear_combination_unique"	[style=dashed];	"theorem : span_remove_element"	[color=green,		fillcolor="#A3D6FF",		label=" span_remove_element",		shape=ellipse,		style=filled];	"definition : linear_independent" -> "theorem : span_remove_element"	[style=dashed];	"theorem : subset_linear_independent"	[color=green,		fillcolor="#A3D6FF",		label=" subset_linear_independent",		shape=ellipse,		style=filled];	"definition : linear_independent" -> "theorem : subset_linear_independent"	[style=dashed];	"theorem : linear_independent_empty"	[color=green,		fillcolor="#A3D6FF",		label=" linear_independent_empty",		shape=ellipse,		style=filled];	"definition : linear_independent" -> "theorem : linear_independent_empty"	[style=dashed];	"theorem : linear_independent_insert_of_not_in_span"	[color=green,		fillcolor="#A3D6FF",		label=" linear_independent_insert_of_not_in_span",		shape=ellipse,		style=filled];	"definition : linear_independent" -> "theorem : linear_independent_insert_of_not_in_span"	[style=dashed];	"definition : linear_combination" -> "theorem : linear_independent_insert_of_not_in_span"	[style=dashed];	"theorem : linear_combination_of_mem"	[color=green,		fillcolor="#A3D6FF",		label=" linear_combination_of_mem",		shape=ellipse,		style=filled];	"definition : linear_combination" -> "theorem : linear_combination_of_mem"	[style=dashed];	"definition : span"	[color=green,		fillcolor="#B0ECA3",		label=" span",		shape=box,		style=filled];	"definition : linear_combination" -> "definition : span"	[style=dashed];	"theorem : mem_span_of_mem"	[color=green,		fillcolor="#A3D6FF",		label=" mem_span_of_mem",		shape=ellipse,		style=filled];	"definition : linear_combination" -> "theorem : mem_span_of_mem"	[style=dashed];	"theorem : subspace_contains_zero"	[color=green,		fillcolor="#A3D6FF",		label=" subspace_contains_zero",		shape=ellipse,		style=filled];	"theorem : zero_smul" -> "theorem : subspace_contains_zero"	[style=dashed];	"theorem : zero_smul" -> "theorem : linear_combination_unique"	[style=dashed];	"theorem : sca_mul"	[color=green,		fillcolor="#A3D6FF",		label=" sca_mul",		shape=ellipse,		style=filled];	"lemma : inner_smul_right" -> "theorem : sca_mul"	[style=dashed];	"theorem : norm_zero"	[color=green,		fillcolor="#A3D6FF",		label=" norm_zero",		shape=ellipse,		style=filled];	"definition : norm" -> "theorem : norm_zero"	[style=dashed];	"theorem : pythagorean"	[color=green,		fillcolor="#A3D6FF",		label=" pythagorean",		shape=ellipse,		style=filled];	"definition : norm" -> "theorem : pythagorean"	[style=dashed];	"theorem : norm_nonneg"	[color=green,		fillcolor="#A3D6FF",		label=" norm_nonneg",		shape=ellipse,		style=filled];	"definition : norm" -> "theorem : norm_nonneg"	[style=dashed];	"theorem : norm_sq_eq"	[color=green,		fillcolor="#A3D6FF",		label=" norm_sq_eq",		shape=ellipse,		style=filled];	"definition : norm" -> "theorem : norm_sq_eq"	[style=dashed];	"theorem : ortho_zero"	[color=green,		fillcolor="#A3D6FF",		label=" ortho_zero",		shape=ellipse,		style=filled];	"definition : orthogonal" -> "theorem : ortho_zero"	[style=dashed];	"theorem : ortho_decom"	[color=green,		fillcolor="#A3D6FF",		label=" ortho_decom",		shape=ellipse,		style=filled];	"definition : orthogonal" -> "theorem : ortho_decom"	[style=dashed];	"definition : orthogonal" -> "theorem : pythagorean"	[style=dashed];	"lemma : ortho_swap"	[color=green,		fillcolor="#A3D6FF",		label=" ortho_swap",		shape=ellipse,		style=filled];	"definition : orthogonal" -> "lemma : ortho_swap"	[style=dashed];	"lemma : left_smul_ortho"	[color=green,		fillcolor="#A3D6FF",		label=" left_smul_ortho",		shape=ellipse,		style=filled];	"definition : orthogonal" -> "lemma : left_smul_ortho"	[style=dashed];	"theorem : ortho_self_zero"	[color=green,		fillcolor="#A3D6FF",		label=" ortho_self_zero",		shape=ellipse,		style=filled];	"definition : orthogonal" -> "theorem : ortho_self_zero"	[style=dashed];	"lemma : inner_self_re" -> "theorem : ortho_decom"	[style=dashed];	"lemma : inner_add_right" -> "theorem : pythagorean"	[style=dashed];	"lemma : inner_self_real" -> "theorem : ortho_decom"	[style=dashed];	"theorem : Cauchy_Schwarz"	[color=green,		fillcolor="#A3D6FF",		label=" Cauchy_Schwarz",		shape=ellipse,		style=filled];	"theorem : le_of_sq_le_sq" -> "theorem : Cauchy_Schwarz"	[style=dashed];	"lemma : inner_zero_right"	[color=green,		fillcolor="#A3D6FF",		label=" inner_zero_right",		shape=ellipse,		style=filled];	"lemma : inner_zero_left" -> "lemma : inner_zero_right"	[style=dashed];	"lemma : inner_minus_left" -> "theorem : ortho_decom"	[style=dashed];	"definition : span" -> "theorem : span_remove_element"	[style=dashed];	"theorem : span_mono"	[color=green,		fillcolor="#A3D6FF",		label=" span_mono",		shape=ellipse,		style=filled];	"definition : span" -> "theorem : span_mono"	[style=dashed];	"null-space-def"	[color=blue,		fillcolor="#A3D6FF",		label="null-space-def",		shape=box,		style=filled];	"range-def"	[color=blue,		fillcolor="#A3D6FF",		label="range-def",		shape=box,		style=filled];	"lemma : conj_mull"	[color=green,		fillcolor="#A3D6FF",		label=" conj_mull",		shape=ellipse,		style=filled];	"lemma : conj_mull" -> "lemma : inner_smul_right"	[style=dashed];	"theorem : sca_mul" -> "theorem : Cauchy_Schwarz"	[style=dashed];	"lemma : inner_zero_right" -> "theorem : ortho_zero"	[style=dashed];	"lemma : inner_zero_right" -> "theorem : Cauchy_Schwarz"	[style=dashed];	"theorem : triangle"	[color=green,		fillcolor="#A3D6FF",		label=" triangle",		shape=ellipse,		style=filled];	"theorem : Cauchy_Schwarz" -> "theorem : triangle"	[style=dashed];	"theorem : norm_zero" -> "theorem : ortho_decom"	[style=dashed];	"theorem : ortho_decom" -> "theorem : Cauchy_Schwarz"	[style=dashed];	"fundamental-principle"	[color=blue,		label="fundamental-principle",		shape=ellipse];	"theorem : pythagorean" -> "theorem : Cauchy_Schwarz"	[style=dashed];	"theorem : norm_nonneg" -> "theorem : sca_mul"	[style=dashed];	"theorem : norm_sq_eq" -> "theorem : ortho_decom"	[style=dashed];	"tutorial-add-zero"	[color=blue,		label="tutorial-add-zero",		shape=ellipse];	"theorem : superset_span_full"	[color=green,		fillcolor="#A3D6FF",		label=" superset_span_full",		shape=ellipse,		style=filled];	"theorem : span_mono" -> "theorem : superset_span_full"	[style=dashed];	"lemma : ortho_swap" -> "theorem : Cauchy_Schwarz"	[style=dashed];	"lemma : left_smul_ortho" -> "theorem : Cauchy_Schwarz"	[style=dashed];	"surjective-characterization"	[color=blue,		label="surjective-characterization",		shape=ellipse];	"tutorial-reflexivity"	[color=blue,		fillcolor="#A3D6FF",		label="tutorial-reflexivity",		shape=ellipse,		style=filled];	"lemma : conj_inj"	[color=green,		fillcolor="#A3D6FF",		label=" conj_inj",		shape=ellipse,		style=filled];	"lemma : conj_inj" -> "lemma : inner_smul_right"	[style=dashed];	"lemma : conj_inj" -> "lemma : inner_add_right"	[style=dashed];	"linear-map-zero"	[color=blue,		fillcolor="#A3D6FF",		label="linear-map-zero",		shape=ellipse,		style=filled];	"fundamental-theorem-educational"	[color=blue,		label="fundamental-theorem-educational",		shape=ellipse];	"definition : Subspace"	[color=green,		fillcolor="#B0ECA3",		label=" Subspace",		shape=box,		style=filled];	"definition : Subspace" -> "theorem : subspace_neg"	[style=dashed];	"definition : Subspace" -> "theorem : subspace_contains_zero"	[style=dashed];	"linear-map-def"	[color=blue,		fillcolor="#A3D6FF",		label="linear-map-def",		shape=box,		style=filled];	"mem-range"	[color=blue,		label="mem-range",		shape=ellipse];	"injective-independence"	[color=blue,		label="injective-independence",		shape=ellipse];	"fundamental-theorem-insight"	[color=blue,		label="fundamental-theorem-insight",		shape=ellipse];	"tutorial-zero-add"	[color=blue,		label="tutorial-zero-add",		shape=ellipse];	"lemma : conj_zero"	[color=green,		fillcolor="#A3D6FF",		label=" conj_zero",		shape=ellipse,		style=filled];	"lemma : conj_zero" -> "lemma : inner_zero_right"	[style=dashed];	"lemma : conj_zero" -> "theorem : pythagorean"	[style=dashed];	"injective-characterization"	[color=blue,		fillcolor="#A3D6FF",		label="injective-characterization",		shape=ellipse,		style=filled];	"isomorphism-preserves"	[color=blue,		label="isomorphism-preserves",		shape=ellipse];	"isomorphism-def"	[color=blue,		fillcolor="#A3D6FF",		label="isomorphism-def",		shape=box,		style=filled];	"lemma : conj_add"	[color=green,		fillcolor="#A3D6FF",		label=" conj_add",		shape=ellipse,		style=filled];	"lemma : conj_add" -> "lemma : inner_add_right"	[style=dashed];	"zero-in-null"	[color=blue,		label="zero-in-null",		shape=ellipse];	"range-subspace"	[color=blue,		label="range-subspace",		shape=ellipse];	"linear-combination-preservation"	[color=blue,		label="linear-combination-preservation",		shape=ellipse];	"isomorphism-characterization"	[color=blue,		label="isomorphism-characterization",		shape=ellipse];}`)
     .on("end", interactive);
 
 latexLabelEscaper = function(label) {

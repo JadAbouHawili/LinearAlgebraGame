@@ -143,7 +143,16 @@
   <a href="sect0005.html#a0000000033"><span class="toc_ref">5.2</span> <span class="toc_entry">Null Space and Range</span></a>
  </li>
 <li class="">
-  <a href="sect0005.html#a0000000034"><span class="toc_ref">5.3</span> <span class="toc_entry">Injectivity and Surjectivity</span></a>
+  <a href="sect0005.html#a0000000034"><span class="toc_ref">5.3</span> <span class="toc_entry">Linear Maps Preserve Structure</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html#a0000000035"><span class="toc_ref">5.4</span> <span class="toc_entry">Injectivity and Surjectivity</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html#a0000000036"><span class="toc_ref">5.5</span> <span class="toc_entry">The Fundamental Theorem</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html#a0000000037"><span class="toc_ref">5.6</span> <span class="toc_entry">Isomorphisms</span></a>
  </li>
 
   </ul>
@@ -219,7 +228,7 @@
   </div>
   <div class="definition_thmcontent">
   <p>   Let \(V\) be a vector space over a field \(K\), and let \(S \subseteq V\). A vector \(x \in V\) is called a <b class="bfseries">linear combination</b> of vectors in \(S\) if there exist finitely many vectors \(v_1, v_2, \ldots , v_n \in S\) and scalars \(a_1, a_2, \ldots , a_n \in K\) such that </p>
-<div class="displaymath" id="a0000000048">
+<div class="displaymath" id="a0000000051">
   \[ x = a_1 v_1 + a_2 v_2 + \cdots + a_n v_n = \sum _{i=1}^{n} a_i v_i \]
 </div>
 
@@ -238,7 +247,7 @@
 
     <a class="icon proof" href="sect0003.html#theorem : linear_combination_of_mem">#</a>
     
-    <a class="icon proof" href="sect0003.html#a0000000049"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+    <a class="icon proof" href="sect0003.html#a0000000052"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
 </a>
     
     
@@ -289,7 +298,7 @@
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000049">
+<div class="proof_wrapper" id="a0000000052">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof
@@ -362,7 +371,7 @@
   </div>
   <div class="definition_thmcontent">
   <p>   Let \(V\) be a vector space over a field \(K\), and let \(S \subseteq V\). The <b class="bfseries">span</b> of \(S\), denoted \(\text{span}(S)\) or \(\langle S \rangle \), is the set of all linear combinations of vectors in \(S\): </p>
-<div class="displaymath" id="a0000000050">
+<div class="displaymath" id="a0000000053">
   \[ \text{span}(S) = \left\{  \sum _{i=1}^{n} a_i v_i : n \in \mathbb {N}, v_i \in S, a_i \in K \right\}  \]
 </div>
 
@@ -381,7 +390,7 @@
 
     <a class="icon proof" href="sect0003.html#theorem : mem_span_of_mem">#</a>
     
-    <a class="icon proof" href="sect0003.html#a0000000051"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+    <a class="icon proof" href="sect0003.html#a0000000054"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
 </a>
     
     
@@ -432,7 +441,7 @@
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000051">
+<div class="proof_wrapper" id="a0000000054">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof
@@ -458,7 +467,7 @@
 
     <a class="icon proof" href="sect0003.html#theorem : span_mono">#</a>
     
-    <a class="icon proof" href="sect0003.html#a0000000052"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+    <a class="icon proof" href="sect0003.html#a0000000055"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
 </a>
     
     
@@ -509,7 +518,7 @@
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000052">
+<div class="proof_wrapper" id="a0000000055">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof
@@ -582,7 +591,7 @@
   </div>
   <div class="definition_thmcontent">
   <p>   A set of vectors \(S \subseteq V\) is <b class="bfseries">linearly independent</b> if the only solution to the equation </p>
-<div class="displaymath" id="a0000000053">
+<div class="displaymath" id="a0000000056">
   \[ a_1 v_1 + a_2 v_2 + \cdots + a_n v_n = 0 \]
 </div>
 <p> where \(v_1, v_2, \ldots , v_n \in S\) are distinct and \(a_1, a_2, \ldots , a_n \in K\), is the trivial solution \(a_1 = a_2 = \cdots = a_n = 0\). </p>
@@ -603,7 +612,7 @@
 
     <a class="icon proof" href="sect0003.html#theorem : linear_independent_empty">#</a>
     
-    <a class="icon proof" href="sect0003.html#a0000000054"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+    <a class="icon proof" href="sect0003.html#a0000000057"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
 </a>
     
     
@@ -654,7 +663,7 @@
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000054">
+<div class="proof_wrapper" id="a0000000057">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof
@@ -680,7 +689,7 @@
 
     <a class="icon proof" href="sect0003.html#theorem : subset_linear_independent">#</a>
     
-    <a class="icon proof" href="sect0003.html#a0000000055"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+    <a class="icon proof" href="sect0003.html#a0000000058"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
 </a>
     
     
@@ -731,7 +740,7 @@
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000055">
+<div class="proof_wrapper" id="a0000000058">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof
@@ -757,7 +766,7 @@
 
     <a class="icon proof" href="sect0003.html#theorem : superset_span_full">#</a>
     
-    <a class="icon proof" href="sect0003.html#a0000000056"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+    <a class="icon proof" href="sect0003.html#a0000000059"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
 </a>
     
     
@@ -810,7 +819,7 @@
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000056">
+<div class="proof_wrapper" id="a0000000059">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof
@@ -836,7 +845,7 @@
 
     <a class="icon proof" href="sect0003.html#theorem : linear_combination_unique">#</a>
     
-    <a class="icon proof" href="sect0003.html#a0000000057"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+    <a class="icon proof" href="sect0003.html#a0000000060"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
 </a>
     
     
@@ -886,14 +895,14 @@
   </div>
   <div class="theorem_thmcontent">
   <p>   Let \(S \subseteq V\) be a linearly independent set. If </p>
-<div class="displaymath" id="a0000000058">
+<div class="displaymath" id="a0000000061">
   \[ \sum _{v \in T_1} a_v \cdot v = \sum _{v \in T_2} b_v \cdot v \]
 </div>
 <p> where \(T_1, T_2\) are finite subsets of \(S\), \(a_v = 0\) for \(v \notin T_1\), and \(b_v = 0\) for \(v \notin T_2\), then \(a_v = b_v\) for all \(v \in V\). </p>
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000057">
+<div class="proof_wrapper" id="a0000000060">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof
@@ -919,7 +928,7 @@
 
     <a class="icon proof" href="sect0003.html#theorem : linear_independent_insert_of_not_in_span">#</a>
     
-    <a class="icon proof" href="sect0003.html#a0000000059"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+    <a class="icon proof" href="sect0003.html#a0000000062"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
 </a>
     
     
@@ -972,7 +981,7 @@
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000059">
+<div class="proof_wrapper" id="a0000000062">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof
@@ -998,7 +1007,7 @@
 
     <a class="icon proof" href="sect0003.html#theorem : span_remove_element">#</a>
     
-    <a class="icon proof" href="sect0003.html#a0000000060"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+    <a class="icon proof" href="sect0003.html#a0000000063"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
 </a>
     
     
@@ -1051,7 +1060,7 @@
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000060">
+<div class="proof_wrapper" id="a0000000063">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof

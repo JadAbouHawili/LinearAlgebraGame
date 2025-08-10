@@ -142,7 +142,16 @@
   <a href="sect0005.html#a0000000033"><span class="toc_ref">5.2</span> <span class="toc_entry">Null Space and Range</span></a>
  </li>
 <li class="">
-  <a href="sect0005.html#a0000000034"><span class="toc_ref">5.3</span> <span class="toc_entry">Injectivity and Surjectivity</span></a>
+  <a href="sect0005.html#a0000000034"><span class="toc_ref">5.3</span> <span class="toc_entry">Linear Maps Preserve Structure</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html#a0000000035"><span class="toc_ref">5.4</span> <span class="toc_entry">Injectivity and Surjectivity</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html#a0000000036"><span class="toc_ref">5.5</span> <span class="toc_entry">The Fundamental Theorem</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html#a0000000037"><span class="toc_ref">5.6</span> <span class="toc_entry">Isomorphisms</span></a>
  </li>
 
   </ul>
@@ -157,7 +166,7 @@
 
 <div class="main-text">
 <h1 id="a0000000006">5 Linear Maps World</h1>
-<p>This world introduces linear transformations between vector spaces and studies their fundamental properties. </p>
+<p>This world introduces linear transformations between vector spaces and studies their fundamental properties. It covers the essential theory of linear maps, including their definition, null space, range, injectivity, surjectivity, and isomorphisms. </p>
 <h1 id="a0000000032">5.1 Definition and Basic Properties</h1>
 <div class="definition_thmwrapper theorem-style-definition" id="linear-map-def">
   <div class="definition_thmheading">
@@ -200,23 +209,23 @@
 
     <a class="icon proof" href="sect0005.html#linear-map-zero">#</a>
     
-    <a class="icon proof" href="sect0005.html#a0000000096"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+    <a class="icon proof" href="sect0005.html#a0000000099"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
 </a>
     
     
-    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
-</button>
+    
+    <button class="modal lean">L∃∀N</button>
         <div class="modal-container">
       <div class="modal-content">
         <header>
-          <h1>Uses</h1>
+          <h1>Lean declarations</h1>
           <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         </header>
         
         <ul class="uses">
           
-          <li><a href="sect0005.html#linear-map-def">Definition 51</a></li>
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.linear_map_preserves_zero" class="lean_decl">LinearAlgebraGame.linear_map_preserves_zero</a></li>
           
         </ul>
     
@@ -224,15 +233,14 @@
     </div>
 
     
-    
         </div>
   </div>
   <div class="lemma_thmcontent">
-  <p>  If \(T : V \to W\) is a linear map, then \(T(0) = 0\). </p>
+  <p>   If \(T : V \to W\) is a linear map, then \(T(0) = 0\). </p>
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000096">
+<div class="proof_wrapper" id="a0000000099">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof
@@ -264,9 +272,50 @@
   </div>
   <div class="definition_thmcontent">
   <p>  The <b class="bfseries">null space</b> (or kernel) of a linear map \(T : V \to W\) is: </p>
-<div class="displaymath" id="a0000000097">
+<div class="displaymath" id="a0000000100">
   \[ \text{null}(T) = \{ v \in V : T(v) = 0\}  \]
 </div>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="zero-in-null">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">54</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#zero-in-null">#</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.zero_in_null_space" class="lean_decl">LinearAlgebraGame.zero_in_null_space</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  <p>   For any linear map \(T : V \to W\), the zero vector is in the null space: \(0 \in \text{null}(T)\). </p>
 
   </div>
 </div>
@@ -275,7 +324,7 @@
     <span class="definition_thmcaption">
     Definition
     </span>
-    <span class="definition_thmlabel">54</span>
+    <span class="definition_thmlabel">55</span>
     <div class="thm_header_extras">
 
         </div>
@@ -289,44 +338,39 @@
   </div>
   <div class="definition_thmcontent">
   <p>  The <b class="bfseries">range</b> (or image) of a linear map \(T : V \to W\) is: </p>
-<div class="displaymath" id="a0000000098">
+<div class="displaymath" id="a0000000101">
   \[ \text{range}(T) = \{ T(v) : v \in V\}  \]
 </div>
 
   </div>
 </div>
-<h1 id="a0000000034">5.3 Injectivity and Surjectivity</h1>
-<p>Linear maps have special characterizations of injectivity and surjectivity in terms of their null space and range. </p>
-<div class="theorem_thmwrapper theorem-style-plain" id="injective-characterization">
-  <div class="theorem_thmheading">
-    <span class="theorem_thmcaption">
-    Theorem
+<div class="lemma_thmwrapper theorem-style-plain" id="mem-range">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
     </span>
-    <span class="theorem_thmlabel">55</span>
+    <span class="lemma_thmlabel">56</span>
     <div class="thm_header_extras">
 
         </div>
     <div class="thm_header_hidden_extras">
 
-    <a class="icon proof" href="sect0005.html#injective-characterization">#</a>
-    
-    <a class="icon proof" href="sect0005.html#a0000000099"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
-</a>
+    <a class="icon proof" href="sect0005.html#mem-range">#</a>
     
     
-    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
-</button>
+    
+    <button class="modal lean">L∃∀N</button>
         <div class="modal-container">
       <div class="modal-content">
         <header>
-          <h1>Uses</h1>
+          <h1>Lean declarations</h1>
           <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         </header>
         
         <ul class="uses">
           
-          <li><a href="sect0005.html#null-space-def">Definition 53</a></li>
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.mem_range_of_map" class="lean_decl">LinearAlgebraGame.mem_range_of_map</a></li>
           
         </ul>
     
@@ -334,15 +378,188 @@
     </div>
 
     
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  <p>   If \(T(v) = w\) for some \(v \in V\), then \(w \in \text{range}(T)\). </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="range-subspace">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">57</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#range-subspace">#</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.range_is_subspace" class="lean_decl">LinearAlgebraGame.range_is_subspace</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
     
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>  A linear map \(T : V \to W\) is injective if and only if \(\text{null}(T) = \{ 0\} \). </p>
+  <p>   The range of a linear map \(T : V \to W\) is a subspace of \(W\). </p>
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000099">
+<h1 id="a0000000034">5.3 Linear Maps Preserve Structure</h1>
+<div class="theorem_thmwrapper theorem-style-plain" id="linear-combination-preservation">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">58</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#linear-combination-preservation">#</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.linear_map_preserves_combination" class="lean_decl">LinearAlgebraGame.linear_map_preserves_combination</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   Linear maps preserve linear combinations: If \(T : V \to W\) is linear, then </p>
+<div class="displaymath" id="a0000000102">
+  \[ T(a_1 v_1 + a_2 v_2) = a_1 T(v_1) + a_2 T(v_2) \]
+</div>
+<p> for all \(a_1, a_2 \in K\) and \(v_1, v_2 \in V\). </p>
+
+  </div>
+</div>
+<h1 id="a0000000035">5.4 Injectivity and Surjectivity</h1>
+<p>Linear maps have special characterizations of injectivity and surjectivity in terms of their null space and range. </p>
+<div class="theorem_thmwrapper theorem-style-plain" id="surjective-characterization">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">59</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#surjective-characterization">#</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.surjective_iff_range_eq" class="lean_decl">LinearAlgebraGame.surjective_iff_range_eq</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   A linear map \(T : V \to W\) is surjective if and only if \(\text{range}(T) = W\). </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="injective-characterization">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">60</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#injective-characterization">#</a>
+    
+    <a class="icon proof" href="sect0005.html#a0000000103"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.injective_implies_trivial_null" class="lean_decl">LinearAlgebraGame.injective_implies_trivial_null</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   A linear map \(T : V \to W\) is injective if and only if \(\text{null}(T) = \{ 0\} \). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000103">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof
@@ -352,6 +569,280 @@
   <div class="proof_content">
   <p>(\(\Rightarrow \)) Suppose \(T\) is injective. If \(v \in \text{null}(T)\), then \(T(v) = 0 = T(0)\). Since \(T\) is injective, we have \(v = 0\), so \(\text{null}(T) = \{ 0\} \). </p>
 <p>(\(\Leftarrow \)) Suppose \(\text{null}(T) = \{ 0\} \). If \(T(v_1) = T(v_2)\), then \(T(v_1 - v_2) = T(v_1) - T(v_2) = 0\), so \(v_1 - v_2 \in \text{null}(T) = \{ 0\} \). Therefore \(v_1 - v_2 = 0\), which means \(v_1 = v_2\), so \(T\) is injective. </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="injective-independence">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">61</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#injective-independence">#</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.injective_preserves_independence" class="lean_decl">LinearAlgebraGame.injective_preserves_independence</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   Injective linear maps preserve linear independence: If \(T : V \to W\) is an injective linear map and \(\{ v_1, \ldots , v_n\} \) is linearly independent in \(V\), then \(\{ T(v_1), \ldots , T(v_n)\} \) is linearly independent in \(W\). </p>
+
+  </div>
+</div>
+<h1 id="a0000000036">5.5 The Fundamental Theorem</h1>
+<div class="theorem_thmwrapper theorem-style-plain" id="fundamental-theorem-insight">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">62</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#fundamental-theorem-insight">#</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.fundamental_theorem_insight" class="lean_decl">LinearAlgebraGame.fundamental_theorem_insight</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   If \(T : V \to W\) is an injective linear map, then distinct vectors map to distinct vectors: if \(v_1 \neq v_2\), then \(T(v_1) \neq T(v_2)\). </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="fundamental-theorem-educational">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">63</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#fundamental-theorem-educational">#</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.fundamental_theorem_educational" class="lean_decl">LinearAlgebraGame.fundamental_theorem_educational</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   For a linear map \(T : V \to W\) between finite-dimensional vector spaces: </p>
+<div class="displaymath" id="a0000000104">
+  \[ \dim V = \dim (\text{null}(T)) + \dim (\text{range}(T)) \]
+</div>
+<p> This is the rank-nullity theorem, also known as the fundamental theorem of linear maps. </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="fundamental-principle">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">64</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#fundamental-principle">#</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.fundamental_principle_demo" class="lean_decl">LinearAlgebraGame.fundamental_principle_demo</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   A linear map \(T : V \to W\) is both injective and surjective if and only if it is bijective. </p>
+
+  </div>
+</div>
+<h1 id="a0000000037">5.6 Isomorphisms</h1>
+<div class="definition_thmwrapper theorem-style-definition" id="isomorphism-def">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">65</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#isomorphism-def">#</a>
+    
+    
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>  An <b class="bfseries">isomorphism</b> is a linear map \(T : V \to W\) that is both injective and surjective (bijective). </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="isomorphism-characterization">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">66</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#isomorphism-characterization">#</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.isomorphism_iff_bijective_linear" class="lean_decl">LinearAlgebraGame.isomorphism_iff_bijective_linear</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   A linear map \(T : V \to W\) is an isomorphism if and only if it is bijective. </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="isomorphism-preserves">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">67</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#isomorphism-preserves">#</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.isomorphism_preserves_structure" class="lean_decl">LinearAlgebraGame.isomorphism_preserves_structure</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   Isomorphisms preserve all vector space structure. In particular, if \(T : V \to W\) is an isomorphism, then \(T\) and \(T^{-1}\) preserve linear combinations, linear independence, spanning sets, and bases. </p>
 
   </div>
 </div>
