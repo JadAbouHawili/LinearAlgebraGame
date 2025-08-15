@@ -20,11 +20,13 @@ The fact that linear maps preserve zero is often the first step in proving that 
 
 ### Your Goal
 Prove that for any linear map T, we have T(0) = 0.
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 open VectorSpace
 variable (K V W : Type) [Field K] [AddCommGroup V] [AddCommGroup W] 
-variable [DecidableEq V] [DecidableEq W] [VectorSpace K V] [VectorSpace K W]
+variable [VectorSpace K V] [VectorSpace K W]
 
 /--
 Linear maps preserve zero.
@@ -37,8 +39,8 @@ Every linear map maps the zero vector to the zero vector.
 Statement linear_map_preserves_zero (T : V → W) (hT : is_linear_map_v K V W T) : 
     T 0 = 0 := by
   Hint "Use the homogeneity property with scalar 0. Apply hT.2 with scalar 0 and vector 0."
-  Hint (hidden := true) "Try `have h : T (0 • (0 : V)) = 0 • T 0 := hT.2 0 0`"
-  have h : T (0 • (0 : V)) = 0 • T 0 := hT.2 0 0
+  Hint (hidden := true) "Try `have h : T ((0 : K) • (0 : V)) = (0 : K) • T 0 := hT.2 (0 : K) 0`"
+  have h : T ((0 : K) • (0 : V)) = (0 : K) • T 0 := hT.2 (0 : K) 0
   Hint "Simplify: 0 • v = 0 for any vector v. Use simp to clean up the zeros."
   Hint (hidden := true) "Try `simp at h`"
   simp at h

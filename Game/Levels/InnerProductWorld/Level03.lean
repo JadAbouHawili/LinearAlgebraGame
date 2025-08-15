@@ -95,13 +95,40 @@ TheoremDoc LinearAlgebraGame.norm_sq_eq as "norm_sq_eq" in "Inner Product"
 
 NewTactic ring
 
-LemmaDoc Complex.add_re as "Complex.add_re" in "Complex Numbers"
-LemmaDoc Complex.conj_re as "Complex.conj_re" in "Complex Numbers"
-LemmaDoc add_nonneg as "add_nonneg" in "Real Numbers"
-LemmaDoc le_trans as "le_trans" in "Inequalities"
-LemmaDoc mul_nonneg as "mul_nonneg" in "Real Numbers"
-LemmaDoc add_sq as "add_sq" in "Algebra"
-LemmaDoc Real.sqrt_pos as "Real.sqrt_pos" in "Real Numbers"
+/--
+The real part of a sum of complex numbers equals the sum of their real parts.
+-/
+TheoremDoc Complex.add_re as "Complex.add_re" in "Complex Numbers"
+
+/--
+The real part of a complex conjugate equals the real part of the original number.
+-/
+TheoremDoc Complex.conj_re as "Complex.conj_re" in "Complex Numbers"
+
+/--
+The sum of two non-negative real numbers is non-negative.
+-/
+TheoremDoc add_nonneg as "add_nonneg" in "Real Numbers"
+
+/--
+Transitivity of the less-than-or-equal relation.
+-/
+TheoremDoc le_trans as "le_trans" in "Inequalities"
+
+/--
+The product of two non-negative real numbers is non-negative.
+-/
+TheoremDoc mul_nonneg as "mul_nonneg" in "Real Numbers"
+
+/--
+The square of a sum: (a + b)² = a² + 2ab + b².
+-/
+TheoremDoc add_sq as "add_sq" in "Algebra"
+
+/--
+The square root of a positive real number is positive.
+-/
+TheoremDoc Real.sqrt_pos as "Real.sqrt_pos" in "Real Numbers"
 
 NewTheorem norm_nonneg Left.mul_nonneg sq_eq_sq mul_assoc Complex.mul_conj Complex.normSq_eq_norm_sq Complex.re_ofReal_mul Complex.add_re Complex.conj_re add_nonneg le_trans mul_nonneg add_sq Real.sqrt_pos
 
@@ -125,8 +152,8 @@ Statement sca_mul (a : ℂ) (v: V) : ‖a • v‖= ‖a‖ * ‖v‖ := by
   have g2 := norm_nonneg_v (a • v)
   
   Hint "Now apply the square equality theorem to reduce to proving the squared version."
-  Hint (hidden := true) "Try `apply (sq_eq_sq g2 g1).1`"
-  apply (sq_eq_sq g2 g1).1
+  Hint (hidden := true) "Try `apply (sq_eq_sq₀ g2 g1).1`"
+  apply (sq_eq_sq₀ g2 g1).1
 
   Hint "Use `ring_nf` to simplify the goal"
   Hint (hidden := true) "Try `ring_nf`"

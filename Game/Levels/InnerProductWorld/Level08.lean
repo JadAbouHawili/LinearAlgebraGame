@@ -35,7 +35,7 @@ This ensures that the norm defines a proper distance on the vector space.
 -/
 TheoremDoc LinearAlgebraGame.triangle_v as "Triangle Inequality" in "Norms"
 
-variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [DecidableEq V] [InnerProductSpace_v V]
+variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [InnerProductSpace_v V]
 open Function Set VectorSpace Real InnerProductSpace_v Complex
 
 -- Helper lemmas to eliminate have...by blocks in web interface

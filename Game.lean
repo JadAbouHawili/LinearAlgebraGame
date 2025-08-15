@@ -1,13 +1,11 @@
+-- Basic game configuration without levels for initial setup test
+import GameServer.Commands
 import Game.Levels.TutorialWorld
 import Game.Levels.VectorSpaceWorld
--- Aggressive memory optimization: Only 2 worlds for stable Render deployment
 import Game.Levels.LinearIndependenceSpanWorld
-import Game.Levels.InnerProductWorld
 import Game.Levels.LinearMapsWorld
--- Explicit import for InnerProductSpace_v class and theorem aliases  
--- import Game.Levels.InnerProductWorld.LemmasAndDefs
+import Game.Levels.InnerProductWorld
 
--- Here's what we'll put on the title screen
 Title "Linear Algebra Game"
 Introduction
 "
@@ -47,20 +45,12 @@ Warning: In most browsers, deleting cookies will also clear the local storage
 * **Inspiration:** Kevin Buzzard's Natural Number Game (https://adam.math.hhu.de/#/g/leanprover-community/nng4)
 "
 
-/-! Information to be displayed on the servers landing page. -/
 Languages "English"
-CaptionShort "Game Template"
-CaptionLong "You should use this game as a template for your own game and add your own levels."
--- Prerequisites "" -- add this if your game depends on other games
--- CoverImage "images/cover.png"
-
--- Memory-optimized dependencies for Render deployment
-Dependency VectorSpaceWorld → LinearIndependenceSpanWorld
-Dependency LinearIndependenceSpanWorld → InnerProductWorld
+CaptionShort "Linear Algebra Game"
+CaptionLong "Learn linear algebra and proof techniques using Lean 4."
 
 namespace LinearAlgebraGame
 
-/-! Build the game. Show's warnings if it found a problem with your game. -/
 MakeGame
 
 end LinearAlgebraGame

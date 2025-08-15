@@ -1,4 +1,4 @@
-import Game.Metadata.Metadata
+import Game.Metadata
 
 World "TutorialWorld"
 Level 9
@@ -50,6 +50,8 @@ tactic.
 
 `use c` changes the goal from the form `∃ x, Property(x)` to `Property(c)`. This allows you to solve
 `∃` goals, but you need to first find a valid example, which may take some planing ahead.
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 

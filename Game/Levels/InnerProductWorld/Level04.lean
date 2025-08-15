@@ -18,6 +18,8 @@ def orthogonal (u v : V) : Prop := ⟪u, v⟫ = (0 : ℂ)
 ## The Goal
 In this level, we show that the only vector that is orthogonal to itself is the zero vector.
 This proof is very similar to our axiom `inner_self_eq_zero`
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 /--
@@ -39,7 +41,7 @@ a vector, `ortho_self_zero v` is a proof that `ortho v v ↔ v = 0`.
 -/
 TheoremDoc LinearAlgebraGame.ortho_self_zero as "ortho_self_zero" in "Inner Product"
 
-variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [DecidableEq V] [InnerProductSpace_v V]
+variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [InnerProductSpace_v V]
 open Function Set VectorSpace Real InnerProductSpace_v Complex
 
 Statement ortho_self_zero (v : V): orthogonal v v ↔ v = (0:V):= by

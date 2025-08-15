@@ -43,6 +43,38 @@ TacticDoc «sorry»
 
 /--
 ## Summary
+
+`suffices` allows you to reduce the goal to a simpler statement. It's useful when proving `Q` 
+makes it easy to prove your original goal `P`.
+
+## Syntax
+
+- `suffices h : Q` - Creates a new goal `Q`, and after proving it, you get `h : Q` to prove the original goal
+- `suffices h : Q by tactic` - Proves the original goal using `h : Q` immediately
+
+## Example
+
+If your goal is `x + y = 10` and you know this follows from `x = 3` and `y = 7`, you can write:
+```
+suffices h : x = 3 ∧ y = 7
+· -- Now prove x + y = 10 using h
+  cases' h with hx hy
+  rw [hx, hy]
+  norm_num
+· -- Now prove x = 3 ∧ y = 7
+  constructor
+  · exact x_eq_three
+  · exact y_eq_seven
+```
+
+## Common usage
+
+Often used when the goal follows easily from a simpler fact, especially in contradiction proofs.
+-/
+TacticDoc «suffices»
+
+/--
+## Summary
 `by_contra` allows you to prove theorems by contradiction. When your goal is `P`, `by_contra h` will
 create a hypothesis `h : ¬P` and change the goal to `False`.
 
@@ -77,16 +109,16 @@ then `linear_independent_insert_of_not_in_span hS hv_not_span` is a proof of `li
 -/
 TheoremDoc LinearAlgebraGame.linear_independent_insert_of_not_in_span as "linear_independent_insert_of_not_in_span" in "Vector Spaces"
 
-NewTactic «sorry» by_contra
+NewTactic «sorry» by_contra «suffices»
 
 NewTheorem Finset.sum_eq_sum_diff_singleton_add Finset.smul_sum inv_mul_cancel
 
 open VectorSpace Finset
-variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
+variable (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V] [DecidableEq V]
 
 /-- Helper lemma: Elements of s \ {v} are in S when s ⊆ S ∪ {v} -/
-lemma subset_diff_singleton_of_union (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
-  (S : Set V) (v : V) (s : Finset V) (hs : ↑s ⊆ S ∪ {v}) : 
+lemma subset_diff_singleton_of_union (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V] [DecidableEq V]
+  (S : Set V) (v : V) (s : Finset V) (hs : ↑s ⊆ S ∪ {v}) :
   ↑(s \ {v}) ⊆ S := by
   intros x hx
   simp at hx
@@ -97,27 +129,42 @@ lemma subset_diff_singleton_of_union (K V : Type) [Field K] [AddCommGroup V] [De
     exact xNev xEqv
 
 /-- Helper lemma: If v ∈ s and v ∉ span S, and the sum equals zero, then f v = 0 -/
-lemma zero_coeff_from_not_in_span (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
-  (S : Set V) (v : V) (s : Finset V) (f : V → K) 
+lemma zero_coeff_from_not_in_span (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V] [DecidableEq V]
+  (S : Set V) (v : V) (s : Finset V) (f : V → K)
   (hv_not_span : ∀ (t : Finset V), ↑t ⊆ S → ∀ (g : V → K), ¬v = t.sum (fun x => g x • x))
-  (hvIns : v ∈ s) 
+  (hvIns : v ∈ s)
   (subset : ↑(s \ {v}) ⊆ S)
-  (hf : (s \ {v}).sum (fun w => f w • w) + f v • v = 0) : 
+  (hf : ((s \ {v}).sum (fun w => f w • w)) + f v • v = 0) :
   f v = 0 := by
+  Hint "We will prove this by contradiction. Assume f v ≠ 0, and derive a contradiction."
   by_contra hfv_ne_zero
-  -- Apply the span contradiction with the linear combination function
-  apply hv_not_span (s \ {v}) subset (fun x => -(f v)⁻¹ * (f x))
-  -- Show v equals the linear combination by algebraic transformation
-  simp only [mul_smul]
-  rw[← smul_sum]
-  rw[(neg_add_self ((f v) • v)).symm] at hf
-  rw[add_right_cancel hf]
-  simp
-  rw[(mul_smul (f v)⁻¹ (f v) v).symm]
-  rw[inv_mul_cancel hfv_ne_zero, one_smul]
-
-
-
+  Hint "From our assumption, we can get that f v is nonzero, so it has a multiplicative inverse."
+  have f_v_inv : f v ≠ 0 := hfv_ne_zero
+  let inv_fv : K := (f v)⁻¹
+  have g1 :inv_fv * (f v) = (1: K) := by
+    rw [propext (mul_eq_one_iff_eq_inv₀ hfv_ne_zero)]
+  have g2 :f v • v =-((s \ {v}).sum (fun w => f w • w)) := by
+    exact Eq.symm (neg_eq_of_add_eq_zero_right hf)
+  Hint "Now, we can rearrange our equation hf to isolate v."
+  have g3 : (-1 : K) • (f v • v) = ((-1 : K) * (f v)) • v := by exact smul_smul (-1) (f v) v
+  have rearranged : v =  (s \ {v}).sum (fun w => (inv_fv * ((-1 : K) * (f w))) • w) := by
+    calc
+      v = (1: K) • v := by rw [one_smul K v]
+      _ = (inv_fv * (f v)) • v := by rw [← g1]
+      _ = inv_fv • (f v • v) := by rw [smul_smul]
+      _ = inv_fv • (-(s \ {v}).sum (fun w => f w • w)) := by
+        rw [g2]
+      _ = inv_fv • ((-1 : K) • ((s \ {v}).sum (fun w => f w • w))) := by rw [neg_one_smul_v]
+      _ = inv_fv • ( ((s \ {v}).sum (fun w => (-1 : K) • (f w • w)))) := by rw [@smul_sum]
+      _= inv_fv • ( ((s \ {v}).sum (fun w => ((-1 : K) * (f w)) • w))) := by
+        simp [smul_smul]
+      _=(s \ {v}).sum (fun w => inv_fv • (((-1 : K) * (f w)) • w)) := by rw[@smul_sum]
+      _= (s \ {v}).sum (fun w => (inv_fv * ((-1 : K) * (f w))) • w) := by
+        simp [smul_smul]
+  set g : V → K := fun w => inv_fv * ((-1 : K) * (f w))
+  have g_v : v = ∑ w ∈ s \ {v}, (g w) • w := by exact rearranged
+  specialize hv_not_span (s \ {v}) subset g
+  exact hv_not_span g_v
 
 Statement linear_independent_insert_of_not_in_span
   {S : Set V} {v : V}
@@ -125,6 +172,7 @@ Statement linear_independent_insert_of_not_in_span
   (hv_not_span : v ∉ span K V S):
   linear_independent_v K V (S ∪ {v}) := by
     Hint "First, unfold the definitions, intro the variables and hypotheses we need, and simp where nescessary"
+    Hint "Linear independence means: if a linear combination equals zero, all coefficients must be zero."
     Hint (hidden := true) "Try `unfold linear_independent_v at *`"
     unfold linear_independent_v at *
     Hint (hidden := true) "Try `intros s f hs hf w hw`"
@@ -138,37 +186,42 @@ Statement linear_independent_insert_of_not_in_span
 
     Hint "We want to prove two seperate cases: v ∈ s and v ∉ s. If v ∉ s, then we know s ⊆ S, so since S
     is linearly independent, so is s. If v ∈ s, then we have more work to do. "
-    Hint (hidden := true) "Try `by_cases hvIns : v ∈ {s}`"
+    Hint "Strategy: Split based on whether the new vector v appears in our linear combination."
+    Hint (hidden := true) "Try `by_cases hvIns : v ∈ s`"
     by_cases hvIns : v ∈ s
 
-    Hint "Now, we want to split {hf} into two, breaking off \\{v} so we have a sum over a subset of {S}"
-    Hint (hidden := true) "Try `rw [sum_eq_sum_diff_singleton_add {hvIns}] at {hf}`"
+    Hint "Now, we want to split hf into two, breaking off \{{v}} so we have a sum over a subset of S"
+    Hint "We can rewrite the sum as: ∑(s\\\{{v}}) + f(v)•v = 0. This separation is key to our proof."
+    Hint (hidden := true) "Try `rw [sum_eq_sum_diff_singleton_add hvIns] at hf`"
     rw [sum_eq_sum_diff_singleton_add hvIns] at hf
 
-    Hint "Now, that we have a sum over `(s \\ \{v})`, we want to show `↑(s \\ \{v}) ⊆ S`."
-    Hint "**Mathematical Intuition**: Elements in s \\ \\{v} must be in S since they can't equal v."
-    Hint "We use a helper lemma that proves: if s ⊆ S ∪ \\{v}, then s \\ \\{v} ⊆ S."
+    Hint "Now, that we have a sum over `(s \\ \{{v}})`, we want to show `↑(s \\ \{{v}}) ⊆ S`."
+    Hint "**Mathematical Intuition**: Elements in s \\ \{{v}} must be in S since they can't equal v."
+    Hint "We use a helper lemma that proves: if s ⊆ S ∪ \{{v}}, then s \\ \{{v}} ⊆ S."
     Hint (hidden := true) "Try `have subset : ↑(s \\ \{{v}}) ⊆ S := subset_diff_singleton_of_union K V S v s hs`"
     have subset : ↑(s \ {v}) ⊆ S := subset_diff_singleton_of_union K V S v s hs
 
-    Hint "Now, we can prove our important lemma, that `{f} v = 0`."
+    Hint "Now, we can prove our important lemma, that `f v = 0`."
     Hint "We'll use proof by contradiction. If f v ≠ 0, we can express v as a linear combination of elements in S."
+    Hint "But this contradicts our assumption that v ∉ span(S)! Therefore f(v) must be 0."
     Hint (hidden := true) "Try `have lemma_fv_zero : f v = 0 := zero_coeff_from_not_in_span K V S v s f hv_not_span hvIns subset hf`"
     have lemma_fv_zero : f v = 0 := zero_coeff_from_not_in_span K V S v s f hv_not_span hvIns subset hf
 
-    Hint "Now, consider two cases: `{w} = {v}` or not. If `{w} = {v}`, our lemma is our goal. If not,
+    Hint "Now, consider two cases: `w = v` or not. If `w = v`, our lemma is our goal. If not,
     we need to use the linear independence of `S`"
-    Hint (hidden := true) "Try `by_cases hw2 : {w} = v`"
+    Hint "Since f(v) = 0, the equation becomes: ∑(s\\\{{v}}) f(w)•w = 0, which involves only vectors from S."
+    Hint (hidden := true) "Try `by_cases hw2 : w = v`"
     by_cases hw2 : w = v
-    Hint (hidden := true) "Try `rw [{hw2}]`"
+    Hint (hidden := true) "Try `rw [hw2]`"
     rw[hw2]
-    Hint (hidden := true) "Try `exact {lemma_fv_zero}`"
+    Hint (hidden := true) "Try `exact lemma_fv_zero`"
     exact lemma_fv_zero
 
-    Hint "We can use our lemma to show that the sum of `{f}` over `{s} \\ \{{v}}` is equal to 0"
-    Hint (hidden := true) "Try `rw[{lemma_fv_zero}] at {hf}`"
+    Hint "We can use our lemma to show that the sum of `f` over `s \\ \{{v}}` is equal to 0"
+    Hint "Substituting f(v) = 0 simplifies our equation to a sum over S only."
+    Hint (hidden := true) "Try `rw[lemma_fv_zero] at hf`"
     rw[lemma_fv_zero] at hf
-    Hint (hidden := true) "Try `simp at {hf}`"
+    Hint (hidden := true) "Try `simp at hf`"
     simp at hf
 
     Hint "Show that w is in s but not equal to v."
@@ -176,15 +229,18 @@ Statement linear_independent_insert_of_not_in_span
     have hwInS : w ∈ s \ {v} := by (simp; exact ⟨hw, hw2⟩)
 
     Hint "Now, we can apply all of our hypotheses to close the goal"
-    Hint (hidden := true) "Try `exact {hS} ({s} \\ \{{v}}) {f} {subset} {hf} {w} {hwInS}`"
+    Hint "Since S is linearly independent and we have a zero sum over s\\\{{v}} ⊆ S, all coefficients (including f(w)) are zero."
+    Hint (hidden := true) "Try `exact hS (s \\ \{{v}}) f subset hf w hwInS`"
     exact hS (s \ {v}) f subset hf w hwInS
 
     -- Case 2: v ∉ s
     Hint "Show that s is a subset of S using case analysis."
+    Hint "In this case, the linear combination doesn't involve v at all, so s ⊆ S directly."
     Hint (hidden := true) "Try `suffices s_subset_S : ↑s ⊆ S`"
     suffices s_subset_S : ↑s ⊆ S
     · -- Use the sufficient condition
       Hint "Apply linear independence to finish the proof."
+      Hint "Since s ⊆ S and S is linearly independent, the zero sum implies all coefficients are zero."
       Hint (hidden := true) "Try `exact hS s f s_subset_S hf w hw`"
       exact hS s f s_subset_S hf w hw
     -- Prove the sufficient condition

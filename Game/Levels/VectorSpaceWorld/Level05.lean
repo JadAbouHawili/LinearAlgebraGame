@@ -25,6 +25,8 @@ One of the basic properties of a subspace is that it must be nonempty. In fact, 
 contain the zero vector. This is because for any vector in a subspace, you can multiply it by the zero
 scalar while still remaining in the subspace, which wil result in the zero vector. In this level, we
 formally prove this result.
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 def isSubspace {K V : Type} [Field K] [AddCommGroup V] [VectorSpace K V] (W : Set V) : Prop :=
@@ -71,7 +73,7 @@ TheoremDoc LinearAlgebraGame.subspace_contains_zero as "subspace_contains_zero" 
 DisabledTactic simp linarith
 
 open VectorSpace
-variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
+variable (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V]
 
 /--
 This is a proof that any subspace contains the zero vector.

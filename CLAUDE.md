@@ -10,11 +10,13 @@ This is a **Linear Algebra Game** built using the [lean4game](https://github.com
 
 The project uses Lake (Lean 4's build system):
 
-- `lake build` - Build the entire project
+- `lake build` - Build the entire project (Note: This can take 15+ minutes for full mathlib builds - don't set timeouts)
 - `lake clean` - Remove build outputs
 - `lake update` - Update dependencies and save to manifest
 - `lake exe <exe>` - Build and run an executable
 - `lake env <cmd>` - Execute command in Lake's environment
+
+**Important Build Note:** When running `lake build`, do not set time limits. Full builds with mathlib dependencies can take longer than 15 minutes, especially on first compilation.
 
 ## Project Structure
 

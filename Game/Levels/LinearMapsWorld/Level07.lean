@@ -27,11 +27,13 @@ Surjectivity tells us when a linear map 'fills up' its target space completely. 
 
 ### Your Goal
 Prove that if T is surjective, then every element of W is in the range of T.
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 open VectorSpace
 variable (K V W : Type) [Field K] [AddCommGroup V] [AddCommGroup W] 
-variable [DecidableEq V] [DecidableEq W] [VectorSpace K V] [VectorSpace K W]
+variable [VectorSpace K V] [VectorSpace K W]
 
 /--
 **Educational Definition: Surjective Linear Map**

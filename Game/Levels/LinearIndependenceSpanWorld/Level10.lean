@@ -16,7 +16,7 @@ if then else
 
 
 -/
-import Game.Levels.LinearIndependenceSpanWorld.Level09
+import Game.Levels.LinearIndependenceSpanWorld.Level08
 
 namespace LinearAlgebraGame
 
@@ -46,7 +46,7 @@ in `S \\ {w}`, and recombine the sums.
 "
 
 open VectorSpace Finset Set
-variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
+variable (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V] [DecidableEq V]
 
 /-- Helper lemma: Union of sets minus singleton equals union minus singleton when w ∉ sw -/
 lemma union_diff_singleton_eq {V : Type} [DecidableEq V]
@@ -78,7 +78,7 @@ lemma union_diff_singleton_eq {V : Type} [DecidableEq V]
       · exact hr
 
 /-- Helper lemma: Sum over union equals x minus fx(w)•w when fx' is zero outside sx -/
-lemma fx_sum_equality (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
+lemma fx_sum_equality (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V] [DecidableEq V]
   (x w : V) (sw sx : Finset V) (fx : V → K) (fx' : V → K)
   (hw : w ∈ sx) (hfx : x = sx.sum (fun v => fx v • v))
   (hfx' : fx' = fun v => ite (v ∈ sx) (fx v) 0)
@@ -95,7 +95,7 @@ lemma fx_sum_equality (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [V
   exact hfx
 
 /-- Helper lemma: fx(w)•w equals sum of fw' over union -/
-lemma fw_sum_equality (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
+lemma fw_sum_equality (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V] [DecidableEq V]
   (w : V) (sw sx : Finset V) (fx fw : V → K) (fw' : V → K)
   (hfw : w = sw.sum (fun v => fw v • v))
   (hfw' : fw' = fun v => ite (v ∈ sw) (fx w * fw v) 0) :
@@ -203,10 +203,12 @@ Statement remove_redundant_span
   span K V S = span K V (S \ {w}) := by
   -- We will prove this result by showing the two sets are subsets of each other, which means they are equal.
   Hint "We want to prove two sets are equal. What theorem can help us with this?"
+  Hint "To prove equality of spans, we'll show mutual inclusion: span S ⊆ span (S \\ \{{w}}) and vice versa."
   Hint (hidden := true) "Try `apply Set.eq_of_subset_of_subset`"
   apply eq_of_subset_of_subset
 
   Hint "First, introduce an arbitrary element, unfold definitions and simp"
+  Hint "We need to show any x ∈ span S is also in span (S \\ \{{w}}). This is the harder direction."
   Hint (hidden := true) "Try `intro x hx`"
   intro x hx
   Hint (hidden := true) "Try `unfold span at *`"
@@ -217,18 +219,22 @@ Statement remove_redundant_span
   simp at *
 
   Hint "Now, we have two helpful statements. We can use `obtain` to get sets and functions from them"
+  Hint "Extract the finite set sw and function fw that represent w as a linear combination of S \\ \{{w}}."
   Hint (hidden := true) "Try `obtain ⟨sw, hsw, fw, hfw⟩ := hcomb`"
   obtain ⟨sw, hsw, fw, hfw⟩ := hcomb
   Hint (hidden := true) "Try `obtain ⟨sx, hsx, fx, hfx⟩ := hx`"
   obtain ⟨sx, hsx, fx, hfx⟩ := hx
 
   Hint "Here, we can split into two cases: whether or not `w ∈ sx`"
+  Hint "The key insight: if w appears in the representation of x, we'll replace it using its representation from S \\ \{{w}}."
   Hint (hidden := true) "Try `by_cases hw : w ∈ sx`"
   by_cases hw : w ∈ sx
 
   Hint "What set should we be summing over? Note that you have two different sets where functions are
-  defined, {sw} and {sx}"
-  Hint (hidden := true) "Try `use {sw} ∪ ({sx} \\ \{{w}})`"
+  defined, sw and sx"
+  Hint "Case 1: When w ∈ sx, we need to carefully construct our linear combination."
+  Hint "We'll combine elements from both sw and sx, but exclude w from sx to avoid duplication."
+  Hint (hidden := true) "Try `use sw ∪ (sx \\ \{{w}})`"
   use sw ∪ (sx \ {w})
 
   Hint (hidden := true) "Try `constructor`"
@@ -236,56 +242,63 @@ Statement remove_redundant_span
 
   Hint (hidden := true) "Try `rw[coe_union]`"
   rw[coe_union]
-  Hint (hidden := true) "Try `apply Set.union_subset {hsw}`"
+  Hint (hidden := true) "Try `apply Set.union_subset hsw`"
   apply Set.union_subset hsw
   Hint (hidden := true) "Try `simp`"
   simp
-  Hint (hidden := true) "Try `exact subset_trans {hsx} (subset_insert w S)`"
+  Hint (hidden := true) "Try `exact subset_trans hsx (subset_insert w S)`"
   exact subset_trans hsx (subset_insert w S)
 
   Hint "In order to manipulate the sum better, it would be nice to rewrite the set you are summing over."
-  Hint "We need to show that `sw ∪ (sx \\ {w}) = (sw ∪ sx) \\ {w}` when `w ∉ sw`."
+  Hint "We need to show that `sw ∪ (sx \\ \{{w}}) = (sw ∪ sx) \\ \{{w}}` when `w ∉ sw`."
+  Hint "This set equality is crucial for manipulating our sums correctly."
+  Hint "Since w ∈ span(S \\ \{{w}}), we know w ∉ sw (the set representing w can't contain w itself!)."
   Hint (hidden := true) "Try `have set_eq : sw ∪ (sx \\ \{{w}}) = (sw ∪ sx) \\ \{{w}} := union_diff_singleton_eq S sw sx w hsw`"
   have set_eq : sw ∪ (sx \ {w}) = (sw ∪ sx) \ {w} := union_diff_singleton_eq S sw sx w hsw
 
-  Hint "Now, let's consider the function we will be summing. To get a sum of `{x}`, we need two parts:
-  the sum over `S` getting `{x}`, and the sum over `S \\ \{w}` to get `w`. This can be thought of as
-  two seperate functions. The first function will be similar to `{fx}`, but since we do not know what
-  `{fx}` is outside of `{sx}`, we must make this function `0` outside of `sx`. We can define this first
+  Hint "Now, let's consider the function we will be summing. To get a sum of `x`, we need two parts:
+  the sum over `S` getting `x`, and the sum over `S \\ \{{w}}` to get `w`. This can be thought of as
+  two seperate functions. The first function will be similar to `fx`, but since we do not know what
+  `fx` is outside of `sx`, we must make this function `0` outside of `sx`. We can define this first
   function with a `let` statement"
-  Hint (hidden := true) "Try `let fx' := fun v => (ite (v ∈ {sx}) ({fx} v) 0)`"
+  Hint "Mathematical insight: We're decomposing x = Σ(fx v • v) into two parts: contributions from S\\\{{w}} and from w itself."
+  Hint (hidden := true) "Try `let fx' := fun v => (ite (v ∈ sx) (fx v) 0)`"
   let fx' := fun v => (ite (v ∈ sx) (fx v) 0)
-  Hint (hidden := true) "Try `have hfx' : {fx'} = (fun v => (ite (v ∈ {sx}) ({fx} v) 0)) := rfl`"
+  Hint (hidden := true) "Try `have hfx' : fx' = (fun v => (ite (v ∈ sx) (fx v) 0)) := rfl`"
   have hfx' : fx' = (fun v => (ite (v ∈ sx) (fx v) 0)) := rfl
 
-  Hint "Now, you can prove that summing `{fx'}` over our set gives the correct value."
+  Hint "Now, you can prove that summing `fx'` over our set gives the correct value."
   Hint "We use a helper lemma that shows the sum equality."
+  Hint "This lemma shows that fx' gives us x minus the contribution from w."
   Hint (hidden := true) "Try `have fx'_sum : x - (fx w • w) = (sw ∪ (sx \\ \{{w}})).sum (fun v => fx' v • v) := fx_sum_equality K V x w sw sx fx fx' hw hfx hfx' set_eq`"
   have fx'_sum : x - (fx w • w) = (sw ∪ (sx \ {w})).sum (fun v => fx' v • v) :=
-    fx_sum_equality K V x w sw sx fx fx' hw hfx hfx' set_eq
+    LinearAlgebraGame.fx_sum_equality K V x w sw sx fx fx' hw hfx hfx' set_eq
 
-  Hint "Now, we can create the second function, which will be added to get the missing `{fx} w • w`"
-  Hint (hidden := true) "Try `let fw' := fun v => ite (v ∈ {sw}) ({fx} w * {fw} v) 0`"
+  Hint "Now, we can create the second function, which will be added to get the missing `fx w • w`"
+  Hint "Since w = Σ(fw v • v) over sw, we have fx(w) • w = fx(w) • Σ(fw v • v) = Σ(fx(w) • fw(v) • v)."
+  Hint (hidden := true) "Try `let fw' := fun v => ite (v ∈ sw) (fx w * fw v) 0`"
   let fw' := fun v => ite (v ∈ sw) (fx w * fw v) 0
-  Hint (hidden := true) "Try `have hfw' : {fw'} = (fun v => ite (v ∈ {sw}) ({fx} w * {fw} v) 0) := rfl`"
+  Hint (hidden := true) "Try `have hfw' : fw' = (fun v => ite (v ∈ sw) (fx w * fw v) 0) := rfl`"
   have hfw' : fw' = (fun v => ite (v ∈ sw) (fx w * fw v) 0) := rfl
 
   Hint "Prove the sum equality by expanding definitions."
+  Hint "This lemma shows that fw' reconstructs exactly the fx w • w term we need."
   Hint (hidden := true) "Try `have fw'_sum : fx w • w = (sw ∪ (sx \\ \{{w}})).sum (fun v => fw' v • v) := fw_sum_equality K V w sw sx fx fw fw' hfw hfw'`"
   have fw'_sum : fx w • w = (sw ∪ (sx \ {w})).sum (fun v => fw' v • v) :=
-    fw_sum_equality K V w sw sx fx fw fw' hfw hfw'
+    LinearAlgebraGame.fw_sum_equality K V w sw sx fx fw fw' hfw hfw'
 
   Hint "Now, use the functions we have defined"
-  Hint (hidden := true) "Try `use fun v => {fx'} v + {fw'} v`, then Try `simp only [add_smul]`"
+  Hint (hidden := true) "Try `use fun v => fx' v + fw' v`, then Try `simp only [add_smul]`"
   use fun v => fx' v + fw' v
   simp only [add_smul]
-  Hint (hidden := true) "Try `rw[sum_add_distrib, {fx'_sum}.symm, {fw'_sum}.symm]`"
+  Hint (hidden := true) "Try `rw[sum_add_distrib, fx'_sum.symm, fw'_sum.symm]`"
   rw[sum_add_distrib, fx'_sum.symm, fw'_sum.symm]
   Hint (hidden := true) "Try `simp`"
   simp
 
-  Hint "Now, we are on the second case, when `w ∉ {sx}."
-  Hint (hidden := true) "Try `use {sx}`"
+  Hint "Now, we are on the second case, when `w ∉ sx`."
+  Hint "This case is simpler: if w doesn't appear in the representation of x, then x is already in span(S \\ \{{w}})."
+  Hint (hidden := true) "Try `use sx`"
   use sx
   Hint (hidden := true) "Try `constructor`"
   constructor
@@ -294,10 +307,12 @@ Statement remove_redundant_span
   Hint (hidden := true) "Try `use fx`"
   use fx
 
-  Hint "Lastly, we must prove that `span K V (S \\ \{w}) ⊆ span K V S`. This is simple with span_mono"
+  Hint "Lastly, we must prove that `span K V (S \\ \{{w}}) ⊆ span K V S`. This is simple with span_mono"
+  Hint "Since removing an element makes a smaller set, its span is also smaller."
+  Hint "This is the easy direction: every linear combination of S \\ \{{w}} is automatically a linear combination of S."
   Hint (hidden := true) "Try `apply span_mono`"
   apply span_mono
-  Hint (hidden := true) "Try `exact diff_subset S \{{w}}`"
-  exact diff_subset S {w}
+  Hint (hidden := true) "Try `exact Set.diff_subset`"
+  exact Set.diff_subset
 
 Conclusion "You have now finished the Linear Independence and Span World!"

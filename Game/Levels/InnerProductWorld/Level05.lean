@@ -22,7 +22,7 @@ This is the Pythagorean Theorem. If you have vectors `u v`, and `h : orthogonal 
 TheoremDoc LinearAlgebraGame.pythagorean as "pythagorean" in "Inner Product"
 
 
-variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [DecidableEq V] [InnerProductSpace_v V]
+variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [InnerProductSpace_v V]
 open Function Set VectorSpace Real InnerProductSpace_v Complex
 
 Statement pythagorean (u v : V) (h : orthogonal u v) : ‖u + v‖^2 = ‖u‖^2 + ‖v‖^2 := by

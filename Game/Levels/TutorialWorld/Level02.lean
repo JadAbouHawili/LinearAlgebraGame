@@ -1,4 +1,4 @@
-import Game.Metadata.Metadata
+import Game.Metadata
 
 World "TutorialWorld"
 Level 2
@@ -8,7 +8,7 @@ Title "The rewrite (rw) tactic"
 ## Summary
 
 If `h` is a proof of an equality `X = Y`, then `rw [h]` will change
-all `X`s in the goal to `Y`s. It's the way to \"substitute in\".
+all `X`s in the goal to `Y`s. It's the way to "substitute in".
 
 ## Variants
 
@@ -66,7 +66,7 @@ not the proof. If `h : P = Q` is the proof, then `rw [h]` will work.
 
 ## Details
 
-The `rw` tactic is a way to do \"substituting in\". There
+The `rw` tactic is a way to do "substituting in". There
 are two distinct situations where you can use this tactic.
 
 1) Basic usage: if `h : A = B` is an assumption or
@@ -116,19 +116,6 @@ tactic, it just speeds things up sometimes.
 `a + 0 + (0 + (0 + 0)) = b + 0 + 0`
 into the goal
 `a = b`.
-"
-
-TacticDoc nth_rw "
-## Summary
-
-If `h : X = Y` and there are several `X`s in the goal, then
-`nth_rw 3 [h]` will just change the third `X` to a `Y`.
-
-## Example
-
-If the goal is `2 + 2 = 4` then `nth_rw 2 [two_eq_succ_one]`
-will change the goal to `2 + succ 1 = 4`. In contrast, `rw [two_eq_succ_one]`
-will change the goal to `succ 1 + succ 1 = 4`.
 -/
 TacticDoc «repeat»
 
@@ -160,6 +147,8 @@ Writing `rw[h]` will rewrite `y` as `x + 7` in the goal.
 
 Also note that the `rw` tactic will automatically attempt the `rfl` tactic after it rewrites, so if
 after the rewrite the goal is of the form `X = X`, it will automatically be solved.
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 Statement (x y : ℝ) (h : y = x + 7) : 2 * y = 2 * (x + 7) := by

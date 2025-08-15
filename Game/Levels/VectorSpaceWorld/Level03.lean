@@ -33,7 +33,7 @@ TheoremDoc LinearAlgebraGame.smul_zero_v as "smul_zero_v" in "Vector Spaces"
 DisabledTactic simp linarith
 
 open VectorSpace
-variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
+variable (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V]
 
 /--
 In any vector space V over K, any scalar a multiplied by the zero vector gives the zero vector.

@@ -33,25 +33,25 @@ This is one of the most important inequalities in linear algebra and analysis.
 -/
 TheoremDoc LinearAlgebraGame.Cauchy_Schwarz as "Cauchy_Schwarz" in "Inner Product"
 
-variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [DecidableEq V] [InnerProductSpace_v V]
+variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V]  [InnerProductSpace_v V]
 open Function Set VectorSpace Real InnerProductSpace_v Complex
 
 /-- Helper lemma: The norm of a nonzero vector is nonzero -/
-lemma norm_nonzero_of_nonzero {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [DecidableEq V] [InnerProductSpace_v V]
+lemma norm_nonzero_of_nonzero {V : Type} [AddCommGroup V] [VectorSpace ℂ V]  [InnerProductSpace_v V]
   (v : V) (v_zero : v ≠ 0) : ‖v‖ ≠ 0 := by
   by_contra h
   rw [norm_zero_v v] at h
   contradiction
 
 /-- Helper lemma: From Pythagorean theorem, if u = c•v + w with orthogonal c•v and w, then ‖u‖² = ‖c•v‖² + ‖w‖² -/
-lemma norm_sq_decomposition {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [DecidableEq V] [InnerProductSpace_v V]
+lemma norm_sq_decomposition {V : Type} [AddCommGroup V] [VectorSpace ℂ V]  [InnerProductSpace_v V]
   (u v w : V) (c : ℂ) (h_decomp : u = c • v + w) (h_ortho : orthogonal (c • v) w) :
   ‖u‖^2 = ‖c • v‖^2 + ‖w‖^2 := by
   rw [h_decomp]
   exact pythagorean (c • v) w h_ortho
 
 /-- Helper lemma: If ‖u‖² = ‖c•v‖² + ‖w‖², then ‖c•v‖² ≤ ‖u‖² -/
-lemma scaled_norm_le_original {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [DecidableEq V] [InnerProductSpace_v V]
+lemma scaled_norm_le_original {V : Type} [AddCommGroup V] [VectorSpace ℂ V]  [InnerProductSpace_v V]
   (u v w : V) (c : ℂ) (h_eq : ‖u‖^2 = ‖c • v‖^2 + ‖w‖^2) :
   ‖c • v‖^2 ≤ ‖u‖^2 := by
   rw [h_eq]
@@ -60,14 +60,14 @@ lemma scaled_norm_le_original {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [D
   exact inner_self_nonneg w
 
 /-- Helper lemma: For nonzero v, we have 0 < ‖v‖ -/
-lemma norm_pos_of_nonzero {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [DecidableEq V] [InnerProductSpace_v V]
+lemma norm_pos_of_nonzero {V : Type} [AddCommGroup V] [VectorSpace ℂ V]  [InnerProductSpace_v V]
   (v : V) (v_zero : v ≠ 0) : 0 < ‖v‖ := by
   rw [norm_v]
   apply Real.sqrt_pos.2
   exact lt_of_le_of_ne (inner_self_nonneg v) (fun h => v_zero ((inner_self_eq_zero v).1 (by rw [inner_self_real]; simp [h])))
 
 /-- Helper lemma: Express ‖c • v‖² in terms of c and v -/
-lemma norm_sq_scaled_eq {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [DecidableEq V] [InnerProductSpace_v V]
+lemma norm_sq_scaled_eq {V : Type} [AddCommGroup V] [VectorSpace ℂ V]  [InnerProductSpace_v V]
   (u v : V) (c : ℂ) (v_pos : 0 < ‖v‖) (c_def : c = ⟪u,v⟫ / ‖v‖^2) :
   ‖c • v‖^2 = ‖⟪u,v⟫‖^2/‖v‖^2 := by
   rw [sca_mul c v]
@@ -171,15 +171,15 @@ Statement Cauchy_Schwarz (u v : V) : ‖⟪u,v⟫‖ ≤ ‖u‖ * ‖v‖ := by
     have h_mul := mul_le_mul_of_nonneg_right cv_le_u (sq_nonneg ‖v‖)
     Hint (hidden := true) "Try `simp [div_mul_cancel, v_norm_zero] at h_mul`"
     simp [div_mul_cancel, v_norm_zero] at h_mul
-    Hint (hidden := true) "Try `have sq_ineq : Complex.abs ⟪u,v⟫^2 ≤ ‖u‖^2 * ‖v‖^2 := h_mul`"
-    have sq_ineq : Complex.abs ⟪u,v⟫^2 ≤ ‖u‖^2 * ‖v‖^2 := h_mul
+    Hint (hidden := true) "Try `have sq_ineq : ‖⟪u,v⟫‖^2 ≤ ‖u‖^2 * ‖v‖^2 := h_mul`"
+    have sq_ineq : ‖⟪u,v⟫‖^2 ≤ ‖u‖^2 * ‖v‖^2 := h_mul
     
     -- Convert squared inequality to original
     Hint "Now we can take square roots of both sides to get the original inequality."
     Hint "Taking square roots preserves inequalities for non-negative numbers."
-    Hint "First, rewrite the goal using the fact that ‖⟪u,v⟫‖ = Complex.abs ⟪u,v⟫."
-    Hint (hidden := true) "Try `rw [norm_inner_eq_abs]`"
-    rw [norm_inner_eq_abs]
+    Hint "The norm of the inner product is already what we need."
+    Hint (hidden := true) "Try `-- rw [norm_inner_eq_abs] -- No longer needed`"
+    -- rw [norm_inner_eq_abs] -- No longer needed, ‖⟪u,v⟫‖ is already the norm
     -- Convert to the product squared
     Hint (hidden := true) "Try `have ts : ‖u‖^2 * ‖v‖^2 = (‖u‖ * ‖v‖)^2 := by (ring)`"
     have ts : ‖u‖^2 * ‖v‖^2 = (‖u‖ * ‖v‖)^2 := by (ring)

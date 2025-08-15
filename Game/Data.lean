@@ -66,51 +66,51 @@ import Mathlib.Data.Fin.Tuple.Reflection
 import Mathlib.Data.Fin.Tuple.Sort
 import Mathlib.Data.Fin.VecNotation
 import Mathlib.Data.FinEnum-/
-import Mathlib.Data.Finite.Basic
-import Mathlib.Data.Finite.Card
-import Mathlib.Data.Finite.Defs
-import Mathlib.Data.Finite.Set
+-- import Mathlib.Data.Finite.Basic
+-- import Mathlib.Data.Finite.Card
+-- import Mathlib.Data.Finite.Defs
+-- import Mathlib.Data.Finite.Set
 import Mathlib.Data.Finmap
-import Mathlib.Data.Finset.Antidiagonal
-import Mathlib.Data.Finset.Attr
-import Mathlib.Data.Finset.Basic
-import Mathlib.Data.Finset.Card
-import Mathlib.Data.Finset.Fin
-import Mathlib.Data.Finset.Finsupp
-import Mathlib.Data.Finset.Fold
-import Mathlib.Data.Finset.Functor
-import Mathlib.Data.Finset.Grade
-import Mathlib.Data.Finset.Image
-import Mathlib.Data.Finset.Interval
-import Mathlib.Data.Finset.Lattice
-import Mathlib.Data.Finset.LocallyFinite.Basic
-import Mathlib.Data.Finset.LocallyFinite.Box
-import Mathlib.Data.Finset.MulAntidiagonal
-import Mathlib.Data.Finset.NAry
-import Mathlib.Data.Finset.NatAntidiagonal
-import Mathlib.Data.Finset.NatDivisors
-import Mathlib.Data.Finset.NoncommProd
-import Mathlib.Data.Finset.Option
-import Mathlib.Data.Finset.Order
-import Mathlib.Data.Finset.PImage
-import Mathlib.Data.Finset.Pairwise
-import Mathlib.Data.Finset.Pi
-import Mathlib.Data.Finset.PiAntidiagonal
-import Mathlib.Data.Finset.PiInduction
-import Mathlib.Data.Finset.Piecewise
-import Mathlib.Data.Finset.Pointwise
-import Mathlib.Data.Finset.Pointwise.Interval
-import Mathlib.Data.Finset.Powerset
-import Mathlib.Data.Finset.Preimage
-import Mathlib.Data.Finset.Prod
-import Mathlib.Data.Finset.Sigma
-import Mathlib.Data.Finset.Slice
-import Mathlib.Data.Finset.Sort
-import Mathlib.Data.Finset.Sum
-import Mathlib.Data.Finset.Sups
-import Mathlib.Data.Finset.Sym
-import Mathlib.Data.Finset.Union
-import Mathlib.Data.Finset.Update
+-- import Mathlib.Data.Finset.Antidiagonal
+-- import Mathlib.Data.Finset.Attr
+-- import Mathlib.Data.Finset.Basic
+-- import Mathlib.Data.Finset.Card
+-- import Mathlib.Data.Finset.Fin
+-- import Mathlib.Data.Finset.Finsupp
+-- import Mathlib.Data.Finset.Fold
+-- import Mathlib.Data.Finset.Functor
+-- import Mathlib.Data.Finset.Grade
+-- import Mathlib.Data.Finset.Image
+-- import Mathlib.Data.Finset.Interval
+-- import Mathlib.Data.Finset.Lattice
+-- import Mathlib.Data.Finset.LocallyFinite.Basic
+-- import Mathlib.Data.Finset.LocallyFinite.Box
+-- import Mathlib.Data.Finset.MulAntidiagonal
+-- import Mathlib.Data.Finset.NAry
+-- import Mathlib.Data.Finset.NatAntidiagonal
+-- import Mathlib.Data.Finset.NatDivisors
+-- import Mathlib.Data.Finset.NoncommProd
+-- import Mathlib.Data.Finset.Option
+-- import Mathlib.Data.Finset.Order
+-- import Mathlib.Data.Finset.PImage
+-- import Mathlib.Data.Finset.Pairwise
+-- import Mathlib.Data.Finset.Pi
+-- import Mathlib.Data.Finset.PiAntidiagonal
+-- import Mathlib.Data.Finset.PiInduction
+-- import Mathlib.Data.Finset.Piecewise
+-- import Mathlib.Data.Finset.Pointwise
+-- import Mathlib.Data.Finset.Pointwise.Interval
+-- import Mathlib.Data.Finset.Powerset
+-- import Mathlib.Data.Finset.Preimage
+-- import Mathlib.Data.Finset.Prod
+-- import Mathlib.Data.Finset.Sigma
+-- import Mathlib.Data.Finset.Slice
+-- import Mathlib.Data.Finset.Sort
+-- import Mathlib.Data.Finset.Sum
+-- import Mathlib.Data.Finset.Sups
+-- import Mathlib.Data.Finset.Sym
+-- import Mathlib.Data.Finset.Union
+-- import Mathlib.Data.Finset.Update
 /-import Mathlib.Data.Finsupp.AList
 import Mathlib.Data.Finsupp.Antidiagonal
 import Mathlib.Data.Finsupp.Basic
@@ -157,38 +157,38 @@ import Mathlib.Data.FunLike.Equiv
 import Mathlib.Data.FunLike.Fintype
 import Mathlib.Data.HashMap
 import Mathlib.Data.Holor-/
-import Mathlib.Data.Int.AbsoluteValue
-import Mathlib.Data.Int.Associated
-import Mathlib.Data.Int.Basic
-import Mathlib.Data.Int.Bitwise
-import Mathlib.Data.Int.CardIntervalMod
-import Mathlib.Data.Int.Cast.Basic
-import Mathlib.Data.Int.Cast.Defs
-import Mathlib.Data.Int.Cast.Field
-import Mathlib.Data.Int.Cast.Lemmas
-import Mathlib.Data.Int.Cast.Prod
-import Mathlib.Data.Int.CharZero
-import Mathlib.Data.Int.ConditionallyCompleteOrder
-import Mathlib.Data.Int.Defs
-import Mathlib.Data.Int.Div
-import Mathlib.Data.Int.Dvd.Basic
-import Mathlib.Data.Int.Dvd.Pow
-import Mathlib.Data.Int.GCD
-import Mathlib.Data.Int.Interval
-import Mathlib.Data.Int.LeastGreatest
-import Mathlib.Data.Int.Lemmas
-import Mathlib.Data.Int.Log
-import Mathlib.Data.Int.ModEq
-import Mathlib.Data.Int.NatPrime
-import Mathlib.Data.Int.Order.Basic
-import Mathlib.Data.Int.Order.Lemmas
-import Mathlib.Data.Int.Order.Units
-import Mathlib.Data.Int.Parity
-import Mathlib.Data.Int.Range
-import Mathlib.Data.Int.Sqrt
-import Mathlib.Data.Int.Star
-import Mathlib.Data.Int.SuccPred
-import Mathlib.Data.Int.Units
+-- import Mathlib.Data.Int.AbsoluteValue
+-- import Mathlib.Data.Int.Associated
+-- import Mathlib.Data.Int.Basic
+-- import Mathlib.Data.Int.Bitwise
+-- import Mathlib.Data.Int.CardIntervalMod
+-- import Mathlib.Data.Int.Cast.Basic
+-- import Mathlib.Data.Int.Cast.Defs
+-- import Mathlib.Data.Int.Cast.Field
+-- import Mathlib.Data.Int.Cast.Lemmas
+-- import Mathlib.Data.Int.Cast.Prod
+-- import Mathlib.Data.Int.CharZero
+-- import Mathlib.Data.Int.ConditionallyCompleteOrder
+-- import Mathlib.Data.Int.Defs
+-- import Mathlib.Data.Int.Div
+-- import Mathlib.Data.Int.Dvd.Basic
+-- import Mathlib.Data.Int.Dvd.Pow
+-- import Mathlib.Data.Int.GCD
+-- import Mathlib.Data.Int.Interval
+-- import Mathlib.Data.Int.LeastGreatest
+-- import Mathlib.Data.Int.Lemmas
+-- import Mathlib.Data.Int.Log
+-- import Mathlib.Data.Int.ModEq
+-- import Mathlib.Data.Int.NatPrime
+-- import Mathlib.Data.Int.Order.Basic
+-- import Mathlib.Data.Int.Order.Lemmas
+-- import Mathlib.Data.Int.Order.Units
+-- import Mathlib.Data.Int.Parity
+-- import Mathlib.Data.Int.Range
+-- import Mathlib.Data.Int.Sqrt
+-- import Mathlib.Data.Int.Star
+-- import Mathlib.Data.Int.SuccPred
+-- import Mathlib.Data.Int.Units
 /-import Mathlib.Data.LazyList.Basic
 import Mathlib.Data.List.AList
 import Mathlib.Data.List.Basic
@@ -263,26 +263,26 @@ import Mathlib.Data.Matrix.RowCol
 import Mathlib.Data.Matroid.Dual
 import Mathlib.Data.Matroid.IndepAxioms
 import Mathlib.Data.Matroid.Init-/
-import Mathlib.Data.Multiset.Antidiagonal
-import Mathlib.Data.Multiset.Basic
-import Mathlib.Data.Multiset.Bind
-import Mathlib.Data.Multiset.Dedup
-import Mathlib.Data.Multiset.FinsetOps
-import Mathlib.Data.Multiset.Fintype
-import Mathlib.Data.Multiset.Fold
-import Mathlib.Data.Multiset.Functor
-import Mathlib.Data.Multiset.Interval
-import Mathlib.Data.Multiset.Lattice
-import Mathlib.Data.Multiset.LocallyFinite
-import Mathlib.Data.Multiset.NatAntidiagonal
-import Mathlib.Data.Multiset.Nodup
-import Mathlib.Data.Multiset.Pi
-import Mathlib.Data.Multiset.Powerset
-import Mathlib.Data.Multiset.Range
-import Mathlib.Data.Multiset.Sections
-import Mathlib.Data.Multiset.Sort
-import Mathlib.Data.Multiset.Sum
-import Mathlib.Data.Multiset.Sym
+-- import Mathlib.Data.Multiset.Antidiagonal
+-- import Mathlib.Data.Multiset.Basic
+-- import Mathlib.Data.Multiset.Bind
+-- import Mathlib.Data.Multiset.Dedup
+-- import Mathlib.Data.Multiset.FinsetOps
+-- import Mathlib.Data.Multiset.Fintype
+-- import Mathlib.Data.Multiset.Fold
+-- import Mathlib.Data.Multiset.Functor
+-- import Mathlib.Data.Multiset.Interval
+-- import Mathlib.Data.Multiset.Lattice
+-- import Mathlib.Data.Multiset.LocallyFinite
+-- import Mathlib.Data.Multiset.NatAntidiagonal
+-- import Mathlib.Data.Multiset.Nodup
+-- import Mathlib.Data.Multiset.Pi
+-- import Mathlib.Data.Multiset.Powerset
+-- import Mathlib.Data.Multiset.Range
+-- import Mathlib.Data.Multiset.Sections
+-- import Mathlib.Data.Multiset.Sort
+-- import Mathlib.Data.Multiset.Sum
+-- import Mathlib.Data.Multiset.Sym
 /-import Mathlib.Data.MvPolynomial.Basic
 import Mathlib.Data.MvPolynomial.Cardinal
 import Mathlib.Data.MvPolynomial.Comap
@@ -304,76 +304,76 @@ import Mathlib.Data.MvPolynomial.Variables
 import Mathlib.Data.NNRat.BigOperators
 import Mathlib.Data.NNRat.Defs
 import Mathlib.Data.NNRat.Lemmas-/
-import Mathlib.Data.Nat.Basic
-import Mathlib.Data.Nat.Bits
-import Mathlib.Data.Nat.Bitwise
-import Mathlib.Data.Nat.Cast.Basic
-import Mathlib.Data.Nat.Cast.Commute
-import Mathlib.Data.Nat.Cast.Defs
-import Mathlib.Data.Nat.Cast.Field
-import Mathlib.Data.Nat.Cast.NeZero
-import Mathlib.Data.Nat.Cast.Order
-import Mathlib.Data.Nat.Cast.Prod
-import Mathlib.Data.Nat.Cast.SetInterval
-import Mathlib.Data.Nat.Cast.Synonym
-import Mathlib.Data.Nat.Cast.WithTop
-import Mathlib.Data.Nat.ChineseRemainder
-import Mathlib.Data.Nat.Choose.Basic
-import Mathlib.Data.Nat.Choose.Bounds
-import Mathlib.Data.Nat.Choose.Cast
-import Mathlib.Data.Nat.Choose.Central
-import Mathlib.Data.Nat.Choose.Dvd
-import Mathlib.Data.Nat.Choose.Factorization
-import Mathlib.Data.Nat.Choose.Multinomial
-import Mathlib.Data.Nat.Choose.Sum
-import Mathlib.Data.Nat.Choose.Vandermonde
-import Mathlib.Data.Nat.Count
-import Mathlib.Data.Nat.Defs
-import Mathlib.Data.Nat.Digits
-import Mathlib.Data.Nat.Dist
-import Mathlib.Data.Nat.EvenOddRec
-import Mathlib.Data.Nat.Factorial.Basic
-import Mathlib.Data.Nat.Factorial.BigOperators
-import Mathlib.Data.Nat.Factorial.Cast
-import Mathlib.Data.Nat.Factorial.DoubleFactorial
-import Mathlib.Data.Nat.Factorial.SuperFactorial
-import Mathlib.Data.Nat.Factorization.Basic
-import Mathlib.Data.Nat.Factorization.PrimePow
-import Mathlib.Data.Nat.Factorization.Root
-import Mathlib.Data.Nat.Factors
-import Mathlib.Data.Nat.Fib.Basic
-import Mathlib.Data.Nat.Fib.Zeckendorf
-import Mathlib.Data.Nat.ForSqrt
-import Mathlib.Data.Nat.GCD.Basic
-import Mathlib.Data.Nat.GCD.BigOperators
-import Mathlib.Data.Nat.Hyperoperation
-import Mathlib.Data.Nat.Interval
-import Mathlib.Data.Nat.Lattice
-import Mathlib.Data.Nat.Log
-import Mathlib.Data.Nat.MaxPowDiv
-import Mathlib.Data.Nat.ModEq
-import Mathlib.Data.Nat.Multiplicity
-import Mathlib.Data.Nat.Nth
-import Mathlib.Data.Nat.Order.Basic
-import Mathlib.Data.Nat.Order.Lemmas
-import Mathlib.Data.Nat.PSub
-import Mathlib.Data.Nat.Pairing
-import Mathlib.Data.Nat.Parity
-import Mathlib.Data.Nat.PartENat
-import Mathlib.Data.Nat.Periodic
-import Mathlib.Data.Nat.Prime
-import Mathlib.Data.Nat.PrimeFin
-import Mathlib.Data.Nat.PrimeNormNum
-import Mathlib.Data.Nat.Set
-import Mathlib.Data.Nat.Size
-import Mathlib.Data.Nat.Sqrt
-import Mathlib.Data.Nat.SqrtNormNum
-import Mathlib.Data.Nat.Squarefree
-import Mathlib.Data.Nat.SuccPred
-import Mathlib.Data.Nat.Totient
-import Mathlib.Data.Nat.Units
-import Mathlib.Data.Nat.Upto
-import Mathlib.Data.Nat.WithBot
+-- import Mathlib.Data.Nat.Basic
+-- import Mathlib.Data.Nat.Bits
+-- import Mathlib.Data.Nat.Bitwise
+-- import Mathlib.Data.Nat.Cast.Basic
+-- import Mathlib.Data.Nat.Cast.Commute
+-- import Mathlib.Data.Nat.Cast.Defs
+-- import Mathlib.Data.Nat.Cast.Field
+-- import Mathlib.Data.Nat.Cast.NeZero
+-- import Mathlib.Data.Nat.Cast.Order
+-- import Mathlib.Data.Nat.Cast.Prod
+-- import Mathlib.Data.Nat.Cast.SetInterval
+-- import Mathlib.Data.Nat.Cast.Synonym
+-- import Mathlib.Data.Nat.Cast.WithTop
+-- import Mathlib.Data.Nat.ChineseRemainder
+-- import Mathlib.Data.Nat.Choose.Basic
+-- import Mathlib.Data.Nat.Choose.Bounds
+-- import Mathlib.Data.Nat.Choose.Cast
+-- import Mathlib.Data.Nat.Choose.Central
+-- import Mathlib.Data.Nat.Choose.Dvd
+-- import Mathlib.Data.Nat.Choose.Factorization
+-- import Mathlib.Data.Nat.Choose.Multinomial
+-- import Mathlib.Data.Nat.Choose.Sum
+-- import Mathlib.Data.Nat.Choose.Vandermonde
+-- import Mathlib.Data.Nat.Count
+-- import Mathlib.Data.Nat.Defs
+-- import Mathlib.Data.Nat.Digits
+-- import Mathlib.Data.Nat.Dist
+-- import Mathlib.Data.Nat.EvenOddRec
+-- import Mathlib.Data.Nat.Factorial.Basic
+-- import Mathlib.Data.Nat.Factorial.BigOperators
+-- import Mathlib.Data.Nat.Factorial.Cast
+-- import Mathlib.Data.Nat.Factorial.DoubleFactorial
+-- import Mathlib.Data.Nat.Factorial.SuperFactorial
+-- import Mathlib.Data.Nat.Factorization.Basic
+-- import Mathlib.Data.Nat.Factorization.PrimePow
+-- import Mathlib.Data.Nat.Factorization.Root
+-- import Mathlib.Data.Nat.Factors
+-- import Mathlib.Data.Nat.Fib.Basic
+-- import Mathlib.Data.Nat.Fib.Zeckendorf
+-- import Mathlib.Data.Nat.ForSqrt
+-- import Mathlib.Data.Nat.GCD.Basic
+-- import Mathlib.Data.Nat.GCD.BigOperators
+-- import Mathlib.Data.Nat.Hyperoperation
+-- import Mathlib.Data.Nat.Interval
+-- import Mathlib.Data.Nat.Lattice
+-- import Mathlib.Data.Nat.Log
+-- import Mathlib.Data.Nat.MaxPowDiv
+-- import Mathlib.Data.Nat.ModEq
+-- import Mathlib.Data.Nat.Multiplicity
+-- import Mathlib.Data.Nat.Nth
+-- import Mathlib.Data.Nat.Order.Basic
+-- import Mathlib.Data.Nat.Order.Lemmas
+-- import Mathlib.Data.Nat.PSub
+-- import Mathlib.Data.Nat.Pairing
+-- import Mathlib.Data.Nat.Parity
+-- import Mathlib.Data.Nat.PartENat
+-- import Mathlib.Data.Nat.Periodic
+-- import Mathlib.Data.Nat.Prime
+-- import Mathlib.Data.Nat.PrimeFin
+-- import Mathlib.Data.Nat.PrimeNormNum
+-- import Mathlib.Data.Nat.Set
+-- import Mathlib.Data.Nat.Size
+-- import Mathlib.Data.Nat.Sqrt
+-- import Mathlib.Data.Nat.SqrtNormNum
+-- import Mathlib.Data.Nat.Squarefree
+-- import Mathlib.Data.Nat.SuccPred
+-- import Mathlib.Data.Nat.Totient
+-- import Mathlib.Data.Nat.Units
+-- import Mathlib.Data.Nat.Upto
+-- import Mathlib.Data.Nat.WithBot
 import Mathlib.Data.Num.Basic
 import Mathlib.Data.Num.Bitwise
 import Mathlib.Data.Num.Lemmas
@@ -499,63 +499,63 @@ import Mathlib.Data.Seq.Computation
 import Mathlib.Data.Seq.Parallel
 import Mathlib.Data.Seq.Seq
 import Mathlib.Data.Seq.WSeq-/
-import Mathlib.Data.Set.Accumulate
-import Mathlib.Data.Set.Basic
-import Mathlib.Data.Set.BoolIndicator
-import Mathlib.Data.Set.Card
-import Mathlib.Data.Set.Constructions
-import Mathlib.Data.Set.Countable
-import Mathlib.Data.Set.Defs
-import Mathlib.Data.Set.Enumerate
-import Mathlib.Data.Set.Equitable
-import Mathlib.Data.Set.Finite
-import Mathlib.Data.Set.Function
-import Mathlib.Data.Set.Functor
-import Mathlib.Data.Set.Image
-import Mathlib.Data.Set.Intervals.Basic
-import Mathlib.Data.Set.Intervals.Disjoint
-import Mathlib.Data.Set.Intervals.Group
-import Mathlib.Data.Set.Intervals.Image
-import Mathlib.Data.Set.Intervals.Infinite
-import Mathlib.Data.Set.Intervals.Instances
-import Mathlib.Data.Set.Intervals.IsoIoo
-import Mathlib.Data.Set.Intervals.Monoid
-import Mathlib.Data.Set.Intervals.Monotone
-import Mathlib.Data.Set.Intervals.OrdConnected
-import Mathlib.Data.Set.Intervals.OrdConnectedComponent
-import Mathlib.Data.Set.Intervals.OrderEmbedding
-import Mathlib.Data.Set.Intervals.OrderIso
-import Mathlib.Data.Set.Intervals.Pi
-import Mathlib.Data.Set.Intervals.ProjIcc
-import Mathlib.Data.Set.Intervals.SurjOn
-import Mathlib.Data.Set.Intervals.UnorderedInterval
-import Mathlib.Data.Set.Intervals.WithBotTop
-import Mathlib.Data.Set.Lattice
-import Mathlib.Data.Set.List
-import Mathlib.Data.Set.MemPartition
-import Mathlib.Data.Set.MulAntidiagonal
-import Mathlib.Data.Set.NAry
-import Mathlib.Data.Set.Opposite
-import Mathlib.Data.Set.Pairwise.Basic
-import Mathlib.Data.Set.Pairwise.Lattice
-import Mathlib.Data.Set.Pointwise.Basic
-import Mathlib.Data.Set.Pointwise.BigOperators
-import Mathlib.Data.Set.Pointwise.Finite
-import Mathlib.Data.Set.Pointwise.Interval
-import Mathlib.Data.Set.Pointwise.Iterate
-import Mathlib.Data.Set.Pointwise.ListOfFn
-import Mathlib.Data.Set.Pointwise.SMul
-import Mathlib.Data.Set.Pointwise.Support
-import Mathlib.Data.Set.Prod
-import Mathlib.Data.Set.Semiring
-import Mathlib.Data.Set.Sigma
-import Mathlib.Data.Set.Subset
-import Mathlib.Data.Set.Sups
-import Mathlib.Data.Set.UnionLift
+-- import Mathlib.Data.Set.Accumulate
+-- import Mathlib.Data.Set.Basic
+-- import Mathlib.Data.Set.BoolIndicator
+-- import Mathlib.Data.Set.Card
+-- import Mathlib.Data.Set.Constructions
+-- import Mathlib.Data.Set.Countable
+-- import Mathlib.Data.Set.Defs
+-- import Mathlib.Data.Set.Enumerate
+-- import Mathlib.Data.Set.Equitable
+-- import Mathlib.Data.Set.Finite
+-- import Mathlib.Data.Set.Function
+-- import Mathlib.Data.Set.Functor
+-- import Mathlib.Data.Set.Image
+-- import Mathlib.Data.Set.Intervals.Basic
+-- import Mathlib.Data.Set.Intervals.Disjoint
+-- import Mathlib.Data.Set.Intervals.Group
+-- import Mathlib.Data.Set.Intervals.Image
+-- import Mathlib.Data.Set.Intervals.Infinite
+-- import Mathlib.Data.Set.Intervals.Instances
+-- import Mathlib.Data.Set.Intervals.IsoIoo
+-- import Mathlib.Data.Set.Intervals.Monoid
+-- import Mathlib.Data.Set.Intervals.Monotone
+-- import Mathlib.Data.Set.Intervals.OrdConnected
+-- import Mathlib.Data.Set.Intervals.OrdConnectedComponent
+-- import Mathlib.Data.Set.Intervals.OrderEmbedding
+-- import Mathlib.Data.Set.Intervals.OrderIso
+-- import Mathlib.Data.Set.Intervals.Pi
+-- import Mathlib.Data.Set.Intervals.ProjIcc
+-- import Mathlib.Data.Set.Intervals.SurjOn
+-- import Mathlib.Data.Set.Intervals.UnorderedInterval
+-- import Mathlib.Data.Set.Intervals.WithBotTop
+-- import Mathlib.Data.Set.Lattice
+-- import Mathlib.Data.Set.List
+-- import Mathlib.Data.Set.MemPartition
+-- import Mathlib.Data.Set.MulAntidiagonal
+-- import Mathlib.Data.Set.NAry
+-- import Mathlib.Data.Set.Opposite
+-- import Mathlib.Data.Set.Pairwise.Basic
+-- import Mathlib.Data.Set.Pairwise.Lattice
+-- import Mathlib.Data.Set.Pointwise.Basic
+-- import Mathlib.Data.Set.Pointwise.BigOperators
+-- import Mathlib.Data.Set.Pointwise.Finite
+-- import Mathlib.Data.Set.Pointwise.Interval
+-- import Mathlib.Data.Set.Pointwise.Iterate
+-- import Mathlib.Data.Set.Pointwise.ListOfFn
+-- import Mathlib.Data.Set.Pointwise.SMul
+-- import Mathlib.Data.Set.Pointwise.Support
+-- import Mathlib.Data.Set.Prod
+-- import Mathlib.Data.Set.Semiring
+-- import Mathlib.Data.Set.Sigma
+-- import Mathlib.Data.Set.Subset
+-- import Mathlib.Data.Set.Sups
+-- import Mathlib.Data.Set.UnionLift
 /-import Mathlib.Data.SetLike.Basic
-import Mathlib.Data.SetLike.Fintype
-import Mathlib.Data.Setoid.Basic
-import Mathlib.Data.Setoid.Partition
+-- import Mathlib.Data.SetLike.Fintype
+-- import Mathlib.Data.Setoid.Basic
+-- import Mathlib.Data.Setoid.Partition
 import Mathlib.Data.Sigma.Basic
 import Mathlib.Data.Sigma.Interval
 import Mathlib.Data.Sigma.Lex
@@ -582,13 +582,13 @@ import Mathlib.Data.TypeVec
 import Mathlib.Data.UInt
 import Mathlib.Data.ULift
 import Mathlib.Data.UnionFind-/
-import Mathlib.Data.Vector
-import Mathlib.Data.Vector.Basic
-import Mathlib.Data.Vector.MapLemmas
-import Mathlib.Data.Vector.Mem
-import Mathlib.Data.Vector.Snoc
-import Mathlib.Data.Vector.Zip
-import Mathlib.Data.Vector3
+-- import Mathlib.Data.Vector
+-- import Mathlib.Data.Vector.Basic
+-- import Mathlib.Data.Vector.MapLemmas
+-- import Mathlib.Data.Vector.Mem
+-- import Mathlib.Data.Vector.Snoc
+-- import Mathlib.Data.Vector.Zip
+-- import Mathlib.Data.Vector3
 /-import Mathlib.Data.W.Basic
 import Mathlib.Data.W.Cardinal
 import Mathlib.Data.W.Constructions

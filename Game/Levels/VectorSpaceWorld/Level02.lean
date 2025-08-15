@@ -104,6 +104,8 @@ In this world, we are primarilly proving simple statements about vector spaces. 
 the `simp` and `linarith` tactics are meant to do. In fact, the `simp` tactic alone would be able to
 solve the first three levels of this world. Because of this, you will not be able to use those tactics
 in this world.
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 -- A vector space over field K with additive group V
@@ -206,12 +208,16 @@ NewTheorem add_right_cancel add_left_cancel smul_add add_smul MulAction.mul_smul
 
 TheoremTab "Groups"
 
+TacticDoc simp "The `simp` tactic uses a set of rewriting rules to simplify the goal or hypotheses."
+
+TacticDoc linarith "The `linarith` tactic solves linear arithmetic goals."
+
 DisabledTactic simp linarith
 
 open VectorSpace
 
 open VectorSpace Finset
-variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
+variable (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V]
 
 /--
 In any vector space V over K, the scalar 0 multiplied by any vector gives the zero vector.

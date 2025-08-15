@@ -1,4 +1,4 @@
-import Game.Metadata.Metadata
+import Game.Metadata
 
 World "TutorialWorld"
 Level 8
@@ -46,6 +46,8 @@ simple statements about them.
 In this level, `a b c` are all elements of G, `1` is the multiplicative identity of G, and `a⁻¹` is
 the multiplicative inverse of `a`. You can see that both sides of the equation will cancel out to `b`,
 but there is an easy way to prove that they are equal.
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 Statement (G : Type) (hg : Group G) (a b c : G)  : a * a⁻¹ * 1 * b = b * c * c⁻¹ := by

@@ -22,6 +22,8 @@ If x ∈ W and W is a subspace, then -x ∈ W. This follows because -x = (-1) �
 4. Apply scalar multiplication closure
 
 The proof combines ideas from the previous level with our theorem about -1 scaling.
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 /--
@@ -32,7 +34,7 @@ TheoremDoc LinearAlgebraGame.subspace_neg as "subspace_neg" in "Vector Spaces"
 DisabledTactic simp linarith
 
 open VectorSpace
-variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
+variable (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V]
 
 Statement subspace_neg {W : Set V} (hW : isSubspace (K := K) (V := V) W) : ∀ (x : V), x ∈ W → (-x) ∈ W := by
   Hint "First, break down the subspace definition to access the closure properties."

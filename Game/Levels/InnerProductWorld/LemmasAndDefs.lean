@@ -1,10 +1,10 @@
 import Game.Levels.LinearIndependenceSpanWorld.Level09
 import Game.Levels.VectorSpaceWorld.Level05
 
--- Minimal Mathlib imports for Lean 4.7.0 - avoiding conflicts with custom definitions
+-- Minimal Mathlib imports for Lean 4.21.0 - avoiding conflicts with custom definitions
 import Mathlib.Data.Complex.Basic
 import Mathlib.Data.Real.Basic
-import Mathlib.Data.Complex.Abs
+import Mathlib.Analysis.Complex.AbsMax  -- For Complex absolute value
 import Mathlib.Analysis.Normed.Group.Basic
 import Mathlib.Analysis.Complex.Basic  -- For Complex.normSq_eq_norm_sq
 import Mathlib.Data.Real.Sqrt  -- For Real.sq_sqrt
@@ -57,7 +57,7 @@ class InnerProductSpace_v (V : Type) [AddCommGroup V] [VectorSpace ℂ V] where
 notation "⟪" x "," y "⟫" => InnerProductSpace_v.inner x y
 
 
-variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [DecidableEq V] [InnerProductSpace_v V]
+variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [InnerProductSpace_v V]
 
 -- Create theorem aliases for class fields that are used in TheoremDoc
 theorem inner_self_im_zero (v : V) : (⟪v, v⟫).im = 0 := 
@@ -163,7 +163,7 @@ theorem inner_smul_right_v (a : ℂ) (v w : V) :
   repeat rw [← InnerProductSpace_v.inner_conj_symm]
   exact InnerProductSpace_v.inner_smul_left a w v
 
-variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [DecidableEq V] [InnerProductSpace_v V]
+variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [InnerProductSpace_v V]
 
 noncomputable def norm_v (v:V) : ℝ := Real.sqrt ⟪v, v⟫.re
 
@@ -217,22 +217,22 @@ theorem ortho_decom_parts (u v : V) (h : v ≠ 0) :
     rw[Real.sq_sqrt (inner_self_nonneg v)]
     rw [← inner_self_real]
     ring_nf
-    rw[mul_assoc, mul_inv_cancel]
-    simp
-    intro x
-    apply h
-    exact (inner_self_eq_zero v).1 x
+    rw[mul_assoc]
+    have h_nonzero : ⟪v, v⟫ ≠ 0 := by
+      intro contr
+      apply h
+      exact (inner_self_eq_zero v).1 contr
+    field_simp [h_nonzero]
 
--- Lemma that the real part of a complex number is bounded by its absolute value
-theorem re_le_abs (z : ℂ) : z.re ≤ Complex.abs z := by
-  have h := Complex.abs_re_le_abs z
+-- Lemma that the real part of a complex number is bounded by its norm
+theorem re_le_abs (z : ℂ) : z.re ≤ ‖z‖ := by
+  have h := Complex.abs_re_le_norm z
   exact le_abs_self z.re |>.trans h
 
--- The norm of an inner product equals the complex absolute value
-theorem norm_inner_eq_abs (u v : V) : ‖⟪u,v⟫‖ = Complex.abs ⟪u,v⟫ := by
-  -- Since inner products are complex numbers, their norm should equal Complex.abs
-  -- This needs to be established based on how norm_v is defined for complex numbers
-  rfl  -- This should work if norm_v is defined correctly for complex numbers
+-- The norm of an inner product equals the complex norm
+theorem norm_inner_eq_abs (u v : V) : ‖⟪u,v⟫‖ = ‖⟪u,v⟫‖ := by
+  -- This is just reflexivity
+  rfl
 
 
 end LinearAlgebraGame

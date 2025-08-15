@@ -27,11 +27,13 @@ This is Axler's Theorem 3.16: *Suppose T ∈ L(V,W). Then T is injective if and 
 
 ### Your Goal
 Prove the first direction: if T is injective, then the null space is trivial.
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 open VectorSpace
 variable (K V W : Type) [Field K] [AddCommGroup V] [AddCommGroup W] 
-variable [DecidableEq V] [DecidableEq W] [VectorSpace K V] [VectorSpace K W]
+variable [VectorSpace K V] [VectorSpace K W]
 
 /--
 **Educational Definition: Injective Linear Map**
@@ -62,7 +64,7 @@ If T is injective, then its null space contains only zero.
 Statement injective_implies_trivial_null (T : V → W) (hT : is_linear_map_v K V W T) 
     (h_inj : injective_v K V W T) : 
     null_space_v K V W T = {0} := by
-  Hint "Prove set equality by showing both inclusions: null space ⊆ {0} and {0} ⊆ null space."
+  Hint "Prove set equality by showing both inclusions: null space ⊆ singleton set containing 0 and singleton set containing 0 ⊆ null space."
   Hint (hidden := true) "Try `ext v`"
   ext v
   Hint (hidden := true) "Try `constructor`"

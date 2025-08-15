@@ -1,4 +1,4 @@
-import Game.Metadata.Metadata
+import Game.Metadata
 
 World "TutorialWorld"
 Level 5
@@ -99,6 +99,8 @@ you have a hypothesis `h: P → Q`, `apply h` will change the goal to `P`.
 Another way to use `h: P → Q` hypotheses is that if you also have another hypothesis  `h2: P`,
 `h h2` will be a proof of `Q`. So, if you have these two hypotheses, and your goal is `Q`, `exact h h2`
 will solve the goal.
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 Statement (P Q : Prop) : (P → Q) → (¬ Q → ¬ P) := by

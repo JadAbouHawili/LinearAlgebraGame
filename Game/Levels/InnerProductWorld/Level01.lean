@@ -41,9 +41,11 @@ def norm_v (v : V) : ℝ := Real.sqrt ⟪v, v⟫.re
 ## The Goal
 This first level requires you to prove that `0 ≤ ‖v‖`. Since norm is defined as the square root of a
 nonnegative real number, it is inherenetly positive.
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
-variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [DecidableEq V] [InnerProductSpace_v V]
+variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [InnerProductSpace_v V]
 open Function Set VectorSpace Real
 
 
@@ -128,6 +130,98 @@ def norm_v (v : V) : ℝ := Real.sqrt ⟪v, v⟫.re
 DefinitionDoc norm_v as "Norm"
 
 NewDefinition InnerProductSpace_v norm_v
+
+/--
+## Summary
+
+`case` allows you to prove different cases of a goal separately. Often appears after using tactics like `cases'` or `split`.
+
+## Syntax
+
+- `case pos => tactic` - Proves the positive case
+- `case neg => tactic` - Proves the negative case
+- `case tag => tactic` - Proves the case with the given tag
+
+## Example
+
+After `split` on an if-then-else:
+```
+split
+case pos =>
+  -- Prove the case when condition is true
+  sorry
+case neg =>
+  -- Prove the case when condition is false
+  sorry
+```
+-/
+TacticDoc «case»
+
+/--
+## Summary
+
+`ring_nf` normalizes expressions in rings (structures with +, -, *, 0, 1). It expands and simplifies polynomial expressions.
+
+## Example
+
+`ring_nf` will simplify:
+- `(x + y)^2` to `x^2 + 2*x*y + y^2`
+- `x * (y + z) - x * y` to `x * z`
+
+## Common usage
+
+Use when you need to expand products, simplify polynomial expressions, or normalize ring calculations.
+-/
+TacticDoc ring_nf
+
+/--
+## Summary
+
+`field_simp` simplifies expressions involving division in fields. It clears denominators and simplifies fractions.
+
+## Example
+
+`field_simp` will simplify:
+- `x / y * y` to `x` (assuming `y ≠ 0`)
+- `1 / x + 1 / y` to `(y + x) / (x * y)`
+
+## Common usage
+
+Essential when working with fractions, division, or expressions with denominators in fields.
+-/
+TacticDoc field_simp
+
+/--
+## Summary
+
+`norm_cast` normalizes type coercions between numeric types. It pushes coercions as far inward as possible.
+
+## Example
+
+`norm_cast` will transform:
+- `↑(n + m) = ↑n + ↑m` where the coercions are from ℕ to ℝ
+- `↑n < ↑m ↔ n < m` for appropriate coercions
+
+## Common usage
+
+Use when dealing with mixed numeric types (ℕ, ℤ, ℚ, ℝ, ℂ) to simplify coercion expressions.
+-/
+TacticDoc norm_cast
+
+/-- `mul_le_mul_of_nonneg_right` allows multiplying inequalities by nonnegative values on the right. -/
+TheoremDoc mul_le_mul_of_nonneg_right as "mul_le_mul_of_nonneg_right" in "Inner Product"
+
+/-- `div_mul_cancel` shows that division followed by multiplication cancels. -/
+TheoremDoc div_mul_cancel as "div_mul_cancel" in "Inner Product"
+
+/-- `sq_eq_sq₀` relates squared values. -/
+TheoremDoc sq_eq_sq₀ as "sq_eq_sq₀" in "Inner Product"
+
+/-- `sq_nonneg` shows that squares are nonnegative. -/
+TheoremDoc sq_nonneg as "sq_nonneg" in "Inner Product"
+
+NewTactic «case» ring_nf field_simp norm_cast
+NewTheorem mul_le_mul_of_nonneg_right div_mul_cancel sq_eq_sq₀ sq_nonneg
 
 NewTheorem Real.sqrt_nonneg LinearAlgebraGame.inner_self_im_zero LinearAlgebraGame.inner_self_nonneg LinearAlgebraGame.inner_self_eq_zero LinearAlgebraGame.inner_add_left LinearAlgebraGame.inner_smul_left LinearAlgebraGame.inner_conj_symm
 
