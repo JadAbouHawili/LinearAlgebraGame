@@ -1,4 +1,4 @@
-import Game.Metadata.Metadata
+import Game.Metadata
 
 World "TutorialWorld"
 Level 3
@@ -17,7 +17,7 @@ goal to `x + x = 2`.
 
 ## Other usage
 
-The `intro` tactic also works with goals using `∀` (\"for all\"). If your goal is of the form `∀ x : T, P`,
+The `intro` tactic also works with goals using `∀` ("for all"). If your goal is of the form `∀ x : T, P`,
 `intro x` will create a new variable `x : T`, and change the goal to `P`.
 
 ## Example
@@ -84,4 +84,6 @@ Statement (P : Prop) : P → P := by
 
 Conclusion "
 You now know how to use the `intro` and `exact` tactics!
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "

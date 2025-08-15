@@ -1,4 +1,4 @@
-import Game.Metadata.Metadata
+import Game.Metadata
 
 World "TutorialWorld"
 Level 4
@@ -32,6 +32,8 @@ Our goal is to prove `P ∧ Q`, \"P and Q\", given hypotheses `p: P` and `q: Q`.
 The `constructor` tactic works by splitting up the goal. If you have a goal `P ∧ Q`, the tactic makes
 progress by turning this one goal into two goals: to prove `P` and to prove `Q`. Constructor also
 works similarly for `↔` \"if and only if\" goals.
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 Statement (P Q : Prop) (p : P) (q : Q) : P ∧ Q := by

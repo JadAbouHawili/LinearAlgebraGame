@@ -49,7 +49,7 @@ This level requires multiple new theorems, particularly ones about Finsets and s
 about vector spaces that can be proven quite easily, but they are still nice to have without needing
 to prove them first. Instead of explaining them all here, you can look at them on the right side of
 the screen. The new theorems are: `coe_union`, `union_subset`, `sub_smul`, 'sum_add_distrib', 'sum_sub_distrib',
-`subset_union_left`, `subset_union_right`, `sum_subset`, `sub_eq_zero`, and `not_mem_union`.
+`subset_union_left`, `subset_union_right`, `sum_subset`, `sub_eq_zero`, and `notMem_union`.
 If you need more theorems, you can either prove them in lemmas, or if you want, you can go to the world
 select menu and turn \"Rules\" to \"none\", which should allow you to use any tactic or theorem in Lean.
 
@@ -167,10 +167,10 @@ TheoremDoc sub_smul as "sub_smul" in "Vector Spaces"
 TheoremDoc sub_eq_zero as "sub_eq_zero" in "Groups"
 
 /--
-`not_mem_union` is the contrapositive of the definition of a union of sets. It states that if
+`notMem_union` is the contrapositive of the definition of a union of sets. It states that if
 `v ∉ a ∪ b`, then `v ∉ a ∧ v ∉ b`
 -/
-TheoremDoc Finset.not_mem_union as "not_mem_union" in "Sets"
+TheoremDoc Finset.notMem_union as "notMem_union" in "Sets"
 
 /--
 `linear_combination_unique` is a proof that representation as a linear combination of a linearly independent
@@ -180,12 +180,12 @@ must be equal. In this case, this prooves that functions will be equal.
 -/
 TheoremDoc LinearAlgebraGame.linear_combination_unique as "linear_combination_unique" in "Vector Spaces"
 
-NewTheorem Finset.coe_union Finset.sum_add_distrib Finset.sum_sub_distrib Finset.sum_subset sub_smul sub_eq_zero Finset.not_mem_union
+NewTheorem Finset.coe_union Finset.sum_add_distrib Finset.sum_sub_distrib Finset.sum_subset sub_smul sub_eq_zero Finset.notMem_union
 
 NewTactic by_cases funext specialize
 
 open VectorSpace Set Finset
-variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
+variable (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V] [DecidableEq V]
 
 Statement linear_combination_unique
 {S : Set V} (hS : linear_independent_v K V S)
@@ -195,50 +195,65 @@ Statement linear_combination_unique
 f = g := by
   Hint "First, note that you have a goal of proving two functions equal. Try to instead prove it for
   an arbitrary value."
+  Hint "The `funext` tactic is powerful for proving function equality - it says f = g if f(x) = g(x) for all x."
   Hint (hidden := true) "Try `funext x`"
   funext x
 
   Hint "Now, we can split into cases where either x ∈ (s ∪ t) or not."
+  Hint "This case split is crucial: if x is in the union, we'll use linear independence; if not, both functions are zero."
   Hint (hidden := true) "Try `by_cases h : x ∈ (s ∪ t)`"
   by_cases h : x ∈ (s ∪ t)
+  Hint "Case 1: x ∈ (s ∪ t). Let's unfold the definition of linear independence."
   Hint (hidden := true) "Try `unfold linear_independent_v at hS`"
   unfold linear_independent_v at hS
 
   Hint "Think about the forwards proof. What set and function are we summing over when applying the linear independence of S?"
+  Hint "Key insight: We'll apply linear independence to the difference function (f - g) over the union s ∪ t."
+  Hint "This is because if two linear combinations are equal, their difference equals zero!"
   Hint (hidden := true) "Try `specialize hS (s ∪ t) (f - g)`"
   specialize hS (s ∪ t) (f - g)
 
   Hint "We now want to show `↑(s ∪ t) ⊆ S`. This is a type casted union. Instead, we want a union of
   type casts, so that we can use theorems having to do with unions. One of the theorems should help with this"
+  Hint "The `coe_union` theorem tells us that ↑(s ∪ t) = ↑s ∪ ↑t, which is what we need."
   Hint (hidden := true) "Try `rw[coe_union] at hS`"
   rw[coe_union] at hS
 
+  Hint "Now we can use the fact that both s and t are subsets of S to show their union is too."
   Hint (hidden := true) "Try `specialize hS (union_subset hs ht)`"
   specialize hS (union_subset hs ht)
 
   Hint "We need to show that the sum of the difference function equals zero."
   Hint "This follows from our helper lemma about equal linear combinations."
+  Hint "The key idea: if Σf = Σg, then Σ(f-g) = 0."
   Hint (hidden := true) "Try `have lemmaSumDiffEqZero := sum_diff_eq_zero_of_equal_combinations K V s t f g hf0 hg0 heq`"
   have lemmaSumDiffEqZero := sum_diff_eq_zero_of_equal_combinations K V s t f g hf0 hg0 heq
 
   Hint "Now, we simply have to prove the requirements of hS"
+  Hint "We're applying the linear independence property with our zero sum."
   Hint (hidden := true) "Try `specialize hS lemmaSumDiffEqZero`"
   specialize hS lemmaSumDiffEqZero
 
+  Hint "Apply the linear independence conclusion to our specific vector x."
   Hint (hidden := true) "Try `specialize hS x h`"
   specialize hS x h
 
   Hint "We know now from hS that f x - g x = 0, and one of the new theorems lets us finish the proof.
   Remember that if you have a proof of `↔`, `.1` will be a proof of the forwards direction and `.2` the
   backwards."
+  Hint "The `sub_eq_zero` theorem says a - b = 0 ↔ a = b. We want the forward direction."
   Hint (hidden := true) "Try `exact sub_eq_zero.1 hS`"
   exact sub_eq_zero.1 hS
 
-  Hint (hidden := true) "Try `rw[not_mem_union] at h`"
+  Hint "Case 2: x ∉ (s ∪ t). This means x is neither in s nor in t."
+  Hint "In this case, both f(x) and g(x) are zero by our hypotheses hf0 and hg0."
+  Hint (hidden := true) "Try `rw[Finset.notMem_union] at h`"
+  Hint "Split the negation of the union into two parts."
   Hint (hidden := true) "Try `cases' h with hxs hxt`"
   Hint "Note: The game may appear to stall after the next step. If it does, you can proceed to the next level - the proof is complete."
+  Hint "Both functions are zero outside their domains, so f(x) = 0 = g(x)."
   Hint (hidden := true) "Try `rw[hf0 x hxs, hg0 x hxt]`"
-  rw[not_mem_union] at h
+  rw[Finset.notMem_union] at h
   cases' h with hxs hxt
   rw[hf0 x hxs, hg0 x hxt]
 

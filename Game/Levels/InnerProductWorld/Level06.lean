@@ -19,6 +19,8 @@ this, we can calculate our sum as `u = (⟪u,v⟫ / (‖v‖^2)) • v + (u - (�
 is trivial, since we are adding and subtracting the same vector to `u` on the right side. Also,
 `(⟪u,v⟫ / (‖v‖^2)) • v` is clearly a scalar multiple of `v`. The only thing we have to prove is that
 `v` is orthogonal to `u - ((⟪u,v⟫ / (‖v‖^2)) • v)`.
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 /--
@@ -27,7 +29,7 @@ This allows you to rewrite `u` as a scalar multiple of `v` added to a vector ort
 -/
 TheoremDoc LinearAlgebraGame.ortho_decom as "ortho_decom" in "Inner Product"
 
-variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [DecidableEq V] [InnerProductSpace_v V]
+variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [InnerProductSpace_v V]
 open Function Set VectorSpace Real InnerProductSpace_v Complex
 
 Statement ortho_decom (u v : V) (h : v ≠ 0) : orthogonal (u - (⟪u,v⟫ / (‖v‖^2)) • v) v := by
@@ -48,14 +50,19 @@ Statement ortho_decom (u v : V) (h : v ≠ 0) : orthogonal (u - (⟪u,v⟫ / (�
   Hint (hidden := true) "Try `ring_nf`"
   ring_nf
   Hint "The key step: cancel ⟪v,v⟫ in numerator and denominator."
-  Hint (hidden := true) "Try `rw[mul_assoc, mul_inv_cancel]`"
-  rw[mul_assoc, mul_inv_cancel]
-  Hint (hidden := true) "Try `simp`"
-  simp
+  Hint (hidden := true) "Try `rw[mul_assoc]` then use `suffices` to show ⟪v,v⟫ ≠ 0"
+  rw[mul_assoc]
   Hint "We need v ≠ 0 to ensure ⟪v,v⟫ ≠ 0 for cancellation."
-  Hint (hidden := true) "Try `intro x`"
-  intro x
-  Hint (hidden := true) "Try `exact h ((inner_self_eq_zero v).1 x)`"
-  exact h ((inner_self_eq_zero v).1 x)
+  Hint (hidden := true) "Try `suffices h_nonzero : ⟪v, v⟫ ≠ 0`"
+  suffices h_nonzero : ⟪v, v⟫ ≠ 0
+  Hint (hidden := true) "Try `field_simp [h_nonzero]`"
+  · field_simp [h_nonzero]
+  Hint "Now prove that ⟪v,v⟫ ≠ 0 when v ≠ 0"
+  Hint (hidden := true) "Try `intro contr`"
+  intro contr
+  Hint (hidden := true) "Try `apply h`"
+  apply h
+  Hint (hidden := true) "Try `exact (inner_self_eq_zero v).1 contr`"
+  exact (inner_self_eq_zero v).1 contr
 
 end LinearAlgebraGame

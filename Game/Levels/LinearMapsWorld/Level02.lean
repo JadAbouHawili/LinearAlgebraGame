@@ -21,11 +21,13 @@ $$\\text{null } T = \\{v \\in V : T(v) = 0_W\\}$$
 
 ### Your Goal
 Prove that zero is always in the null space of any linear map.
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 open VectorSpace
 variable (K V W : Type) [Field K] [AddCommGroup V] [AddCommGroup W] 
-variable [DecidableEq V] [DecidableEq W] [VectorSpace K V] [VectorSpace K W]
+variable [VectorSpace K V] [VectorSpace K W]
 
 /--
 **Educational Definition: Null Space**
@@ -59,8 +61,8 @@ Statement zero_in_null_space (T : V → W) (hT : is_linear_map_v K V W T) :
   Hint (hidden := true) "Try `show T 0 = 0`"
   show T 0 = 0
   Hint "Use the homogeneity property of linear maps with a = 0."
-  Hint (hidden := true) "Try `have h : T (0 • (0 : V)) = 0 • T 0 := hT.2 0 0`"
-  have h : T (0 • (0 : V)) = 0 • T 0 := hT.2 0 0
+  Hint (hidden := true) "Try `have h : T ((0 : K) • (0 : V)) = (0 : K) • T 0 := hT.2 (0 : K) 0`"
+  have h : T ((0 : K) • (0 : V)) = (0 : K) • T 0 := hT.2 (0 : K) 0
   Hint "Simplify: 0 • v = 0 for any vector v."
   Hint (hidden := true) "Try `simp at h`"
   simp at h

@@ -42,6 +42,10 @@ This introductory level uses a trivial proof to get you comfortable with the int
 Ready to begin your journey into vector spaces? Let's prove our first statement!
 "
 
+TacticDoc trivial "The `trivial` tactic solves simple goals that are trivially true."
+
+NewTactic trivial
+
 Statement : True := by trivial
 
 Conclusion 

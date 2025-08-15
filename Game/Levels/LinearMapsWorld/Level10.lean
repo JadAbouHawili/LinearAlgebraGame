@@ -34,11 +34,13 @@ Following the approach in Linear Algebra Done Right: *Suppose V and W are finite
 
 ### Your Goal
 Prove the fundamental connection between injectivity and surjectivity for equal-dimensional spaces.
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 open VectorSpace
 variable (K V W : Type) [Field K] [AddCommGroup V] [AddCommGroup W] 
-variable [DecidableEq V] [DecidableEq W] [VectorSpace K V] [VectorSpace K W]
+variable [VectorSpace K V] [VectorSpace K W]
 
 -- Custom basis definition following Axler's approach
 /--

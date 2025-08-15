@@ -18,6 +18,8 @@ The `apply_fun` tactic is used to apply functions to both sides of an equality. 
 hypotheses, not in the goal. The syntax is `apply_fun (fun x => f x) at h`. If `h : a = b` is a proof,
 then this will change `h` to `h : f a = f b`. This tactic can be very helpful, as squaring a square root
 cancels out the operation.
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 /--
@@ -53,7 +55,7 @@ NewTheorem Real.sq_sqrt Complex.ext
 
 TheoremTab "ℂ"
 
-variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [DecidableEq V] [InnerProductSpace_v V]
+variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [InnerProductSpace_v V]
 open Function Set VectorSpace Real InnerProductSpace_v Complex
 
 Statement norm_zero_v (v: V): norm_v v = 0 ↔ v = 0 := by

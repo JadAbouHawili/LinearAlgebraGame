@@ -29,8 +29,8 @@ import Mathlib.Tactic.Clear_
 import Mathlib.Tactic.Coe
 import Mathlib.Tactic.Common
 import Mathlib.Tactic.ComputeDegree-/
-import Mathlib.Tactic.Congr!
-import Mathlib.Tactic.Congrm
+-- import Mathlib.Tactic.Congr!
+-- import Mathlib.Tactic.Congrm
 import Mathlib.Tactic.Constructor
 /-import Mathlib.Tactic.Continuity
 import Mathlib.Tactic.Continuity.Init
@@ -94,7 +94,7 @@ import Mathlib.Tactic.Lemma
 import Mathlib.Tactic.LiftLets-/
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.Linarith.Datatypes
-import Mathlib.Tactic.Linarith.Elimination
+-- import Mathlib.Tactic.Linarith.Elimination
 import Mathlib.Tactic.Linarith.Frontend
 import Mathlib.Tactic.Linarith.Lemmas
 import Mathlib.Tactic.Linarith.Parsing
@@ -157,7 +157,7 @@ import Mathlib.Tactic.Rename
 import Mathlib.Tactic.RenameBVar
 import Mathlib.Tactic.Replace
 import Mathlib.Tactic.RewriteSearch-/
-import Mathlib.Tactic.Rewrites
+-- import Mathlib.Tactic.Rewrites
 /-import Mathlib.Tactic.Rify
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Ring.Basic

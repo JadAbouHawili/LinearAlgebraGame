@@ -1,41 +1,43 @@
 FROM node:20
 
-# Install bubblewrap for lean4game security sandboxing in production
-RUN apt-get update && apt-get install -y bubblewrap && rm -rf /var/lib/apt/lists/*
+# Install bubblewrap for lean4game security sandboxing in production and sudo for permissions
+RUN apt-get update && apt-get install -y bubblewrap sudo git && rm -rf /var/lib/apt/lists/*
+
+# Allow node user to use sudo without password (for development)
+RUN echo "node ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 WORKDIR /
 
 COPY ./lean-toolchain /lean-toolchain
 
+# Switch to node user for elan installation
 USER node
 
-WORKDIR /home/node
-
-RUN export LEAN_VERSION="$(cat /lean-toolchain | grep -oE '[^:]+$')" && git clone --depth 1 --branch $LEAN_VERSION https://github.com/leanprover-community/lean4game.git
-
-WORKDIR /
-
-USER root
-
-ENV ELAN_HOME=/usr/local/elan \
-  PATH=/usr/local/elan/bin:$PATH
-
-SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
+# Install elan as node user in their home directory
+ENV ELAN_HOME=/home/node/.elan
+ENV PATH=/home/node/.elan/bin:$PATH
 
 RUN export LEAN_VERSION="$(cat /lean-toolchain)" && \
-  curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- -y --no-modify-path --default-toolchain $LEAN_VERSION; \
-    chmod -R a+w $ELAN_HOME; \
-    elan --version; \
-    lean --version; \
-    leanc --version; \
-    lake --version;
+  curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- -y --no-modify-path --default-toolchain $LEAN_VERSION && \
+  /home/node/.elan/bin/elan --version && \
+  /home/node/.elan/bin/lean --version && \
+  /home/node/.elan/bin/leanc --version && \
+  /home/node/.elan/bin/lake --version
+
+# Go back to root for copying files
+USER root
 
 # Copy the startup script
 COPY start-server.sh /home/node/start-server.sh
-RUN chmod +x /home/node/start-server.sh
+RUN chmod +x /home/node/start-server.sh && \
+    chown node:node /home/node/start-server.sh
 
 USER node
 WORKDIR /home/node/game
+
+# Ensure PATH includes elan binaries for node user
+ENV PATH="/home/node/.elan/bin:${PATH}"
+ENV ELAN_HOME="/home/node/.elan"
 
 # Copy dependency files first for better Docker layer caching
 COPY --chown=node:node lakefile.lean lake-manifest.json lean-toolchain ./
@@ -44,6 +46,10 @@ COPY --chown=node:node lakefile.lean lake-manifest.json lean-toolchain ./
 RUN echo "Updating Lake dependencies..." && lake update -R
 RUN echo "Getting mathlib cache (this should speed up build significantly)..." && \
     lake exe cache get --force || echo "Cache get failed, will build from source (slower)"
+
+# Clone lean4game repository
+RUN git clone https://github.com/leanprover-community/lean4game.git --branch v4.21.0 /home/node/lean4game && \
+    chown -R node:node /home/node/lean4game
 
 # Pre-install npm dependencies during Docker build to avoid runtime timeouts
 RUN echo "Pre-installing npm dependencies for lean4game..." && \

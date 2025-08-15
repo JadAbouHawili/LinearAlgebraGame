@@ -55,7 +55,7 @@ class InnerProductSpace_v (V : Type) [AddCommGroup V] [VectorSpace ℂ V] where
 notation "⟪" x "," y "⟫" => InnerProductSpace_v.inner x y
 
 
-variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [DecidableEq V] [InnerProductSpace_v V]
+variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V]  [InnerProductSpace_v V]
 
 -- Create theorem aliases for class fields that are used in TheoremDoc
 theorem inner_self_im_zero (v : V) : (⟪v, v⟫).im = 0 := 
@@ -208,7 +208,7 @@ theorem inner_smul_right_v (a : ℂ) (v w : V) :
 
 
 
-variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [DecidableEq V] [InnerProductSpace_v V]
+variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V]  [InnerProductSpace_v V]
 
 
 noncomputable def norm_v (v:V) : ℝ := Real.sqrt ⟪v, v⟫.re

@@ -25,6 +25,8 @@ mapping vectors to the scalars that multiply those vectors, and use `Finset.sum`
 ### The Goal
 The goal of this level is to prove that the empty set is linearly independent. This makes sense,
 because there are no vectors in the empty set that can be scaled be a non-zero factor.
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 /--
@@ -50,7 +52,7 @@ DefinitionDoc linear_independent_v as "linear_independent_v"
 NewDefinition linear_independent_v
 
 open VectorSpace
-variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
+variable (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V]
 
 /-- A set of vectors $S$ is **linearly independent** if no vector in $S$ can be written as a linear combination of the others. Equivalently, the only solution to a linear combination of elements of $S$ equaling zero is the trivial solution (all coefficients zero). Here we formalize this condition. -/
 def linear_independent_v (S : Set V) : Prop :=
@@ -64,7 +66,7 @@ Statement linear_independent_empty : linear_independent_v K V (∅ : Set V) := b
   Hint "Here, we have many ∀ and → statements in the goal. Try to move these variables to the hypotheses"
   Hint (hidden := true) "Try `intros s f hs sum_zero v hv`"
   intros _s f hs _sum_zero v hv
-  Hint "We now have a hypothesis `{hv}: v ∈ {_s}` and `{hs} : `↑{_s} ⊆ ∅`. This may be a contradiction,
+  Hint "We now have a hypothesis `{hv}: v ∈ {_s}` and `{hs} : ↑{_s} ⊆ ∅`. This may be a contradiction,
   so maybe we can chang eour goal to `False` and prove that"
   Hint (hidden := true) "Try `exfalso`"
   exfalso

@@ -19,6 +19,8 @@ def span (S : Set V) : Set V :=
 ### The Goal
 The goal of this level is to prove that if a vector `v ∈ S`, then `v` is in the span of `S`. This feels
 very similar to the previous level, so you can use the theorem proved in the previous level in this one.
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 /--
@@ -37,7 +39,7 @@ DefinitionDoc span as "span"
 NewDefinition span
 
 open VectorSpace
-variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
+variable (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V]
 
 def span (S : Set V) : Set V :=
   { x : V | is_linear_combination K V S x }
@@ -52,7 +54,7 @@ Statement mem_span_of_mem {S : Set V} {v : V} (hv : v ∈ S) : v ∈ span K V S 
   Hint (hidden := true) "Try `simp`"
   simp
   Hint "This seems familiar"
-  Hint (hidden := true) "Try 'exact linear_combination_of_mem K V hv`"
+  Hint (hidden := true) "Try `exact linear_combination_of_mem K V hv`"
   exact linear_combination_of_mem K V hv
 
 Conclusion "You could have actually solved this level with simply an `exact linear_combination_of_mem K V hv`.

@@ -1,4 +1,4 @@
-import Game.Levels.LinearIndependenceSpanWorld.Level07
+import Game.Levels.LinearIndependenceSpanWorld.Level08
 
 namespace LinearAlgebraGame
 
@@ -29,13 +29,11 @@ Linear maps are the structure-preserving functions of linear algebra. They respe
 Prove that our definition captures exactly these two fundamental properties. 
 
 In Lean, we define `is_linear_map_v K V W T` (see Definitions panel) to formalize exactly what it means for a function T to be linear.
-
-**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 open VectorSpace
 variable (K V W : Type) [Field K] [AddCommGroup V] [AddCommGroup W] 
-variable [VectorSpace K V] [VectorSpace K W]
+variable [DecidableEq V] [DecidableEq W] [VectorSpace K V] [VectorSpace K W]
 
 /--
 **Educational Definition: Linear Map**
@@ -56,59 +54,6 @@ def is_linear_map_v (T : V → W) : Prop :=
 DefinitionDoc is_linear_map_v as "is_linear_map_v"
 
 NewDefinition is_linear_map_v
-
-/--
-## Summary
-
-`ext` proves two functions are equal by showing they agree at every point. It's the "extensionality" tactic.
-
-## Example
-
-If your goal is to prove `f = g` where `f` and `g` are functions, then:
-```
-ext x
--- Goal changes to: f x = g x
-```
-
-This reduces proving function equality to proving pointwise equality.
-
-## Common usage
-
-Essential for proving equality of linear maps, where you need to show `T₁ = T₂` by proving `T₁ v = T₂ v` for all `v`.
--/
-TacticDoc ext
-
-/--
-## Summary
-
-`show` lets you explicitly state what you're trying to prove. It helps clarify complex goals.
-
-## Syntax
-
-`show P` where `P` is the statement you want to prove
-
-## Example
-
-If your goal is `(0 : V) ∈ null_space_v K V W T`, you can write:
-```
-show T 0 = 0
-```
-to clarify that you're proving `T` maps zero to zero.
-
-## Common usage
-
-Useful when the goal involves definitions that need to be unfolded, or when you want to make your proof more readable.
--/
-TacticDoc «show»
-
-/-- `smul_zero` says that scalar multiplication of zero gives zero: `a • 0 = 0`. -/
-TheoremDoc smul_zero as "smul_zero" in "Linear Maps"
-
-/-- `zero_smul` says that the zero scalar times any vector is zero: `0 • v = 0`. -/
-TheoremDoc zero_smul as "zero_smul" in "Linear Maps"
-
-NewTactic ext «show»
-NewTheorem smul_zero zero_smul
 
 /--
 A linear map preserves vector addition and scalar multiplication.

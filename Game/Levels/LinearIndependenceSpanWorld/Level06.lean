@@ -21,6 +21,8 @@ ones, slowly changing your hypotheses to the goal, instead of changing your goal
 The syntax for a `have` statement is `have h : 0 • v = 0 := zero_smul_v v`. The `h` is the name of your
 new hypothesis, `0 • v = 0` is the statement of the hypothesis, and `zero_smul_v v` is the proof of the
 new hypothesis. You can read more about the tactic on the right side of the screen.
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 /--
@@ -60,7 +62,7 @@ TheoremDoc LinearAlgebraGame.subset_linear_independent as "subset_linear_indepen
 NewTactic «have»
 
 open VectorSpace
-variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
+variable (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V]
 
 /-- If `A` is a linearly independent set, and we have `B ⊆ A`, then `B` is also linearly independent. -/
 Statement subset_linear_independent {A B : Set V} (hBsubA : B ⊆ A) (hA : linear_independent_v K V A) :

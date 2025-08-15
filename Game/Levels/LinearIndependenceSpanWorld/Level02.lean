@@ -37,10 +37,12 @@ For example, to write `f(x) = x²`, we can say `fun x => x * x`.
 Since the levels in this world will become more difficult than in the last world, you are again allowed
 to use the `simp` tactic. It is able to solve most simple equalities with vectors, and helps greatly
 when trying to simplify properties of sets.
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 open VectorSpace
-variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
+variable (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V]
 
 /--  Linear Combination**
 A vector $x$ is called a **linear combination** of a set $S$ if it can be expressed as a finite sum of elements of $S$ scaled by scalars in the field. Here we formalize this concept. ∑ v in s, f v • v-/
@@ -77,8 +79,8 @@ Statement linear_combination_of_mem {S : Set V} {v : V} (hv : v ∈ S) : is_line
   Hint (hidden := true) "Try `use \{v}`"
   use {v}
   Hint "Now, you have to specify the function you are using to map vectors to the scalars they will be multiplied by. After this step, you'll need to use `simp` to simplify the goal."
-  Hint (hidden := true) "Try `use (fun _x => 1)`"
-  use (fun _x => 1)
+  Hint (hidden := true) "Try `use (fun w => 1)`"
+  use (fun w => 1)
   Hint "Now you need to show that this construction satisfies the required properties."
   Hint "This is an and statement, so you could use the `constructor` tactic and work from there. Instead, try `simp` and see what happens"
   simp

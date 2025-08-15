@@ -32,24 +32,26 @@ as input, so Lean doesn't know which field \"K\" to use to get the \"1\" from. T
 ### `neg_add_self` theorem
 In order to work with negatives, we also have the theorem `neg_add_self`. This is a proof that `-x + x = 0`.
 Similarly to `zero_add`, this theorem works in both K and V. This allows you to cancel out negatives.
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 /--
-`neg_add_self` is a proof that "-x + x = 0. This holds whether x is in K or V.
+`neg_add_cancel` is a proof that "-x + x = 0. This holds whether x is in K or V.
 -/
-TheoremDoc neg_add_self as "neg_add_self" in "Groups"
+TheoremDoc neg_add_cancel as "neg_add_cancel" in "Groups"
 
 /--
-`neg_add_self` is a proof that "-x + x = 0. This holds whether x is in K or V.
+`add_neg_cancel` is a proof that "x + -x = 0. This holds whether x is in K or V.
 -/
-TheoremDoc add_neg_self as "add_neg_self" in "Groups"
+TheoremDoc add_neg_cancel as "add_neg_cancel" in "Groups"
 
-NewTheorem neg_add_self add_neg_self
+NewTheorem neg_add_cancel add_neg_cancel
 
 DisabledTactic simp linarith
 
 open VectorSpace
-variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
+variable (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V]
 
 /--
 In any vector space V over K, multiplying a vector by -1 gives its additive inverse.
@@ -65,11 +67,11 @@ Statement neg_one_smul_v (v : V) : (-1 : K) • v = -v := by
   Hint (hidden := true) "Try `rw[(add_smul (-1 : K) (1 : K) v).symm]`"
   rw [(add_smul (-1 : K) (1 : K) v).symm]
   Hint "Simplify the scalar: -1 + 1 = 0."
-  Hint (hidden := true) "Try `rw[neg_add_self]`"
-  rw[neg_add_self]
+  Hint (hidden := true) "Try `rw[neg_add_cancel]`"
+  rw[neg_add_cancel]
   Hint "Simplify the right side: -v + v = 0."
-  Hint (hidden := true) "Try `rw[neg_add_self]`"
-  rw[neg_add_self]
+  Hint (hidden := true) "Try `rw[neg_add_cancel]`"
+  rw[neg_add_cancel]
   Hint "Now we have 0 • v = 0, which we proved in Level 1. Use the zero_smul_v theorem."
   Hint (hidden := true) "Try `exact zero_smul_v K V v`"
   exact zero_smul_v K V v

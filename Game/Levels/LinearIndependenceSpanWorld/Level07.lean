@@ -24,6 +24,8 @@ The goal is to prove that the span of `B` is also `T`.
 When working with sets, a very useful theorem is `Set.eq_of_subset_of_subset`. This theorem shows that
 two sets are equal if and only if they are subsets of each other. So, if you have a goal of the form
 `A = B`, `apply Set.eq_of_subset_of_subset` will change the goal into two goals: `A ⊆ B`, and `B ⊆ A`.
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 /--
@@ -44,7 +46,7 @@ TheoremDoc Set.eq_of_subset_of_subset as "eq_of_subset_of_subset" in "Sets"
 NewTheorem Set.eq_of_subset_of_subset
 
 open VectorSpace Set
-variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
+variable (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V]
 
 /-- If a set $A$ spans the whole space $V$, then any superset of $A$ also spans $V`.-/
 Statement superset_span_full {A B T: Set V} (hT: ∀ (x : V), x ∈ T)(hA : T = span K V A) (hAsubB : A ⊆ B) :
@@ -55,8 +57,8 @@ Statement superset_span_full {A B T: Set V} (hT: ∀ (x : V), x ∈ T)(hA : T = 
   rw [hA]
   Hint (hidden := true) "Try `exact span_mono K V hAsubB`"
   exact span_mono K V hAsubB
-  Hint (hidden := true) "Try `intros x _ssg`"
-  intros x _ssg
+  Hint (hidden := true) "Try `intros x hx_in_spanB`"
+  intros x hx_in_spanB
   Hint (hidden := true) "Try `exact hT x`"
   exact hT x
 

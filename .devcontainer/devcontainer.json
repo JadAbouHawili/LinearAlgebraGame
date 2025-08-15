@@ -12,6 +12,7 @@
   // I don't know why I need this, but I did...
   "overrideCommand": true,
   "onCreateCommand": {
+    "fix_permissions": "bash /home/node/game/.devcontainer/fix-permissions.sh",
     "npm_install": "(cd ~/lean4game && npm install) || echo \"ERROR: `cd ~/lean4game && npm install` failed\", try running it manually in your dev-container!",
     "lake_build": "(cd ~/game && lake update -R && lake build) || echo \"ERROR: `cd ~/game && lake update -R && lake exe cache get && lake build` failed!, try running it manually in your dev-container!\""
   },

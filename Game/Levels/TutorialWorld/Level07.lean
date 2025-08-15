@@ -1,4 +1,4 @@
-import Game.Metadata.Metadata
+import Game.Metadata
 
 World "TutorialWorld"
 Level 7
@@ -24,6 +24,8 @@ Introduction "
 The `linarith` tactic aims to simplify the process of proofs. Specifically, it solves certain kinds
 of linear equalities and inequalities. It attempts to solve or simplify the goal using the hypotheses
 and certain properties of the numbers you are working with.
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 Statement (x y a b : ℝ) (h1 : x < y) (h2: a < b) : x + a < y + b := by

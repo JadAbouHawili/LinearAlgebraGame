@@ -30,11 +30,13 @@ This level establishes that injective linear maps preserve essential structural 
 
 ### Your Goal
 Prove that if T is injective and maps v to w, then v ≠ 0 if and only if w ≠ 0.
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 open VectorSpace
 variable (K V W : Type) [Field K] [AddCommGroup V] [AddCommGroup W] 
-variable [DecidableEq V] [DecidableEq W] [VectorSpace K V] [VectorSpace K W]
+variable [VectorSpace K V] [VectorSpace K W]
 
 -- We'll use a simplified version that avoids complex dimension theory
 -- but still captures the essential idea

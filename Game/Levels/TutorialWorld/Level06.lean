@@ -1,4 +1,4 @@
-import Game.Metadata.Metadata
+import Game.Metadata
 
 World "TutorialWorld"
 Level 6
@@ -61,6 +61,8 @@ can be split into cases, `cases' x with c1 c2` will split `x` into cases called 
 The `exfalso` tactic is also useful in this level. It simply changes the goal to `False`. This works
 because if you can prove `False`, you have a contradiction, and can thus prove any statements. For
 example, if you have a hypothesis `h: False`, and a goal `Q`, `exfalso; exact h` will solve the goal.
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 Statement (P Q : Prop) : (P ∧ ¬ P) → Q := by
