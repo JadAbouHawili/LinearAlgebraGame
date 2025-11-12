@@ -45,10 +45,10 @@ Each world:
 
 ## Key Dependencies
 
-- **Lean 4.7.0** - The proof assistant
-- **mathlib 4.7.0** - Comprehensive mathematics library
-- **lean4game** - Game framework (local or remote depending on `LEAN4GAME` env var)
-- **checkdecls** - Declaration checking tool (currently experiencing compatibility issues)
+- **Lean 4.21.0** - The proof assistant (latest version)
+- **mathlib 4.21.0** - Comprehensive mathematics library
+- **lean4game 4.21.0** - Game framework (local or remote depending on `LEAN4GAME` env var)
+- **checkdecls** - Declaration checking tool for blueprint verification (working)
 
 ## Development Workflow
 
@@ -81,19 +81,22 @@ For local development with the game framework:
 - **World Organization**: Sequential progression with dependency management
 - **Educational Design**: Focuses on proof techniques rather than computation
 
-## Known Issues
+## Blueprint System
 
-### Blueprint CI Failure (Commit 26b662f)
-The blueprint setup commit fails in CI due to checkdecls compatibility issues:
-- **Issue**: checkdecls package has syntax errors with current Lean 4.7.0
-- **Temporary Fix**: Checkdecls step is commented out in `.github/workflows/blueprint.yml`
-- **Resolution**: Need to update checkdecls to a compatible version or fix the syntax issue
-- **Files affected**: `lakefile.lean`, `blueprint/lean_decls`, `.github/workflows/blueprint.yml`
+### Blueprint Documentation
+The blueprint provides comprehensive mathematical documentation for all 45 levels across 5 worlds:
+- **Tutorial World**: 10 levels introducing Lean 4 tactics
+- **Vector Space World**: 6 levels on vector space fundamentals  
+- **Linear Independence & Span World**: 10 levels on independence and spanning sets
+- **Linear Maps World**: 11 levels on linear transformations
+- **Inner Product World**: 8 levels on inner products and norms
 
-### Checkdecls Usage
-- `blueprint/lean_decls` should list Lean declarations referenced in blueprint
-- Currently empty as blueprint content is minimal
-- Use `--` for comments in `lean_decls` file, not `#`
+### Checkdecls Integration
+- **checkdecls** package from PatrickMassot/checkdecls is installed and working
+- Verifies all Lean declarations referenced in the blueprint exist in the code
+- `blueprint/lean_decls` lists 60+ theorem declarations
+- CI workflow runs `lake exe checkdecls blueprint/lean_decls` to verify consistency
+- Use comments in `lean_decls` file starting with `--`
 
 ## Game Quality Issues Fixed (July 26, 2025)
 
@@ -159,8 +162,10 @@ Critical issue where proofs would hang after completion:
 - **Hint Issues**: 7 (improved player experience)
 - **Systematic Approach**: One reported issue led to discovering 3 additional similar problems
 
-## Screenshots Location
+## Screenshots and Images Location
 
-User screenshots are stored at: `/mnt/c/Users/zrtmr/OneDrive/Pictures/Screenshots`
+**Default picture folder**: `/mnt/e/pictures`
 
-Use this path to access screenshots when debugging game issues or reviewing user feedback.
+When asked to examine pictures or screenshots without a specific path, look in `/mnt/e/pictures` first.
+
+Additional screenshot location: `/mnt/c/Users/zrtmr/OneDrive/Pictures/Screenshots`
