@@ -21,6 +21,7 @@ This is the Pythagorean Theorem. If you have vectors `u v`, and `h : orthogonal 
 -/
 TheoremDoc LinearAlgebraGame.pythagorean as "pythagorean" in "Inner Product"
 
+NewTheorem LinearAlgebraGame.norm_sq_eq LinearAlgebraGame.inner_add_left LinearAlgebraGame.inner_conj_symm
 
 variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [InnerProductSpace_v V]
 open Function Set VectorSpace Real InnerProductSpace_v Complex

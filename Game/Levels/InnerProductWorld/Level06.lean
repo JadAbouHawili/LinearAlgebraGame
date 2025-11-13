@@ -29,6 +29,8 @@ This allows you to rewrite `u` as a scalar multiple of `v` added to a vector ort
 -/
 TheoremDoc LinearAlgebraGame.ortho_decom as "ortho_decom" in "Inner Product"
 
+NewTheorem LinearAlgebraGame.inner_self_nonneg LinearAlgebraGame.inner_self_eq_zero
+
 variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [InnerProductSpace_v V]
 open Function Set VectorSpace Real InnerProductSpace_v Complex
 

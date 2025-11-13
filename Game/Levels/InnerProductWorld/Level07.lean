@@ -33,6 +33,8 @@ This is one of the most important inequalities in linear algebra and analysis.
 -/
 TheoremDoc LinearAlgebraGame.Cauchy_Schwarz as "Cauchy_Schwarz" in "Inner Product"
 
+NewTheorem LinearAlgebraGame.norm_zero_v LinearAlgebraGame.pythagorean LinearAlgebraGame.inner_self_nonneg LinearAlgebraGame.inner_self_eq_zero LinearAlgebraGame.sca_mul LinearAlgebraGame.ortho_decom LinearAlgebraGame.norm_nonneg_v
+
 variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V]  [InnerProductSpace_v V]
 open Function Set VectorSpace Real InnerProductSpace_v Complex
 

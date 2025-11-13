@@ -41,6 +41,8 @@ a vector, `ortho_self_zero v` is a proof that `ortho v v ↔ v = 0`.
 -/
 TheoremDoc LinearAlgebraGame.ortho_self_zero as "ortho_self_zero" in "Inner Product"
 
+NewTheorem LinearAlgebraGame.inner_self_eq_zero
+
 variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [InnerProductSpace_v V]
 open Function Set VectorSpace Real InnerProductSpace_v Complex
 
