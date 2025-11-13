@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.7.14)  22 JUL 2025 18:07
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.7.14)  12 NOV 2025 16:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -705,61 +705,112 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ] (./content.tex
 (./chapters/tutorial.tex
 Chapter 1.
+[1
+
+]) (./chapters/vectorspaces.tex [2]
+Chapter 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00107pt on input line 10.
+(Font)              scaled to size 10.00107pt on input line 11.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00075pt on input line 10.
+(Font)              scaled to size 7.00075pt on input line 11.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00053pt on input line 10.
+(Font)              scaled to size 5.00053pt on input line 11.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 10.
+(Font)              scaled to size 9.99893pt on input line 11.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 10.
+(Font)              scaled to size 6.99925pt on input line 11.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 10.
-) (./chapters/vectorspaces.tex [1
+(Font)              scaled to size 4.99947pt on input line 11.
+[3
+
+] [4]) (./chapters/linearindependence.tex [5]
+Chapter 3.
+[6
 
 ]
-Chapter 2.
-(./chapters/vectorspaces/sheet1.tex) (./chapters/vectorspaces/sheet2.tex)
-(./chapters/vectorspaces/sheet3.tex [2
+Overfull \hbox (12.50058pt too wide) in paragraph at lines 126--126
+[]\TU/lmr/bx/n/14.4 Level 8: Uniqueness of Linear Combinations (Boss Level) 
+ []
 
-]) (./chapters/vectorspaces/sheet4.tex)
-(./chapters/vectorspaces/sheet5.tex)) (./chapters/linearindependence.tex
-[3]
-Chapter 3.
-(./chapters/linearindependence/sheet1.tex)
-(./chapters/linearindependence/sheet2.tex)
-(./chapters/linearindependence/sheet3.tex)
-(./chapters/linearindependence/sheet4.tex [4
-
-])
-(./chapters/linearindependence/sheet5.tex)
-(./chapters/linearindependence/sheet6.tex)
-(./chapters/linearindependence/sheet7.tex)
-(./chapters/linearindependence/sheet8.tex)
-(./chapters/linearindependence/sheet9.tex [5])) (./chapters/innerproducts.tex
-[6]
+[7]) (./chapters/linearmaps.tex [8]
 Chapter 4.
-(./chapters/innerproducts/sheet1.tex [7
 
-])) (./chapters/linearmaps.tex [8]
-Chapter 5.
+LaTeX Warning: Reference `LinearAlgebraGame.linear_map_def' on page 9 undefined
+ on input line 9.
 
-LaTeX Warning: Reference `LinearAlgebraGame.is_linear_map_v' on page 9 undefine
-d on input line 9.
+
+LaTeX Warning: Reference `LinearAlgebraGame.linear_map_preserves_zero' on page 
+9 undefined on input line 19.
 
 
 LaTeX Warning: Reference `LinearAlgebraGame.null_space_v' on page 9 undefined o
-n input line 31.
+n input line 32.
+
+
+LaTeX Warning: Reference `LinearAlgebraGame.zero_in_null_space' on page 9 undef
+ined on input line 39.
 
 
 LaTeX Warning: Reference `LinearAlgebraGame.range_v' on page 9 undefined on inp
-ut line 38.
+ut line 46.
 
-)) [9
 
-] (/home/zrtmrh/lean4/LinearAlgebraGame/blueprint/print/print.aux)
+LaTeX Warning: Reference `LinearAlgebraGame.mem_range_of_map' on page 9 undefin
+ed on input line 53.
+
+
+LaTeX Warning: Reference `LinearAlgebraGame.range_is_subspace' on page 9 undefi
+ned on input line 60.
+
+
+LaTeX Warning: Reference `LinearAlgebraGame.linear_map_preserves_combination' o
+n page 9 undefined on input line 69.
+
+[9
+
+]
+
+LaTeX Warning: Reference `LinearAlgebraGame.surjective_iff_range_eq' on page 10
+ undefined on input line 82.
+
+
+LaTeX Warning: Reference `LinearAlgebraGame.injective_implies_trivial_null' on 
+page 10 undefined on input line 89.
+
+
+LaTeX Warning: Reference `LinearAlgebraGame.injective_preserves_independence' o
+n page 10 undefined on input line 102.
+
+
+LaTeX Warning: Reference `LinearAlgebraGame.fundamental_theorem_insight' on pag
+e 10 undefined on input line 111.
+
+
+LaTeX Warning: Reference `LinearAlgebraGame.fundamental_theorem_educational' on
+ page 10 undefined on input line 118.
+
+
+LaTeX Warning: Reference `LinearAlgebraGame.fundamental_principle_demo' on page
+ 10 undefined on input line 127.
+
+
+LaTeX Warning: Reference `LinearAlgebraGame.isomorphism_v' on page 10 undefined
+ on input line 136.
+
+
+LaTeX Warning: Reference `LinearAlgebraGame.isomorphism_iff_bijective_linear' o
+n page 10 undefined on input line 142.
+
+
+LaTeX Warning: Reference `LinearAlgebraGame.isomorphism_preserves_structure' on
+ page 10 undefined on input line 149.
+
+) (./chapters/innerproducts.tex [10]
+Chapter 5.
+[11
+
+] [12] [13])) [14]
+(/home/zrtmrh/lean4/LinearAlgebraGame/blueprint/print/print.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -769,16 +820,16 @@ L3 programming layer <2024-01-22>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `print.out' has not changed.
-(rerunfilecheck)             Checksum: 8A5F0B84C92F9B3BF84B9D51D269B4E7;5733.
+(rerunfilecheck)             Checksum: 06EC5A13BB78A1CB560E033DFD34E101;8796.
  ) 
 Here is how much of TeX's memory you used:
- 17008 strings out of 474878
- 315182 string characters out of 5762516
- 1935627 words of memory out of 5000000
- 38785 multiletter control sequences out of 15000+600000
+ 16909 strings out of 474878
+ 311069 string characters out of 5762516
+ 1939627 words of memory out of 5000000
+ 38729 multiletter control sequences out of 15000+600000
  563472 words of font info for 89 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 90i,6n,114p,542b,494s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,10n,114p,542b,542s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on /home/zrtmrh/lean4/LinearAlgebraGame/blueprint/print/print.pd
-f (10 pages).
+f (15 pages).

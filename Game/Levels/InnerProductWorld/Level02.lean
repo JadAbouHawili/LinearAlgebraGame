@@ -58,6 +58,11 @@ TheoremTab "ℂ"
 variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [InnerProductSpace_v V]
 open Function Set VectorSpace Real InnerProductSpace_v Complex
 
+-- Helper theorem: norm squared equals real part of inner product with itself
+theorem norm_sq_eq (v : V) :  ‖v‖^2 = ⟪v,v⟫.re := by
+  unfold norm_v
+  rw [Real.sq_sqrt (InnerProductSpace_v.inner_self_nonneg v)]
+
 Statement norm_zero_v (v: V): norm_v v = 0 ↔ v = 0 := by
   Hint "Try unfolding and using constructor to split the `↔`"
   Hint (hidden := true) "Try `unfold norm_v`"

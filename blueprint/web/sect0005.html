@@ -13,7 +13,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Linear Maps World</title>
-<link rel="prev" href="sect0004.html" title="Inner Product World" />
+<link rel="prev" href="sect0004.html" title="Inner Product Spaces" />
 <link rel="up" href="index.html" title="Linear Algebra Game" />
 <link rel="stylesheet" href="styles/theme-white.css" />
 <link rel="stylesheet" href="styles/amsthm.css" />
@@ -36,13 +36,37 @@
   <span class="expand-toc">▶</span>
   <ul class="sub-toc-1">
      <li class="">
-  <a href="sect0001.html#a0000000007"><span class="toc_ref">1.1</span> <span class="toc_entry">Basic Tactics and Reflexivity</span></a>
+  <a href="sect0001.html#a0000000007"><span class="toc_ref">1.1</span> <span class="toc_entry">Level 1: The rfl Tactic</span></a>
  </li>
 <li class="">
-  <a href="sect0001.html#a0000000009"><span class="toc_ref">1.2</span> <span class="toc_entry">Natural Numbers and Induction</span></a>
+  <a href="sect0001.html#a0000000009"><span class="toc_ref">1.2</span> <span class="toc_entry">Level 2: The Rewrite Tactic</span></a>
  </li>
 <li class="">
-  <a href="sect0001.html#a0000000010"><span class="toc_ref">1.3</span> <span class="toc_entry">Proof Techniques</span></a>
+  <a href="sect0001.html#a0000000011"><span class="toc_ref">1.3</span> <span class="toc_entry">Level 3: Introduction and Exact</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000013"><span class="toc_ref">1.4</span> <span class="toc_entry">Level 4: Constructor for Conjunctions</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000015"><span class="toc_ref">1.5</span> <span class="toc_entry">Level 5: Unfold and Apply</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000017"><span class="toc_ref">1.6</span> <span class="toc_entry">Level 6: Cases and Contradiction</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000019"><span class="toc_ref">1.7</span> <span class="toc_entry">Level 7: Linear Arithmetic</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000021"><span class="toc_ref">1.8</span> <span class="toc_entry">Level 8: Simplification</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000023"><span class="toc_ref">1.9</span> <span class="toc_entry">Level 9: Existential Quantifiers</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000025"><span class="toc_ref">1.10</span> <span class="toc_entry">Level 10: Mathematical Induction</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000027"><span class="toc_ref">1.11</span> <span class="toc_entry">Summary of Tactics Learned</span></a>
  </li>
 
   </ul>
@@ -52,81 +76,111 @@
   <span class="expand-toc">▶</span>
   <ul class="sub-toc-1">
      <li class="">
-  <a href="sect0002.html#a0000000011"><span class="toc_ref">2.1</span> <span class="toc_entry">Zero Scalar Multiplication</span></a>
+  <a href="sect0002.html#a0000000028"><span class="toc_ref">2.1</span> <span class="toc_entry">Vector Space Definition and Structure</span></a>
  </li>
 <li class="">
-  <a href="sect0002.html#a0000000012"><span class="toc_ref">2.2</span> <span class="toc_entry">Multiplying By The Zero Vector</span></a>
+  <a href="sect0002.html#a0000000029"><span class="toc_ref">2.2</span> <span class="toc_entry">Level 1: Introduction</span></a>
  </li>
 <li class="">
-  <a href="sect0002.html#a0000000013"><span class="toc_ref">2.3</span> <span class="toc_entry">Scaling By Negative One</span></a>
+  <a href="sect0002.html#a0000000030"><span class="toc_ref">2.3</span> <span class="toc_entry">Level 2: Zero Scalar Multiplication</span></a>
  </li>
 <li class="">
-  <a href="sect0002.html#a0000000014"><span class="toc_ref">2.4</span> <span class="toc_entry">Zero Must Belong</span></a>
+  <a href="sect0002.html#a0000000031"><span class="toc_ref">2.4</span> <span class="toc_entry">Level 3: Multiplying the Zero Vector</span></a>
  </li>
 <li class="">
-  <a href="sect0002.html#a0000000015"><span class="toc_ref">2.5</span> <span class="toc_entry">Negatives In Subspace</span></a>
+  <a href="sect0002.html#a0000000032"><span class="toc_ref">2.5</span> <span class="toc_entry">Level 4: Scaling by Negative One</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000033"><span class="toc_ref">2.6</span> <span class="toc_entry">Level 5: Subspaces Contain Zero</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000034"><span class="toc_ref">2.7</span> <span class="toc_entry">Level 6: Negatives in Subspaces</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000035"><span class="toc_ref">2.8</span> <span class="toc_entry">Summary</span></a>
  </li>
 
   </ul>
  </li>
 <li class="">
-  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">Linear Independence Span</span></a>
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">Linear Independence and Span</span></a>
   <span class="expand-toc">▶</span>
   <ul class="sub-toc-1">
      <li class="">
-  <a href="sect0003.html#a0000000016"><span class="toc_ref">3.1</span> <span class="toc_entry">Linear Combinations</span></a>
+  <a href="sect0003.html#a0000000036"><span class="toc_ref">3.1</span> <span class="toc_entry">Linear Combinations and Span</span></a>
  </li>
 <li class="">
-  <a href="sect0003.html#a0000000017"><span class="toc_ref">3.2</span> <span class="toc_entry">Introducing Span</span></a>
+  <a href="sect0003.html#a0000000037"><span class="toc_ref">3.2</span> <span class="toc_entry">Level 1: Introduction</span></a>
  </li>
 <li class="">
-  <a href="sect0003.html#a0000000018"><span class="toc_ref">3.3</span> <span class="toc_entry">Monotonicity Of Span</span></a>
+  <a href="sect0003.html#a0000000038"><span class="toc_ref">3.3</span> <span class="toc_entry">Level 2: Elements are Linear Combinations</span></a>
  </li>
 <li class="">
-  <a href="sect0003.html#a0000000019"><span class="toc_ref">3.4</span> <span class="toc_entry">Linear Independence</span></a>
+  <a href="sect0003.html#a0000000039"><span class="toc_ref">3.4</span> <span class="toc_entry">Level 3: Elements Belong to Their Span</span></a>
  </li>
 <li class="">
-  <a href="sect0003.html#a0000000020"><span class="toc_ref">3.5</span> <span class="toc_entry">Linear Independence Of Subsets</span></a>
+  <a href="sect0003.html#a0000000040"><span class="toc_ref">3.5</span> <span class="toc_entry">Level 4: Monotonicity of Span</span></a>
  </li>
 <li class="">
-  <a href="sect0003.html#a0000000021"><span class="toc_ref">3.6</span> <span class="toc_entry">Supersets Span The Whole Space</span></a>
+  <a href="sect0003.html#a0000000041"><span class="toc_ref">3.6</span> <span class="toc_entry">Level 5: Linear Independence</span></a>
  </li>
 <li class="">
-  <a href="sect0003.html#a0000000022"><span class="toc_ref">3.7</span> <span class="toc_entry">Uniqueness Of Linear Combinations</span></a>
+  <a href="sect0003.html#a0000000042"><span class="toc_ref">3.7</span> <span class="toc_entry">Level 6: Independence of Subsets</span></a>
  </li>
 <li class="">
-  <a href="sect0003.html#a0000000023"><span class="toc_ref">3.8</span> <span class="toc_entry">Linear Independence Of Set With Insertion</span></a>
+  <a href="sect0003.html#a0000000043"><span class="toc_ref">3.8</span> <span class="toc_entry">Level 7: Supersets Span</span></a>
  </li>
 <li class="">
-  <a href="sect0003.html#a0000000024"><span class="toc_ref">3.9</span> <span class="toc_entry">Span After Removing Elements</span></a>
+  <a href="sect0003.html#a0000000044"><span class="toc_ref">3.9</span> <span class="toc_entry">Level 8: Uniqueness of Linear Combinations (Boss Level)</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html#a0000000045"><span class="toc_ref">3.10</span> <span class="toc_entry">Level 9: Independence with Insertion (Challenge)</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html#a0000000046"><span class="toc_ref">3.11</span> <span class="toc_entry">Level 10: Removing Redundant Vectors (Challenge)</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html#a0000000047"><span class="toc_ref">3.12</span> <span class="toc_entry">Summary</span></a>
  </li>
 
   </ul>
  </li>
 <li class="">
-  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">Inner Product World</span></a>
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">Inner Product Spaces</span></a>
   <span class="expand-toc">▶</span>
   <ul class="sub-toc-1">
      <li class="">
-  <a href="sect0004.html#a0000000025"><span class="toc_ref">4.1</span> <span class="toc_entry">Inner Product Spaces</span></a>
+  <a href="sect0004.html#a0000000048"><span class="toc_ref">4.1</span> <span class="toc_entry">Inner Product Definition</span></a>
  </li>
 <li class="">
-  <a href="sect0004.html#a0000000026"><span class="toc_ref">4.2</span> <span class="toc_entry">Basic Properties of Inner Products</span></a>
+  <a href="sect0004.html#a0000000049"><span class="toc_ref">4.2</span> <span class="toc_entry">Level 1: Norm Non-negativity</span></a>
  </li>
 <li class="">
-  <a href="sect0004.html#a0000000027"><span class="toc_ref">4.3</span> <span class="toc_entry">Complex Conjugation Properties</span></a>
+  <a href="sect0004.html#a0000000050"><span class="toc_ref">4.3</span> <span class="toc_entry">Level 2: Zero Norm Characterization</span></a>
  </li>
 <li class="">
-  <a href="sect0004.html#a0000000028"><span class="toc_ref">4.4</span> <span class="toc_entry">Additional Inner Product Properties</span></a>
+  <a href="sect0004.html#a0000000051"><span class="toc_ref">4.4</span> <span class="toc_entry">Level 3: Scalar Multiplication and Norm</span></a>
  </li>
 <li class="">
-  <a href="sect0004.html#a0000000029"><span class="toc_ref">4.5</span> <span class="toc_entry">Norms and Orthogonality</span></a>
+  <a href="sect0004.html#a0000000052"><span class="toc_ref">4.5</span> <span class="toc_entry">Level 4: Orthogonality</span></a>
  </li>
 <li class="">
-  <a href="sect0004.html#a0000000030"><span class="toc_ref">4.6</span> <span class="toc_entry">Norm Properties</span></a>
+  <a href="sect0004.html#a0000000053"><span class="toc_ref">4.6</span> <span class="toc_entry">Level 5: Pythagorean Theorem</span></a>
  </li>
 <li class="">
-  <a href="sect0004.html#a0000000031"><span class="toc_ref">4.7</span> <span class="toc_entry">Major Theorems</span></a>
+  <a href="sect0004.html#a0000000054"><span class="toc_ref">4.7</span> <span class="toc_entry">Level 6: Orthogonal Decomposition</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html#a0000000055"><span class="toc_ref">4.8</span> <span class="toc_entry">Level 7: Cauchy-Schwarz Inequality</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html#a0000000056"><span class="toc_ref">4.9</span> <span class="toc_entry">Level 8: Triangle Inequality</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html#a0000000057"><span class="toc_ref">4.10</span> <span class="toc_entry">Supporting Lemmas</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html#a0000000058"><span class="toc_ref">4.11</span> <span class="toc_entry">Summary</span></a>
  </li>
 
   </ul>
@@ -136,22 +190,22 @@
   <span class="expand-toc">▼</span>
   <ul class="sub-toc-1 active">
      <li class="">
-  <a href="sect0005.html#a0000000032"><span class="toc_ref">5.1</span> <span class="toc_entry">Definition and Basic Properties</span></a>
+  <a href="sect0005.html#a0000000059"><span class="toc_ref">5.1</span> <span class="toc_entry">Definition and Basic Properties</span></a>
  </li>
 <li class="">
-  <a href="sect0005.html#a0000000033"><span class="toc_ref">5.2</span> <span class="toc_entry">Null Space and Range</span></a>
+  <a href="sect0005.html#a0000000060"><span class="toc_ref">5.2</span> <span class="toc_entry">Null Space and Range</span></a>
  </li>
 <li class="">
-  <a href="sect0005.html#a0000000034"><span class="toc_ref">5.3</span> <span class="toc_entry">Linear Maps Preserve Structure</span></a>
+  <a href="sect0005.html#a0000000061"><span class="toc_ref">5.3</span> <span class="toc_entry">Linear Maps Preserve Structure</span></a>
  </li>
 <li class="">
-  <a href="sect0005.html#a0000000035"><span class="toc_ref">5.4</span> <span class="toc_entry">Injectivity and Surjectivity</span></a>
+  <a href="sect0005.html#a0000000062"><span class="toc_ref">5.4</span> <span class="toc_entry">Injectivity and Surjectivity</span></a>
  </li>
 <li class="">
-  <a href="sect0005.html#a0000000036"><span class="toc_ref">5.5</span> <span class="toc_entry">The Fundamental Theorem</span></a>
+  <a href="sect0005.html#a0000000063"><span class="toc_ref">5.5</span> <span class="toc_entry">The Fundamental Theorem</span></a>
  </li>
 <li class="">
-  <a href="sect0005.html#a0000000037"><span class="toc_ref">5.6</span> <span class="toc_entry">Isomorphisms</span></a>
+  <a href="sect0005.html#a0000000064"><span class="toc_ref">5.6</span> <span class="toc_entry">Isomorphisms</span></a>
  </li>
 
   </ul>
@@ -167,13 +221,13 @@
 <div class="main-text">
 <h1 id="a0000000006">5 Linear Maps World</h1>
 <p>This world introduces linear transformations between vector spaces and studies their fundamental properties. It covers the essential theory of linear maps, including their definition, null space, range, injectivity, surjectivity, and isomorphisms. </p>
-<h1 id="a0000000032">5.1 Definition and Basic Properties</h1>
+<h1 id="a0000000059">5.1 Definition and Basic Properties</h1>
 <div class="definition_thmwrapper theorem-style-definition" id="linear-map-def">
   <div class="definition_thmheading">
     <span class="definition_thmcaption">
     Definition
     </span>
-    <span class="definition_thmlabel">51</span>
+    <span class="definition_thmlabel">45</span>
     <div class="thm_header_extras">
 
         </div>
@@ -201,7 +255,7 @@
     <span class="lemma_thmcaption">
     Lemma
     </span>
-    <span class="lemma_thmlabel">52</span>
+    <span class="lemma_thmlabel">46</span>
     <div class="thm_header_extras">
 
         </div>
@@ -209,7 +263,7 @@
 
     <a class="icon proof" href="sect0005.html#linear-map-zero">#</a>
     
-    <a class="icon proof" href="sect0005.html#a0000000099"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+    <a class="icon proof" href="sect0005.html#a0000000115"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
 </a>
     
     
@@ -240,7 +294,7 @@
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000099">
+<div class="proof_wrapper" id="a0000000115">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof
@@ -252,13 +306,13 @@
 
   </div>
 </div>
-<h1 id="a0000000033">5.2 Null Space and Range</h1>
+<h1 id="a0000000060">5.2 Null Space and Range</h1>
 <div class="definition_thmwrapper theorem-style-definition" id="null-space-def">
   <div class="definition_thmheading">
     <span class="definition_thmcaption">
     Definition
     </span>
-    <span class="definition_thmlabel">53</span>
+    <span class="definition_thmlabel">47</span>
     <div class="thm_header_extras">
 
         </div>
@@ -272,7 +326,7 @@
   </div>
   <div class="definition_thmcontent">
   <p>  The <b class="bfseries">null space</b> (or kernel) of a linear map \(T : V \to W\) is: </p>
-<div class="displaymath" id="a0000000100">
+<div class="displaymath" id="a0000000116">
   \[ \text{null}(T) = \{ v \in V : T(v) = 0\}  \]
 </div>
 
@@ -283,7 +337,7 @@
     <span class="lemma_thmcaption">
     Lemma
     </span>
-    <span class="lemma_thmlabel">54</span>
+    <span class="lemma_thmlabel">48</span>
     <div class="thm_header_extras">
 
         </div>
@@ -324,7 +378,7 @@
     <span class="definition_thmcaption">
     Definition
     </span>
-    <span class="definition_thmlabel">55</span>
+    <span class="definition_thmlabel">49</span>
     <div class="thm_header_extras">
 
         </div>
@@ -338,7 +392,7 @@
   </div>
   <div class="definition_thmcontent">
   <p>  The <b class="bfseries">range</b> (or image) of a linear map \(T : V \to W\) is: </p>
-<div class="displaymath" id="a0000000101">
+<div class="displaymath" id="a0000000117">
   \[ \text{range}(T) = \{ T(v) : v \in V\}  \]
 </div>
 
@@ -349,7 +403,7 @@
     <span class="lemma_thmcaption">
     Lemma
     </span>
-    <span class="lemma_thmlabel">56</span>
+    <span class="lemma_thmlabel">50</span>
     <div class="thm_header_extras">
 
         </div>
@@ -390,7 +444,7 @@
     <span class="theorem_thmcaption">
     Theorem
     </span>
-    <span class="theorem_thmlabel">57</span>
+    <span class="theorem_thmlabel">51</span>
     <div class="thm_header_extras">
 
         </div>
@@ -426,13 +480,13 @@
 
   </div>
 </div>
-<h1 id="a0000000034">5.3 Linear Maps Preserve Structure</h1>
+<h1 id="a0000000061">5.3 Linear Maps Preserve Structure</h1>
 <div class="theorem_thmwrapper theorem-style-plain" id="linear-combination-preservation">
   <div class="theorem_thmheading">
     <span class="theorem_thmcaption">
     Theorem
     </span>
-    <span class="theorem_thmlabel">58</span>
+    <span class="theorem_thmlabel">52</span>
     <div class="thm_header_extras">
 
         </div>
@@ -465,21 +519,21 @@
   </div>
   <div class="theorem_thmcontent">
   <p>   Linear maps preserve linear combinations: If \(T : V \to W\) is linear, then </p>
-<div class="displaymath" id="a0000000102">
+<div class="displaymath" id="a0000000118">
   \[ T(a_1 v_1 + a_2 v_2) = a_1 T(v_1) + a_2 T(v_2) \]
 </div>
 <p> for all \(a_1, a_2 \in K\) and \(v_1, v_2 \in V\). </p>
 
   </div>
 </div>
-<h1 id="a0000000035">5.4 Injectivity and Surjectivity</h1>
+<h1 id="a0000000062">5.4 Injectivity and Surjectivity</h1>
 <p>Linear maps have special characterizations of injectivity and surjectivity in terms of their null space and range. </p>
 <div class="theorem_thmwrapper theorem-style-plain" id="surjective-characterization">
   <div class="theorem_thmheading">
     <span class="theorem_thmcaption">
     Theorem
     </span>
-    <span class="theorem_thmlabel">59</span>
+    <span class="theorem_thmlabel">53</span>
     <div class="thm_header_extras">
 
         </div>
@@ -520,7 +574,7 @@
     <span class="theorem_thmcaption">
     Theorem
     </span>
-    <span class="theorem_thmlabel">60</span>
+    <span class="theorem_thmlabel">54</span>
     <div class="thm_header_extras">
 
         </div>
@@ -528,7 +582,7 @@
 
     <a class="icon proof" href="sect0005.html#injective-characterization">#</a>
     
-    <a class="icon proof" href="sect0005.html#a0000000103"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+    <a class="icon proof" href="sect0005.html#a0000000119"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
 </a>
     
     
@@ -559,7 +613,7 @@
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000103">
+<div class="proof_wrapper" id="a0000000119">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof
@@ -577,7 +631,7 @@
     <span class="theorem_thmcaption">
     Theorem
     </span>
-    <span class="theorem_thmlabel">61</span>
+    <span class="theorem_thmlabel">55</span>
     <div class="thm_header_extras">
 
         </div>
@@ -613,13 +667,13 @@
 
   </div>
 </div>
-<h1 id="a0000000036">5.5 The Fundamental Theorem</h1>
+<h1 id="a0000000063">5.5 The Fundamental Theorem</h1>
 <div class="theorem_thmwrapper theorem-style-plain" id="fundamental-theorem-insight">
   <div class="theorem_thmheading">
     <span class="theorem_thmcaption">
     Theorem
     </span>
-    <span class="theorem_thmlabel">62</span>
+    <span class="theorem_thmlabel">56</span>
     <div class="thm_header_extras">
 
         </div>
@@ -660,7 +714,7 @@
     <span class="theorem_thmcaption">
     Theorem
     </span>
-    <span class="theorem_thmlabel">63</span>
+    <span class="theorem_thmlabel">57</span>
     <div class="thm_header_extras">
 
         </div>
@@ -693,7 +747,7 @@
   </div>
   <div class="theorem_thmcontent">
   <p>   For a linear map \(T : V \to W\) between finite-dimensional vector spaces: </p>
-<div class="displaymath" id="a0000000104">
+<div class="displaymath" id="a0000000120">
   \[ \dim V = \dim (\text{null}(T)) + \dim (\text{range}(T)) \]
 </div>
 <p> This is the rank-nullity theorem, also known as the fundamental theorem of linear maps. </p>
@@ -705,7 +759,7 @@
     <span class="theorem_thmcaption">
     Theorem
     </span>
-    <span class="theorem_thmlabel">64</span>
+    <span class="theorem_thmlabel">58</span>
     <div class="thm_header_extras">
 
         </div>
@@ -741,13 +795,13 @@
 
   </div>
 </div>
-<h1 id="a0000000037">5.6 Isomorphisms</h1>
+<h1 id="a0000000064">5.6 Isomorphisms</h1>
 <div class="definition_thmwrapper theorem-style-definition" id="isomorphism-def">
   <div class="definition_thmheading">
     <span class="definition_thmcaption">
     Definition
     </span>
-    <span class="definition_thmlabel">65</span>
+    <span class="definition_thmlabel">59</span>
     <div class="thm_header_extras">
 
         </div>
@@ -769,7 +823,7 @@
     <span class="theorem_thmcaption">
     Theorem
     </span>
-    <span class="theorem_thmlabel">66</span>
+    <span class="theorem_thmlabel">60</span>
     <div class="thm_header_extras">
 
         </div>
@@ -810,7 +864,7 @@
     <span class="theorem_thmcaption">
     Theorem
     </span>
-    <span class="theorem_thmlabel">67</span>
+    <span class="theorem_thmlabel">61</span>
     <div class="thm_header_extras">
 
         </div>
@@ -857,7 +911,7 @@
 
   <svg  id="showmore-plus" class="icon icon-eye-plus showmore"><use xlink:href="symbol-defs.svg#icon-eye-plus"></use></svg>
 
-  <a href="sect0004.html" title="Inner Product World"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+  <a href="sect0004.html" title="Inner Product Spaces"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
 </a>
   <a href="index.html" title="Linear Algebra Game"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
 </a>

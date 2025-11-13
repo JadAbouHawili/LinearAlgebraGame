@@ -189,9 +189,7 @@ theorem ortho_swap : ∀ (u v :V), orthogonal u v → orthogonal v u := by
   rw [InnerProductSpace_v.inner_conj_symm,h]
   simp
 
-theorem norm_sq_eq (v : V) :  ‖v‖^2 = ⟪v,v⟫.re := by
-    unfold norm_v
-    rw [Real.sq_sqrt (InnerProductSpace_v.inner_self_nonneg v)]
+-- norm_sq_eq moved to Level02.lean as a helper theorem
 
 theorem right_smul_ortho (u v : V) (c : ℂ) (h : orthogonal u v) : orthogonal u (c • v) := by
   exact ortho_swap (c • v) u (left_smul_ortho v u c (ortho_swap u v h))

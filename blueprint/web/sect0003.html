@@ -12,8 +12,8 @@
 <meta name="generator" content="plasTeX" />
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Linear Independence Span</title>
-<link rel="next" href="sect0004.html" title="Inner Product World" />
+<title>Linear Independence and Span</title>
+<link rel="next" href="sect0004.html" title="Inner Product Spaces" />
 <link rel="prev" href="sect0002.html" title="Vector Spaces" />
 <link rel="up" href="index.html" title="Linear Algebra Game" />
 <link rel="stylesheet" href="styles/theme-white.css" />
@@ -37,13 +37,37 @@
   <span class="expand-toc">▶</span>
   <ul class="sub-toc-1">
      <li class="">
-  <a href="sect0001.html#a0000000007"><span class="toc_ref">1.1</span> <span class="toc_entry">Basic Tactics and Reflexivity</span></a>
+  <a href="sect0001.html#a0000000007"><span class="toc_ref">1.1</span> <span class="toc_entry">Level 1: The rfl Tactic</span></a>
  </li>
 <li class="">
-  <a href="sect0001.html#a0000000009"><span class="toc_ref">1.2</span> <span class="toc_entry">Natural Numbers and Induction</span></a>
+  <a href="sect0001.html#a0000000009"><span class="toc_ref">1.2</span> <span class="toc_entry">Level 2: The Rewrite Tactic</span></a>
  </li>
 <li class="">
-  <a href="sect0001.html#a0000000010"><span class="toc_ref">1.3</span> <span class="toc_entry">Proof Techniques</span></a>
+  <a href="sect0001.html#a0000000011"><span class="toc_ref">1.3</span> <span class="toc_entry">Level 3: Introduction and Exact</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000013"><span class="toc_ref">1.4</span> <span class="toc_entry">Level 4: Constructor for Conjunctions</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000015"><span class="toc_ref">1.5</span> <span class="toc_entry">Level 5: Unfold and Apply</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000017"><span class="toc_ref">1.6</span> <span class="toc_entry">Level 6: Cases and Contradiction</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000019"><span class="toc_ref">1.7</span> <span class="toc_entry">Level 7: Linear Arithmetic</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000021"><span class="toc_ref">1.8</span> <span class="toc_entry">Level 8: Simplification</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000023"><span class="toc_ref">1.9</span> <span class="toc_entry">Level 9: Existential Quantifiers</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000025"><span class="toc_ref">1.10</span> <span class="toc_entry">Level 10: Mathematical Induction</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000027"><span class="toc_ref">1.11</span> <span class="toc_entry">Summary of Tactics Learned</span></a>
  </li>
 
   </ul>
@@ -53,81 +77,111 @@
   <span class="expand-toc">▶</span>
   <ul class="sub-toc-1">
      <li class="">
-  <a href="sect0002.html#a0000000011"><span class="toc_ref">2.1</span> <span class="toc_entry">Zero Scalar Multiplication</span></a>
+  <a href="sect0002.html#a0000000028"><span class="toc_ref">2.1</span> <span class="toc_entry">Vector Space Definition and Structure</span></a>
  </li>
 <li class="">
-  <a href="sect0002.html#a0000000012"><span class="toc_ref">2.2</span> <span class="toc_entry">Multiplying By The Zero Vector</span></a>
+  <a href="sect0002.html#a0000000029"><span class="toc_ref">2.2</span> <span class="toc_entry">Level 1: Introduction</span></a>
  </li>
 <li class="">
-  <a href="sect0002.html#a0000000013"><span class="toc_ref">2.3</span> <span class="toc_entry">Scaling By Negative One</span></a>
+  <a href="sect0002.html#a0000000030"><span class="toc_ref">2.3</span> <span class="toc_entry">Level 2: Zero Scalar Multiplication</span></a>
  </li>
 <li class="">
-  <a href="sect0002.html#a0000000014"><span class="toc_ref">2.4</span> <span class="toc_entry">Zero Must Belong</span></a>
+  <a href="sect0002.html#a0000000031"><span class="toc_ref">2.4</span> <span class="toc_entry">Level 3: Multiplying the Zero Vector</span></a>
  </li>
 <li class="">
-  <a href="sect0002.html#a0000000015"><span class="toc_ref">2.5</span> <span class="toc_entry">Negatives In Subspace</span></a>
+  <a href="sect0002.html#a0000000032"><span class="toc_ref">2.5</span> <span class="toc_entry">Level 4: Scaling by Negative One</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000033"><span class="toc_ref">2.6</span> <span class="toc_entry">Level 5: Subspaces Contain Zero</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000034"><span class="toc_ref">2.7</span> <span class="toc_entry">Level 6: Negatives in Subspaces</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000035"><span class="toc_ref">2.8</span> <span class="toc_entry">Summary</span></a>
  </li>
 
   </ul>
  </li>
 <li class=" active current">
-  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">Linear Independence Span</span></a>
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">Linear Independence and Span</span></a>
   <span class="expand-toc">▼</span>
   <ul class="sub-toc-1 active">
      <li class="">
-  <a href="sect0003.html#a0000000016"><span class="toc_ref">3.1</span> <span class="toc_entry">Linear Combinations</span></a>
+  <a href="sect0003.html#a0000000036"><span class="toc_ref">3.1</span> <span class="toc_entry">Linear Combinations and Span</span></a>
  </li>
 <li class="">
-  <a href="sect0003.html#a0000000017"><span class="toc_ref">3.2</span> <span class="toc_entry">Introducing Span</span></a>
+  <a href="sect0003.html#a0000000037"><span class="toc_ref">3.2</span> <span class="toc_entry">Level 1: Introduction</span></a>
  </li>
 <li class="">
-  <a href="sect0003.html#a0000000018"><span class="toc_ref">3.3</span> <span class="toc_entry">Monotonicity Of Span</span></a>
+  <a href="sect0003.html#a0000000038"><span class="toc_ref">3.3</span> <span class="toc_entry">Level 2: Elements are Linear Combinations</span></a>
  </li>
 <li class="">
-  <a href="sect0003.html#a0000000019"><span class="toc_ref">3.4</span> <span class="toc_entry">Linear Independence</span></a>
+  <a href="sect0003.html#a0000000039"><span class="toc_ref">3.4</span> <span class="toc_entry">Level 3: Elements Belong to Their Span</span></a>
  </li>
 <li class="">
-  <a href="sect0003.html#a0000000020"><span class="toc_ref">3.5</span> <span class="toc_entry">Linear Independence Of Subsets</span></a>
+  <a href="sect0003.html#a0000000040"><span class="toc_ref">3.5</span> <span class="toc_entry">Level 4: Monotonicity of Span</span></a>
  </li>
 <li class="">
-  <a href="sect0003.html#a0000000021"><span class="toc_ref">3.6</span> <span class="toc_entry">Supersets Span The Whole Space</span></a>
+  <a href="sect0003.html#a0000000041"><span class="toc_ref">3.6</span> <span class="toc_entry">Level 5: Linear Independence</span></a>
  </li>
 <li class="">
-  <a href="sect0003.html#a0000000022"><span class="toc_ref">3.7</span> <span class="toc_entry">Uniqueness Of Linear Combinations</span></a>
+  <a href="sect0003.html#a0000000042"><span class="toc_ref">3.7</span> <span class="toc_entry">Level 6: Independence of Subsets</span></a>
  </li>
 <li class="">
-  <a href="sect0003.html#a0000000023"><span class="toc_ref">3.8</span> <span class="toc_entry">Linear Independence Of Set With Insertion</span></a>
+  <a href="sect0003.html#a0000000043"><span class="toc_ref">3.8</span> <span class="toc_entry">Level 7: Supersets Span</span></a>
  </li>
 <li class="">
-  <a href="sect0003.html#a0000000024"><span class="toc_ref">3.9</span> <span class="toc_entry">Span After Removing Elements</span></a>
+  <a href="sect0003.html#a0000000044"><span class="toc_ref">3.9</span> <span class="toc_entry">Level 8: Uniqueness of Linear Combinations (Boss Level)</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html#a0000000045"><span class="toc_ref">3.10</span> <span class="toc_entry">Level 9: Independence with Insertion (Challenge)</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html#a0000000046"><span class="toc_ref">3.11</span> <span class="toc_entry">Level 10: Removing Redundant Vectors (Challenge)</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html#a0000000047"><span class="toc_ref">3.12</span> <span class="toc_entry">Summary</span></a>
  </li>
 
   </ul>
  </li>
 <li class="">
-  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">Inner Product World</span></a>
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">Inner Product Spaces</span></a>
   <span class="expand-toc">▶</span>
   <ul class="sub-toc-1">
      <li class="">
-  <a href="sect0004.html#a0000000025"><span class="toc_ref">4.1</span> <span class="toc_entry">Inner Product Spaces</span></a>
+  <a href="sect0004.html#a0000000048"><span class="toc_ref">4.1</span> <span class="toc_entry">Inner Product Definition</span></a>
  </li>
 <li class="">
-  <a href="sect0004.html#a0000000026"><span class="toc_ref">4.2</span> <span class="toc_entry">Basic Properties of Inner Products</span></a>
+  <a href="sect0004.html#a0000000049"><span class="toc_ref">4.2</span> <span class="toc_entry">Level 1: Norm Non-negativity</span></a>
  </li>
 <li class="">
-  <a href="sect0004.html#a0000000027"><span class="toc_ref">4.3</span> <span class="toc_entry">Complex Conjugation Properties</span></a>
+  <a href="sect0004.html#a0000000050"><span class="toc_ref">4.3</span> <span class="toc_entry">Level 2: Zero Norm Characterization</span></a>
  </li>
 <li class="">
-  <a href="sect0004.html#a0000000028"><span class="toc_ref">4.4</span> <span class="toc_entry">Additional Inner Product Properties</span></a>
+  <a href="sect0004.html#a0000000051"><span class="toc_ref">4.4</span> <span class="toc_entry">Level 3: Scalar Multiplication and Norm</span></a>
  </li>
 <li class="">
-  <a href="sect0004.html#a0000000029"><span class="toc_ref">4.5</span> <span class="toc_entry">Norms and Orthogonality</span></a>
+  <a href="sect0004.html#a0000000052"><span class="toc_ref">4.5</span> <span class="toc_entry">Level 4: Orthogonality</span></a>
  </li>
 <li class="">
-  <a href="sect0004.html#a0000000030"><span class="toc_ref">4.6</span> <span class="toc_entry">Norm Properties</span></a>
+  <a href="sect0004.html#a0000000053"><span class="toc_ref">4.6</span> <span class="toc_entry">Level 5: Pythagorean Theorem</span></a>
  </li>
 <li class="">
-  <a href="sect0004.html#a0000000031"><span class="toc_ref">4.7</span> <span class="toc_entry">Major Theorems</span></a>
+  <a href="sect0004.html#a0000000054"><span class="toc_ref">4.7</span> <span class="toc_entry">Level 6: Orthogonal Decomposition</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html#a0000000055"><span class="toc_ref">4.8</span> <span class="toc_entry">Level 7: Cauchy-Schwarz Inequality</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html#a0000000056"><span class="toc_ref">4.9</span> <span class="toc_entry">Level 8: Triangle Inequality</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html#a0000000057"><span class="toc_ref">4.10</span> <span class="toc_entry">Supporting Lemmas</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html#a0000000058"><span class="toc_ref">4.11</span> <span class="toc_entry">Summary</span></a>
  </li>
 
   </ul>
@@ -137,22 +191,22 @@
   <span class="expand-toc">▶</span>
   <ul class="sub-toc-1">
      <li class="">
-  <a href="sect0005.html#a0000000032"><span class="toc_ref">5.1</span> <span class="toc_entry">Definition and Basic Properties</span></a>
+  <a href="sect0005.html#a0000000059"><span class="toc_ref">5.1</span> <span class="toc_entry">Definition and Basic Properties</span></a>
  </li>
 <li class="">
-  <a href="sect0005.html#a0000000033"><span class="toc_ref">5.2</span> <span class="toc_entry">Null Space and Range</span></a>
+  <a href="sect0005.html#a0000000060"><span class="toc_ref">5.2</span> <span class="toc_entry">Null Space and Range</span></a>
  </li>
 <li class="">
-  <a href="sect0005.html#a0000000034"><span class="toc_ref">5.3</span> <span class="toc_entry">Linear Maps Preserve Structure</span></a>
+  <a href="sect0005.html#a0000000061"><span class="toc_ref">5.3</span> <span class="toc_entry">Linear Maps Preserve Structure</span></a>
  </li>
 <li class="">
-  <a href="sect0005.html#a0000000035"><span class="toc_ref">5.4</span> <span class="toc_entry">Injectivity and Surjectivity</span></a>
+  <a href="sect0005.html#a0000000062"><span class="toc_ref">5.4</span> <span class="toc_entry">Injectivity and Surjectivity</span></a>
  </li>
 <li class="">
-  <a href="sect0005.html#a0000000036"><span class="toc_ref">5.5</span> <span class="toc_entry">The Fundamental Theorem</span></a>
+  <a href="sect0005.html#a0000000063"><span class="toc_ref">5.5</span> <span class="toc_entry">The Fundamental Theorem</span></a>
  </li>
 <li class="">
-  <a href="sect0005.html#a0000000037"><span class="toc_ref">5.6</span> <span class="toc_entry">Isomorphisms</span></a>
+  <a href="sect0005.html#a0000000064"><span class="toc_ref">5.6</span> <span class="toc_entry">Isomorphisms</span></a>
  </li>
 
   </ul>
@@ -166,14 +220,16 @@
 
 
 <div class="main-text">
-<h1 id="a0000000004">3 Linear Independence Span</h1>
-<h1 id="a0000000016">3.1 Linear Combinations</h1>
-<div class="definition_thmwrapper theorem-style-definition" id="definition : linear_combination">
+<h1 id="a0000000004">3 Linear Independence and Span</h1>
+<p>This world explores the fundamental concepts of linear combinations, span, and linear independence through 10 challenging levels, culminating in sophisticated proofs about bases and spanning sets. </p>
+<h1 id="a0000000036">3.1 Linear Combinations and Span</h1>
+<div class="definition_thmwrapper theorem-style-definition" id="def:linear_combination">
   <div class="definition_thmheading">
     <span class="definition_thmcaption">
     Definition
     </span>
-    <span class="definition_thmlabel">11</span>
+    <span class="definition_thmlabel">18</span>
+    <span class="definition_thmtitle">Linear Combination</span>
     <div class="thm_header_extras">
 
     
@@ -181,7 +237,7 @@
         </div>
     <div class="thm_header_hidden_extras">
 
-    <a class="icon proof" href="sect0003.html#definition : linear_combination">#</a>
+    <a class="icon proof" href="sect0003.html#def:linear_combination">#</a>
     
     
     <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
@@ -196,7 +252,7 @@
         
         <ul class="uses">
           
-          <li><a href="sect0002.html#definition : VectorSpace">Definition 4</a></li>
+          <li><a href="sect0002.html#def:vectorspace">Definition 11</a></li>
           
         </ul>
     
@@ -227,27 +283,98 @@
         </div>
   </div>
   <div class="definition_thmcontent">
-  <p>   Let \(V\) be a vector space over a field \(K\), and let \(S \subseteq V\). A vector \(x \in V\) is called a <b class="bfseries">linear combination</b> of vectors in \(S\) if there exist finitely many vectors \(v_1, v_2, \ldots , v_n \in S\) and scalars \(a_1, a_2, \ldots , a_n \in K\) such that </p>
-<div class="displaymath" id="a0000000051">
-  \[ x = a_1 v_1 + a_2 v_2 + \cdots + a_n v_n = \sum _{i=1}^{n} a_i v_i \]
+  <p>    A vector \(v \in V\) is a <b class="bfseries">linear combination</b> of a set \(S \subseteq V\) if there exist finitely many vectors \(v_1, \ldots , v_n \in S\) and scalars \(a_1, \ldots , a_n \in K\) such that: </p>
+<div class="displaymath" id="a0000000079">
+  \[ v = \sum _{i=1}^n a_i \cdot v_i \]
 </div>
 
   </div>
 </div>
-<div class="theorem_thmwrapper theorem-style-plain" id="theorem : linear_combination_of_mem">
+<div class="definition_thmwrapper theorem-style-definition" id="def:span">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">19</span>
+    <span class="definition_thmtitle">Span</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0003.html#def:span">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0003.html#def:linear_combination">Definition 18</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.span" class="lean_decl">LinearAlgebraGame.span</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>    The <b class="bfseries">span</b> of a set \(S \subseteq V\), denoted \(\text{span}(S)\), is the set of all linear combinations of vectors from \(S\): </p>
+<div class="displaymath" id="a0000000080">
+  \[ \text{span}(S) = \{ v \in V : v \text{ is a linear combination of vectors in } S\}  \]
+</div>
+
+  </div>
+</div>
+<h1 id="a0000000037">3.2 Level 1: Introduction</h1>
+<p>This level introduces the concepts with a trivial proof to familiarize players with the notation and definitions. </p>
+<h1 id="a0000000038">3.3 Level 2: Elements are Linear Combinations</h1>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm:linear_combination_of_mem">
   <div class="theorem_thmheading">
     <span class="theorem_thmcaption">
     Theorem
     </span>
-    <span class="theorem_thmlabel">12</span>
+    <span class="theorem_thmlabel">20</span>
+    <span class="theorem_thmtitle">Self Combination</span>
     <div class="thm_header_extras">
 
         </div>
     <div class="thm_header_hidden_extras">
 
-    <a class="icon proof" href="sect0003.html#theorem : linear_combination_of_mem">#</a>
+    <a class="icon proof" href="sect0003.html#thm:linear_combination_of_mem">#</a>
     
-    <a class="icon proof" href="sect0003.html#a0000000052"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+    <a class="icon proof" href="sect0003.html#a0000000081"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
 </a>
     
     
@@ -263,7 +390,7 @@
         
         <ul class="uses">
           
-          <li><a href="sect0003.html#definition : linear_combination">Definition 11</a></li>
+          <li><a href="sect0003.html#def:linear_combination">Definition 18</a></li>
           
         </ul>
     
@@ -294,11 +421,14 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   If \(v \in S\), then \(v\) is a linear combination of \(S\). </p>
+  <p>    Every element of a set is a linear combination of that set: </p>
+<div class="displaymath" id="a0000000082">
+  \[ \forall v \in S: v \text{ is a linear combination of } S \]
+</div>
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000052">
+<div class="proof_wrapper" id="a0000000081">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof
@@ -306,91 +436,26 @@
     <span class="expand-proof">▶</span>
   </div>
   <div class="proof_content">
-  <p>Take the linear combination with coefficient \(1\) for \(v\) and coefficient \(0\) for all other vectors. </p>
+  <p>Take \(n = 1\), \(v_1 = v\), and \(a_1 = 1\). Then \(v = 1 \cdot v\) is a linear combination of \(S\). </p>
 
   </div>
 </div>
-<h1 id="a0000000017">3.2 Introducing Span</h1>
-<div class="definition_thmwrapper theorem-style-definition" id="definition : span">
-  <div class="definition_thmheading">
-    <span class="definition_thmcaption">
-    Definition
-    </span>
-    <span class="definition_thmlabel">13</span>
-    <div class="thm_header_extras">
-
-    
-    ✓
-        </div>
-    <div class="thm_header_hidden_extras">
-
-    <a class="icon proof" href="sect0003.html#definition : span">#</a>
-    
-    
-    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
-</button>
-        <div class="modal-container">
-      <div class="modal-content">
-        <header>
-          <h1>Uses</h1>
-          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
-</button>
-        </header>
-        
-        <ul class="uses">
-          
-          <li><a href="sect0003.html#definition : linear_combination">Definition 11</a></li>
-          
-        </ul>
-    
-      </div>
-    </div>
-
-    
-    
-    <button class="modal lean">L∃∀N</button>
-        <div class="modal-container">
-      <div class="modal-content">
-        <header>
-          <h1>Lean declarations</h1>
-          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
-</button>
-        </header>
-        
-        <ul class="uses">
-          
-          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.is_linear_combination" class="lean_decl">LinearAlgebraGame.is_linear_combination</a></li>
-          
-        </ul>
-    
-      </div>
-    </div>
-
-    
-        </div>
-  </div>
-  <div class="definition_thmcontent">
-  <p>   Let \(V\) be a vector space over a field \(K\), and let \(S \subseteq V\). The <b class="bfseries">span</b> of \(S\), denoted \(\text{span}(S)\) or \(\langle S \rangle \), is the set of all linear combinations of vectors in \(S\): </p>
-<div class="displaymath" id="a0000000053">
-  \[ \text{span}(S) = \left\{  \sum _{i=1}^{n} a_i v_i : n \in \mathbb {N}, v_i \in S, a_i \in K \right\}  \]
-</div>
-
-  </div>
-</div>
-<div class="theorem_thmwrapper theorem-style-plain" id="theorem : mem_span_of_mem">
+<h1 id="a0000000039">3.4 Level 3: Elements Belong to Their Span</h1>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm:mem_span_of_mem">
   <div class="theorem_thmheading">
     <span class="theorem_thmcaption">
     Theorem
     </span>
-    <span class="theorem_thmlabel">14</span>
+    <span class="theorem_thmlabel">21</span>
+    <span class="theorem_thmtitle">Membership in Span</span>
     <div class="thm_header_extras">
 
         </div>
     <div class="thm_header_hidden_extras">
 
-    <a class="icon proof" href="sect0003.html#theorem : mem_span_of_mem">#</a>
+    <a class="icon proof" href="sect0003.html#thm:mem_span_of_mem">#</a>
     
-    <a class="icon proof" href="sect0003.html#a0000000054"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+    <a class="icon proof" href="sect0003.html#a0000000083"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
 </a>
     
     
@@ -406,7 +471,9 @@
         
         <ul class="uses">
           
-          <li><a href="sect0003.html#definition : linear_combination">Definition 11</a></li>
+          <li><a href="sect0003.html#def:span">Definition 19</a></li>
+          
+          <li><a href="sect0003.html#thm:linear_combination_of_mem">Theorem 20</a></li>
           
         </ul>
     
@@ -437,11 +504,14 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   If \(v \in S\), then \(v \in \text{span}(S)\). </p>
+  <p>    Every element of a set belongs to its span: </p>
+<div class="displaymath" id="a0000000084">
+  \[ \forall v \in S: v \in \text{span}(S) \]
+</div>
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000054">
+<div class="proof_wrapper" id="a0000000083">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof
@@ -449,25 +519,26 @@
     <span class="expand-proof">▶</span>
   </div>
   <div class="proof_content">
-  <p>Since \(v \in S\), we can write \(v = 1 \cdot v\), which is a linear combination of elements in \(S\). </p>
+  <p>By Level 2, \(v\) is a linear combination of \(S\), hence \(v \in \text{span}(S)\) by definition. </p>
 
   </div>
 </div>
-<h1 id="a0000000018">3.3 Monotonicity Of Span</h1>
-<div class="theorem_thmwrapper theorem-style-plain" id="theorem : span_mono">
+<h1 id="a0000000040">3.5 Level 4: Monotonicity of Span</h1>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm:span_mono">
   <div class="theorem_thmheading">
     <span class="theorem_thmcaption">
     Theorem
     </span>
-    <span class="theorem_thmlabel">15</span>
+    <span class="theorem_thmlabel">22</span>
+    <span class="theorem_thmtitle">Span Monotonicity</span>
     <div class="thm_header_extras">
 
         </div>
     <div class="thm_header_hidden_extras">
 
-    <a class="icon proof" href="sect0003.html#theorem : span_mono">#</a>
+    <a class="icon proof" href="sect0003.html#thm:span_mono">#</a>
     
-    <a class="icon proof" href="sect0003.html#a0000000055"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+    <a class="icon proof" href="sect0003.html#a0000000085"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
 </a>
     
     
@@ -483,7 +554,7 @@
         
         <ul class="uses">
           
-          <li><a href="sect0003.html#definition : span">Definition 13</a></li>
+          <li><a href="sect0003.html#def:span">Definition 19</a></li>
           
         </ul>
     
@@ -514,11 +585,14 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   The span operation is monotonic: if \(A \subseteq B\), then \(\text{span}(A) \subseteq \text{span}(B)\). </p>
+  <p>    The span operation is monotonic: </p>
+<div class="displaymath" id="a0000000086">
+  \[ A \subseteq B \implies \text{span}(A) \subseteq \text{span}(B) \]
+</div>
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000055">
+<div class="proof_wrapper" id="a0000000085">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof
@@ -526,17 +600,18 @@
     <span class="expand-proof">▶</span>
   </div>
   <div class="proof_content">
-  <p>Let \(v \in \text{span}(A)\). Then \(v\) is a linear combination of vectors in \(A\). Since \(A \subseteq B\), these same vectors are also in \(B\), so \(v\) is also a linear combination of vectors in \(B\). Therefore \(v \in \text{span}(B)\). </p>
+  <p>Any linear combination of vectors from \(A\) is also a linear combination of vectors from \(B\), since \(A \subseteq B\). </p>
 
   </div>
 </div>
-<h1 id="a0000000019">3.4 Linear Independence</h1>
-<div class="definition_thmwrapper theorem-style-definition" id="definition : linear_independent">
+<h1 id="a0000000041">3.6 Level 5: Linear Independence</h1>
+<div class="definition_thmwrapper theorem-style-definition" id="def:linear_independent">
   <div class="definition_thmheading">
     <span class="definition_thmcaption">
     Definition
     </span>
-    <span class="definition_thmlabel">16</span>
+    <span class="definition_thmlabel">23</span>
+    <span class="definition_thmtitle">Linear Independence</span>
     <div class="thm_header_extras">
 
     
@@ -544,7 +619,7 @@
         </div>
     <div class="thm_header_hidden_extras">
 
-    <a class="icon proof" href="sect0003.html#definition : linear_independent">#</a>
+    <a class="icon proof" href="sect0003.html#def:linear_independent">#</a>
     
     
     <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
@@ -559,7 +634,7 @@
         
         <ul class="uses">
           
-          <li><a href="sect0002.html#definition : VectorSpace">Definition 4</a></li>
+          <li><a href="sect0003.html#def:linear_combination">Definition 18</a></li>
           
         </ul>
     
@@ -590,29 +665,25 @@
         </div>
   </div>
   <div class="definition_thmcontent">
-  <p>   A set of vectors \(S \subseteq V\) is <b class="bfseries">linearly independent</b> if the only solution to the equation </p>
-<div class="displaymath" id="a0000000056">
-  \[ a_1 v_1 + a_2 v_2 + \cdots + a_n v_n = 0 \]
-</div>
-<p> where \(v_1, v_2, \ldots , v_n \in S\) are distinct and \(a_1, a_2, \ldots , a_n \in K\), is the trivial solution \(a_1 = a_2 = \cdots = a_n = 0\). </p>
-<p>Equivalently, \(S\) is linearly independent if no vector in \(S\) can be written as a linear combination of the other vectors in \(S\). </p>
+  <p>    A set \(S \subseteq V\) is <b class="bfseries">linearly independent</b> if the only way to express zero as a linear combination of distinct vectors from \(S\) is with all coefficients equal to zero. </p>
 
   </div>
 </div>
-<div class="theorem_thmwrapper theorem-style-plain" id="theorem : linear_independent_empty">
+<div class="theorem_thmwrapper theorem-style-plain" id="thm:linear_independent_empty">
   <div class="theorem_thmheading">
     <span class="theorem_thmcaption">
     Theorem
     </span>
-    <span class="theorem_thmlabel">17</span>
+    <span class="theorem_thmlabel">24</span>
+    <span class="theorem_thmtitle">Empty Set Independence</span>
     <div class="thm_header_extras">
 
         </div>
     <div class="thm_header_hidden_extras">
 
-    <a class="icon proof" href="sect0003.html#theorem : linear_independent_empty">#</a>
+    <a class="icon proof" href="sect0003.html#thm:linear_independent_empty">#</a>
     
-    <a class="icon proof" href="sect0003.html#a0000000057"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+    <a class="icon proof" href="sect0003.html#a0000000087"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
 </a>
     
     
@@ -628,7 +699,7 @@
         
         <ul class="uses">
           
-          <li><a href="sect0003.html#definition : linear_independent">Definition 16</a></li>
+          <li><a href="sect0003.html#def:linear_independent">Definition 23</a></li>
           
         </ul>
     
@@ -659,11 +730,11 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   The empty set \(\emptyset \) is linearly independent. </p>
+  <p>    The empty set is linearly independent. </p>
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000057">
+<div class="proof_wrapper" id="a0000000087">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof
@@ -671,25 +742,26 @@
     <span class="expand-proof">▶</span>
   </div>
   <div class="proof_content">
-  <p>There are no vectors in the empty set, so there are no non-trivial linear combinations to consider. </p>
+  <p>There are no vectors to form a non-trivial linear combination, so the condition is vacuously satisfied. </p>
 
   </div>
 </div>
-<h1 id="a0000000020">3.5 Linear Independence Of Subsets</h1>
-<div class="theorem_thmwrapper theorem-style-plain" id="theorem : subset_linear_independent">
+<h1 id="a0000000042">3.7 Level 6: Independence of Subsets</h1>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm:subset_linear_independent">
   <div class="theorem_thmheading">
     <span class="theorem_thmcaption">
     Theorem
     </span>
-    <span class="theorem_thmlabel">18</span>
+    <span class="theorem_thmlabel">25</span>
+    <span class="theorem_thmtitle">Subset Independence</span>
     <div class="thm_header_extras">
 
         </div>
     <div class="thm_header_hidden_extras">
 
-    <a class="icon proof" href="sect0003.html#theorem : subset_linear_independent">#</a>
+    <a class="icon proof" href="sect0003.html#thm:subset_linear_independent">#</a>
     
-    <a class="icon proof" href="sect0003.html#a0000000058"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+    <a class="icon proof" href="sect0003.html#a0000000088"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
 </a>
     
     
@@ -705,7 +777,7 @@
         
         <ul class="uses">
           
-          <li><a href="sect0003.html#definition : linear_independent">Definition 16</a></li>
+          <li><a href="sect0003.html#def:linear_independent">Definition 23</a></li>
           
         </ul>
     
@@ -736,11 +808,14 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   If \(A\) is a linearly independent set and \(B \subseteq A\), then \(B\) is also linearly independent. </p>
+  <p>    Subsets of linearly independent sets are linearly independent: </p>
+<div class="displaymath" id="a0000000089">
+  \[ A \text{ linearly independent} \land B \subseteq A \implies B \text{ linearly independent} \]
+</div>
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000058">
+<div class="proof_wrapper" id="a0000000088">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof
@@ -748,25 +823,26 @@
     <span class="expand-proof">▶</span>
   </div>
   <div class="proof_content">
-  <p>Suppose we have a linear combination \(\sum _{v \in B} a_v v = 0\) where \(a_v \in K\). Since \(B \subseteq A\), this is also a linear combination of vectors in \(A\) that equals zero. By the linear independence of \(A\), we must have \(a_v = 0\) for all \(v \in B\). Therefore \(B\) is linearly independent. </p>
+  <p>Any linear dependence relation among vectors in \(B\) would also be a linear dependence relation among vectors in \(A\), contradicting the independence of \(A\). </p>
 
   </div>
 </div>
-<h1 id="a0000000021">3.6 Supersets Span The Whole Space</h1>
-<div class="theorem_thmwrapper theorem-style-plain" id="theorem : superset_span_full">
+<h1 id="a0000000043">3.8 Level 7: Supersets Span</h1>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm:superset_span_full">
   <div class="theorem_thmheading">
     <span class="theorem_thmcaption">
     Theorem
     </span>
-    <span class="theorem_thmlabel">19</span>
+    <span class="theorem_thmlabel">26</span>
+    <span class="theorem_thmtitle">Superset Spanning</span>
     <div class="thm_header_extras">
 
         </div>
     <div class="thm_header_hidden_extras">
 
-    <a class="icon proof" href="sect0003.html#theorem : superset_span_full">#</a>
+    <a class="icon proof" href="sect0003.html#thm:superset_span_full">#</a>
     
-    <a class="icon proof" href="sect0003.html#a0000000059"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+    <a class="icon proof" href="sect0003.html#a0000000090"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
 </a>
     
     
@@ -782,9 +858,9 @@
         
         <ul class="uses">
           
-          <li><a href="sect0003.html#definition : span">Definition 13</a></li>
+          <li><a href="sect0003.html#def:span">Definition 19</a></li>
           
-          <li><a href="sect0003.html#theorem : span_mono">Theorem 15</a></li>
+          <li><a href="sect0003.html#thm:span_mono">Theorem 22</a></li>
           
         </ul>
     
@@ -815,11 +891,14 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   If a set \(A\) spans the whole space \(V\) and \(A \subseteq B\), then \(B\) also spans \(V\). </p>
+  <p>    If \(A\) spans \(V\) and \(A \subseteq B\), then \(B\) spans \(V\): </p>
+<div class="displaymath" id="a0000000091">
+  \[ \text{span}(A) = V \land A \subseteq B \implies \text{span}(B) = V \]
+</div>
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000059">
+<div class="proof_wrapper" id="a0000000090">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof
@@ -827,25 +906,26 @@
     <span class="expand-proof">▶</span>
   </div>
   <div class="proof_content">
-  <p>Since \(\text{span}(A) = V\) and \(A \subseteq B\), by monotonicity of span we have \(V = \text{span}(A) \subseteq \text{span}(B) \subseteq V\). Therefore \(\text{span}(B) = V\). </p>
+  <p>By monotonicity: \(V = \text{span}(A) \subseteq \text{span}(B) \subseteq V\), hence \(\text{span}(B) = V\). </p>
 
   </div>
 </div>
-<h1 id="a0000000022">3.7 Uniqueness Of Linear Combinations</h1>
-<div class="theorem_thmwrapper theorem-style-plain" id="theorem : linear_combination_unique">
+<h1 id="a0000000044">3.9 Level 8: Uniqueness of Linear Combinations (Boss Level)</h1>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm:linear_combination_unique">
   <div class="theorem_thmheading">
     <span class="theorem_thmcaption">
     Theorem
     </span>
-    <span class="theorem_thmlabel">20</span>
+    <span class="theorem_thmlabel">27</span>
+    <span class="theorem_thmtitle">Unique Representation</span>
     <div class="thm_header_extras">
 
         </div>
     <div class="thm_header_hidden_extras">
 
-    <a class="icon proof" href="sect0003.html#theorem : linear_combination_unique">#</a>
+    <a class="icon proof" href="sect0003.html#thm:linear_combination_unique">#</a>
     
-    <a class="icon proof" href="sect0003.html#a0000000060"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+    <a class="icon proof" href="sect0003.html#a0000000092"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
 </a>
     
     
@@ -861,9 +941,9 @@
         
         <ul class="uses">
           
-          <li><a href="sect0003.html#definition : linear_independent">Definition 16</a></li>
+          <li><a href="sect0003.html#def:linear_independent">Definition 23</a></li>
           
-          <li><a href="sect0002.html#theorem : zero_smul">Theorem 5</a></li>
+          <li><a href="sect0003.html#def:linear_combination">Definition 18</a></li>
           
         </ul>
     
@@ -894,15 +974,11 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   Let \(S \subseteq V\) be a linearly independent set. If </p>
-<div class="displaymath" id="a0000000061">
-  \[ \sum _{v \in T_1} a_v \cdot v = \sum _{v \in T_2} b_v \cdot v \]
-</div>
-<p> where \(T_1, T_2\) are finite subsets of \(S\), \(a_v = 0\) for \(v \notin T_1\), and \(b_v = 0\) for \(v \notin T_2\), then \(a_v = b_v\) for all \(v \in V\). </p>
+  <p>    If \(S\) is linearly independent, then every vector in \(\text{span}(S)\) has a unique representation as a linear combination of vectors from \(S\) (up to reordering and zero coefficients). </p>
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000060">
+<div class="proof_wrapper" id="a0000000092">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof
@@ -910,25 +986,30 @@
     <span class="expand-proof">▶</span>
   </div>
   <div class="proof_content">
-  <p>This follows from the definition of linear independence: if a linear combination of linearly independent vectors equals zero, then all coefficients must be zero. </p>
+  <p>Suppose \(v = \sum a_i v_i = \sum b_i v_i\) for distinct \(v_i \in S\). Then: </p>
+<div class="displaymath" id="a0000000093">
+  \[ 0 = \sum (a_i - b_i) v_i \]
+</div>
+<p> By linear independence, \(a_i - b_i = 0\) for all \(i\), hence \(a_i = b_i\). </p>
 
   </div>
 </div>
-<h1 id="a0000000023">3.8 Linear Independence Of Set With Insertion</h1>
-<div class="theorem_thmwrapper theorem-style-plain" id="theorem : linear_independent_insert_of_not_in_span">
+<h1 id="a0000000045">3.10 Level 9: Independence with Insertion (Challenge)</h1>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm:linear_independent_insert">
   <div class="theorem_thmheading">
     <span class="theorem_thmcaption">
     Theorem
     </span>
-    <span class="theorem_thmlabel">21</span>
+    <span class="theorem_thmlabel">28</span>
+    <span class="theorem_thmtitle">Independence Extension</span>
     <div class="thm_header_extras">
 
         </div>
     <div class="thm_header_hidden_extras">
 
-    <a class="icon proof" href="sect0003.html#theorem : linear_independent_insert_of_not_in_span">#</a>
+    <a class="icon proof" href="sect0003.html#thm:linear_independent_insert">#</a>
     
-    <a class="icon proof" href="sect0003.html#a0000000062"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+    <a class="icon proof" href="sect0003.html#a0000000094"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
 </a>
     
     
@@ -944,9 +1025,9 @@
         
         <ul class="uses">
           
-          <li><a href="sect0003.html#definition : linear_combination">Definition 11</a></li>
+          <li><a href="sect0003.html#def:linear_independent">Definition 23</a></li>
           
-          <li><a href="sect0003.html#definition : linear_independent">Definition 16</a></li>
+          <li><a href="sect0003.html#def:span">Definition 19</a></li>
           
         </ul>
     
@@ -977,11 +1058,11 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   Let \(S\) be a linearly independent set and \(v\) be a vector not in the span of \(S\). Then the set \(S \cup \{ v\} \) is also linearly independent. </p>
+  <p>    If \(S\) is linearly independent and \(v \notin \text{span}(S)\), then \(S \cup \{ v\} \) is linearly independent. </p>
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000062">
+<div class="proof_wrapper" id="a0000000094">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof
@@ -989,25 +1070,33 @@
     <span class="expand-proof">▶</span>
   </div>
   <div class="proof_content">
-  <p>Suppose we have a linear combination \(\sum _{s \in S} a_s s + a_v v = 0\). If \(a_v \neq 0\), then we could solve for \(v = -\frac{1}{a_v}\sum _{s \in S} a_s s\), which would mean \(v \in \text{span}(S)\), contradicting our assumption. Therefore \(a_v = 0\), and since \(S\) is linearly independent, we must have \(a_s = 0\) for all \(s \in S\). </p>
+  <p>Suppose \(\sum a_i s_i + b \cdot v = 0\) where \(s_i \in S\) are distinct. </p>
+<ul class="itemize">
+  <li><p>If \(b \neq 0\): Then \(v = -b^{-1} \sum a_i s_i \in \text{span}(S)\), contradiction. </p>
+</li>
+  <li><p>If \(b = 0\): Then \(\sum a_i s_i = 0\), so \(a_i = 0\) for all \(i\) by independence of \(S\). </p>
+</li>
+</ul>
+<p> Therefore, all coefficients must be zero. </p>
 
   </div>
 </div>
-<h1 id="a0000000024">3.9 Span After Removing Elements</h1>
-<div class="theorem_thmwrapper theorem-style-plain" id="theorem : span_remove_element">
+<h1 id="a0000000046">3.11 Level 10: Removing Redundant Vectors (Challenge)</h1>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm:remove_redundant_span">
   <div class="theorem_thmheading">
     <span class="theorem_thmcaption">
     Theorem
     </span>
-    <span class="theorem_thmlabel">22</span>
+    <span class="theorem_thmlabel">29</span>
+    <span class="theorem_thmtitle">Redundant Vector Removal</span>
     <div class="thm_header_extras">
 
         </div>
     <div class="thm_header_hidden_extras">
 
-    <a class="icon proof" href="sect0003.html#theorem : span_remove_element">#</a>
+    <a class="icon proof" href="sect0003.html#thm:remove_redundant_span">#</a>
     
-    <a class="icon proof" href="sect0003.html#a0000000063"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+    <a class="icon proof" href="sect0003.html#a0000000095"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
 </a>
     
     
@@ -1023,9 +1112,7 @@
         
         <ul class="uses">
           
-          <li><a href="sect0003.html#definition : span">Definition 13</a></li>
-          
-          <li><a href="sect0003.html#definition : linear_independent">Definition 16</a></li>
+          <li><a href="sect0003.html#def:span">Definition 19</a></li>
           
         </ul>
     
@@ -1045,7 +1132,7 @@
         
         <ul class="uses">
           
-          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.span_remove_element" class="lean_decl">LinearAlgebraGame.span_remove_element</a></li>
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.remove_redundant_span" class="lean_decl">LinearAlgebraGame.remove_redundant_span</a></li>
           
         </ul>
     
@@ -1056,11 +1143,14 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   If \(S\) is a set of vectors and \(v \in S\) can be written as a linear combination of other vectors in \(S \setminus \{ v\} \), then \(\text{span}(S) = \text{span}(S \setminus \{ v\} )\). </p>
+  <p>    If \(w \in \text{span}(S \setminus \{ w\} )\), then: </p>
+<div class="displaymath" id="a0000000096">
+  \[ \text{span}(S) = \text{span}(S \setminus \{ w\} ) \]
+</div>
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000063">
+<div class="proof_wrapper" id="a0000000095">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof
@@ -1068,10 +1158,30 @@
     <span class="expand-proof">▶</span>
   </div>
   <div class="proof_content">
-  <p>Since \(S \setminus \{ v\}  \subseteq S\), we have \(\text{span}(S \setminus \{ v\} ) \subseteq \text{span}(S)\) by monotonicity. For the reverse inclusion, since \(v\) is a linear combination of vectors in \(S \setminus \{ v\} \), any linear combination involving \(v\) can be rewritten using only vectors from \(S \setminus \{ v\} \). </p>
+  <ul class="itemize">
+  <li><p>\(\text{span}(S \setminus \{ w\} ) \subseteq \text{span}(S)\): By monotonicity. </p>
+</li>
+  <li><p>\(\text{span}(S) \subseteq \text{span}(S \setminus \{ w\} )\): Any linear combination involving \(w\) can be rewritten using the expression of \(w\) in terms of \(S \setminus \{ w\} \). </p>
+</li>
+</ul>
 
   </div>
 </div>
+<h1 id="a0000000047">3.12 Summary</h1>
+<p>This world establishes the fundamental theory of linear independence and span: </p>
+<ul class="itemize">
+  <li><p>The formal definitions of linear combinations and span </p>
+</li>
+  <li><p>Key properties of the span operation (containment, monotonicity) </p>
+</li>
+  <li><p>The concept of linear independence and its preservation under subset operations </p>
+</li>
+  <li><p>Advanced results about unique representations and basis extension </p>
+</li>
+  <li><p>The ability to remove redundant vectors from spanning sets </p>
+</li>
+</ul>
+<p>These concepts form the theoretical foundation for understanding bases, dimension, and the structure of vector spaces.  </p>
 
 </div> <!--main-text -->
 </div> <!-- content-wrapper -->
@@ -1087,7 +1197,7 @@
 </a>
   <a href="index.html" title="Linear Algebra Game"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
 </a>
-  <a href="sect0004.html" title="Inner Product World"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+  <a href="sect0004.html" title="Inner Product Spaces"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
 </a>
 </nav>
 

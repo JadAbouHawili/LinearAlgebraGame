@@ -1,0 +1,34 @@
+{
+  "blocks": [
+    {
+      "startTime": "2025-10-14T19:00:00.000Z",
+      "endTime": "2025-10-15T00:00:00.000Z",
+      "actualEndTime": "2025-10-14T23:59:55.989Z",
+      "perModelStats": {
+        "claude-sonnet-4-5-20250929": {
+          "tokenCounts": {
+            "inputTokens": 5383,
+            "outputTokens": 3489,
+            "cacheCreationTokens": 1196662,
+            "cacheReadTokens": 10423416,
+            "totalTokens": 8872
+          },
+          "costUSD": 7.682991,
+          "entriesCount": 171
+        }
+      },
+      "totalTokens": 8872,
+      "totalTokensOld": 8872,
+      "costUSD": 7.682991,
+      "entries": 172,
+      "limits": [
+        {
+          "type": "general_limit",
+          "timestamp": "2025-10-14T21:45:15.345Z",
+          "content": "Session limit reached \u2219 resets 7pm",
+          "resetTime": null
+        }
+      ]
+    }
+  ]
+}

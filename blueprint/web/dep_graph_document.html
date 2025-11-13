@@ -63,34 +63,34 @@
 <div id="statements">
 
     
-    <div class="dep-modal-container" id="definition : InnerProductSpace_modal">
+    <div class="dep-modal-container" id="def:inner_product_complex_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="definition : InnerProductSpace" style="display: none">
+  <div class="thm" id="def:inner_product_complex" style="display: none">
     <div class="thm_thmheading">
       <span class="definition_thmcaption">
       Definition
       </span>
-      <span class="definition_thmlabel">24</span></div>
-    <div class="thm_thmcontent"><p>   An <b class="bfseries">inner product space</b> over the complex numbers \(\mathbb {C}\) is a vector space \(V\) over \(\mathbb {C}\) together with an inner product \(\langle \cdot , \cdot \rangle : V \times V \to \mathbb {C}\) satisfying five key axioms: </p>
+      <span class="definition_thmlabel">31</span><span class="definition_thmtitle">Complex Inner Product Space</span></div>
+    <div class="thm_thmcontent"><p>    An <b class="bfseries">inner product space</b> over \(\mathbb {C}\) is a vector space \(V\) over \(\mathbb {C}\) with an inner product \(\langle \cdot , \cdot \rangle : V \times V \to \mathbb {C}\) satisfying: </p>
 <ol class="enumerate">
-  <li><p><b class="bfseries">Positivity</b>: \(\langle v, v \rangle \in \mathbb {R}\) and \(\langle v, v \rangle \geq 0\) for all \(v \in V\) </p>
+  <li><p>Positivity: \(\langle v, v \rangle \in \mathbb {R}_{\geq 0}\) for all \(v \in V\) </p>
 </li>
-  <li><p><b class="bfseries">Definiteness</b>: \(\langle v, v \rangle = 0\) if and only if \(v = 0\) </p>
+  <li><p>Definiteness: \(\langle v, v \rangle = 0\) iff \(v = 0\) </p>
 </li>
-  <li><p><b class="bfseries">Additivity in first slot</b>: \(\langle u + v, w \rangle = \langle u, w \rangle + \langle v, w \rangle \) </p>
+  <li><p>Additivity in first slot: \(\langle u + v, w \rangle = \langle u, w \rangle + \langle v, w \rangle \) </p>
 </li>
-  <li><p><b class="bfseries">Homogeneity in first slot</b>: \(\langle a \cdot v, w \rangle = a \cdot \langle v, w \rangle \) </p>
+  <li><p>Homogeneity in first slot: \(\langle a \cdot v, w \rangle = a \cdot \langle v, w \rangle \) </p>
 </li>
-  <li><p><b class="bfseries">Conjugate symmetry</b>: \(\langle v, w \rangle = \overline{\langle w, v \rangle }\) </p>
+  <li><p>Conjugate symmetry: \(\langle v, w \rangle = \overline{\langle w, v \rangle }\) </p>
 </li>
 </ol>
 </div>
 
-    <a class="latex_link" href="sect0004.html#definition : InnerProductSpace">LaTeX</a>
+    <a class="latex_link" href="sect0004.html#def:inner_product_complex">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.InnerProductSpace_v">Lean</a>
@@ -105,22 +105,30 @@
 
 
     
-    <div class="dep-modal-container" id="definition : InnerProductSpace_real_modal">
+    <div class="dep-modal-container" id="def:inner_product_real_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="definition : InnerProductSpace_real" style="display: none">
+  <div class="thm" id="def:inner_product_real" style="display: none">
     <div class="thm_thmheading">
       <span class="definition_thmcaption">
       Definition
       </span>
-      <span class="definition_thmlabel">23</span></div>
-    <div class="thm_thmcontent"><p>   An <b class="bfseries">inner product space</b> over the real numbers \(\mathbb {R}\) is a vector space \(V\) over \(\mathbb {R}\) together with an inner product \(\langle \cdot , \cdot \rangle : V \times V \to \mathbb {R}\) satisfying the axioms of positivity, definiteness, additivity, and homogeneity. </p>
+      <span class="definition_thmlabel">30</span><span class="definition_thmtitle">Real Inner Product Space</span></div>
+    <div class="thm_thmcontent"><p>    An <b class="bfseries">inner product space</b> over \(\mathbb {R}\) is a vector space \(V\) over \(\mathbb {R}\) with an inner product \(\langle \cdot , \cdot \rangle : V \times V \to \mathbb {R}\) satisfying: </p>
+<ol class="enumerate">
+  <li><p>Symmetry: \(\langle v, w \rangle = \langle w, v \rangle \) </p>
+</li>
+  <li><p>Linearity: \(\langle au + bv, w \rangle = a\langle u, w \rangle + b\langle v, w \rangle \) </p>
+</li>
+  <li><p>Positive definiteness: \(\langle v, v \rangle \geq 0\) with equality iff \(v = 0\) </p>
+</li>
+</ol>
 </div>
 
-    <a class="latex_link" href="sect0004.html#definition : InnerProductSpace_real">LaTeX</a>
+    <a class="latex_link" href="sect0004.html#def:inner_product_real">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.InnerProductSpace_real_v">Lean</a>
@@ -135,25 +143,25 @@
 
 
     
-    <div class="dep-modal-container" id="definition : linear_combination_modal">
+    <div class="dep-modal-container" id="def:linear_combination_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="definition : linear_combination" style="display: none">
+  <div class="thm" id="def:linear_combination" style="display: none">
     <div class="thm_thmheading">
       <span class="definition_thmcaption">
       Definition
       </span>
-      <span class="definition_thmlabel">11</span></div>
-    <div class="thm_thmcontent"><p>   Let \(V\) be a vector space over a field \(K\), and let \(S \subseteq V\). A vector \(x \in V\) is called a <b class="bfseries">linear combination</b> of vectors in \(S\) if there exist finitely many vectors \(v_1, v_2, \ldots , v_n \in S\) and scalars \(a_1, a_2, \ldots , a_n \in K\) such that </p>
-<div class="displaymath" id="a0000000051">
-  \[ x = a_1 v_1 + a_2 v_2 + \cdots + a_n v_n = \sum _{i=1}^{n} a_i v_i \]
+      <span class="definition_thmlabel">18</span><span class="definition_thmtitle">Linear Combination</span></div>
+    <div class="thm_thmcontent"><p>    A vector \(v \in V\) is a <b class="bfseries">linear combination</b> of a set \(S \subseteq V\) if there exist finitely many vectors \(v_1, \ldots , v_n \in S\) and scalars \(a_1, \ldots , a_n \in K\) such that: </p>
+<div class="displaymath" id="a0000000079">
+  \[ v = \sum _{i=1}^n a_i \cdot v_i \]
 </div>
 </div>
 
-    <a class="latex_link" href="sect0003.html#definition : linear_combination">LaTeX</a>
+    <a class="latex_link" href="sect0003.html#def:linear_combination">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.is_linear_combination">Lean</a>
@@ -168,27 +176,22 @@
 
 
     
-    <div class="dep-modal-container" id="definition : linear_independent_modal">
+    <div class="dep-modal-container" id="def:linear_independent_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="definition : linear_independent" style="display: none">
+  <div class="thm" id="def:linear_independent" style="display: none">
     <div class="thm_thmheading">
       <span class="definition_thmcaption">
       Definition
       </span>
-      <span class="definition_thmlabel">16</span></div>
-    <div class="thm_thmcontent"><p>   A set of vectors \(S \subseteq V\) is <b class="bfseries">linearly independent</b> if the only solution to the equation </p>
-<div class="displaymath" id="a0000000056">
-  \[ a_1 v_1 + a_2 v_2 + \cdots + a_n v_n = 0 \]
-</div>
-<p> where \(v_1, v_2, \ldots , v_n \in S\) are distinct and \(a_1, a_2, \ldots , a_n \in K\), is the trivial solution \(a_1 = a_2 = \cdots = a_n = 0\). </p>
-<p>Equivalently, \(S\) is linearly independent if no vector in \(S\) can be written as a linear combination of the other vectors in \(S\). </p>
+      <span class="definition_thmlabel">23</span><span class="definition_thmtitle">Linear Independence</span></div>
+    <div class="thm_thmcontent"><p>    A set \(S \subseteq V\) is <b class="bfseries">linearly independent</b> if the only way to express zero as a linear combination of distinct vectors from \(S\) is with all coefficients equal to zero. </p>
 </div>
 
-    <a class="latex_link" href="sect0003.html#definition : linear_independent">LaTeX</a>
+    <a class="latex_link" href="sect0003.html#def:linear_independent">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.linear_independent_v">Lean</a>
@@ -203,25 +206,25 @@
 
 
     
-    <div class="dep-modal-container" id="definition : norm_modal">
+    <div class="dep-modal-container" id="def:norm_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="definition : norm" style="display: none">
+  <div class="thm" id="def:norm" style="display: none">
     <div class="thm_thmheading">
       <span class="definition_thmcaption">
       Definition
       </span>
-      <span class="definition_thmlabel">36</span></div>
-    <div class="thm_thmcontent"><p>   The <b class="bfseries">norm</b> of a vector \(v\) in an inner product space is defined as: </p>
-<div class="displaymath" id="a0000000077">
-  \[ \| v\|  = \sqrt{\text{Re}(\langle v, v \rangle )} \]
+      <span class="definition_thmlabel">32</span><span class="definition_thmtitle">Norm</span></div>
+    <div class="thm_thmcontent"><p>    The <b class="bfseries">norm</b> of a vector \(v\) is defined as: </p>
+<div class="displaymath" id="a0000000097">
+  \[ \| v\|  = \sqrt{\langle v, v \rangle } \]
 </div>
 </div>
 
-    <a class="latex_link" href="sect0004.html#definition : norm">LaTeX</a>
+    <a class="latex_link" href="sect0004.html#def:norm">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.norm_v">Lean</a>
@@ -236,22 +239,22 @@
 
 
     
-    <div class="dep-modal-container" id="definition : orthogonal_modal">
+    <div class="dep-modal-container" id="def:orthogonal_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="definition : orthogonal" style="display: none">
+  <div class="thm" id="def:orthogonal" style="display: none">
     <div class="thm_thmheading">
       <span class="definition_thmcaption">
       Definition
       </span>
-      <span class="definition_thmlabel">37</span></div>
-    <div class="thm_thmcontent"><p>   Two vectors \(u\) and \(v\) are <b class="bfseries">orthogonal</b> if \(\langle u, v \rangle = 0\). We write \(u \perp v\). </p>
+      <span class="definition_thmlabel">36</span><span class="definition_thmtitle">Orthogonality</span></div>
+    <div class="thm_thmcontent"><p>    Two vectors \(v\) and \(w\) are <b class="bfseries">orthogonal</b> if \(\langle v, w \rangle = 0\). </p>
 </div>
 
-    <a class="latex_link" href="sect0004.html#definition : orthogonal">LaTeX</a>
+    <a class="latex_link" href="sect0004.html#def:orthogonal">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.orthogonal">Lean</a>
@@ -266,28 +269,28 @@
 
 
     
-    <div class="dep-modal-container" id="definition : span_modal">
+    <div class="dep-modal-container" id="def:span_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="definition : span" style="display: none">
+  <div class="thm" id="def:span" style="display: none">
     <div class="thm_thmheading">
       <span class="definition_thmcaption">
       Definition
       </span>
-      <span class="definition_thmlabel">13</span></div>
-    <div class="thm_thmcontent"><p>   Let \(V\) be a vector space over a field \(K\), and let \(S \subseteq V\). The <b class="bfseries">span</b> of \(S\), denoted \(\text{span}(S)\) or \(\langle S \rangle \), is the set of all linear combinations of vectors in \(S\): </p>
-<div class="displaymath" id="a0000000053">
-  \[ \text{span}(S) = \left\{  \sum _{i=1}^{n} a_i v_i : n \in \mathbb {N}, v_i \in S, a_i \in K \right\}  \]
+      <span class="definition_thmlabel">19</span><span class="definition_thmtitle">Span</span></div>
+    <div class="thm_thmcontent"><p>    The <b class="bfseries">span</b> of a set \(S \subseteq V\), denoted \(\text{span}(S)\), is the set of all linear combinations of vectors from \(S\): </p>
+<div class="displaymath" id="a0000000080">
+  \[ \text{span}(S) = \{ v \in V : v \text{ is a linear combination of vectors in } S\}  \]
 </div>
 </div>
 
-    <a class="latex_link" href="sect0003.html#definition : span">LaTeX</a>
+    <a class="latex_link" href="sect0003.html#def:span">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.is_linear_combination">Lean</a>
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.span">Lean</a>
     
     
   
@@ -299,30 +302,30 @@
 
 
     
-    <div class="dep-modal-container" id="definition : Subspace_modal">
+    <div class="dep-modal-container" id="def:subspace_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="definition : Subspace" style="display: none">
+  <div class="thm" id="def:subspace" style="display: none">
     <div class="thm_thmheading">
       <span class="definition_thmcaption">
       Definition
       </span>
-      <span class="definition_thmlabel">8</span></div>
-    <div class="thm_thmcontent"><p>  A subset \(W\) of a vector space \(V\) over a field \(K\) is called a <b class="bfseries">subspace</b> if it satisfies the following three conditions: </p>
-<ul class="itemize">
-  <li><p><b class="bfseries">Non-empty</b>: \(W \neq \emptyset \) </p>
+      <span class="definition_thmlabel">15</span><span class="definition_thmtitle">Subspace</span></div>
+    <div class="thm_thmcontent"><p>    A subset \(W \subseteq V\) is a <b class="bfseries">subspace</b> if: </p>
+<ol class="enumerate">
+  <li><p>\((0 : V) \in W\) (contains zero) </p>
 </li>
-  <li><p><b class="bfseries">Closure under addition</b>: For all \(x, y \in W\), we have \(x + y \in W\) </p>
+  <li><p>\(\forall x, y \in W: x + y \in W\) (closed under addition) </p>
 </li>
-  <li><p><b class="bfseries">Closure under scalar multiplication</b>: For all \(a \in K\) and \(x \in W\), we have \(a \cdot x \in W\) </p>
+  <li><p>\(\forall a \in K, \forall x \in W: a \cdot x \in W\) (closed under scalar multiplication) </p>
 </li>
-</ul>
+</ol>
 </div>
 
-    <a class="latex_link" href="sect0002.html#definition : Subspace">LaTeX</a>
+    <a class="latex_link" href="sect0002.html#def:subspace">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.isSubspace">Lean</a>
@@ -337,44 +340,32 @@
 
 
     
-    <div class="dep-modal-container" id="definition : VectorSpace_modal">
+    <div class="dep-modal-container" id="def:vectorspace_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="definition : VectorSpace" style="display: none">
+  <div class="thm" id="def:vectorspace" style="display: none">
     <div class="thm_thmheading">
       <span class="definition_thmcaption">
       Definition
       </span>
-      <span class="definition_thmlabel">4</span></div>
-    <div class="thm_thmcontent"><p>  A <b class="bfseries">vector space</b> \(V\) over a field \(K\) is an abelian group equipped with scalar multiplication that satisfies four key axioms: </p>
-<ul class="itemize">
-  <li><p><b class="bfseries">Distributivity over vector addition</b>: </p>
-<div class="displaymath" id="a0000000038">
-  \[ \forall a \in K, \forall x,y \in V: \quad a \cdot (x + y) = a \cdot x + a \cdot y \]
-</div>
+      <span class="definition_thmlabel">11</span><span class="definition_thmtitle">Vector Space</span></div>
+    <div class="thm_thmcontent"><p>    A <b class="bfseries">vector space</b> \(V\) over a field \(K\) is an abelian group \((V, +)\) equipped with scalar multiplication \(\cdot : K \times V \to V\) satisfying: </p>
+<ol class="enumerate">
+  <li><p><b class="bfseries">Distributivity over vector addition</b>: \(\forall a \in K, \forall x,y \in V: a \cdot (x + y) = a \cdot x + a \cdot y\) </p>
 </li>
-  <li><p><b class="bfseries">Distributivity over field addition</b>: </p>
-<div class="displaymath" id="a0000000039">
-  \[ \forall a,b \in K, \forall x \in V: \quad (a + b) \cdot x = a \cdot x + b \cdot x \]
-</div>
+  <li><p><b class="bfseries">Distributivity over scalar addition</b>: \(\forall a,b \in K, \forall x \in V: (a + b) \cdot x = a \cdot x + b \cdot x\) </p>
 </li>
-  <li><p><b class="bfseries">Compatibility with field multiplication</b>: </p>
-<div class="displaymath" id="a0000000040">
-  \[ \forall a,b \in K, \forall x \in V: \quad (a \cdot b) \cdot x = a \cdot (b \cdot x) \]
-</div>
+  <li><p><b class="bfseries">Compatibility</b>: \(\forall a,b \in K, \forall x \in V: (a \cdot b) \cdot x = a \cdot (b \cdot x)\) </p>
 </li>
-  <li><p><b class="bfseries">Identity element</b>: </p>
-<div class="displaymath" id="a0000000041">
-  \[ \forall x \in V: \quad 1 \cdot x = x \]
-</div>
+  <li><p><b class="bfseries">Identity</b>: \(\forall x \in V: 1 \cdot x = x\) </p>
 </li>
-</ul>
+</ol>
 </div>
 
-    <a class="latex_link" href="sect0002.html#definition : VectorSpace">LaTeX</a>
+    <a class="latex_link" href="sect0002.html#def:vectorspace">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.VectorSpace">Lean</a>
@@ -400,7 +391,7 @@
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">64</span></div>
+      <span class="theorem_thmlabel">58</span></div>
     <div class="thm_thmcontent"><p>   A linear map \(T : V \to W\) is both injective and surjective if and only if it is bijective. </p>
 </div>
 
@@ -430,9 +421,9 @@
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">63</span></div>
+      <span class="theorem_thmlabel">57</span></div>
     <div class="thm_thmcontent"><p>   For a linear map \(T : V \to W\) between finite-dimensional vector spaces: </p>
-<div class="displaymath" id="a0000000104">
+<div class="displaymath" id="a0000000120">
   \[ \dim V = \dim (\text{null}(T)) + \dim (\text{range}(T)) \]
 </div>
 <p> This is the rank-nullity theorem, also known as the fundamental theorem of linear maps. </p>
@@ -464,7 +455,7 @@
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">62</span></div>
+      <span class="theorem_thmlabel">56</span></div>
     <div class="thm_thmcontent"><p>   If \(T : V \to W\) is an injective linear map, then distinct vectors map to distinct vectors: if \(v_1 \neq v_2\), then \(T(v_1) \neq T(v_2)\). </p>
 </div>
 
@@ -494,7 +485,7 @@
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">60</span></div>
+      <span class="theorem_thmlabel">54</span></div>
     <div class="thm_thmcontent"><p>   A linear map \(T : V \to W\) is injective if and only if \(\text{null}(T) = \{ 0\} \). </p>
 </div>
 
@@ -524,7 +515,7 @@
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">61</span></div>
+      <span class="theorem_thmlabel">55</span></div>
     <div class="thm_thmcontent"><p>   Injective linear maps preserve linear independence: If \(T : V \to W\) is an injective linear map and \(\{ v_1, \ldots , v_n\} \) is linearly independent in \(V\), then \(\{ T(v_1), \ldots , T(v_n)\} \) is linearly independent in \(W\). </p>
 </div>
 
@@ -554,7 +545,7 @@
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">66</span></div>
+      <span class="theorem_thmlabel">60</span></div>
     <div class="thm_thmcontent"><p>   A linear map \(T : V \to W\) is an isomorphism if and only if it is bijective. </p>
 </div>
 
@@ -584,7 +575,7 @@
       <span class="definition_thmcaption">
       Definition
       </span>
-      <span class="definition_thmlabel">65</span></div>
+      <span class="definition_thmlabel">59</span></div>
     <div class="thm_thmcontent"><p>  An <b class="bfseries">isomorphism</b> is a linear map \(T : V \to W\) that is both injective and surjective (bijective). </p>
 </div>
 
@@ -614,7 +605,7 @@
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">67</span></div>
+      <span class="theorem_thmlabel">61</span></div>
     <div class="thm_thmcontent"><p>   Isomorphisms preserve all vector space structure. In particular, if \(T : V \to W\) is an isomorphism, then \(T\) and \(T^{-1}\) preserve linear combinations, linear independence, spanning sets, and bases. </p>
 </div>
 
@@ -633,25 +624,35 @@
 
 
     
-    <div class="dep-modal-container" id="lemma : conj_add_modal">
+    <div class="dep-modal-container" id="lem:conj_props_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="lemma : conj_add" style="display: none">
+  <div class="thm" id="lem:conj_props" style="display: none">
     <div class="thm_thmheading">
       <span class="lemma_thmcaption">
       Lemma
       </span>
-      <span class="lemma_thmlabel">28</span></div>
-    <div class="thm_thmcontent"><p>  Complex conjugation distributes over addition: \(\overline{z + w} = \overline{z} + \overline{w}\). </p>
+      <span class="lemma_thmlabel">43</span><span class="lemma_thmtitle">Conjugation Properties</span></div>
+    <div class="thm_thmcontent"><p>   Complex conjugation satisfies: </p>
+<ul class="itemize">
+  <li><p> Injectivity: \(\overline{a} = \overline{b} \iff a = b\) </p>
+</li>
+  <li><p> Additivity: \(\overline{a + b} = \overline{a} + \overline{b}\) </p>
+</li>
+  <li><p> Multiplicativity: \(\overline{a \cdot b} = \overline{a} \cdot \overline{b}\) </p>
+</li>
+  <li><p> Zero: \(\overline{0} = 0\) </p>
+</li>
+</ul>
 </div>
 
-    <a class="latex_link" href="sect0004.html#lemma : conj_add">LaTeX</a>
+    <a class="latex_link" href="sect0004.html#lem:conj_props">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.conj_add">Lean</a>
+  
     
     
   
@@ -663,25 +664,37 @@
 
 
     
-    <div class="dep-modal-container" id="lemma : conj_inj_modal">
+    <div class="dep-modal-container" id="lem:inner_props_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="lemma : conj_inj" style="display: none">
+  <div class="thm" id="lem:inner_props" style="display: none">
     <div class="thm_thmheading">
       <span class="lemma_thmcaption">
       Lemma
       </span>
-      <span class="lemma_thmlabel">27</span></div>
-    <div class="thm_thmcontent"><p>  Complex conjugation is injective: if \(\overline{z} = \overline{w}\), then \(z = w\). </p>
+      <span class="lemma_thmlabel">44</span><span class="lemma_thmtitle">Inner Product Linearity Properties</span></div>
+    <div class="thm_thmcontent"><p>   The inner product satisfies: </p>
+<ul class="itemize">
+  <li><p> Right additivity: \(\langle v, w_1 + w_2 \rangle = \langle v, w_1 \rangle + \langle v, w_2 \rangle \) </p>
+</li>
+  <li><p> Left zero: \(\langle 0, w \rangle = 0\) </p>
+</li>
+  <li><p> Right zero: \(\langle v, 0 \rangle = 0\) </p>
+</li>
+  <li><p> Right homogeneity: \(\langle v, a \cdot w \rangle = \overline{a} \cdot \langle v, w \rangle \) </p>
+</li>
+  <li><p> Left negation: \(\langle -v, w \rangle = -\langle v, w \rangle \) </p>
+</li>
+</ul>
 </div>
 
-    <a class="latex_link" href="sect0004.html#lemma : conj_inj">LaTeX</a>
+    <a class="latex_link" href="sect0004.html#lem:inner_props">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.conj_inj">Lean</a>
+  
     
     
   
@@ -693,325 +706,25 @@
 
 
     
-    <div class="dep-modal-container" id="lemma : conj_mull_modal">
+    <div class="dep-modal-container" id="lem:inner_self_real_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="lemma : conj_mull" style="display: none">
+  <div class="thm" id="lem:inner_self_real" style="display: none">
     <div class="thm_thmheading">
       <span class="lemma_thmcaption">
       Lemma
       </span>
-      <span class="lemma_thmlabel">29</span></div>
-    <div class="thm_thmcontent"><p>  Complex conjugation distributes over multiplication: \(\overline{z \cdot w} = \overline{z} \cdot \overline{w}\). </p>
+      <span class="lemma_thmlabel">42</span><span class="lemma_thmtitle">Inner Product with Self is Real</span></div>
+    <div class="thm_thmcontent"><p>    \(\langle v, v \rangle \in \mathbb {R}\) for all \(v \in V\). </p>
 </div>
 
-    <a class="latex_link" href="sect0004.html#lemma : conj_mull">LaTeX</a>
-    
-    
-  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.conj_mull">Lean</a>
-    
-    
-  
-    
-  </div>
-    
-      </div>
-    </div>
-
-
-    
-    <div class="dep-modal-container" id="lemma : conj_zero_modal">
-      <div class="dep-modal-content">
-          <button class="dep-closebtn">
-<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
-</button>
-        
-  <div class="thm" id="lemma : conj_zero" style="display: none">
-    <div class="thm_thmheading">
-      <span class="lemma_thmcaption">
-      Lemma
-      </span>
-      <span class="lemma_thmlabel">30</span></div>
-    <div class="thm_thmcontent"><p>  The complex conjugate of zero is zero: \(\overline{0} = 0\). </p>
-</div>
-
-    <a class="latex_link" href="sect0004.html#lemma : conj_zero">LaTeX</a>
-    
-    
-  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.conj_zero">Lean</a>
-    
-    
-  
-    
-  </div>
-    
-      </div>
-    </div>
-
-
-    
-    <div class="dep-modal-container" id="lemma : inner_add_right_modal">
-      <div class="dep-modal-content">
-          <button class="dep-closebtn">
-<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
-</button>
-        
-  <div class="thm" id="lemma : inner_add_right" style="display: none">
-    <div class="thm_thmheading">
-      <span class="lemma_thmcaption">
-      Lemma
-      </span>
-      <span class="lemma_thmlabel">32</span></div>
-    <div class="thm_thmcontent"><p>   Inner products are additive in the second argument: \(\langle u, v + w \rangle = \langle u, v \rangle + \langle u, w \rangle \). </p>
-</div>
-
-    <a class="latex_link" href="sect0004.html#lemma : inner_add_right">LaTeX</a>
-    
-    
-  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.inner_add_right_v">Lean</a>
-    
-    
-  
-    
-  </div>
-    
-      </div>
-    </div>
-
-
-    
-    <div class="dep-modal-container" id="lemma : inner_minus_left_modal">
-      <div class="dep-modal-content">
-          <button class="dep-closebtn">
-<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
-</button>
-        
-  <div class="thm" id="lemma : inner_minus_left" style="display: none">
-    <div class="thm_thmheading">
-      <span class="lemma_thmcaption">
-      Lemma
-      </span>
-      <span class="lemma_thmlabel">26</span></div>
-    <div class="thm_thmcontent"><p>   For any vectors \(u, v\) in an inner product space, \(\langle -u, v \rangle = -\langle u, v \rangle \). </p>
-</div>
-
-    <a class="latex_link" href="sect0004.html#lemma : inner_minus_left">LaTeX</a>
-    
-    
-  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.inner_minus_left">Lean</a>
-    
-    
-  
-    
-  </div>
-    
-      </div>
-    </div>
-
-
-    
-    <div class="dep-modal-container" id="lemma : inner_self_re_modal">
-      <div class="dep-modal-content">
-          <button class="dep-closebtn">
-<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
-</button>
-        
-  <div class="thm" id="lemma : inner_self_re" style="display: none">
-    <div class="thm_thmheading">
-      <span class="lemma_thmcaption">
-      Lemma
-      </span>
-      <span class="lemma_thmlabel">31</span></div>
-    <div class="thm_thmcontent"><p>   For any vector \(v\), \(\langle v, v \rangle \) equals its real part: \(\langle v, v \rangle = \text{Re}(\langle v, v \rangle )\). </p>
-</div>
-
-    <a class="latex_link" href="sect0004.html#lemma : inner_self_re">LaTeX</a>
-    
-    
-  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.inner_self_re_v">Lean</a>
-    
-    
-  
-    
-  </div>
-    
-      </div>
-    </div>
-
-
-    
-    <div class="dep-modal-container" id="lemma : inner_self_real_modal">
-      <div class="dep-modal-content">
-          <button class="dep-closebtn">
-<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
-</button>
-        
-  <div class="thm" id="lemma : inner_self_real" style="display: none">
-    <div class="thm_thmheading">
-      <span class="lemma_thmcaption">
-      Lemma
-      </span>
-      <span class="lemma_thmlabel">25</span></div>
-    <div class="thm_thmcontent"><p>   For any vector \(v\) in an inner product space, \(\langle v, v \rangle \) is real. </p>
-</div>
-
-    <a class="latex_link" href="sect0004.html#lemma : inner_self_real">LaTeX</a>
+    <a class="latex_link" href="sect0004.html#lem:inner_self_real">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.inner_self_real">Lean</a>
-    
-    
-  
-    
-  </div>
-    
-      </div>
-    </div>
-
-
-    
-    <div class="dep-modal-container" id="lemma : inner_smul_right_modal">
-      <div class="dep-modal-content">
-          <button class="dep-closebtn">
-<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
-</button>
-        
-  <div class="thm" id="lemma : inner_smul_right" style="display: none">
-    <div class="thm_thmheading">
-      <span class="lemma_thmcaption">
-      Lemma
-      </span>
-      <span class="lemma_thmlabel">35</span></div>
-    <div class="thm_thmcontent"><p>   Inner products are conjugate-homogeneous in the second argument: \(\langle u, a \cdot v \rangle = \overline{a} \cdot \langle u, v \rangle \). </p>
-</div>
-
-    <a class="latex_link" href="sect0004.html#lemma : inner_smul_right">LaTeX</a>
-    
-    
-  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.inner_smul_right_v">Lean</a>
-    
-    
-  
-    
-  </div>
-    
-      </div>
-    </div>
-
-
-    
-    <div class="dep-modal-container" id="lemma : inner_zero_left_modal">
-      <div class="dep-modal-content">
-          <button class="dep-closebtn">
-<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
-</button>
-        
-  <div class="thm" id="lemma : inner_zero_left" style="display: none">
-    <div class="thm_thmheading">
-      <span class="lemma_thmcaption">
-      Lemma
-      </span>
-      <span class="lemma_thmlabel">33</span></div>
-    <div class="thm_thmcontent"><p>   The inner product of zero with any vector is zero: \(\langle 0, v \rangle = 0\). </p>
-</div>
-
-    <a class="latex_link" href="sect0004.html#lemma : inner_zero_left">LaTeX</a>
-    
-    
-  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.inner_zero_left_v">Lean</a>
-    
-    
-  
-    
-  </div>
-    
-      </div>
-    </div>
-
-
-    
-    <div class="dep-modal-container" id="lemma : inner_zero_right_modal">
-      <div class="dep-modal-content">
-          <button class="dep-closebtn">
-<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
-</button>
-        
-  <div class="thm" id="lemma : inner_zero_right" style="display: none">
-    <div class="thm_thmheading">
-      <span class="lemma_thmcaption">
-      Lemma
-      </span>
-      <span class="lemma_thmlabel">34</span></div>
-    <div class="thm_thmcontent"><p>   The inner product of any vector with zero is zero: \(\langle v, 0 \rangle = 0\). </p>
-</div>
-
-    <a class="latex_link" href="sect0004.html#lemma : inner_zero_right">LaTeX</a>
-    
-    
-  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.inner_zero_right_v">Lean</a>
-    
-    
-  
-    
-  </div>
-    
-      </div>
-    </div>
-
-
-    
-    <div class="dep-modal-container" id="lemma : left_smul_ortho_modal">
-      <div class="dep-modal-content">
-          <button class="dep-closebtn">
-<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
-</button>
-        
-  <div class="thm" id="lemma : left_smul_ortho" style="display: none">
-    <div class="thm_thmheading">
-      <span class="lemma_thmcaption">
-      Lemma
-      </span>
-      <span class="lemma_thmlabel">38</span></div>
-    <div class="thm_thmcontent"><p>   If \(u \perp v\), then \(a \cdot u \perp v\) for any scalar \(a\). </p>
-</div>
-
-    <a class="latex_link" href="sect0004.html#lemma : left_smul_ortho">LaTeX</a>
-    
-    
-  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.left_smul_ortho">Lean</a>
-    
-    
-  
-    
-  </div>
-    
-      </div>
-    </div>
-
-
-    
-    <div class="dep-modal-container" id="lemma : ortho_swap_modal">
-      <div class="dep-modal-content">
-          <button class="dep-closebtn">
-<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
-</button>
-        
-  <div class="thm" id="lemma : ortho_swap" style="display: none">
-    <div class="thm_thmheading">
-      <span class="lemma_thmcaption">
-      Lemma
-      </span>
-      <span class="lemma_thmlabel">39</span></div>
-    <div class="thm_thmcontent"><p>   Orthogonality is symmetric: if \(u \perp v\), then \(v \perp u\). </p>
-</div>
-
-    <a class="latex_link" href="sect0004.html#lemma : ortho_swap">LaTeX</a>
-    
-    
-  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.ortho_swap">Lean</a>
     
     
   
@@ -1034,9 +747,9 @@
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">58</span></div>
+      <span class="theorem_thmlabel">52</span></div>
     <div class="thm_thmcontent"><p>   Linear maps preserve linear combinations: If \(T : V \to W\) is linear, then </p>
-<div class="displaymath" id="a0000000102">
+<div class="displaymath" id="a0000000118">
   \[ T(a_1 v_1 + a_2 v_2) = a_1 T(v_1) + a_2 T(v_2) \]
 </div>
 <p> for all \(a_1, a_2 \in K\) and \(v_1, v_2 \in V\). </p>
@@ -1068,7 +781,7 @@
       <span class="definition_thmcaption">
       Definition
       </span>
-      <span class="definition_thmlabel">51</span></div>
+      <span class="definition_thmlabel">45</span></div>
     <div class="thm_thmcontent"><p>  Let \(K\) be a field and \(V\), \(W\) be vector spaces over \(K\). A function \(T : V \to W\) is called a <b class="bfseries">linear map</b> if it satisfies: </p>
 <ol class="enumerate">
   <li><p>Additivity: \(T(u + v) = T(u) + T(v)\) for all \(u, v \in V\) </p>
@@ -1104,7 +817,7 @@
       <span class="lemma_thmcaption">
       Lemma
       </span>
-      <span class="lemma_thmlabel">52</span></div>
+      <span class="lemma_thmlabel">46</span></div>
     <div class="thm_thmcontent"><p>   If \(T : V \to W\) is a linear map, then \(T(0) = 0\). </p>
 </div>
 
@@ -1134,7 +847,7 @@
       <span class="lemma_thmcaption">
       Lemma
       </span>
-      <span class="lemma_thmlabel">56</span></div>
+      <span class="lemma_thmlabel">50</span></div>
     <div class="thm_thmcontent"><p>   If \(T(v) = w\) for some \(v \in V\), then \(w \in \text{range}(T)\). </p>
 </div>
 
@@ -1164,9 +877,9 @@
       <span class="definition_thmcaption">
       Definition
       </span>
-      <span class="definition_thmlabel">53</span></div>
+      <span class="definition_thmlabel">47</span></div>
     <div class="thm_thmcontent"><p>  The <b class="bfseries">null space</b> (or kernel) of a linear map \(T : V \to W\) is: </p>
-<div class="displaymath" id="a0000000100">
+<div class="displaymath" id="a0000000116">
   \[ \text{null}(T) = \{ v \in V : T(v) = 0\}  \]
 </div>
 </div>
@@ -1197,9 +910,9 @@
       <span class="definition_thmcaption">
       Definition
       </span>
-      <span class="definition_thmlabel">55</span></div>
+      <span class="definition_thmlabel">49</span></div>
     <div class="thm_thmcontent"><p>  The <b class="bfseries">range</b> (or image) of a linear map \(T : V \to W\) is: </p>
-<div class="displaymath" id="a0000000101">
+<div class="displaymath" id="a0000000117">
   \[ \text{range}(T) = \{ T(v) : v \in V\}  \]
 </div>
 </div>
@@ -1230,7 +943,7 @@
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">57</span></div>
+      <span class="theorem_thmlabel">51</span></div>
     <div class="thm_thmcontent"><p>   The range of a linear map \(T : V \to W\) is a subspace of \(W\). </p>
 </div>
 
@@ -1260,7 +973,7 @@
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">59</span></div>
+      <span class="theorem_thmlabel">53</span></div>
     <div class="thm_thmcontent"><p>   A linear map \(T : V \to W\) is surjective if and only if \(\text{range}(T) = W\). </p>
 </div>
 
@@ -1279,22 +992,26 @@
 
 
     
-    <div class="dep-modal-container" id="theorem : Cauchy_Schwarz_modal">
+    <div class="dep-modal-container" id="thm:cauchy_schwarz_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="theorem : Cauchy_Schwarz" style="display: none">
+  <div class="thm" id="thm:cauchy_schwarz" style="display: none">
     <div class="thm_thmheading">
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">49</span></div>
-    <div class="thm_thmcontent"><p>   <b class="bfseries">Cauchy-Schwarz Inequality</b>: For any vectors \(u\) and \(v\), \(|\langle u, v \rangle | \leq \| u\|  \cdot \| v\| \). </p>
+      <span class="theorem_thmlabel">40</span><span class="theorem_thmtitle">Cauchy-Schwarz Inequality</span></div>
+    <div class="thm_thmcontent"><p>    For any vectors \(v\) and \(w\) in an inner product space: </p>
+<div class="displaymath" id="a0000000109">
+  \[ |\langle v, w \rangle | \leq \| v\|  \cdot \| w\|  \]
+</div>
+<p> with equality if and only if \(v\) and \(w\) are linearly dependent. </p>
 </div>
 
-    <a class="latex_link" href="sect0004.html#theorem : Cauchy_Schwarz">LaTeX</a>
+    <a class="latex_link" href="sect0004.html#thm:cauchy_schwarz">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.Cauchy_Schwarz">Lean</a>
@@ -1309,52 +1026,25 @@
 
 
     
-    <div class="dep-modal-container" id="theorem : le_of_sq_le_sq_modal">
+    <div class="dep-modal-container" id="thm:linear_combination_of_mem_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="theorem : le_of_sq_le_sq" style="display: none">
+  <div class="thm" id="thm:linear_combination_of_mem" style="display: none">
     <div class="thm_thmheading">
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">48</span></div>
-    <div class="thm_thmcontent"><p>   If \(a^2 \leq b^2\) and both \(a, b \geq 0\), then \(a \leq b\). </p>
+      <span class="theorem_thmlabel">20</span><span class="theorem_thmtitle">Self Combination</span></div>
+    <div class="thm_thmcontent"><p>    Every element of a set is a linear combination of that set: </p>
+<div class="displaymath" id="a0000000082">
+  \[ \forall v \in S: v \text{ is a linear combination of } S \]
+</div>
 </div>
 
-    <a class="latex_link" href="sect0004.html#theorem : le_of_sq_le_sq">LaTeX</a>
-    
-    
-  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.le_of_sq_le_sq">Lean</a>
-    
-    
-  
-    
-  </div>
-    
-      </div>
-    </div>
-
-
-    
-    <div class="dep-modal-container" id="theorem : linear_combination_of_mem_modal">
-      <div class="dep-modal-content">
-          <button class="dep-closebtn">
-<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
-</button>
-        
-  <div class="thm" id="theorem : linear_combination_of_mem" style="display: none">
-    <div class="thm_thmheading">
-      <span class="theorem_thmcaption">
-      Theorem
-      </span>
-      <span class="theorem_thmlabel">12</span></div>
-    <div class="thm_thmcontent"><p>   If \(v \in S\), then \(v\) is a linear combination of \(S\). </p>
-</div>
-
-    <a class="latex_link" href="sect0003.html#theorem : linear_combination_of_mem">LaTeX</a>
+    <a class="latex_link" href="sect0003.html#thm:linear_combination_of_mem">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.linear_combination_of_mem">Lean</a>
@@ -1369,26 +1059,22 @@
 
 
     
-    <div class="dep-modal-container" id="theorem : linear_combination_unique_modal">
+    <div class="dep-modal-container" id="thm:linear_combination_unique_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="theorem : linear_combination_unique" style="display: none">
+  <div class="thm" id="thm:linear_combination_unique" style="display: none">
     <div class="thm_thmheading">
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">20</span></div>
-    <div class="thm_thmcontent"><p>   Let \(S \subseteq V\) be a linearly independent set. If </p>
-<div class="displaymath" id="a0000000061">
-  \[ \sum _{v \in T_1} a_v \cdot v = \sum _{v \in T_2} b_v \cdot v \]
-</div>
-<p> where \(T_1, T_2\) are finite subsets of \(S\), \(a_v = 0\) for \(v \notin T_1\), and \(b_v = 0\) for \(v \notin T_2\), then \(a_v = b_v\) for all \(v \in V\). </p>
+      <span class="theorem_thmlabel">27</span><span class="theorem_thmtitle">Unique Representation</span></div>
+    <div class="thm_thmcontent"><p>    If \(S\) is linearly independent, then every vector in \(\text{span}(S)\) has a unique representation as a linear combination of vectors from \(S\) (up to reordering and zero coefficients). </p>
 </div>
 
-    <a class="latex_link" href="sect0003.html#theorem : linear_combination_unique">LaTeX</a>
+    <a class="latex_link" href="sect0003.html#thm:linear_combination_unique">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.linear_combination_unique">Lean</a>
@@ -1403,22 +1089,22 @@
 
 
     
-    <div class="dep-modal-container" id="theorem : linear_independent_empty_modal">
+    <div class="dep-modal-container" id="thm:linear_independent_empty_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="theorem : linear_independent_empty" style="display: none">
+  <div class="thm" id="thm:linear_independent_empty" style="display: none">
     <div class="thm_thmheading">
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">17</span></div>
-    <div class="thm_thmcontent"><p>   The empty set \(\emptyset \) is linearly independent. </p>
+      <span class="theorem_thmlabel">24</span><span class="theorem_thmtitle">Empty Set Independence</span></div>
+    <div class="thm_thmcontent"><p>    The empty set is linearly independent. </p>
 </div>
 
-    <a class="latex_link" href="sect0003.html#theorem : linear_independent_empty">LaTeX</a>
+    <a class="latex_link" href="sect0003.html#thm:linear_independent_empty">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.linear_independent_empty">Lean</a>
@@ -1433,22 +1119,22 @@
 
 
     
-    <div class="dep-modal-container" id="theorem : linear_independent_insert_of_not_in_span_modal">
+    <div class="dep-modal-container" id="thm:linear_independent_insert_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="theorem : linear_independent_insert_of_not_in_span" style="display: none">
+  <div class="thm" id="thm:linear_independent_insert" style="display: none">
     <div class="thm_thmheading">
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">21</span></div>
-    <div class="thm_thmcontent"><p>   Let \(S\) be a linearly independent set and \(v\) be a vector not in the span of \(S\). Then the set \(S \cup \{ v\} \) is also linearly independent. </p>
+      <span class="theorem_thmlabel">28</span><span class="theorem_thmtitle">Independence Extension</span></div>
+    <div class="thm_thmcontent"><p>    If \(S\) is linearly independent and \(v \notin \text{span}(S)\), then \(S \cup \{ v\} \) is linearly independent. </p>
 </div>
 
-    <a class="latex_link" href="sect0003.html#theorem : linear_independent_insert_of_not_in_span">LaTeX</a>
+    <a class="latex_link" href="sect0003.html#thm:linear_independent_insert">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.linear_independent_insert_of_not_in_span">Lean</a>
@@ -1463,22 +1149,25 @@
 
 
     
-    <div class="dep-modal-container" id="theorem : mem_span_of_mem_modal">
+    <div class="dep-modal-container" id="thm:mem_span_of_mem_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="theorem : mem_span_of_mem" style="display: none">
+  <div class="thm" id="thm:mem_span_of_mem" style="display: none">
     <div class="thm_thmheading">
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">14</span></div>
-    <div class="thm_thmcontent"><p>   If \(v \in S\), then \(v \in \text{span}(S)\). </p>
+      <span class="theorem_thmlabel">21</span><span class="theorem_thmtitle">Membership in Span</span></div>
+    <div class="thm_thmcontent"><p>    Every element of a set belongs to its span: </p>
+<div class="displaymath" id="a0000000084">
+  \[ \forall v \in S: v \in \text{span}(S) \]
+</div>
 </div>
 
-    <a class="latex_link" href="sect0003.html#theorem : mem_span_of_mem">LaTeX</a>
+    <a class="latex_link" href="sect0003.html#thm:mem_span_of_mem">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.mem_span_of_mem">Lean</a>
@@ -1493,25 +1182,25 @@
 
 
     
-    <div class="dep-modal-container" id="theorem : neg_one_smul_modal">
+    <div class="dep-modal-container" id="thm:neg_one_smul_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="theorem : neg_one_smul" style="display: none">
+  <div class="thm" id="thm:neg_one_smul" style="display: none">
     <div class="thm_thmheading">
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">7</span></div>
-    <div class="thm_thmcontent"><p>   In any vector space \(V\) over field \(K\), multiplying any vector by \(-1\) yields its additive inverse: </p>
-<div class="displaymath" id="a0000000047">
-  \[ \forall v \in V: \quad (-1) \cdot v = -v \]
+      <span class="theorem_thmlabel">14</span><span class="theorem_thmtitle">Negative One Scalar</span></div>
+    <div class="thm_thmcontent"><p>    Multiplication by \(-1\) gives the additive inverse: </p>
+<div class="displaymath" id="a0000000072">
+  \[ \forall v \in V: (-1 : K) \cdot v = -v \]
 </div>
 </div>
 
-    <a class="latex_link" href="sect0002.html#theorem : neg_one_smul">LaTeX</a>
+    <a class="latex_link" href="sect0002.html#thm:neg_one_smul">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.neg_one_smul_v">Lean</a>
@@ -1526,22 +1215,22 @@
 
 
     
-    <div class="dep-modal-container" id="theorem : norm_nonneg_modal">
+    <div class="dep-modal-container" id="thm:norm_nonneg_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="theorem : norm_nonneg" style="display: none">
+  <div class="thm" id="thm:norm_nonneg" style="display: none">
     <div class="thm_thmheading">
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">40</span></div>
-    <div class="thm_thmcontent"><p>   The norm of any vector is non-negative: \(\| v\|  \geq 0\) for all \(v\). </p>
+      <span class="theorem_thmlabel">33</span><span class="theorem_thmtitle">Norm Non-negativity</span></div>
+    <div class="thm_thmcontent"><p>    For any vector \(v\) in an inner product space: \(\| v\|  \geq 0\) </p>
 </div>
 
-    <a class="latex_link" href="sect0004.html#theorem : norm_nonneg">LaTeX</a>
+    <a class="latex_link" href="sect0004.html#thm:norm_nonneg">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.norm_nonneg_v">Lean</a>
@@ -1556,52 +1245,22 @@
 
 
     
-    <div class="dep-modal-container" id="theorem : norm_sq_eq_modal">
+    <div class="dep-modal-container" id="thm:norm_zero_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="theorem : norm_sq_eq" style="display: none">
+  <div class="thm" id="thm:norm_zero" style="display: none">
     <div class="thm_thmheading">
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">46</span></div>
-    <div class="thm_thmcontent"><p>   For any vector \(v\), \(\| v\| ^2 = \text{Re}(\langle v, v \rangle )\). </p>
+      <span class="theorem_thmlabel">34</span><span class="theorem_thmtitle">Zero Norm</span></div>
+    <div class="thm_thmcontent"><p>    \(\| v\|  = 0\) if and only if \(v = 0\) </p>
 </div>
 
-    <a class="latex_link" href="sect0004.html#theorem : norm_sq_eq">LaTeX</a>
-    
-    
-  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.norm_sq_eq">Lean</a>
-    
-    
-  
-    
-  </div>
-    
-      </div>
-    </div>
-
-
-    
-    <div class="dep-modal-container" id="theorem : norm_zero_modal">
-      <div class="dep-modal-content">
-          <button class="dep-closebtn">
-<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
-</button>
-        
-  <div class="thm" id="theorem : norm_zero" style="display: none">
-    <div class="thm_thmheading">
-      <span class="theorem_thmcaption">
-      Theorem
-      </span>
-      <span class="theorem_thmlabel">41</span></div>
-    <div class="thm_thmcontent"><p>   A vector has norm zero if and only if it is the zero vector: \(\| v\|  = 0 \iff v = 0\). </p>
-</div>
-
-    <a class="latex_link" href="sect0004.html#theorem : norm_zero">LaTeX</a>
+    <a class="latex_link" href="sect0004.html#thm:norm_zero">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.norm_zero_v">Lean</a>
@@ -1616,22 +1275,26 @@
 
 
     
-    <div class="dep-modal-container" id="theorem : ortho_decom_modal">
+    <div class="dep-modal-container" id="thm:ortho_decom_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="theorem : ortho_decom" style="display: none">
+  <div class="thm" id="thm:ortho_decom" style="display: none">
     <div class="thm_thmheading">
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">47</span></div>
-    <div class="thm_thmcontent"><p>   <b class="bfseries">Orthogonal Decomposition</b>: Any vector can be decomposed into orthogonal components. </p>
+      <span class="theorem_thmlabel">39</span><span class="theorem_thmtitle">Orthogonal Decomposition</span></div>
+    <div class="thm_thmcontent"><p>    Given a vector \(v\) and a non-zero vector \(u\), we can decompose \(v\) as: </p>
+<div class="displaymath" id="a0000000107">
+  \[ v = \text{proj}_u(v) + (v - \text{proj}_u(v)) \]
+</div>
+<p> where \(\text{proj}_u(v) = \frac{\langle v, u \rangle }{\langle u, u \rangle } \cdot u\) is orthogonal to \(v - \text{proj}_u(v)\). </p>
 </div>
 
-    <a class="latex_link" href="sect0004.html#theorem : ortho_decom">LaTeX</a>
+    <a class="latex_link" href="sect0004.html#thm:ortho_decom">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.ortho_decom">Lean</a>
@@ -1646,22 +1309,25 @@
 
 
     
-    <div class="dep-modal-container" id="theorem : ortho_self_zero_modal">
+    <div class="dep-modal-container" id="thm:ortho_self_zero_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="theorem : ortho_self_zero" style="display: none">
+  <div class="thm" id="thm:ortho_self_zero" style="display: none">
     <div class="thm_thmheading">
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">44</span></div>
-    <div class="thm_thmcontent"><p>   A vector is orthogonal to itself if and only if it is the zero vector: \(v \perp v \iff v = 0\). </p>
+      <span class="theorem_thmlabel">37</span><span class="theorem_thmtitle">Self-Orthogonality</span></div>
+    <div class="thm_thmcontent"><p>    A vector is orthogonal to itself if and only if it is zero: </p>
+<div class="displaymath" id="a0000000103">
+  \[ \langle v, v \rangle = 0 \iff v = 0 \]
+</div>
 </div>
 
-    <a class="latex_link" href="sect0004.html#theorem : ortho_self_zero">LaTeX</a>
+    <a class="latex_link" href="sect0004.html#thm:ortho_self_zero">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.ortho_self_zero">Lean</a>
@@ -1676,52 +1342,25 @@
 
 
     
-    <div class="dep-modal-container" id="theorem : ortho_zero_modal">
+    <div class="dep-modal-container" id="thm:pythagorean_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="theorem : ortho_zero" style="display: none">
+  <div class="thm" id="thm:pythagorean" style="display: none">
     <div class="thm_thmheading">
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">43</span></div>
-    <div class="thm_thmcontent"><p>  Every vector is orthogonal to the zero vector: \(v \perp 0\) for all \(v\). </p>
+      <span class="theorem_thmlabel">38</span><span class="theorem_thmtitle">Pythagorean Theorem</span></div>
+    <div class="thm_thmcontent"><p>    If \(v\) and \(w\) are orthogonal, then: </p>
+<div class="displaymath" id="a0000000105">
+  \[ \| v + w\| ^2 = \| v\| ^2 + \| w\| ^2 \]
+</div>
 </div>
 
-    <a class="latex_link" href="sect0004.html#theorem : ortho_zero">LaTeX</a>
-    
-    
-  
-    
-    
-  
-    
-  </div>
-    
-      </div>
-    </div>
-
-
-    
-    <div class="dep-modal-container" id="theorem : pythagorean_modal">
-      <div class="dep-modal-content">
-          <button class="dep-closebtn">
-<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
-</button>
-        
-  <div class="thm" id="theorem : pythagorean" style="display: none">
-    <div class="thm_thmheading">
-      <span class="theorem_thmcaption">
-      Theorem
-      </span>
-      <span class="theorem_thmlabel">45</span></div>
-    <div class="thm_thmcontent"><p>   <b class="bfseries">Pythagorean Theorem</b>: If \(u \perp v\), then \(\| u + v\| ^2 = \| u\| ^2 + \| v\| ^2\). </p>
-</div>
-
-    <a class="latex_link" href="sect0004.html#theorem : pythagorean">LaTeX</a>
+    <a class="latex_link" href="sect0004.html#thm:pythagorean">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.pythagorean">Lean</a>
@@ -1736,22 +1375,58 @@
 
 
     
-    <div class="dep-modal-container" id="theorem : sca_mul_modal">
+    <div class="dep-modal-container" id="thm:remove_redundant_span_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="theorem : sca_mul" style="display: none">
+  <div class="thm" id="thm:remove_redundant_span" style="display: none">
     <div class="thm_thmheading">
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">42</span></div>
-    <div class="thm_thmcontent"><p>   The norm is homogeneous: \(\| a \cdot v\|  = |a| \cdot \| v\| \) for any scalar \(a\) and vector \(v\). </p>
+      <span class="theorem_thmlabel">29</span><span class="theorem_thmtitle">Redundant Vector Removal</span></div>
+    <div class="thm_thmcontent"><p>    If \(w \in \text{span}(S \setminus \{ w\} )\), then: </p>
+<div class="displaymath" id="a0000000096">
+  \[ \text{span}(S) = \text{span}(S \setminus \{ w\} ) \]
+</div>
 </div>
 
-    <a class="latex_link" href="sect0004.html#theorem : sca_mul">LaTeX</a>
+    <a class="latex_link" href="sect0003.html#thm:remove_redundant_span">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.remove_redundant_span">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:sca_mul_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:sca_mul" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">35</span><span class="theorem_thmtitle">Scalar Multiplication of Norm</span></div>
+    <div class="thm_thmcontent"><p>    For any scalar \(a \in \mathbb {C}\) and vector \(v\): </p>
+<div class="displaymath" id="a0000000101">
+  \[ \| a \cdot v\|  = |a| \cdot \| v\|  \]
+</div>
+</div>
+
+    <a class="latex_link" href="sect0004.html#thm:sca_mul">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.sca_mul">Lean</a>
@@ -1766,25 +1441,25 @@
 
 
     
-    <div class="dep-modal-container" id="theorem : smul_zero_modal">
+    <div class="dep-modal-container" id="thm:smul_zero_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="theorem : smul_zero" style="display: none">
+  <div class="thm" id="thm:smul_zero" style="display: none">
     <div class="thm_thmheading">
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">6</span></div>
-    <div class="thm_thmcontent"><p>   In any vector space \(V\) over field \(K\), scalar multiplication of any scalar by the zero vector yields the zero vector: </p>
-<div class="displaymath" id="a0000000045">
-  \[ \forall a \in K: \quad a \cdot 0 = 0 \]
+      <span class="theorem_thmlabel">13</span><span class="theorem_thmtitle">Scalar Times Zero Vector</span></div>
+    <div class="thm_thmcontent"><p>    For any scalar \(a \in K\), multiplication by the zero vector yields zero: </p>
+<div class="displaymath" id="a0000000069">
+  \[ \forall a \in K: a \cdot (0 : V) = (0 : V) \]
 </div>
 </div>
 
-    <a class="latex_link" href="sect0002.html#theorem : smul_zero">LaTeX</a>
+    <a class="latex_link" href="sect0002.html#thm:smul_zero">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.smul_zero_v">Lean</a>
@@ -1799,22 +1474,25 @@
 
 
     
-    <div class="dep-modal-container" id="theorem : span_mono_modal">
+    <div class="dep-modal-container" id="thm:span_mono_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="theorem : span_mono" style="display: none">
+  <div class="thm" id="thm:span_mono" style="display: none">
     <div class="thm_thmheading">
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">15</span></div>
-    <div class="thm_thmcontent"><p>   The span operation is monotonic: if \(A \subseteq B\), then \(\text{span}(A) \subseteq \text{span}(B)\). </p>
+      <span class="theorem_thmlabel">22</span><span class="theorem_thmtitle">Span Monotonicity</span></div>
+    <div class="thm_thmcontent"><p>    The span operation is monotonic: </p>
+<div class="displaymath" id="a0000000086">
+  \[ A \subseteq B \implies \text{span}(A) \subseteq \text{span}(B) \]
+</div>
 </div>
 
-    <a class="latex_link" href="sect0003.html#theorem : span_mono">LaTeX</a>
+    <a class="latex_link" href="sect0003.html#thm:span_mono">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.span_mono">Lean</a>
@@ -1829,52 +1507,25 @@
 
 
     
-    <div class="dep-modal-container" id="theorem : span_remove_element_modal">
+    <div class="dep-modal-container" id="thm:subset_linear_independent_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="theorem : span_remove_element" style="display: none">
+  <div class="thm" id="thm:subset_linear_independent" style="display: none">
     <div class="thm_thmheading">
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">22</span></div>
-    <div class="thm_thmcontent"><p>   If \(S\) is a set of vectors and \(v \in S\) can be written as a linear combination of other vectors in \(S \setminus \{ v\} \), then \(\text{span}(S) = \text{span}(S \setminus \{ v\} )\). </p>
+      <span class="theorem_thmlabel">25</span><span class="theorem_thmtitle">Subset Independence</span></div>
+    <div class="thm_thmcontent"><p>    Subsets of linearly independent sets are linearly independent: </p>
+<div class="displaymath" id="a0000000089">
+  \[ A \text{ linearly independent} \land B \subseteq A \implies B \text{ linearly independent} \]
+</div>
 </div>
 
-    <a class="latex_link" href="sect0003.html#theorem : span_remove_element">LaTeX</a>
-    
-    
-  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.span_remove_element">Lean</a>
-    
-    
-  
-    
-  </div>
-    
-      </div>
-    </div>
-
-
-    
-    <div class="dep-modal-container" id="theorem : subset_linear_independent_modal">
-      <div class="dep-modal-content">
-          <button class="dep-closebtn">
-<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
-</button>
-        
-  <div class="thm" id="theorem : subset_linear_independent" style="display: none">
-    <div class="thm_thmheading">
-      <span class="theorem_thmcaption">
-      Theorem
-      </span>
-      <span class="theorem_thmlabel">18</span></div>
-    <div class="thm_thmcontent"><p>   If \(A\) is a linearly independent set and \(B \subseteq A\), then \(B\) is also linearly independent. </p>
-</div>
-
-    <a class="latex_link" href="sect0003.html#theorem : subset_linear_independent">LaTeX</a>
+    <a class="latex_link" href="sect0003.html#thm:subset_linear_independent">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.subset_linear_independent">Lean</a>
@@ -1889,55 +1540,25 @@
 
 
     
-    <div class="dep-modal-container" id="theorem : subspace_contains_zero_modal">
+    <div class="dep-modal-container" id="thm:subspace_neg_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="theorem : subspace_contains_zero" style="display: none">
+  <div class="thm" id="thm:subspace_neg" style="display: none">
     <div class="thm_thmheading">
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">9</span></div>
-    <div class="thm_thmcontent"><p>   Every subspace \(W\) contains the zero vector: \(0 \in W\). </p>
-</div>
-
-    <a class="latex_link" href="sect0002.html#theorem : subspace_contains_zero">LaTeX</a>
-    
-    
-  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.subspace_contains_zero">Lean</a>
-    
-    
-  
-    
-  </div>
-    
-      </div>
-    </div>
-
-
-    
-    <div class="dep-modal-container" id="theorem : subspace_neg_modal">
-      <div class="dep-modal-content">
-          <button class="dep-closebtn">
-<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
-</button>
-        
-  <div class="thm" id="theorem : subspace_neg" style="display: none">
-    <div class="thm_thmheading">
-      <span class="theorem_thmcaption">
-      Theorem
-      </span>
-      <span class="theorem_thmlabel">10</span></div>
-    <div class="thm_thmcontent"><p>   If a subspace \(W\) contains a vector \(x\), then it also contains its additive inverse \(-x\): </p>
-<div class="displaymath" id="a0000000050">
-  \[ \forall x \in V: \quad x \in W \implies (-x) \in W \]
+      <span class="theorem_thmlabel">17</span><span class="theorem_thmtitle">Subspace Closed Under Negation</span></div>
+    <div class="thm_thmcontent"><p>    Subspaces are closed under additive inverses: </p>
+<div class="displaymath" id="a0000000077">
+  \[ \forall W \text{ subspace}, \forall x \in W: -x \in W \]
 </div>
 </div>
 
-    <a class="latex_link" href="sect0002.html#theorem : subspace_neg">LaTeX</a>
+    <a class="latex_link" href="sect0002.html#thm:subspace_neg">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.subspace_neg">Lean</a>
@@ -1952,22 +1573,58 @@
 
 
     
-    <div class="dep-modal-container" id="theorem : superset_span_full_modal">
+    <div class="dep-modal-container" id="thm:subspace_zero_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="theorem : superset_span_full" style="display: none">
+  <div class="thm" id="thm:subspace_zero" style="display: none">
     <div class="thm_thmheading">
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">19</span></div>
-    <div class="thm_thmcontent"><p>   If a set \(A\) spans the whole space \(V\) and \(A \subseteq B\), then \(B\) also spans \(V\). </p>
+      <span class="theorem_thmlabel">16</span><span class="theorem_thmtitle">Zero in Subspace</span></div>
+    <div class="thm_thmcontent"><p>    Every subspace contains the zero vector: </p>
+<div class="displaymath" id="a0000000075">
+  \[ \text{If } W \text{ is a subspace of } V, \text{ then } (0 : V) \in W \]
+</div>
 </div>
 
-    <a class="latex_link" href="sect0003.html#theorem : superset_span_full">LaTeX</a>
+    <a class="latex_link" href="sect0002.html#thm:subspace_zero">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.subspace_contains_zero">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:superset_span_full_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:superset_span_full" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">26</span><span class="theorem_thmtitle">Superset Spanning</span></div>
+    <div class="thm_thmcontent"><p>    If \(A\) spans \(V\) and \(A \subseteq B\), then \(B\) spans \(V\): </p>
+<div class="displaymath" id="a0000000091">
+  \[ \text{span}(A) = V \land A \subseteq B \implies \text{span}(B) = V \]
+</div>
+</div>
+
+    <a class="latex_link" href="sect0003.html#thm:superset_span_full">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.superset_span_full">Lean</a>
@@ -1982,22 +1639,25 @@
 
 
     
-    <div class="dep-modal-container" id="theorem : triangle_modal">
+    <div class="dep-modal-container" id="thm:triangle_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="theorem : triangle" style="display: none">
+  <div class="thm" id="thm:triangle" style="display: none">
     <div class="thm_thmheading">
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">50</span></div>
-    <div class="thm_thmcontent"><p>   <b class="bfseries">Triangle Inequality</b>: For any vectors \(u\) and \(v\), \(\| u + v\|  \leq \| u\|  + \| v\| \). </p>
+      <span class="theorem_thmlabel">41</span><span class="theorem_thmtitle">Triangle Inequality</span></div>
+    <div class="thm_thmcontent"><p>    For any vectors \(v\) and \(w\) in an inner product space: </p>
+<div class="displaymath" id="a0000000113">
+  \[ \| v + w\|  \leq \| v\|  + \| w\|  \]
+</div>
 </div>
 
-    <a class="latex_link" href="sect0004.html#theorem : triangle">LaTeX</a>
+    <a class="latex_link" href="sect0004.html#thm:triangle">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.triangle_v">Lean</a>
@@ -2012,25 +1672,25 @@
 
 
     
-    <div class="dep-modal-container" id="theorem : zero_smul_modal">
+    <div class="dep-modal-container" id="thm:zero_smul_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="theorem : zero_smul" style="display: none">
+  <div class="thm" id="thm:zero_smul" style="display: none">
     <div class="thm_thmheading">
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">5</span></div>
-    <div class="thm_thmcontent"><p>   In any vector space \(V\) over field \(K\), scalar multiplication by zero yields the zero vector: </p>
-<div class="displaymath" id="a0000000043">
-  \[ \forall v \in V: \quad 0 \cdot v = 0 \]
+      <span class="theorem_thmlabel">12</span><span class="theorem_thmtitle">Zero Scalar Yields Zero Vector</span></div>
+    <div class="thm_thmcontent"><p>    In any vector space \(V\) over field \(K\), scalar multiplication by zero yields the zero vector: </p>
+<div class="displaymath" id="a0000000066">
+  \[ \forall w \in V: (0 : K) \cdot w = (0 : V) \]
 </div>
 </div>
 
-    <a class="latex_link" href="sect0002.html#theorem : zero_smul">LaTeX</a>
+    <a class="latex_link" href="sect0002.html#thm:zero_smul">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.zero_smul_v">Lean</a>
@@ -2045,25 +1705,205 @@
 
 
     
-    <div class="dep-modal-container" id="tutorial-add-zero_modal">
+    <div class="dep-modal-container" id="tutorial-constructor_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="tutorial-add-zero" style="display: none">
+  <div class="thm" id="tutorial-constructor" style="display: none">
     <div class="thm_thmheading">
       <span class="lemma_thmcaption">
       Lemma
       </span>
-      <span class="lemma_thmlabel">3</span></div>
-    <div class="thm_thmcontent"><p>  For any natural number \(n\), we have \(n + 0 = n\). </p>
+      <span class="lemma_thmlabel">4</span><span class="lemma_thmtitle">Conjunction Introduction</span></div>
+    <div class="thm_thmcontent"><p>    Given propositions \(P\) and \(Q\), if both hold, then \(P \land Q\) holds. </p>
 </div>
 
-    <a class="latex_link" href="sect0001.html#tutorial-add-zero">LaTeX</a>
+    <a class="latex_link" href="sect0001.html#tutorial-constructor">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/TutorialWorld.level4">Lean</a>
     
     
   
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="tutorial-contrapositive_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="tutorial-contrapositive" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">5</span><span class="lemma_thmtitle">Contrapositive</span></div>
+    <div class="thm_thmcontent"><p>    For propositions \(P\) and \(Q\): \((P \rightarrow Q) \rightarrow (\neg Q \rightarrow \neg P)\). </p>
+</div>
+
+    <a class="latex_link" href="sect0001.html#tutorial-contrapositive">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/TutorialWorld.level5">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="tutorial-exfalso_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="tutorial-exfalso" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">6</span><span class="lemma_thmtitle">Ex Falso Quodlibet</span></div>
+    <div class="thm_thmcontent"><p>    From a contradiction \(P \land \neg P\), any proposition \(Q\) follows. </p>
+</div>
+
+    <a class="latex_link" href="sect0001.html#tutorial-exfalso">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/TutorialWorld.level6">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="tutorial-exists_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="tutorial-exists" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">9</span><span class="lemma_thmtitle">Existence Proof</span></div>
+    <div class="thm_thmcontent"><p>    For any real \(x\), we have \(x \leq 1 + x\). </p>
+</div>
+
+    <a class="latex_link" href="sect0001.html#tutorial-exists">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/TutorialWorld.level9">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="tutorial-implication_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="tutorial-implication" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">3</span><span class="lemma_thmtitle">Implication Reflexivity</span></div>
+    <div class="thm_thmcontent"><p>    For any proposition \(P\), we have \(P \rightarrow P\). </p>
+</div>
+
+    <a class="latex_link" href="sect0001.html#tutorial-implication">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/TutorialWorld.level3">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="tutorial-induction_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="tutorial-induction" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">10</span><span class="lemma_thmtitle">Zero Addition</span></div>
+    <div class="thm_thmcontent"><p>    For any natural number \(n\), we have \(0 + n = n\). </p>
+</div>
+
+    <a class="latex_link" href="sect0001.html#tutorial-induction">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/TutorialWorld.level10">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="tutorial-linarith_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="tutorial-linarith" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">7</span><span class="lemma_thmtitle">Inequality Addition</span></div>
+    <div class="thm_thmcontent"><p>    If \(x {\lt} y\) and \(a {\lt} b\), then \(x + a {\lt} y + b\). </p>
+</div>
+
+    <a class="latex_link" href="sect0001.html#tutorial-linarith">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/TutorialWorld.level7">Lean</a>
     
     
   
@@ -2086,14 +1926,14 @@
       <span class="lemma_thmcaption">
       Lemma
       </span>
-      <span class="lemma_thmlabel">1</span></div>
-    <div class="thm_thmcontent"><p>  For any element \(x\), we have \(x = x\). </p>
+      <span class="lemma_thmlabel">1</span><span class="lemma_thmtitle">Reflexivity of Equality</span></div>
+    <div class="thm_thmcontent"><p>    For any element \(x \in \mathbb {R}\), we have \(x = x\). </p>
 </div>
 
     <a class="latex_link" href="sect0001.html#tutorial-reflexivity">LaTeX</a>
     
     
-  
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/TutorialWorld.level1">Lean</a>
     
     
   
@@ -2105,25 +1945,55 @@
 
 
     
-    <div class="dep-modal-container" id="tutorial-zero-add_modal">
+    <div class="dep-modal-container" id="tutorial-rewrite_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
 <svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
 </button>
         
-  <div class="thm" id="tutorial-zero-add" style="display: none">
+  <div class="thm" id="tutorial-rewrite" style="display: none">
     <div class="thm_thmheading">
       <span class="lemma_thmcaption">
       Lemma
       </span>
-      <span class="lemma_thmlabel">2</span></div>
-    <div class="thm_thmcontent"><p>  For any natural number \(n\), we have \(0 + n = n\). </p>
+      <span class="lemma_thmlabel">2</span><span class="lemma_thmtitle">Basic Substitution</span></div>
+    <div class="thm_thmcontent"><p>    Given \(y = x + 7\), prove that \(2y = 2(x + 7)\). </p>
 </div>
 
-    <a class="latex_link" href="sect0001.html#tutorial-zero-add">LaTeX</a>
+    <a class="latex_link" href="sect0001.html#tutorial-rewrite">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/TutorialWorld.level2">Lean</a>
     
     
   
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="tutorial-simp_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="tutorial-simp" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">8</span><span class="lemma_thmtitle">Group Simplification</span></div>
+    <div class="thm_thmcontent"><p>    In a group, \(a \cdot a^{-1} \cdot 1 \cdot b = b \cdot c \cdot c^{-1}\). </p>
+</div>
+
+    <a class="latex_link" href="sect0001.html#tutorial-simp">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/TutorialWorld.level8">Lean</a>
     
     
   
@@ -2146,7 +2016,7 @@
       <span class="lemma_thmcaption">
       Lemma
       </span>
-      <span class="lemma_thmlabel">54</span></div>
+      <span class="lemma_thmlabel">48</span></div>
     <div class="thm_thmcontent"><p>   For any linear map \(T : V \to W\), the zero vector is in the null space: \(0 \in \text{null}(T)\). </p>
 </div>
 
@@ -2181,7 +2051,7 @@ graphContainer.graphviz({useWorker: true})
     .width(width)
     .height(height)
     .fit(true)
-    .renderDot(`strict digraph "" {	graph [bgcolor=transparent];	node [label="\N",		penwidth=1.8	];	edge [arrowhead=vee];	"definition : VectorSpace"	[color=green,		fillcolor="#B0ECA3",		label=" VectorSpace",		shape=box,		style=filled];	"theorem : smul_zero"	[color=green,		fillcolor="#A3D6FF",		label=" smul_zero",		shape=ellipse,		style=filled];	"definition : VectorSpace" -> "theorem : smul_zero"	[style=dashed];	"theorem : neg_one_smul"	[color=green,		fillcolor="#A3D6FF",		label=" neg_one_smul",		shape=ellipse,		style=filled];	"definition : VectorSpace" -> "theorem : neg_one_smul"	[style=dashed];	"definition : InnerProductSpace_real"	[color=green,		fillcolor="#B0ECA3",		label=" InnerProductSpace_real",		shape=box,		style=filled];	"definition : VectorSpace" -> "definition : InnerProductSpace_real"	[style=dashed];	"definition : InnerProductSpace"	[color=green,		fillcolor="#B0ECA3",		label=" InnerProductSpace",		shape=box,		style=filled];	"definition : VectorSpace" -> "definition : InnerProductSpace"	[style=dashed];	"definition : linear_independent"	[color=green,		fillcolor="#B0ECA3",		label=" linear_independent",		shape=box,		style=filled];	"definition : VectorSpace" -> "definition : linear_independent"	[style=dashed];	"definition : linear_combination"	[color=green,		fillcolor="#B0ECA3",		label=" linear_combination",		shape=box,		style=filled];	"definition : VectorSpace" -> "definition : linear_combination"	[style=dashed];	"theorem : zero_smul"	[color=green,		fillcolor="#A3D6FF",		label=" zero_smul",		shape=ellipse,		style=filled];	"definition : VectorSpace" -> "theorem : zero_smul"	[style=dashed];	"theorem : subspace_neg"	[color=green,		fillcolor="#A3D6FF",		label=" subspace_neg",		shape=ellipse,		style=filled];	"theorem : neg_one_smul" -> "theorem : subspace_neg"	[style=dashed];	"lemma : inner_smul_right"	[color=green,		fillcolor="#A3D6FF",		label=" inner_smul_right",		shape=ellipse,		style=filled];	"definition : InnerProductSpace" -> "lemma : inner_smul_right"	[style=dashed];	"definition : norm"	[color=green,		fillcolor="#B0ECA3",		label=" norm",		shape=box,		style=filled];	"definition : InnerProductSpace" -> "definition : norm"	[style=dashed];	"definition : orthogonal"	[color=green,		fillcolor="#B0ECA3",		label=" orthogonal",		shape=box,		style=filled];	"definition : InnerProductSpace" -> "definition : orthogonal"	[style=dashed];	"lemma : inner_self_re"	[color=green,		fillcolor="#A3D6FF",		label=" inner_self_re",		shape=ellipse,		style=filled];	"definition : InnerProductSpace" -> "lemma : inner_self_re"	[style=dashed];	"lemma : inner_add_right"	[color=green,		fillcolor="#A3D6FF",		label=" inner_add_right",		shape=ellipse,		style=filled];	"definition : InnerProductSpace" -> "lemma : inner_add_right"	[style=dashed];	"lemma : inner_self_real"	[color=green,		fillcolor="#A3D6FF",		label=" inner_self_real",		shape=ellipse,		style=filled];	"definition : InnerProductSpace" -> "lemma : inner_self_real"	[style=dashed];	"theorem : le_of_sq_le_sq"	[color=green,		fillcolor="#A3D6FF",		label=" le_of_sq_le_sq",		shape=ellipse,		style=filled];	"definition : InnerProductSpace" -> "theorem : le_of_sq_le_sq"	[style=dashed];	"lemma : inner_zero_left"	[color=green,		fillcolor="#A3D6FF",		label=" inner_zero_left",		shape=ellipse,		style=filled];	"definition : InnerProductSpace" -> "lemma : inner_zero_left"	[style=dashed];	"lemma : inner_minus_left"	[color=green,		fillcolor="#A3D6FF",		label=" inner_minus_left",		shape=ellipse,		style=filled];	"definition : InnerProductSpace" -> "lemma : inner_minus_left"	[style=dashed];	"theorem : linear_combination_unique"	[color=green,		fillcolor="#A3D6FF",		label=" linear_combination_unique",		shape=ellipse,		style=filled];	"definition : linear_independent" -> "theorem : linear_combination_unique"	[style=dashed];	"theorem : span_remove_element"	[color=green,		fillcolor="#A3D6FF",		label=" span_remove_element",		shape=ellipse,		style=filled];	"definition : linear_independent" -> "theorem : span_remove_element"	[style=dashed];	"theorem : subset_linear_independent"	[color=green,		fillcolor="#A3D6FF",		label=" subset_linear_independent",		shape=ellipse,		style=filled];	"definition : linear_independent" -> "theorem : subset_linear_independent"	[style=dashed];	"theorem : linear_independent_empty"	[color=green,		fillcolor="#A3D6FF",		label=" linear_independent_empty",		shape=ellipse,		style=filled];	"definition : linear_independent" -> "theorem : linear_independent_empty"	[style=dashed];	"theorem : linear_independent_insert_of_not_in_span"	[color=green,		fillcolor="#A3D6FF",		label=" linear_independent_insert_of_not_in_span",		shape=ellipse,		style=filled];	"definition : linear_independent" -> "theorem : linear_independent_insert_of_not_in_span"	[style=dashed];	"definition : linear_combination" -> "theorem : linear_independent_insert_of_not_in_span"	[style=dashed];	"theorem : linear_combination_of_mem"	[color=green,		fillcolor="#A3D6FF",		label=" linear_combination_of_mem",		shape=ellipse,		style=filled];	"definition : linear_combination" -> "theorem : linear_combination_of_mem"	[style=dashed];	"definition : span"	[color=green,		fillcolor="#B0ECA3",		label=" span",		shape=box,		style=filled];	"definition : linear_combination" -> "definition : span"	[style=dashed];	"theorem : mem_span_of_mem"	[color=green,		fillcolor="#A3D6FF",		label=" mem_span_of_mem",		shape=ellipse,		style=filled];	"definition : linear_combination" -> "theorem : mem_span_of_mem"	[style=dashed];	"theorem : subspace_contains_zero"	[color=green,		fillcolor="#A3D6FF",		label=" subspace_contains_zero",		shape=ellipse,		style=filled];	"theorem : zero_smul" -> "theorem : subspace_contains_zero"	[style=dashed];	"theorem : zero_smul" -> "theorem : linear_combination_unique"	[style=dashed];	"theorem : sca_mul"	[color=green,		fillcolor="#A3D6FF",		label=" sca_mul",		shape=ellipse,		style=filled];	"lemma : inner_smul_right" -> "theorem : sca_mul"	[style=dashed];	"theorem : norm_zero"	[color=green,		fillcolor="#A3D6FF",		label=" norm_zero",		shape=ellipse,		style=filled];	"definition : norm" -> "theorem : norm_zero"	[style=dashed];	"theorem : pythagorean"	[color=green,		fillcolor="#A3D6FF",		label=" pythagorean",		shape=ellipse,		style=filled];	"definition : norm" -> "theorem : pythagorean"	[style=dashed];	"theorem : norm_nonneg"	[color=green,		fillcolor="#A3D6FF",		label=" norm_nonneg",		shape=ellipse,		style=filled];	"definition : norm" -> "theorem : norm_nonneg"	[style=dashed];	"theorem : norm_sq_eq"	[color=green,		fillcolor="#A3D6FF",		label=" norm_sq_eq",		shape=ellipse,		style=filled];	"definition : norm" -> "theorem : norm_sq_eq"	[style=dashed];	"theorem : ortho_zero"	[color=green,		fillcolor="#A3D6FF",		label=" ortho_zero",		shape=ellipse,		style=filled];	"definition : orthogonal" -> "theorem : ortho_zero"	[style=dashed];	"theorem : ortho_decom"	[color=green,		fillcolor="#A3D6FF",		label=" ortho_decom",		shape=ellipse,		style=filled];	"definition : orthogonal" -> "theorem : ortho_decom"	[style=dashed];	"definition : orthogonal" -> "theorem : pythagorean"	[style=dashed];	"lemma : ortho_swap"	[color=green,		fillcolor="#A3D6FF",		label=" ortho_swap",		shape=ellipse,		style=filled];	"definition : orthogonal" -> "lemma : ortho_swap"	[style=dashed];	"lemma : left_smul_ortho"	[color=green,		fillcolor="#A3D6FF",		label=" left_smul_ortho",		shape=ellipse,		style=filled];	"definition : orthogonal" -> "lemma : left_smul_ortho"	[style=dashed];	"theorem : ortho_self_zero"	[color=green,		fillcolor="#A3D6FF",		label=" ortho_self_zero",		shape=ellipse,		style=filled];	"definition : orthogonal" -> "theorem : ortho_self_zero"	[style=dashed];	"lemma : inner_self_re" -> "theorem : ortho_decom"	[style=dashed];	"lemma : inner_add_right" -> "theorem : pythagorean"	[style=dashed];	"lemma : inner_self_real" -> "theorem : ortho_decom"	[style=dashed];	"theorem : Cauchy_Schwarz"	[color=green,		fillcolor="#A3D6FF",		label=" Cauchy_Schwarz",		shape=ellipse,		style=filled];	"theorem : le_of_sq_le_sq" -> "theorem : Cauchy_Schwarz"	[style=dashed];	"lemma : inner_zero_right"	[color=green,		fillcolor="#A3D6FF",		label=" inner_zero_right",		shape=ellipse,		style=filled];	"lemma : inner_zero_left" -> "lemma : inner_zero_right"	[style=dashed];	"lemma : inner_minus_left" -> "theorem : ortho_decom"	[style=dashed];	"definition : span" -> "theorem : span_remove_element"	[style=dashed];	"theorem : span_mono"	[color=green,		fillcolor="#A3D6FF",		label=" span_mono",		shape=ellipse,		style=filled];	"definition : span" -> "theorem : span_mono"	[style=dashed];	"null-space-def"	[color=blue,		fillcolor="#A3D6FF",		label="null-space-def",		shape=box,		style=filled];	"range-def"	[color=blue,		fillcolor="#A3D6FF",		label="range-def",		shape=box,		style=filled];	"lemma : conj_mull"	[color=green,		fillcolor="#A3D6FF",		label=" conj_mull",		shape=ellipse,		style=filled];	"lemma : conj_mull" -> "lemma : inner_smul_right"	[style=dashed];	"theorem : sca_mul" -> "theorem : Cauchy_Schwarz"	[style=dashed];	"lemma : inner_zero_right" -> "theorem : ortho_zero"	[style=dashed];	"lemma : inner_zero_right" -> "theorem : Cauchy_Schwarz"	[style=dashed];	"theorem : triangle"	[color=green,		fillcolor="#A3D6FF",		label=" triangle",		shape=ellipse,		style=filled];	"theorem : Cauchy_Schwarz" -> "theorem : triangle"	[style=dashed];	"theorem : norm_zero" -> "theorem : ortho_decom"	[style=dashed];	"theorem : ortho_decom" -> "theorem : Cauchy_Schwarz"	[style=dashed];	"fundamental-principle"	[color=blue,		label="fundamental-principle",		shape=ellipse];	"theorem : pythagorean" -> "theorem : Cauchy_Schwarz"	[style=dashed];	"theorem : norm_nonneg" -> "theorem : sca_mul"	[style=dashed];	"theorem : norm_sq_eq" -> "theorem : ortho_decom"	[style=dashed];	"tutorial-add-zero"	[color=blue,		label="tutorial-add-zero",		shape=ellipse];	"theorem : superset_span_full"	[color=green,		fillcolor="#A3D6FF",		label=" superset_span_full",		shape=ellipse,		style=filled];	"theorem : span_mono" -> "theorem : superset_span_full"	[style=dashed];	"lemma : ortho_swap" -> "theorem : Cauchy_Schwarz"	[style=dashed];	"lemma : left_smul_ortho" -> "theorem : Cauchy_Schwarz"	[style=dashed];	"surjective-characterization"	[color=blue,		label="surjective-characterization",		shape=ellipse];	"tutorial-reflexivity"	[color=blue,		fillcolor="#A3D6FF",		label="tutorial-reflexivity",		shape=ellipse,		style=filled];	"lemma : conj_inj"	[color=green,		fillcolor="#A3D6FF",		label=" conj_inj",		shape=ellipse,		style=filled];	"lemma : conj_inj" -> "lemma : inner_smul_right"	[style=dashed];	"lemma : conj_inj" -> "lemma : inner_add_right"	[style=dashed];	"linear-map-zero"	[color=blue,		fillcolor="#A3D6FF",		label="linear-map-zero",		shape=ellipse,		style=filled];	"fundamental-theorem-educational"	[color=blue,		label="fundamental-theorem-educational",		shape=ellipse];	"definition : Subspace"	[color=green,		fillcolor="#B0ECA3",		label=" Subspace",		shape=box,		style=filled];	"definition : Subspace" -> "theorem : subspace_neg"	[style=dashed];	"definition : Subspace" -> "theorem : subspace_contains_zero"	[style=dashed];	"linear-map-def"	[color=blue,		fillcolor="#A3D6FF",		label="linear-map-def",		shape=box,		style=filled];	"mem-range"	[color=blue,		label="mem-range",		shape=ellipse];	"injective-independence"	[color=blue,		label="injective-independence",		shape=ellipse];	"fundamental-theorem-insight"	[color=blue,		label="fundamental-theorem-insight",		shape=ellipse];	"tutorial-zero-add"	[color=blue,		label="tutorial-zero-add",		shape=ellipse];	"lemma : conj_zero"	[color=green,		fillcolor="#A3D6FF",		label=" conj_zero",		shape=ellipse,		style=filled];	"lemma : conj_zero" -> "lemma : inner_zero_right"	[style=dashed];	"lemma : conj_zero" -> "theorem : pythagorean"	[style=dashed];	"injective-characterization"	[color=blue,		fillcolor="#A3D6FF",		label="injective-characterization",		shape=ellipse,		style=filled];	"isomorphism-preserves"	[color=blue,		label="isomorphism-preserves",		shape=ellipse];	"isomorphism-def"	[color=blue,		fillcolor="#A3D6FF",		label="isomorphism-def",		shape=box,		style=filled];	"lemma : conj_add"	[color=green,		fillcolor="#A3D6FF",		label=" conj_add",		shape=ellipse,		style=filled];	"lemma : conj_add" -> "lemma : inner_add_right"	[style=dashed];	"zero-in-null"	[color=blue,		label="zero-in-null",		shape=ellipse];	"range-subspace"	[color=blue,		label="range-subspace",		shape=ellipse];	"linear-combination-preservation"	[color=blue,		label="linear-combination-preservation",		shape=ellipse];	"isomorphism-characterization"	[color=blue,		label="isomorphism-characterization",		shape=ellipse];}`)
+    .renderDot(`strict digraph "" {	graph [bgcolor=transparent];	node [label="\N",		penwidth=1.8	];	edge [arrowhead=vee];	"def:inner_product_complex"	[color=green,		fillcolor="#B0ECA3",		label=inner_product_complex,		shape=box,		style=filled];	"def:orthogonal"	[color=green,		fillcolor="#B0ECA3",		label=orthogonal,		shape=box,		style=filled];	"def:inner_product_complex" -> "def:orthogonal"	[style=dashed];	"lem:inner_self_real"	[color=green,		label=inner_self_real,		shape=ellipse];	"def:inner_product_complex" -> "lem:inner_self_real"	[style=dashed];	"def:norm"	[color=green,		fillcolor="#B0ECA3",		label=norm,		shape=box,		style=filled];	"def:inner_product_complex" -> "def:norm"	[style=dashed];	"lem:inner_props"	[color=blue,		label=inner_props,		shape=ellipse];	"def:inner_product_complex" -> "lem:inner_props"	[style=dashed];	"lem:conj_props"	[color=blue,		label=conj_props,		shape=ellipse];	"def:inner_product_complex" -> "lem:conj_props"	[style=dashed];	"thm:ortho_self_zero"	[color=green,		label=ortho_self_zero,		shape=ellipse];	"def:orthogonal" -> "thm:ortho_self_zero"	[style=dashed];	"thm:pythagorean"	[color=green,		fillcolor="#A3D6FF",		label=pythagorean,		shape=ellipse,		style=filled];	"def:orthogonal" -> "thm:pythagorean"	[style=dashed];	"thm:ortho_decom"	[color=green,		label=ortho_decom,		shape=ellipse];	"def:orthogonal" -> "thm:ortho_decom"	[style=dashed];	"def:norm" -> "thm:pythagorean"	[style=dashed];	"thm:cauchy_schwarz"	[color=green,		fillcolor="#A3D6FF",		label=cauchy_schwarz,		shape=ellipse,		style=filled];	"def:norm" -> "thm:cauchy_schwarz"	[style=dashed];	"thm:norm_zero"	[color=green,		fillcolor="#A3D6FF",		label=norm_zero,		shape=ellipse,		style=filled];	"def:norm" -> "thm:norm_zero"	[style=dashed];	"thm:norm_nonneg"	[color=green,		fillcolor="#A3D6FF",		label=norm_nonneg,		shape=ellipse,		style=filled];	"def:norm" -> "thm:norm_nonneg"	[style=dashed];	"thm:sca_mul"	[color=green,		fillcolor="#A3D6FF",		label=sca_mul,		shape=ellipse,		style=filled];	"def:norm" -> "thm:sca_mul"	[style=dashed];	"thm:triangle"	[color=green,		fillcolor="#A3D6FF",		label=triangle,		shape=ellipse,		style=filled];	"thm:cauchy_schwarz" -> "thm:triangle"	[style=dashed];	"linear-map-def"	[color=blue,		fillcolor="#A3D6FF",		label="linear-map-def",		shape=box,		style=filled];	"null-space-def"	[color=blue,		fillcolor="#A3D6FF",		label="null-space-def",		shape=box,		style=filled];	"tutorial-implication"	[color=green,		fillcolor="#A3D6FF",		label="tutorial-implication",		shape=ellipse,		style=filled];	"thm:zero_smul"	[color=green,		fillcolor="#A3D6FF",		label=zero_smul,		shape=ellipse,		style=filled];	"thm:neg_one_smul"	[color=green,		fillcolor="#A3D6FF",		label=neg_one_smul,		shape=ellipse,		style=filled];	"thm:zero_smul" -> "thm:neg_one_smul"	[style=dashed];	"thm:subspace_neg"	[color=green,		fillcolor="#A3D6FF",		label=subspace_neg,		shape=ellipse,		style=filled];	"thm:neg_one_smul" -> "thm:subspace_neg"	[style=dashed];	"thm:subset_linear_independent"	[color=green,		fillcolor="#A3D6FF",		label=subset_linear_independent,		shape=ellipse,		style=filled];	"range-def"	[color=blue,		fillcolor="#A3D6FF",		label="range-def",		shape=box,		style=filled];	"isomorphism-def"	[color=blue,		fillcolor="#A3D6FF",		label="isomorphism-def",		shape=box,		style=filled];	"thm:smul_zero"	[color=green,		fillcolor="#A3D6FF",		label=smul_zero,		shape=ellipse,		style=filled];	"thm:span_mono"	[color=green,		fillcolor="#A3D6FF",		label=span_mono,		shape=ellipse,		style=filled];	"thm:superset_span_full"	[color=green,		fillcolor="#A3D6FF",		label=superset_span_full,		shape=ellipse,		style=filled];	"thm:span_mono" -> "thm:superset_span_full"	[style=dashed];	"thm:linear_combination_unique"	[color=green,		fillcolor="#A3D6FF",		label=linear_combination_unique,		shape=ellipse,		style=filled];	"def:linear_independent"	[color=green,		fillcolor="#B0ECA3",		label=linear_independent,		shape=box,		style=filled];	"def:linear_independent" -> "thm:subset_linear_independent"	[style=dashed];	"def:linear_independent" -> "thm:linear_combination_unique"	[style=dashed];	"thm:linear_independent_insert"	[color=green,		fillcolor="#A3D6FF",		label=linear_independent_insert,		shape=ellipse,		style=filled];	"def:linear_independent" -> "thm:linear_independent_insert"	[style=dashed];	"thm:linear_independent_empty"	[color=green,		fillcolor="#A3D6FF",		label=linear_independent_empty,		shape=ellipse,		style=filled];	"def:linear_independent" -> "thm:linear_independent_empty"	[style=dashed];	"zero-in-null"	[color=blue,		label="zero-in-null",		shape=ellipse];	"range-subspace"	[color=blue,		label="range-subspace",		shape=ellipse];	"def:linear_combination"	[color=green,		fillcolor="#B0ECA3",		label=linear_combination,		shape=box,		style=filled];	"def:linear_combination" -> "def:linear_independent"	[style=dashed];	"def:span"	[color=green,		fillcolor="#B0ECA3",		label=span,		shape=box,		style=filled];	"def:linear_combination" -> "def:span"	[style=dashed];	"thm:linear_combination_of_mem"	[color=green,		fillcolor="#A3D6FF",		label=linear_combination_of_mem,		shape=ellipse,		style=filled];	"def:linear_combination" -> "thm:linear_combination_of_mem"	[style=dashed];	"def:span" -> "thm:span_mono"	[style=dashed];	"def:span" -> "thm:linear_independent_insert"	[style=dashed];	"thm:mem_span_of_mem"	[color=green,		fillcolor="#A3D6FF",		label=mem_span_of_mem,		shape=ellipse,		style=filled];	"def:span" -> "thm:mem_span_of_mem"	[style=dashed];	"thm:remove_redundant_span"	[color=green,		fillcolor="#A3D6FF",		label=remove_redundant_span,		shape=ellipse,		style=filled];	"def:span" -> "thm:remove_redundant_span"	[style=dashed];	"thm:linear_combination_of_mem" -> "thm:mem_span_of_mem"	[style=dashed];	"tutorial-rewrite"	[color=green,		fillcolor="#A3D6FF",		label="tutorial-rewrite",		shape=ellipse,		style=filled];	"tutorial-exists"	[color=green,		fillcolor="#A3D6FF",		label="tutorial-exists",		shape=ellipse,		style=filled];	"surjective-characterization"	[color=blue,		label="surjective-characterization",		shape=ellipse];	"fundamental-theorem-insight"	[color=blue,		label="fundamental-theorem-insight",		shape=ellipse];	"tutorial-contrapositive"	[color=green,		fillcolor="#A3D6FF",		label="tutorial-contrapositive",		shape=ellipse,		style=filled];	"linear-map-zero"	[color=blue,		fillcolor="#A3D6FF",		label="linear-map-zero",		shape=ellipse,		style=filled];	"mem-range"	[color=blue,		label="mem-range",		shape=ellipse];	"injective-independence"	[color=blue,		label="injective-independence",		shape=ellipse];	"fundamental-theorem-educational"	[color=blue,		label="fundamental-theorem-educational",		shape=ellipse];	"fundamental-principle"	[color=blue,		label="fundamental-principle",		shape=ellipse];	"isomorphism-characterization"	[color=blue,		label="isomorphism-characterization",		shape=ellipse];	"def:vectorspace"	[color=green,		fillcolor="#B0ECA3",		label=vectorspace,		shape=box,		style=filled];	"def:vectorspace" -> "def:inner_product_complex"	[style=dashed];	"def:vectorspace" -> "thm:zero_smul"	[style=dashed];	"def:vectorspace" -> "thm:smul_zero"	[style=dashed];	"def:vectorspace" -> "def:linear_combination"	[style=dashed];	"def:inner_product_real"	[color=green,		fillcolor="#B0ECA3",		label=inner_product_real,		shape=box,		style=filled];	"def:vectorspace" -> "def:inner_product_real"	[style=dashed];	"def:subspace"	[color=green,		fillcolor="#B0ECA3",		label=subspace,		shape=box,		style=filled];	"def:vectorspace" -> "def:subspace"	[style=dashed];	"def:subspace" -> "thm:subspace_neg"	[style=dashed];	"thm:subspace_zero"	[color=green,		fillcolor="#A3D6FF",		label=subspace_zero,		shape=ellipse,		style=filled];	"def:subspace" -> "thm:subspace_zero"	[style=dashed];	"tutorial-constructor"	[color=green,		fillcolor="#A3D6FF",		label="tutorial-constructor",		shape=ellipse,		style=filled];	"tutorial-linarith"	[color=green,		fillcolor="#A3D6FF",		label="tutorial-linarith",		shape=ellipse,		style=filled];	"tutorial-simp"	[color=green,		fillcolor="#A3D6FF",		label="tutorial-simp",		shape=ellipse,		style=filled];	"injective-characterization"	[color=blue,		fillcolor="#A3D6FF",		label="injective-characterization",		shape=ellipse,		style=filled];	"isomorphism-preserves"	[color=blue,		label="isomorphism-preserves",		shape=ellipse];	"tutorial-reflexivity"	[color=green,		fillcolor="#A3D6FF",		label="tutorial-reflexivity",		shape=ellipse,		style=filled];	"tutorial-exfalso"	[color=green,		fillcolor="#A3D6FF",		label="tutorial-exfalso",		shape=ellipse,		style=filled];	"tutorial-induction"	[color=green,		fillcolor="#A3D6FF",		label="tutorial-induction",		shape=ellipse,		style=filled];	"linear-combination-preservation"	[color=blue,		label="linear-combination-preservation",		shape=ellipse];}`)
     .on("end", interactive);
 
 latexLabelEscaper = function(label) {
