@@ -21,3 +21,6 @@ require GameServer from git
 
 require mathlib from git
   "https://github.com/leanprover-community/mathlib4.git" @ "v4.21.0"
+
+require checkdecls from git
+  "https://github.com/PatrickMassot/checkdecls.git"
