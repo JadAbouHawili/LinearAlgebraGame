@@ -1,5 +1,5 @@
 import Game.Levels.LinearMapsWorld.Level04
-import Game.Levels.VectorSpaceWorld.Level04
+import Game.Levels.VectorSpaceWorld
 
 namespace LinearAlgebraGame
 

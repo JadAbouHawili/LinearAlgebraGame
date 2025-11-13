@@ -1,3 +1,21 @@
+/- New Tatics/Theorems
+
+
+tauto
+
+left
+
+right
+
+let
+
+if then else
+
+
+
+
+
+-/
 import Game.Levels.LinearIndependenceSpanWorld.Level08
 
 namespace LinearAlgebraGame
@@ -5,258 +23,297 @@ namespace LinearAlgebraGame
 World "LinearIndependenceSpanWorld"
 Level 9
 
-Title "Challenge Level - Linear Independence of Set with Insertion"
+Title "Challenge Level - Span After Removing Elements"
 
-Introduction "This is your first challenge level! It is meant to be an optional challenge for those
-who want to have more practice proving difficult theorems in Lean.
+Introduction "
+This is the second challenge level, and the last level of the Linear Independence and Span World! Similar
+to the first challenge level, this level is optional and you can play through it if you want more practice.
+If you find it too difficult, you can skip to the next world and come back later, or enable \"relaxed\" rules
+in the game settings.
 
 ### The Goal
-The goal of this level is to prove that if you have some linearly independent set of vectors `S`, and
-some vector `v ∉ span S`, then the set `S ∪ {v}` is also linearly independent.
+The goal of this level is to prove that if you have some set `S`, and some vector `w` inside the span
+of `S \\ {w}`, the span of `S` is the same as the span of `S \\ {w}`. This is because `w` can be written
+as a sum of vectors of `S \\ {w}`, so any time you have `w` appear in a linear combination of `S`, you
+can simply replace it with a sum of vectors in `S \\ {w}`.
 
 **Note:** This level may experience a hint display issue where hints repeat. If you see the same hint multiple times, the level is still working correctly - just continue with your proof as normal.
 
-### How to skip the level
-In this level, you will have access to the `sorry` tactic. This tactic is how you tell Lean \"I couldn't
-finish the proof, but pretend like I did.\" Typing this tactic will always solve the goal, and allow
-you to skip the level
-
 ### Proof overview
-Linear independence means that any linear combination that adds to zero must be all zeros. This means
-that in order to show `S ∪ {v}` is linearly independent, you must introduce an arbitrary linear combination
-with the function `f` over a set `s`. Here, you can consider whether `v ∈ s` or not. If not, the proof
-is simple, since `s` is a subset of `S` we already know `S` is linearly independent. If it is, we need
-to prove `f(v) = 0`. This can be done since `v ∉ span S`, along with some clever choice of functions.
-Once you have `f(v) = 0`, you can show that the function must be zero outside of `v` due to the linear
-independence of `S`, which then shows `f` is zero on `s`.
-
-### New tactics/theorems
-Similarly to the last level, there are new tactics and theorems you can read about to the right side.
-Also, something that may be useful is the `⁻¹` function. `x⁻¹` is the multiplicative inverse of `x`.
+The most difficult part of this proof is showing that given a linear representation of a vector in the
+span of `S`, we can represent it as a sum of vectors in `S \\ {w}`. You are able to represent a sum over
+`S` as a sum over `S \\ {w}` plus the function applied to `w`. Then, rewrite `w` as a sum of vectors
+in `S \\ {w}`, and recombine the sums.
 "
 
-/--
-`sorry` allows you to skip levels. The `sorry` tactic will solve any goal, and although it is not actually
-a proof, Lean treats it as one.
--/
-TacticDoc «sorry»
+open VectorSpace Finset Set
+variable (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V] [DecidableEq V]
 
-/--
-## Summary
-
-`suffices` allows you to reduce the goal to a simpler statement. It's useful when proving `Q` 
-makes it easy to prove your original goal `P`.
-
-## Syntax
-
-- `suffices h : Q` - Creates a new goal `Q`, and after proving it, you get `h : Q` to prove the original goal
-- `suffices h : Q by tactic` - Proves the original goal using `h : Q` immediately
-
-## Example
-
-If your goal is `x + y = 10` and you know this follows from `x = 3` and `y = 7`, you can write:
-```
-suffices h : x = 3 ∧ y = 7
-· -- Now prove x + y = 10 using h
-  cases' h with hx hy
-  rw [hx, hy]
-  norm_num
-· -- Now prove x = 3 ∧ y = 7
+/-- Helper lemma: Union of sets minus singleton equals union minus singleton when w ∉ sw -/
+lemma union_diff_singleton_eq {V : Type} [DecidableEq V]
+  (S : Set V) (sw sx : Finset V) (w : V) (hsw : ↑sw ⊆ S \ {w}) :
+  sw ∪ (sx \ {w}) = (sw ∪ sx) \ {w} := by
+  apply Finset.Subset.antisymm_iff.2
   constructor
-  · exact x_eq_three
-  · exact y_eq_seven
-```
+  · intro x hx
+    simp
+    simp at hx
+    constructor
+    · tauto
+    · cases' hx with hInsw hInsx
+      · intro hEqW
+        rw[hEqW] at hInsw
+        have hContra := hsw hInsw
+        simp at hContra
+      · exact hInsx.2
+  · intro x hx
+    simp
+    simp at hx
+    cases' hx with hl hr
+    cases' hl with hInsw hInsx
+    · left
+      exact hInsw
+    · right
+      constructor
+      · exact hInsx
+      · exact hr
 
-## Common usage
+/-- Helper lemma: Sum over union equals x minus fx(w)•w when fx' is zero outside sx -/
+lemma fx_sum_equality (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V] [DecidableEq V]
+  (x w : V) (sw sx : Finset V) (fx : V → K) (fx' : V → K)
+  (hw : w ∈ sx) (hfx : x = sx.sum (fun v => fx v • v))
+  (hfx' : fx' = fun v => ite (v ∈ sx) (fx v) 0)
+  (set_eq : sw ∪ (sx \ {w}) = (sw ∪ sx) \ {w}) :
+  x - (fx w • w) = (sw ∪ (sx \ {w})).sum (fun v => fx' v • v) := by
+  rw[set_eq]
+  apply add_right_cancel (b := fx w • w)
+  simp
+  have hfx'w : fx w = fx' w := by rw[hfx']; simp only [hw]; simp
+  rw[hfx'w]
+  rw[(sum_eq_sum_diff_singleton_add (mem_union_right sw hw) (fun v => fx' v • v)).symm]
+  rw[hfx']
+  simp
+  exact hfx
 
-Often used when the goal follows easily from a simpler fact, especially in contradiction proofs.
--/
-TacticDoc «suffices»
+/-- Helper lemma: fx(w)•w equals sum of fw' over union -/
+lemma fw_sum_equality (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V] [DecidableEq V]
+  (w : V) (sw sx : Finset V) (fx fw : V → K) (fw' : V → K)
+  (hfw : w = sw.sum (fun v => fw v • v))
+  (hfw' : fw' = fun v => ite (v ∈ sw) (fx w * fw v) 0) :
+  fx w • w = (sw ∪ (sx \ {w})).sum (fun v => fw' v • v) := by
+  rw[hfw']; simp; simp only [mul_smul]
+  rw[(smul_sum (r := fx w) (s := sw) (f := fun v => fw v • v)).symm]
+  rw[hfw]
 
 /--
-## Summary
-`by_contra` allows you to prove theorems by contradiction. When your goal is `P`, `by_contra h` will
-create a hypothesis `h : ¬P` and change the goal to `False`.
-
-## Example
-If your goal is `¬(isRational √2)`, using `by_contra h` will change the goal to `False`, and
-give you a hypothesis `h : isRational √2`.
+`subset_insert` is a proof that any set is a subset of itself with an element inserted. In Lean, the
+syntax is as follows: if `s : Set T` is a set, and you have `x : T`, then `s ⊆ Set.insert x s`
 -/
-TacticDoc by_contra
+TheoremDoc Set.subset_insert as "subset_insert" in "Sets"
 
 /--
-If you have some set s, where you know `h : i ∈ s`, then `sum_eq_sum_diff_singleton_add h` is a proof that
-`(Finset.sum s fun x => f x) = (Finset.sum (s \ {i}) fun x => f x) + f i`
+`Finset.Subset.antisymm_iff` is a proof that two Finsets are equal if and only if they are subsets of each other.
+-/
+TheoremDoc Finset.Subset.antisymm_iff as "Finset.Subset.antisymm_iff" in "Sets"
+
+/--
+`sum_eq_sum_diff_singleton_add` is a proof that if you have some set `s`, with `h : i ∈ s`, then
+`Finset.sum s (fun x => f x) = Finset.sum (s / {i}) (fun x => f x) + f i. The syntax is `sum_eq_sum_diff_singleton_add h f`.
 -/
 TheoremDoc Finset.sum_eq_sum_diff_singleton_add as "sum_eq_sum_diff_singleton_add" in "Sets"
 
 /--
-`smul_sum` is a proof that you can distribute scalar multiplication through `Finset.sum`.
+`mem_union_right` is a proof that if `a ∈ t`, then `a ∈ s ∪ t`. The syntax is `mem_union_right s h`.
 -/
-TheoremDoc Finset.smul_sum as "smul_sum" in "Sets"
+TheoremDoc Finset.mem_union_right as "mem_union_right" in "Sets"
 
 /--
-`inv_mul_cancel` is a proof that multiplying a nonzero inverse gives 1. If you have a hypothesis `h : x ≠ 0`,
-then  `inv_mul_cancel h` is a proof that `x⁻¹ * x = 1`
+`subset_diff_singleton` is a proof that if `h : s ⊆ t`, and `hx : x ∉ s`, then `s ⊆ t \ {x}`. The syntax
+is `subset_diff_singleton h hx`.
 -/
-TheoremDoc inv_mul_cancel as "inv_mul_cancel" in "Groups"
+TheoremDoc Set.subset_diff_singleton as "subset_diff_singleton" in "Sets"
 
 /--
-`linear_independent_insert_of_not_in_span` is a proof that if you have a linearly independent set, and
-you insert an element not in the span of that set, the new set is also linearly independent. The syntax
-is as follows: if you have hypotheses `hS : linear_independent_v K V S`, and `hv_not_span : v ∉ span K V S`,
-then `linear_independent_insert_of_not_in_span hS hv_not_span` is a proof of `linear_independent_v K V (S ∪ {v})`.
+`diff_subset` is a proof that `s ⊆ s \ t`. The syntax is `diff_subset s t`.
 -/
-TheoremDoc LinearAlgebraGame.linear_independent_insert_of_not_in_span as "linear_independent_insert_of_not_in_span" in "Vector Spaces"
+TheoremDoc Set.diff_subset as "diff_subset" in "Sets"
 
-NewTactic «sorry» by_contra «suffices»
 
-NewTheorem Finset.sum_eq_sum_diff_singleton_add Finset.smul_sum inv_mul_cancel
+/--
+## Summary
+`tauto` solves goals using simple logic. It works similarly to the `simp` and `linarith` tactics, in
+that there is not just one use case. If there is a contradiction that can be easily inferred, or if
+the goal is a direct result of the hypotheses, `tauto` will solve the goal.
 
-open VectorSpace Finset
-variable (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V] [DecidableEq V]
+## Example
+If your goal is of the form `P ∨ ¬P`, then `tauto will solve the goal.
 
-/-- Helper lemma: Elements of s \ {v} are in S when s ⊆ S ∪ {v} -/
-lemma subset_diff_singleton_of_union (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V] [DecidableEq V]
-  (S : Set V) (v : V) (s : Finset V) (hs : ↑s ⊆ S ∪ {v}) :
-  ↑(s \ {v}) ⊆ S := by
-  intros x hx
-  simp at hx
-  cases' hx with xs xNev
-  cases' (hs xs) with xInS xEqv
-  · exact xInS
-  · exfalso
-    exact xNev xEqv
+## Example
+If your goal is of the form `A ∨ B`, and you have a hypothesis `h : A ∨ (B ∧ C)`, then `tauto` will
+solve the goal.
+-/
+TacticDoc tauto
 
-/-- Helper lemma: If v ∈ s and v ∉ span S, and the sum equals zero, then f v = 0 -/
-lemma zero_coeff_from_not_in_span (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V] [DecidableEq V]
-  (S : Set V) (v : V) (s : Finset V) (f : V → K)
-  (hv_not_span : ∀ (t : Finset V), ↑t ⊆ S → ∀ (g : V → K), ¬v = t.sum (fun x => g x • x))
-  (hvIns : v ∈ s)
-  (subset : ↑(s \ {v}) ⊆ S)
-  (hf : ((s \ {v}).sum (fun w => f w • w)) + f v • v = 0) :
-  f v = 0 := by
-  Hint "We will prove this by contradiction. Assume f v ≠ 0, and derive a contradiction."
-  by_contra hfv_ne_zero
-  Hint "From our assumption, we can get that f v is nonzero, so it has a multiplicative inverse."
-  have f_v_inv : f v ≠ 0 := hfv_ne_zero
-  let inv_fv : K := (f v)⁻¹
-  have g1 :inv_fv * (f v) = (1: K) := by
-    rw [propext (mul_eq_one_iff_eq_inv₀ hfv_ne_zero)]
-  have g2 :f v • v =-((s \ {v}).sum (fun w => f w • w)) := by
-    exact Eq.symm (neg_eq_of_add_eq_zero_right hf)
-  Hint "Now, we can rearrange our equation hf to isolate v."
-  have g3 : (-1 : K) • (f v • v) = ((-1 : K) * (f v)) • v := by exact smul_smul (-1) (f v) v
-  have rearranged : v =  (s \ {v}).sum (fun w => (inv_fv * ((-1 : K) * (f w))) • w) := by
-    calc
-      v = (1: K) • v := by rw [one_smul K v]
-      _ = (inv_fv * (f v)) • v := by rw [← g1]
-      _ = inv_fv • (f v • v) := by rw [smul_smul]
-      _ = inv_fv • (-(s \ {v}).sum (fun w => f w • w)) := by
-        rw [g2]
-      _ = inv_fv • ((-1 : K) • ((s \ {v}).sum (fun w => f w • w))) := by rw [neg_one_smul_v]
-      _ = inv_fv • ( ((s \ {v}).sum (fun w => (-1 : K) • (f w • w)))) := by rw [@smul_sum]
-      _= inv_fv • ( ((s \ {v}).sum (fun w => ((-1 : K) * (f w)) • w))) := by
-        simp [smul_smul]
-      _=(s \ {v}).sum (fun w => inv_fv • (((-1 : K) * (f w)) • w)) := by rw[@smul_sum]
-      _= (s \ {v}).sum (fun w => (inv_fv * ((-1 : K) * (f w))) • w) := by
-        simp [smul_smul]
-  set g : V → K := fun w => inv_fv * ((-1 : K) * (f w))
-  have g_v : v = ∑ w ∈ s \ {v}, (g w) • w := by exact rearranged
-  specialize hv_not_span (s \ {v}) subset g
-  exact hv_not_span g_v
+/--
+## Summary
+`left` is one of the ways of proving `or` statements. If your goal is `P ∨ Q`, then `left` changes the
+goal to `P`.
+-/
+TacticDoc left
 
-Statement linear_independent_insert_of_not_in_span
-  {S : Set V} {v : V}
-  (hS : linear_independent_v K V S)
-  (hv_not_span : v ∉ span K V S):
-  linear_independent_v K V (S ∪ {v}) := by
-    Hint "First, unfold the definitions, intro the variables and hypotheses we need, and simp where nescessary"
-    Hint "Linear independence means: if a linear combination equals zero, all coefficients must be zero."
-    Hint (hidden := true) "Try `unfold linear_independent_v at *`"
-    unfold linear_independent_v at *
-    Hint (hidden := true) "Try `intros s f hs hf w hw`"
-    intros s f hs hf w hw
-    Hint (hidden := true) "Try `unfold span at *`"
-    unfold span at *
-    Hint (hidden := true) "Try `unfold is_linear_combination at *`"
-    unfold is_linear_combination at *
-    Hint (hidden := true) "Try `simp at hv_not_span`"
-    simp at hv_not_span
+/--
+## Summary
+`right` is one of the ways of proving `or` statements. If your goal is `P ∨ Q`, then `right` changes the
+goal to `Q`.
+-/
+TacticDoc right
 
-    Hint "We want to prove two seperate cases: v ∈ s and v ∉ s. If v ∉ s, then we know s ⊆ S, so since S
-    is linearly independent, so is s. If v ∈ s, then we have more work to do. "
-    Hint "Strategy: Split based on whether the new vector v appears in our linear combination."
-    Hint (hidden := true) "Try `by_cases hvIns : v ∈ s`"
-    by_cases hvIns : v ∈ s
+/--
+## Summary
+`let` acts very similarly to `have`. Instead of allowing you to create new hypotheses, `let` allows you
+to create new objects.
 
-    Hint "Now, we want to split hf into two, breaking off \{{v}} so we have a sum over a subset of S"
-    Hint "We can rewrite the sum as: ∑(s\\\{{v}}) + f(v)•v = 0. This separation is key to our proof."
-    Hint (hidden := true) "Try `rw [sum_eq_sum_diff_singleton_add hvIns] at hf`"
-    rw [sum_eq_sum_diff_singleton_add hvIns] at hf
+## Using `rw` after `let` statements
+You may want to use `rw` with the equalities you choose in a `let` statement. To do this, you must create
+a new lemma stating this equality with `have`. The proof will simply be `rfl`.
 
-    Hint "Now, that we have a sum over `(s \\ \{{v}})`, we want to show `↑(s \\ \{{v}}) ⊆ S`."
-    Hint "**Mathematical Intuition**: Elements in s \\ \{{v}} must be in S since they can't equal v."
-    Hint "We use a helper lemma that proves: if s ⊆ S ∪ \{{v}}, then s \\ \{{v}} ⊆ S."
-    Hint (hidden := true) "Try `have subset : ↑(s \\ \{{v}}) ⊆ S := subset_diff_singleton_of_union K V S v s hs`"
-    have subset : ↑(s \ {v}) ⊆ S := subset_diff_singleton_of_union K V S v s hs
+## Example
+If you have objects `x y : V`, then you can say `let z := x + y`, and you will have a new object `z`,
+where `z = x + y` can be solvedd by `rfl`
 
-    Hint "Now, we can prove our important lemma, that `f v = 0`."
-    Hint "We'll use proof by contradiction. If f v ≠ 0, we can express v as a linear combination of elements in S."
-    Hint "But this contradicts our assumption that v ∉ span(S)! Therefore f(v) must be 0."
-    Hint (hidden := true) "Try `have lemma_fv_zero : f v = 0 := zero_coeff_from_not_in_span K V S v s f hv_not_span hvIns subset hf`"
-    have lemma_fv_zero : f v = 0 := zero_coeff_from_not_in_span K V S v s f hv_not_span hvIns subset hf
+## Example
+If you have a function `f : V → K`, and `v : V`, you can say `let f := fun x => f x • v`.
+-/
+TacticDoc «let»
 
-    Hint "Now, consider two cases: `w = v` or not. If `w = v`, our lemma is our goal. If not,
-    we need to use the linear independence of `S`"
-    Hint "Since f(v) = 0, the equation becomes: ∑(s\\\{{v}}) f(w)•w = 0, which involves only vectors from S."
-    Hint (hidden := true) "Try `by_cases hw2 : w = v`"
-    by_cases hw2 : w = v
-    Hint (hidden := true) "Try `rw [hw2]`"
-    rw[hw2]
-    Hint (hidden := true) "Try `exact lemma_fv_zero`"
-    exact lemma_fv_zero
+/--
+`ite` stands for `if then else`. If is used when creating functions. You can think of `ite P f1 f2` as
+"If P then f1 else f2". This function gives you f1 when P is True, and f2 otherwise. This can help you
+design functions that are 0 outside of certain sets.
+-/
+TacticDoc ite
 
-    Hint "We can use our lemma to show that the sum of `f` over `s \\ \{{v}}` is equal to 0"
-    Hint "Substituting f(v) = 0 simplifies our equation to a sum over S only."
-    Hint (hidden := true) "Try `rw[lemma_fv_zero] at hf`"
-    rw[lemma_fv_zero] at hf
-    Hint (hidden := true) "Try `simp at hf`"
-    simp at hf
+NewTactic tauto left right «let» ite
 
-    Hint "Show that w is in s but not equal to v."
-    Hint (hidden := true) "Try `have hwInS : w ∈ s \\ \{{v}} := by (simp; exact ⟨hw, hw2⟩)`"
-    have hwInS : w ∈ s \ {v} := by (simp; exact ⟨hw, hw2⟩)
+NewTheorem Set.subset_insert Finset.Subset.antisymm_iff Finset.sum_eq_sum_diff_singleton_add Finset.mem_union_right Finset.sum_add_distrib Set.subset_diff_singleton Set.diff_subset
 
-    Hint "Now, we can apply all of our hypotheses to close the goal"
-    Hint "Since S is linearly independent and we have a zero sum over s\\\{{v}} ⊆ S, all coefficients (including f(w)) are zero."
-    Hint (hidden := true) "Try `exact hS (s \\ \{{v}}) f subset hf w hwInS`"
-    exact hS (s \ {v}) f subset hf w hwInS
+TheoremDoc LinearAlgebraGame.remove_redundant_span as "remove_redundant_span" in "Vector Spaces"
 
-    -- Case 2: v ∉ s
-    Hint "Show that s is a subset of S using case analysis."
-    Hint "In this case, the linear combination doesn't involve v at all, so s ⊆ S directly."
-    Hint (hidden := true) "Try `suffices s_subset_S : ↑s ⊆ S`"
-    suffices s_subset_S : ↑s ⊆ S
-    · -- Use the sufficient condition
-      Hint "Apply linear independence to finish the proof."
-      Hint "Since s ⊆ S and S is linearly independent, the zero sum implies all coefficients are zero."
-      Hint (hidden := true) "Try `exact hS s f s_subset_S hf w hw`"
-      exact hS s f s_subset_S hf w hw
-    -- Prove the sufficient condition
-    Hint (hidden := true) "Try `intro u hu_in_s`"
-    intro u hu_in_s
-    Hint (hidden := true) "Try `cases' hs hu_in_s with hu_in_S hu_eq_v`"
-    cases' hs hu_in_s with hu_in_S hu_eq_v
-    Hint (hidden := true) "For the first case, try `exact hu_in_S`"
-    · exact hu_in_S
-    Hint (hidden := true) "For the second case, try `simp at hu_eq_v`"
-    · simp at hu_eq_v
-      Hint (hidden := true) "Try `rw [hu_eq_v] at hu_in_s`"
-      rw [hu_eq_v] at hu_in_s
-      Hint (hidden := true) "Try `exfalso`"
-      exfalso
-      Hint (hidden := true) "Try `exact hvIns hu_in_s`"
-      exact hvIns hu_in_s
+Statement remove_redundant_span
+  {S : Set V} {w : V} (hcomb : w ∈ span K V (S \ {w})) :
+  span K V S = span K V (S \ {w}) := by
+  -- We will prove this result by showing the two sets are subsets of each other, which means they are equal.
+  Hint "We want to prove two sets are equal. What theorem can help us with this?"
+  Hint "To prove equality of spans, we'll show mutual inclusion: span S ⊆ span (S \\ \{{w}}) and vice versa."
+  Hint (hidden := true) "Try `apply Set.eq_of_subset_of_subset`"
+  apply eq_of_subset_of_subset
 
-    -- The proof is completed by the suffices approach above
+  Hint "First, introduce an arbitrary element, unfold definitions and simp"
+  Hint "We need to show any x ∈ span S is also in span (S \\ \{{w}}). This is the harder direction."
+  Hint (hidden := true) "Try `intro x hx`"
+  intro x hx
+  Hint (hidden := true) "Try `unfold span at *`"
+  unfold span at *
+  Hint (hidden := true) "Try `unfold is_linear_combination at *`"
+  unfold is_linear_combination at *
+  Hint (hidden := true) "Try `simp at *`"
+  simp at *
+
+  Hint "Now, we have two helpful statements. We can use `obtain` to get sets and functions from them"
+  Hint "Extract the finite set sw and function fw that represent w as a linear combination of S \\ \{{w}}."
+  Hint (hidden := true) "Try `obtain ⟨sw, hsw, fw, hfw⟩ := hcomb`"
+  obtain ⟨sw, hsw, fw, hfw⟩ := hcomb
+  Hint (hidden := true) "Try `obtain ⟨sx, hsx, fx, hfx⟩ := hx`"
+  obtain ⟨sx, hsx, fx, hfx⟩ := hx
+
+  Hint "Here, we can split into two cases: whether or not `w ∈ sx`"
+  Hint "The key insight: if w appears in the representation of x, we'll replace it using its representation from S \\ \{{w}}."
+  Hint (hidden := true) "Try `by_cases hw : w ∈ sx`"
+  by_cases hw : w ∈ sx
+
+  Hint "What set should we be summing over? Note that you have two different sets where functions are
+  defined, sw and sx"
+  Hint "Case 1: When w ∈ sx, we need to carefully construct our linear combination."
+  Hint "We'll combine elements from both sw and sx, but exclude w from sx to avoid duplication."
+  Hint (hidden := true) "Try `use sw ∪ (sx \\ \{{w}})`"
+  use sw ∪ (sx \ {w})
+
+  Hint (hidden := true) "Try `constructor`"
+  constructor
+
+  Hint (hidden := true) "Try `rw[coe_union]`"
+  rw[coe_union]
+  Hint (hidden := true) "Try `apply Set.union_subset hsw`"
+  apply Set.union_subset hsw
+  Hint (hidden := true) "Try `simp`"
+  simp
+  Hint (hidden := true) "Try `exact subset_trans hsx (subset_insert w S)`"
+  exact subset_trans hsx (subset_insert w S)
+
+  Hint "In order to manipulate the sum better, it would be nice to rewrite the set you are summing over."
+  Hint "We need to show that `sw ∪ (sx \\ \{{w}}) = (sw ∪ sx) \\ \{{w}}` when `w ∉ sw`."
+  Hint "This set equality is crucial for manipulating our sums correctly."
+  Hint "Since w ∈ span(S \\ \{{w}}), we know w ∉ sw (the set representing w can't contain w itself!)."
+  Hint (hidden := true) "Try `have set_eq : sw ∪ (sx \\ \{{w}}) = (sw ∪ sx) \\ \{{w}} := union_diff_singleton_eq S sw sx w hsw`"
+  have set_eq : sw ∪ (sx \ {w}) = (sw ∪ sx) \ {w} := union_diff_singleton_eq S sw sx w hsw
+
+  Hint "Now, let's consider the function we will be summing. To get a sum of `x`, we need two parts:
+  the sum over `S` getting `x`, and the sum over `S \\ \{{w}}` to get `w`. This can be thought of as
+  two seperate functions. The first function will be similar to `fx`, but since we do not know what
+  `fx` is outside of `sx`, we must make this function `0` outside of `sx`. We can define this first
+  function with a `let` statement"
+  Hint "Mathematical insight: We're decomposing x = Σ(fx v • v) into two parts: contributions from S\\\{{w}} and from w itself."
+  Hint (hidden := true) "Try `let fx' := fun v => (ite (v ∈ sx) (fx v) 0)`"
+  let fx' := fun v => (ite (v ∈ sx) (fx v) 0)
+  Hint (hidden := true) "Try `have hfx' : fx' = (fun v => (ite (v ∈ sx) (fx v) 0)) := rfl`"
+  have hfx' : fx' = (fun v => (ite (v ∈ sx) (fx v) 0)) := rfl
+
+  Hint "Now, you can prove that summing `fx'` over our set gives the correct value."
+  Hint "We use a helper lemma that shows the sum equality."
+  Hint "This lemma shows that fx' gives us x minus the contribution from w."
+  Hint (hidden := true) "Try `have fx'_sum : x - (fx w • w) = (sw ∪ (sx \\ \{{w}})).sum (fun v => fx' v • v) := fx_sum_equality K V x w sw sx fx fx' hw hfx hfx' set_eq`"
+  have fx'_sum : x - (fx w • w) = (sw ∪ (sx \ {w})).sum (fun v => fx' v • v) :=
+    LinearAlgebraGame.fx_sum_equality K V x w sw sx fx fx' hw hfx hfx' set_eq
+
+  Hint "Now, we can create the second function, which will be added to get the missing `fx w • w`"
+  Hint "Since w = Σ(fw v • v) over sw, we have fx(w) • w = fx(w) • Σ(fw v • v) = Σ(fx(w) • fw(v) • v)."
+  Hint (hidden := true) "Try `let fw' := fun v => ite (v ∈ sw) (fx w * fw v) 0`"
+  let fw' := fun v => ite (v ∈ sw) (fx w * fw v) 0
+  Hint (hidden := true) "Try `have hfw' : fw' = (fun v => ite (v ∈ sw) (fx w * fw v) 0) := rfl`"
+  have hfw' : fw' = (fun v => ite (v ∈ sw) (fx w * fw v) 0) := rfl
+
+  Hint "Prove the sum equality by expanding definitions."
+  Hint "This lemma shows that fw' reconstructs exactly the fx w • w term we need."
+  Hint (hidden := true) "Try `have fw'_sum : fx w • w = (sw ∪ (sx \\ \{{w}})).sum (fun v => fw' v • v) := fw_sum_equality K V w sw sx fx fw fw' hfw hfw'`"
+  have fw'_sum : fx w • w = (sw ∪ (sx \ {w})).sum (fun v => fw' v • v) :=
+    LinearAlgebraGame.fw_sum_equality K V w sw sx fx fw fw' hfw hfw'
+
+  Hint "Now, use the functions we have defined"
+  Hint (hidden := true) "Try `use fun v => fx' v + fw' v`, then Try `simp only [add_smul]`"
+  use fun v => fx' v + fw' v
+  simp only [add_smul]
+  Hint (hidden := true) "Try `rw[sum_add_distrib, fx'_sum.symm, fw'_sum.symm]`"
+  rw[sum_add_distrib, fx'_sum.symm, fw'_sum.symm]
+  Hint (hidden := true) "Try `simp`"
+  simp
+
+  Hint "Now, we are on the second case, when `w ∉ sx`."
+  Hint "This case is simpler: if w doesn't appear in the representation of x, then x is already in span(S \\ \{{w}})."
+  Hint (hidden := true) "Try `use sx`"
+  use sx
+  Hint (hidden := true) "Try `constructor`"
+  constructor
+  Hint (hidden := true) "Try `exact Set.subset_diff_singleton hsx hw`"
+  exact Set.subset_diff_singleton hsx hw
+  Hint (hidden := true) "Try `use fx`"
+  use fx
+
+  Hint "Lastly, we must prove that `span K V (S \\ \{{w}}) ⊆ span K V S`. This is simple with span_mono"
+  Hint "Since removing an element makes a smaller set, its span is also smaller."
+  Hint "This is the easy direction: every linear combination of S \\ \{{w}} is automatically a linear combination of S."
+  Hint (hidden := true) "Try `apply span_mono`"
+  apply span_mono
+  Hint (hidden := true) "Try `exact Set.diff_subset`"
+  exact Set.diff_subset
+
+Conclusion "You have now finished the Linear Independence and Span World!"

@@ -1,261 +1,256 @@
 import Game.Levels.LinearIndependenceSpanWorld.Level07
-import Game.Levels.LinearIndependenceSpanWorld.Lemmas
 
 namespace LinearAlgebraGame
 
 World "LinearIndependenceSpanWorld"
 Level 8
 
-Title "Uniqueness of linear combinations"
+Title "Challenge Level - Linear Independence of Set with Insertion"
 
-Introduction "This is the \"boss level\" of the Linear Independence and Span World. This level is a
-proof that in a linearly independent set, linear combinations are unique. There are also a few new tactics
-and multiple new theorems you should use.
+Introduction "This is your first challenge level! It is meant to be an optional challenge for those
+who want to have more practice proving difficult theorems in Lean.
 
 ### The Goal
-In this level, we have 5 objects and 6 hypotheses about those objects. We have the set `S : Set V`,
-which is the linearly independent set we are working with. We also have `s` and `f`, which are the set
-and function we are summing over to get the first linear combination, and `t` and `g` are the second
-linear combination. We have `hs : linear_independent_v K V S`, which states that `S` is linearly independent,
-`hs : ↑s ⊆ S` and `ht : ↑t ⊆ S`, which state that `s` and `t` are both in `S`, so are valid linear
-combinations of `S`. We know `hf0 : ∀ v ∉ s, f v = 0` and a similar `hg0`, which state that both functions
-are zero outside of their domain. This helps us prove `f = g`, since otherwise we wouldn't know what
-the values of `f` and `g` would be outside of `s` and `t`. Lastly, we have `heq : Finset.sum s (fun v => f v • v) = Finset.sum t (fun v => g v • v)`,
-which shows that the two linear combinations are equal. We then must pove that `f = g`
+The goal of this level is to prove that if you have some linearly independent set of vectors `S`, and
+some vector `v ∉ span S`, then the set `S ∪ {v}` is also linearly independent.
 
 **Note:** This level may experience a hint display issue where hints repeat. If you see the same hint multiple times, the level is still working correctly - just continue with your proof as normal.
 
-### The `specialize` tactic
-The `specialize` tactic can be thought of as the opposite of `use`. While `use` helps specify a value
-for a `∃` in the goal, `specialize` specifies a value for a `∀` in a hypothesis. For example, if you
-have a hypothesis `h : ∀ v : V, v • 1 = v`, and you have a vector `x : V`, then `specialize h x` will
-change `h` to `h : x • 1 = x`. `specialize` also works if `h` is an implication. If `h1 : P → Q` is a
-hypothesis, and `h2 : P` is a proof of `P`, then `specialize h1 h2` will change `h2` to `h2 : Q`.
-
-### The `by_cases` tactic
-The `by_cases` tactic helps you prove something by cases. If you want to prove a statement about vectors
-in `V`, but you want to split into cases where `v = 0` or `v ≠ 0`, `by_cases hv : v = 0` will split the
-goal into two subgoals: one where you have a hypothesis `hv : v = 0`, and another where you have a hpyothesis
-`hv : v ≠ 0`.
-
-### The `funext` tactic
-The `funext` tactic lets you prove statements about functions. It works similarly to the `intro` tactic,
-where you introduce an arbitrary object, but instead of introducing from a `∀` statment, it works if
-you have a goal of the form `f = g`, where `funext x` will change the goal to the form `f x = g x`, and
-give you an arbitrary `x` in the domain of `f` and `g`.
-
-### New theorems
-This level requires multiple new theorems, particularly ones about Finsets and sums. There are two theorems
-about vector spaces that can be proven quite easily, but they are still nice to have without needing
-to prove them first. Instead of explaining them all here, you can look at them on the right side of
-the screen. The new theorems are: `coe_union`, `union_subset`, `sub_smul`, 'sum_add_distrib', 'sum_sub_distrib',
-`subset_union_left`, `subset_union_right`, `sum_subset`, `sub_eq_zero`, and `notMem_union`.
-If you need more theorems, you can either prove them in lemmas, or if you want, you can go to the world
-select menu and turn \"Rules\" to \"none\", which should allow you to use any tactic or theorem in Lean.
+### This is an optional challenge
+This level is optional and challenging. If you find it too difficult, you can:
+- Skip to the next world and come back to it later
+- Enable \"relaxed\" rules in the game settings to bypass this level
 
 ### Proof overview
-If you look at the hypotheses you have, the most important ones are that S is linearly independent and
-that the two sums are equal. When you have a statement that a set is linearly independent, it is often
-very helpful to try to find the correct set and function to sum over, then try to satisfy the assumptions
-to prove that the function must be zero. Since the goal is to prove that `f = g`, maybe try to prove
-instead that `f - g = 0`, so you can try proving the assumptions in `hS` with the function `f - g`. You
-also need to pick the correct set to be summing over. Since this set must contain both `s` and `t`, you
-can use `s ∪ t`. Also, note that this will then only prove that `f = g` on the set `s ∪ t`, so you may
-need to use `by_cases` to prove it outside `s ∪ t`.
+Linear independence means that any linear combination that adds to zero must be all zeros. This means
+that in order to show `S ∪ {v}` is linearly independent, you must introduce an arbitrary linear combination
+with the function `f` over a set `s`. Here, you can consider whether `v ∈ s` or not. If not, the proof
+is simple, since `s` is a subset of `S` we already know `S` is linearly independent. If it is, we need
+to prove `f(v) = 0`. This can be done since `v ∉ span S`, along with some clever choice of functions.
+Once you have `f(v) = 0`, you can show that the function must be zero outside of `v` due to the linear
+independence of `S`, which then shows `f` is zero on `s`.
 
-### Note on hints
-With the use of `have` statements, you may have multiple goals at the same time. While this is not a
-problem when writing the proof, the hint system may get confused. Starting to type where you
-intend to write your next tactic will help clear up what goal you are working on, so it will help the hint
-system. However, in general, try to follow your intuition without blindly following the hints.
+### New tactics/theorems
+Similarly to the last level, there are new tactics and theorems you can read about to the right side.
+Also, something that may be useful is the `⁻¹` function. `x⁻¹` is the multiplicative inverse of `x`.
 "
 
 /--
 ## Summary
-The `by_cases` tactic is able to create a new hypothesis, and split the goal into two cases: one where
-the hypothesis is true, and one where the hypothesis is false.
 
-In general, if you write `by_cases h : P`, you will create one goal with a hypothesis `h : P`, and another
-with a hypothesis `h : ¬P`.
+`suffices` allows you to reduce the goal to a simpler statement. It's useful when proving `Q`
+makes it easy to prove your original goal `P`.
+
+## Syntax
+
+- `suffices h : Q` - Creates a new goal `Q`, and after proving it, you get `h : Q` to prove the original goal
+- `suffices h : Q by tactic` - Proves the original goal using `h : Q` immediately
 
 ## Example
-If you have some vector `v : V`, and some set `s : Set V`, you can solve the proof by cases of whether
-v is in s by writing `by_cases h : v ∈ s`, which will give you two goals, one with the hypothesis `h : v ∈ s`,
-and one with the hypothesis `h : v ∉ s`.
+
+If your goal is `x + y = 10` and you know this follows from `x = 3` and `y = 7`, you can write:
+```
+suffices h : x = 3 ∧ y = 7
+· -- Now prove x + y = 10 using h
+  cases' h with hx hy
+  rw [hx, hy]
+  norm_num
+· -- Now prove x = 3 ∧ y = 7
+  constructor
+  · exact x_eq_three
+  · exact y_eq_seven
+```
+
+## Common usage
+
+Often used when the goal follows easily from a simpler fact, especially in contradiction proofs.
 -/
-TacticDoc by_cases
+TacticDoc «suffices»
 
 /--
 ## Summary
-The `funext` tactic is very helpful when dealing with functions. It uses the idea that for two functions
-`f : A → B` and `g : A → B`, `f = g` if and only if `f x = g x` for all `x ∈ A`. This means that if you
-have a goal `f = g`, where both functions have domain `A`, `funext x` will create an arbitrary `x : A`,
-and change the goal to `f x = g x`.
--/
-TacticDoc funext
-
-/--
-## Summary
-The `specialize` tactic can be thought of as the opposite of `use`. While `use` helps specify a value
-for a `∃` in the goal, `specialize` specifies a value for a `∀` in a hypothesis. If you have a hypothesis
-`h`, `specialize h x1 x2 x3` will specify the values in `h` as `x1`, `x2`, and `x3`.
+`by_contra` allows you to prove theorems by contradiction. When your goal is `P`, `by_contra h` will
+create a hypothesis `h : ¬P` and change the goal to `False`.
 
 ## Example
-If you have a hypothesis `h : ∀ x : V, f x = 0`, and some `v : V`, then `specialize h v` will
-change the hypothesis to `h : f v = 0`
-
-## Example
-If you have a hypothesis `h : x ∈ s → f x = 0`, and another hypothesis `h2 : x ∈ s`, then `specialize h h2`
-will change h to `h : f x = 0`
+If your goal is `¬(isRational √2)`, using `by_contra h` will change the goal to `False`, and
+give you a hypothesis `h : isRational √2`.
 -/
-TacticDoc specialize
+TacticDoc by_contra
 
 /--
-`coe_union` is a proof that `↑(a ∪ b) = ↑a ∪ ↑b`. The `↑` means type casting, which in this case
-specifically means that if `a` is a `Finset`, then `↑a` is a `Set` containing the same elements. This
-theorem shows that type casting passes through unions.
+If you have some set s, where you know `h : i ∈ s`, then `sum_eq_sum_diff_singleton_add h` is a proof that
+`(Finset.sum s fun x => f x) = (Finset.sum (s \ {i}) fun x => f x) + f i`
 -/
-TheoremDoc Finset.coe_union as "coe_union" in "Sets"
+TheoremDoc Finset.sum_eq_sum_diff_singleton_add as "sum_eq_sum_diff_singleton_add" in "Sets"
 
 /--
-`union_subset` is a proof that if `a ⊆ c` and `b ⊆ c`, then `a ∪ b ⊆ c`. This means that if you
-have two sets that are subsets of the same set, their union is also a subset of that set.
+`smul_sum` is a proof that you can distribute scalar multiplication through `Finset.sum`.
 -/
-TheoremDoc Set.union_subset as "union_subset" in "Sets"
+TheoremDoc Finset.smul_sum as "smul_sum" in "Sets"
 
 /--
-`sum_add_distrib` is a proof that you can distribute addition over sums. This means that if
-you have functions `f : A → B`, and `g : A → B`, and some set `s : Finset A`, then
-`Finset.sum s (fun x => f x + g x) = Finset.sum s (fun x => f x) + Finset.sum s (fun x => g x).
+`inv_mul_cancel` is a proof that multiplying a nonzero inverse gives 1. If you have a hypothesis `h : x ≠ 0`,
+then  `inv_mul_cancel h` is a proof that `x⁻¹ * x = 1`
 -/
-TheoremDoc Finset.sum_add_distrib as "sum_add_distrib" in "Sets"
+TheoremDoc inv_mul_cancel as "inv_mul_cancel" in "Groups"
 
 /--
-`sum_sub_distrib` is a proof that you can distribute subtraction over sums. This means that if
-you have functions `f : A → B`, and `g : A → B`, and some set `s : Finset A`, then
-`Finset.sum s (fun x => f x - g x) = Finset.sum s (fun x => f x) - Finset.sum s (fun x => g x).
+`linear_independent_insert_of_not_in_span` is a proof that if you have a linearly independent set, and
+you insert an element not in the span of that set, the new set is also linearly independent. The syntax
+is as follows: if you have hypotheses `hS : linear_independent_v K V S`, and `hv_not_span : v ∉ span K V S`,
+then `linear_independent_insert_of_not_in_span hS hv_not_span` is a proof of `linear_independent_v K V (S ∪ {v})`.
 -/
-TheoremDoc Finset.sum_sub_distrib as "sum_sub_distrib" in "Sets"
+TheoremDoc LinearAlgebraGame.linear_independent_insert_of_not_in_span as "linear_independent_insert_of_not_in_span" in "Vector Spaces"
 
-/--
-`Finset.subset_union_left` is a proof that if `a b : Finset S` are sets, then `a ⊆ a ∪ b`.
--/
-TheoremDoc Finset.subset_union_left as "Finset.subset_union_left" in "Sets"
+NewTactic by_contra «suffices»
 
-/--
-`Finset.subset_union_right` is a proof that if `a b : Finset S` are sets, then `b ⊆ a ∪ b`.
--/
-TheoremDoc Finset.subset_union_right as "Finset.subset_union_right" in "Sets"
+NewTheorem Finset.sum_eq_sum_diff_singleton_add Finset.smul_sum inv_mul_cancel
 
-/--
-`sum_subset` is a proof that if you have a function that is zero outside of some set, then a sum
-on a superset of that set is equal to a sum on that set. If you have a hypothesis `hSub : a ⊆ b`, another hypothesis
-`hZero : ∀ x ∈ b, x ∉ a → f x = 0`, then `sum_subset hSub hZero` is a proof that
-`Finset.sum b f = Finset.sum a f`
--/
-TheoremDoc Finset.sum_subset as "sum_subset" in "Sets"
-
-/--
-`sub_smul` is a proof that subtraction distributes over scalar multiplication. `sub_smul a b c` is a proof
-that `(a - b) • c = a • c - b • c`.
--/
-TheoremDoc sub_smul as "sub_smul" in "Vector Spaces"
-
-/--
-`sub_eq_zero` is a proof that `a - b = 0` if and only if `a = b`.
--/
-TheoremDoc sub_eq_zero as "sub_eq_zero" in "Groups"
-
-/--
-`notMem_union` is the contrapositive of the definition of a union of sets. It states that if
-`v ∉ a ∪ b`, then `v ∉ a ∧ v ∉ b`
--/
-TheoremDoc Finset.notMem_union as "notMem_union" in "Sets"
-
-/--
-`linear_combination_unique` is a proof that representation as a linear combination of a linearly independent
-set of vectors is unique. It takes in two subsets of a linearly independent set, along with two functions
-representing the linear combinations. The functions must be zero outside of the sets, and their sums
-must be equal. In this case, this prooves that functions will be equal.
--/
-TheoremDoc LinearAlgebraGame.linear_combination_unique as "linear_combination_unique" in "Vector Spaces"
-
-NewTheorem Finset.coe_union Finset.sum_add_distrib Finset.sum_sub_distrib Finset.sum_subset sub_smul sub_eq_zero Finset.notMem_union
-
-NewTactic by_cases funext specialize
-
-open VectorSpace Set Finset
+open VectorSpace Finset
 variable (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V] [DecidableEq V]
 
-Statement linear_combination_unique
-{S : Set V} (hS : linear_independent_v K V S)
-(s t : Finset V) (hs : ↑s ⊆ S) (ht : ↑t ⊆ S)
-(f g : V → K) (hf0 : ∀ v ∉ s, f v = 0) (hg0 : ∀ v ∉ t, g v = 0)
-(heq : Finset.sum s (fun v => f v • v) = Finset.sum t (fun v => g v • v)) :
-f = g := by
-  Hint "First, note that you have a goal of proving two functions equal. Try to instead prove it for
-  an arbitrary value."
-  Hint "The `funext` tactic is powerful for proving function equality - it says f = g if f(x) = g(x) for all x."
-  Hint (hidden := true) "Try `funext x`"
-  funext x
+/-- Helper lemma: Elements of s \ {v} are in S when s ⊆ S ∪ {v} -/
+lemma subset_diff_singleton_of_union (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V] [DecidableEq V]
+  (S : Set V) (v : V) (s : Finset V) (hs : ↑s ⊆ S ∪ {v}) :
+  ↑(s \ {v}) ⊆ S := by
+  intros x hx
+  simp at hx
+  cases' hx with xs xNev
+  cases' (hs xs) with xInS xEqv
+  · exact xInS
+  · exfalso
+    exact xNev xEqv
 
-  Hint "Now, we can split into cases where either x ∈ (s ∪ t) or not."
-  Hint "This case split is crucial: if x is in the union, we'll use linear independence; if not, both functions are zero."
-  Hint (hidden := true) "Try `by_cases h : x ∈ (s ∪ t)`"
-  by_cases h : x ∈ (s ∪ t)
-  Hint "Case 1: x ∈ (s ∪ t). Let's unfold the definition of linear independence."
-  Hint (hidden := true) "Try `unfold linear_independent_v at hS`"
-  unfold linear_independent_v at hS
+/-- Helper lemma: If v ∈ s and v ∉ span S, and the sum equals zero, then f v = 0 -/
+lemma zero_coeff_from_not_in_span (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V] [DecidableEq V]
+  (S : Set V) (v : V) (s : Finset V) (f : V → K)
+  (hv_not_span : ∀ (t : Finset V), ↑t ⊆ S → ∀ (g : V → K), ¬v = t.sum (fun x => g x • x))
+  (hvIns : v ∈ s)
+  (subset : ↑(s \ {v}) ⊆ S)
+  (hf : ((s \ {v}).sum (fun w => f w • w)) + f v • v = 0) :
+  f v = 0 := by
+  Hint "We will prove this by contradiction. Assume f v ≠ 0, and derive a contradiction."
+  by_contra hfv_ne_zero
+  Hint "From our assumption, we can get that f v is nonzero, so it has a multiplicative inverse."
+  have f_v_inv : f v ≠ 0 := hfv_ne_zero
+  let inv_fv : K := (f v)⁻¹
+  have g1 :inv_fv * (f v) = (1: K) := by
+    rw [propext (mul_eq_one_iff_eq_inv₀ hfv_ne_zero)]
+  have g2 :f v • v =-((s \ {v}).sum (fun w => f w • w)) := by
+    exact Eq.symm (neg_eq_of_add_eq_zero_right hf)
+  Hint "Now, we can rearrange our equation hf to isolate v."
+  have g3 : (-1 : K) • (f v • v) = ((-1 : K) * (f v)) • v := by exact smul_smul (-1) (f v) v
+  have rearranged : v =  (s \ {v}).sum (fun w => (inv_fv * ((-1 : K) * (f w))) • w) := by
+    calc
+      v = (1: K) • v := by rw [one_smul K v]
+      _ = (inv_fv * (f v)) • v := by rw [← g1]
+      _ = inv_fv • (f v • v) := by rw [smul_smul]
+      _ = inv_fv • (-(s \ {v}).sum (fun w => f w • w)) := by
+        rw [g2]
+      _ = inv_fv • ((-1 : K) • ((s \ {v}).sum (fun w => f w • w))) := by rw [neg_one_smul_v]
+      _ = inv_fv • ( ((s \ {v}).sum (fun w => (-1 : K) • (f w • w)))) := by rw [@smul_sum]
+      _= inv_fv • ( ((s \ {v}).sum (fun w => ((-1 : K) * (f w)) • w))) := by
+        simp [smul_smul]
+      _=(s \ {v}).sum (fun w => inv_fv • (((-1 : K) * (f w)) • w)) := by rw[@smul_sum]
+      _= (s \ {v}).sum (fun w => (inv_fv * ((-1 : K) * (f w))) • w) := by
+        simp [smul_smul]
+  set g : V → K := fun w => inv_fv * ((-1 : K) * (f w))
+  have g_v : v = ∑ w ∈ s \ {v}, (g w) • w := by exact rearranged
+  specialize hv_not_span (s \ {v}) subset g
+  exact hv_not_span g_v
 
-  Hint "Think about the forwards proof. What set and function are we summing over when applying the linear independence of S?"
-  Hint "Key insight: We'll apply linear independence to the difference function (f - g) over the union s ∪ t."
-  Hint "This is because if two linear combinations are equal, their difference equals zero!"
-  Hint (hidden := true) "Try `specialize hS (s ∪ t) (f - g)`"
-  specialize hS (s ∪ t) (f - g)
+Statement linear_independent_insert_of_not_in_span
+  {S : Set V} {v : V}
+  (hS : linear_independent_v K V S)
+  (hv_not_span : v ∉ span K V S):
+  linear_independent_v K V (S ∪ {v}) := by
+    Hint "First, unfold the definitions, intro the variables and hypotheses we need, and simp where nescessary"
+    Hint "Linear independence means: if a linear combination equals zero, all coefficients must be zero."
+    Hint (hidden := true) "Try `unfold linear_independent_v at *`"
+    unfold linear_independent_v at *
+    Hint (hidden := true) "Try `intros s f hs hf w hw`"
+    intros s f hs hf w hw
+    Hint (hidden := true) "Try `unfold span at *`"
+    unfold span at *
+    Hint (hidden := true) "Try `unfold is_linear_combination at *`"
+    unfold is_linear_combination at *
+    Hint (hidden := true) "Try `simp at hv_not_span`"
+    simp at hv_not_span
 
-  Hint "We now want to show `↑(s ∪ t) ⊆ S`. This is a type casted union. Instead, we want a union of
-  type casts, so that we can use theorems having to do with unions. One of the theorems should help with this"
-  Hint "The `coe_union` theorem tells us that ↑(s ∪ t) = ↑s ∪ ↑t, which is what we need."
-  Hint (hidden := true) "Try `rw[coe_union] at hS`"
-  rw[coe_union] at hS
+    Hint "We want to prove two seperate cases: v ∈ s and v ∉ s. If v ∉ s, then we know s ⊆ S, so since S
+    is linearly independent, so is s. If v ∈ s, then we have more work to do. "
+    Hint "Strategy: Split based on whether the new vector v appears in our linear combination."
+    Hint (hidden := true) "Try `by_cases hvIns : v ∈ s`"
+    by_cases hvIns : v ∈ s
 
-  Hint "Now we can use the fact that both s and t are subsets of S to show their union is too."
-  Hint (hidden := true) "Try `specialize hS (union_subset hs ht)`"
-  specialize hS (union_subset hs ht)
+    Hint "Now, we want to split hf into two, breaking off \{{v}} so we have a sum over a subset of S"
+    Hint "We can rewrite the sum as: ∑(s\\\{{v}}) + f(v)•v = 0. This separation is key to our proof."
+    Hint (hidden := true) "Try `rw [sum_eq_sum_diff_singleton_add hvIns] at hf`"
+    rw [sum_eq_sum_diff_singleton_add hvIns] at hf
 
-  Hint "We need to show that the sum of the difference function equals zero."
-  Hint "This follows from our helper lemma about equal linear combinations."
-  Hint "The key idea: if Σf = Σg, then Σ(f-g) = 0."
-  Hint (hidden := true) "Try `have lemmaSumDiffEqZero := sum_diff_eq_zero_of_equal_combinations K V s t f g hf0 hg0 heq`"
-  have lemmaSumDiffEqZero := sum_diff_eq_zero_of_equal_combinations K V s t f g hf0 hg0 heq
+    Hint "Now, that we have a sum over `(s \\ \{{v}})`, we want to show `↑(s \\ \{{v}}) ⊆ S`."
+    Hint "**Mathematical Intuition**: Elements in s \\ \{{v}} must be in S since they can't equal v."
+    Hint "We use a helper lemma that proves: if s ⊆ S ∪ \{{v}}, then s \\ \{{v}} ⊆ S."
+    Hint (hidden := true) "Try `have subset : ↑(s \\ \{{v}}) ⊆ S := subset_diff_singleton_of_union K V S v s hs`"
+    have subset : ↑(s \ {v}) ⊆ S := subset_diff_singleton_of_union K V S v s hs
 
-  Hint "Now, we simply have to prove the requirements of hS"
-  Hint "We're applying the linear independence property with our zero sum."
-  Hint (hidden := true) "Try `specialize hS lemmaSumDiffEqZero`"
-  specialize hS lemmaSumDiffEqZero
+    Hint "Now, we can prove our important lemma, that `f v = 0`."
+    Hint "We'll use proof by contradiction. If f v ≠ 0, we can express v as a linear combination of elements in S."
+    Hint "But this contradicts our assumption that v ∉ span(S)! Therefore f(v) must be 0."
+    Hint (hidden := true) "Try `have lemma_fv_zero : f v = 0 := zero_coeff_from_not_in_span K V S v s f hv_not_span hvIns subset hf`"
+    have lemma_fv_zero : f v = 0 := zero_coeff_from_not_in_span K V S v s f hv_not_span hvIns subset hf
 
-  Hint "Apply the linear independence conclusion to our specific vector x."
-  Hint (hidden := true) "Try `specialize hS x h`"
-  specialize hS x h
+    Hint "Now, consider two cases: `w = v` or not. If `w = v`, our lemma is our goal. If not,
+    we need to use the linear independence of `S`"
+    Hint "Since f(v) = 0, the equation becomes: ∑(s\\\{{v}}) f(w)•w = 0, which involves only vectors from S."
+    Hint (hidden := true) "Try `by_cases hw2 : w = v`"
+    by_cases hw2 : w = v
+    Hint (hidden := true) "Try `rw [hw2]`"
+    rw[hw2]
+    Hint (hidden := true) "Try `exact lemma_fv_zero`"
+    exact lemma_fv_zero
 
-  Hint "We know now from hS that f x - g x = 0, and one of the new theorems lets us finish the proof.
-  Remember that if you have a proof of `↔`, `.1` will be a proof of the forwards direction and `.2` the
-  backwards."
-  Hint "The `sub_eq_zero` theorem says a - b = 0 ↔ a = b. We want the forward direction."
-  Hint (hidden := true) "Try `exact sub_eq_zero.1 hS`"
-  exact sub_eq_zero.1 hS
+    Hint "We can use our lemma to show that the sum of `f` over `s \\ \{{v}}` is equal to 0"
+    Hint "Substituting f(v) = 0 simplifies our equation to a sum over S only."
+    Hint (hidden := true) "Try `rw[lemma_fv_zero] at hf`"
+    rw[lemma_fv_zero] at hf
+    Hint (hidden := true) "Try `simp at hf`"
+    simp at hf
 
-  Hint "Case 2: x ∉ (s ∪ t). This means x is neither in s nor in t."
-  Hint "In this case, both f(x) and g(x) are zero by our hypotheses hf0 and hg0."
-  Hint (hidden := true) "Try `rw[Finset.notMem_union] at h`"
-  Hint "Split the negation of the union into two parts."
-  Hint (hidden := true) "Try `cases' h with hxs hxt`"
-  Hint "Note: The game may appear to stall after the next step. If it does, you can proceed to the next level - the proof is complete."
-  Hint "Both functions are zero outside their domains, so f(x) = 0 = g(x)."
-  Hint (hidden := true) "Try `rw[hf0 x hxs, hg0 x hxt]`"
-  rw[Finset.notMem_union] at h
-  cases' h with hxs hxt
-  rw[hf0 x hxs, hg0 x hxt]
+    Hint "Show that w is in s but not equal to v."
+    Hint (hidden := true) "Try `have hwInS : w ∈ s \\ \{{v}} := by (simp; exact ⟨hw, hw2⟩)`"
+    have hwInS : w ∈ s \ {v} := by (simp; exact ⟨hw, hw2⟩)
 
-Conclusion "Congratulations! The next two levels are optional challenges, and although they are
-difficult, if you were able to complete this level, you should be able to complete the next two."
+    Hint "Now, we can apply all of our hypotheses to close the goal"
+    Hint "Since S is linearly independent and we have a zero sum over s\\\{{v}} ⊆ S, all coefficients (including f(w)) are zero."
+    Hint (hidden := true) "Try `exact hS (s \\ \{{v}}) f subset hf w hwInS`"
+    exact hS (s \ {v}) f subset hf w hwInS
+
+    -- Case 2: v ∉ s
+    Hint "Show that s is a subset of S using case analysis."
+    Hint "In this case, the linear combination doesn't involve v at all, so s ⊆ S directly."
+    Hint (hidden := true) "Try `suffices s_subset_S : ↑s ⊆ S`"
+    suffices s_subset_S : ↑s ⊆ S
+    · -- Use the sufficient condition
+      Hint "Apply linear independence to finish the proof."
+      Hint "Since s ⊆ S and S is linearly independent, the zero sum implies all coefficients are zero."
+      Hint (hidden := true) "Try `exact hS s f s_subset_S hf w hw`"
+      exact hS s f s_subset_S hf w hw
+    -- Prove the sufficient condition
+    Hint (hidden := true) "Try `intro u hu_in_s`"
+    intro u hu_in_s
+    Hint (hidden := true) "Try `cases' hs hu_in_s with hu_in_S hu_eq_v`"
+    cases' hs hu_in_s with hu_in_S hu_eq_v
+    Hint (hidden := true) "For the first case, try `exact hu_in_S`"
+    · exact hu_in_S
+    Hint (hidden := true) "For the second case, try `simp at hu_eq_v`"
+    · simp at hu_eq_v
+      Hint (hidden := true) "Try `rw [hu_eq_v] at hu_in_s`"
+      rw [hu_eq_v] at hu_in_s
+      Hint (hidden := true) "Try `exfalso`"
+      exfalso
+      Hint (hidden := true) "Try `exact hvIns hu_in_s`"
+      exact hvIns hu_in_s
+
+    -- The proof is completed by the suffices approach above

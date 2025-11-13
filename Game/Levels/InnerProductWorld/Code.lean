@@ -1,4 +1,4 @@
-import Game.Levels.LinearIndependenceSpanWorld.Level09
+import Game.Levels.LinearIndependenceSpanWorld
 
 -- Minimal Mathlib imports for Lean 4.7.0 - avoiding conflicts with custom definitions
 import Mathlib.Data.Complex.Basic

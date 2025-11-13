@@ -1,4 +1,4 @@
-import Game.Levels.LinearIndependenceSpanWorld.Level07
+import Game.Levels.LinearIndependenceSpanWorld
 
 namespace LinearAlgebraGame
 
