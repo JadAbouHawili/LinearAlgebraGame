@@ -44,7 +44,7 @@ jobs:
       # Keeping as placeholder for future migration to new doc generation system
       - name: Skip API documentation (deprecated facet)
         run: echo "Skipping API documentation - :docs facet deprecated in Lake v4.21.0"
-      
+
       - name: Check for `home_page` folder # this is meant to detect a Jekyll-based website
         id: check_home_page
         run: |
@@ -111,4 +111,3 @@ jobs:
       # Cache step removed - API docs not generated in current setup
       - name: Skip API documentation cache (docs not generated)
         run: echo "Skipping API documentation cache - pending Lake v4.21.0 migration"
-     
