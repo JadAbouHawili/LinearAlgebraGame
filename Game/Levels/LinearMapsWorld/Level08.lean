@@ -58,6 +58,8 @@ If T is injective, then null T = {0} (Axler 3.16, first direction).
 -/
 TheoremDoc LinearAlgebraGame.injective_implies_trivial_null as "injective_implies_trivial_null" in "Linear Maps"
 
+NewTheorem LinearAlgebraGame.linear_map_preserves_zero
+
 /--
 If T is injective, then its null space contains only zero.
 -/

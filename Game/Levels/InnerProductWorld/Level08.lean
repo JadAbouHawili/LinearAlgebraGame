@@ -35,6 +35,8 @@ This ensures that the norm defines a proper distance on the vector space.
 -/
 TheoremDoc LinearAlgebraGame.triangle_v as "Triangle Inequality" in "Norms"
 
+NewTheorem LinearAlgebraGame.inner_add_left LinearAlgebraGame.inner_conj_symm LinearAlgebraGame.Cauchy_Schwarz LinearAlgebraGame.norm_nonneg_v LinearAlgebraGame.norm_sq_eq
+
 variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [InnerProductSpace_v V]
 open Function Set VectorSpace Real InnerProductSpace_v Complex
 

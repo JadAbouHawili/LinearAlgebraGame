@@ -46,6 +46,8 @@ Injective linear maps preserve independence.
 -/
 TheoremDoc LinearAlgebraGame.injective_preserves_independence as "injective_preserves_independence" in "Linear Maps"
 
+NewTheorem LinearAlgebraGame.linear_map_preserves_zero
+
 /--
 If T is injective and maps v to w, then v ≠ 0 if and only if w ≠ 0.
 -/

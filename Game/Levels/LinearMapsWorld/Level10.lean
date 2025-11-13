@@ -74,6 +74,8 @@ lemma fundamental_theorem_insight (T : V → W) (hT : is_linear_map_v K V W T)
 
 TheoremDoc LinearAlgebraGame.fundamental_theorem_insight as "fundamental_theorem_insight" in "Linear Maps"
 
+NewTheorem LinearAlgebraGame.linear_map_preserves_zero
+
 /--
 The Fundamental Theorem: educational insight about injective linear maps.
 This demonstrates the core principle without requiring full dimension theory.
