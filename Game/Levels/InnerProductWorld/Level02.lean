@@ -51,7 +51,7 @@ TheoremDoc LinearAlgebraGame.norm_zero_v as "norm_zero_v" in "Inner Product"
 
 NewTactic apply_fun
 
-NewTheorem Real.sq_sqrt Complex.ext LinearAlgebraGame.inner_self_nonneg inner_self_nonneg
+NewTheorem Real.sq_sqrt Complex.ext LinearAlgebraGame.inner_self_nonneg LinearAlgebraGame.inner_self_eq_zero LinearAlgebraGame.inner_self_im_zero
 
 TheoremTab "ℂ"
 
