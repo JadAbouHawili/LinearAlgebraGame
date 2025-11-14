@@ -194,8 +194,7 @@ theorem ortho_swap : ∀ (u v :V), orthogonal u v → orthogonal v u := by
 theorem right_smul_ortho (u v : V) (c : ℂ) (h : orthogonal u v) : orthogonal u (c • v) := by
   exact ortho_swap (c • v) u (left_smul_ortho v u c (ortho_swap u v h))
 
-theorem le_of_sq_le_sq {a : ℝ} {b : ℝ} (h : a^2 ≤ b ^2 ) (hb : 0≤ b) : a ≤ b :=
-  le_abs_self a |>.trans <| abs_le_of_sq_le_sq h hb
+-- le_of_sq_le_sq moved to Level07.lean as a helper theorem
 
 -- Helper theorem for orthogonal decomposition that gives us the full structure needed for Cauchy-Schwarz
 theorem ortho_decom_parts (u v : V) (h : v ≠ 0) : 
