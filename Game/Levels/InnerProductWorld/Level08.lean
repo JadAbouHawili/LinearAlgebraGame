@@ -80,8 +80,8 @@ Statement triangle_v (u v : V) : ‖u+v‖ ≤ ‖u‖ + ‖v‖ := by
   Hint "We'll show ‖u+v‖² ≤ (‖u‖ + ‖v‖)² using the expansion and Cauchy-Schwarz."
   
   -- Use le_of_sq_le_sq: need to provide the squared inequality and then the non-negativity
-  Hint (hidden := true) "Try `apply le_of_sq_le_sq`"
-  apply le_of_sq_le_sq
+  Hint (hidden := true) "Try `apply LinearAlgebraGame.le_of_sq_le_sq`"
+  apply LinearAlgebraGame.le_of_sq_le_sq
   
   -- First prove the squared inequality
   Hint "First we prove ‖u+v‖² ≤ (‖u‖ + ‖v‖)²."
