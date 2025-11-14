@@ -46,8 +46,8 @@ Statement ortho_decom (u v : V) (h : v ≠ 0) : orthogonal (u - (⟪u,v⟫ / (�
   unfold norm_v
   Hint (hidden := true) "Try `norm_cast`"
   norm_cast
-  Hint (hidden := true) "Try `rw[sq_sqrt (inner_self_nonneg v), ← inner_self_real]`"
-  rw[sq_sqrt (inner_self_nonneg v), ← inner_self_real]
+  Hint (hidden := true) "Try `rw[sq_sqrt (LinearAlgebraGame.inner_self_nonneg v), ← inner_self_real]`"
+  rw[sq_sqrt (LinearAlgebraGame.inner_self_nonneg v), ← inner_self_real]
   Hint "Use ring operations to simplify the algebra."
   Hint (hidden := true) "Try `ring_nf`"
   ring_nf
@@ -64,7 +64,7 @@ Statement ortho_decom (u v : V) (h : v ≠ 0) : orthogonal (u - (⟪u,v⟫ / (�
   intro contr
   Hint (hidden := true) "Try `apply h`"
   apply h
-  Hint (hidden := true) "Try `exact (inner_self_eq_zero v).1 contr`"
-  exact (inner_self_eq_zero v).1 contr
+  Hint (hidden := true) "Try `exact (LinearAlgebraGame.inner_self_eq_zero v).1 contr`"
+  exact (LinearAlgebraGame.inner_self_eq_zero v).1 contr
 
 end LinearAlgebraGame

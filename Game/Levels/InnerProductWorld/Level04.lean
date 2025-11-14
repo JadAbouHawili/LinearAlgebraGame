@@ -50,7 +50,7 @@ Statement ortho_self_zero (v : V): orthogonal v v ↔ v = (0:V):= by
   Hint "Try unfolding orthogonal"
   Hint (hidden := true) "Try `unfold orthogonal`"
   unfold orthogonal
-  Hint (hidden := true) "Try `exact inner_self_eq_zero v`"
-  exact inner_self_eq_zero v
+  Hint (hidden := true) "Try `exact LinearAlgebraGame.inner_self_eq_zero v`"
+  exact LinearAlgebraGame.inner_self_eq_zero v
 
 end LinearAlgebraGame
