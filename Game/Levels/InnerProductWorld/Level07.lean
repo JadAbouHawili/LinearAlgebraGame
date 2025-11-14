@@ -191,7 +191,7 @@ Statement Cauchy_Schwarz (u v : V) : ‖⟪u,v⟫‖ ≤ ‖u‖ * ‖v‖ := by
     have ts : ‖u‖^2 * ‖v‖^2 = (‖u‖ * ‖v‖)^2 := by (ring)
     Hint (hidden := true) "Try `rw [ts] at sq_ineq`"
     rw [ts] at sq_ineq
-    Hint (hidden := true) "Try `exact le_of_sq_le_sq sq_ineq g3`"
-    exact le_of_sq_le_sq sq_ineq g3
+    Hint (hidden := true) "Try `exact LinearAlgebraGame.le_of_sq_le_sq sq_ineq g3`"
+    exact LinearAlgebraGame.le_of_sq_le_sq sq_ineq g3
 
 end LinearAlgebraGame
