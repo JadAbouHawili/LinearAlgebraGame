@@ -47,7 +47,8 @@ Warning: In most browsers, deleting cookies will also clear the local storage
 
 Languages "English"
 CaptionShort "Linear Algebra Game"
-CaptionLong "Learn linear algebra and proof techniques using Lean 4."
+CaptionLong "Learn linear algebra through interactive theorem proving in Lean 4. Prove famous results like the Cauchy-Schwarz inequality and work through vector spaces, linear independence, and inner products based on Axler's 'Linear Algebra Done Right'."
+CoverImage "images/cover.png"
 
 namespace LinearAlgebraGame
 
