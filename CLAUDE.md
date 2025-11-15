@@ -84,12 +84,14 @@ For local development with the game framework:
 ## Blueprint System
 
 ### Blueprint Documentation
-The blueprint provides comprehensive mathematical documentation for all 45 levels across 5 worlds:
+The blueprint provides comprehensive mathematical documentation for all 43 levels across 5 worlds:
 - **Tutorial World**: 10 levels introducing Lean 4 tactics
-- **Vector Space World**: 6 levels on vector space fundamentals  
-- **Linear Independence & Span World**: 10 levels on independence and spanning sets
+- **Vector Space World**: 5 levels on vector space fundamentals
+- **Linear Independence & Span World**: 9 levels on independence and spanning sets
 - **Linear Maps World**: 11 levels on linear transformations
 - **Inner Product World**: 8 levels on inner products and norms
+
+Note: The game originally had 45 levels, but 2 demo levels were removed after fixing introduction display bugs.
 
 ### Checkdecls Integration
 - **checkdecls** package from PatrickMassot/checkdecls is installed and working
