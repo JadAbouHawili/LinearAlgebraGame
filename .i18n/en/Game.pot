@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.21.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-14\n"
+"POT-Creation-Date: 2025-11-17\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -784,10 +784,6 @@ msgid "`superset_span_full` is a proof that if a set `A` spans the whole space `
 "`hAsubB : A ⊆ B`, then `superset_span_full` is a proof that `T = span K V B`."
 msgstr ""
 
-#: Game
-msgid "Learn linear algebra and proof techniques using Lean 4."
-msgstr ""
-
 #: Game.Levels.VectorSpaceWorld.Level01
 msgid "`add_left_cancel` is a proof that `a + b = a + c → b = c`. You can tell Lean what to add to the\n"
 "equation by `apply add_left_cancel (a := ????)`."
@@ -1000,6 +996,28 @@ msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level03
 msgid "The Range"
+msgstr ""
+
+#: Game
+msgid "*Game version: 1.0*\n"
+"\n"
+"## Progress saving\n"
+"\n"
+"The game stores your progress in your local browser storage.\n"
+"If you delete it, your progress will be lost!\n"
+"\n"
+"Warning: In most browsers, deleting cookies will also clear the local storage\n"
+"(or \"local site data\"). Make sure to download your game progress first!\n"
+"\n"
+"## Credits\n"
+"\n"
+"* **Team:** Huiyu Chen, Adam Kern, Justin Morrill, and Letian Yang\n"
+"* **Project Manager:** Daniel Zhou\n"
+"* **Project Leader:** Professor Colleen Robles\n"
+"* **2023 Lean 3 Version:** Yannan Bai, Annapurna Bhattacharya, Chun-Hsien Hsu, Stavan Jain, Kurt Ma, Ricardo Prado Cunha, Anoushka Sinha (Project Manager: Chun-Hsien Hsu)\n"
+"* **Game Engine:** Alexander Bentkamp, Jon Eugster, Patrick Massot\n"
+"* **Inspiration:** Kevin Buzzard's Natural Number Game (https://adam.math.hhu.de/#/g/leanprover-community/nng4)\n"
+"* **Cover Image:** Daniel Zhou, Nina Ma"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level01
@@ -1231,27 +1249,6 @@ msgstr ""
 #: Game.Levels.LinearIndependenceSpanWorld.Level08
 msgid "`inv_mul_cancel` is a proof that multiplying a nonzero inverse gives 1. If you have a hypothesis `h : x ≠ 0`,\n"
 "then  `inv_mul_cancel h` is a proof that `x⁻¹ * x = 1`"
-msgstr ""
-
-#: Game
-msgid "*Game version: 1.0*\n"
-"\n"
-"## Progress saving\n"
-"\n"
-"The game stores your progress in your local browser storage.\n"
-"If you delete it, your progress will be lost!\n"
-"\n"
-"Warning: In most browsers, deleting cookies will also clear the local storage\n"
-"(or \"local site data\"). Make sure to download your game progress first!\n"
-"\n"
-"## Credits\n"
-"\n"
-"* **Team:** Huiyu Chen, Adam Kern, Justin Morrill, and Letian Yang\n"
-"* **Project Manager:** Daniel Zhou\n"
-"* **Project Leader:** Professor Colleen Robles\n"
-"* **2023 Lean 3 Version:** Yannan Bai, Annapurna Bhattacharya, Chun-Hsien Hsu, Stavan Jain, Kurt Ma, Ricardo Prado Cunha, Anoushka Sinha (Project Manager: Chun-Hsien Hsu)\n"
-"* **Game Engine:** Alexander Bentkamp, Jon Eugster, Patrick Massot\n"
-"* **Inspiration:** Kevin Buzzard's Natural Number Game (https://adam.math.hhu.de/#/g/leanprover-community/nng4)"
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level01
@@ -2939,6 +2936,10 @@ msgid "The `simp` tactic aims to simplify your goal. Often if a goal seems very 
 "but there is an easy way to prove that they are equal.\n"
 "\n"
 "**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints."
+msgstr ""
+
+#: Game
+msgid "Learn linear algebra through interactive theorem proving in Lean 4. Prove famous results like the Cauchy-Schwarz inequality and work through vector spaces, linear independence, and inner products based on Axler's 'Linear Algebra Done Right'."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07

@@ -43,6 +43,7 @@ Warning: In most browsers, deleting cookies will also clear the local storage
 * **2023 Lean 3 Version:** Yannan Bai, Annapurna Bhattacharya, Chun-Hsien Hsu, Stavan Jain, Kurt Ma, Ricardo Prado Cunha, Anoushka Sinha (Project Manager: Chun-Hsien Hsu)
 * **Game Engine:** Alexander Bentkamp, Jon Eugster, Patrick Massot
 * **Inspiration:** Kevin Buzzard's Natural Number Game (https://adam.math.hhu.de/#/g/leanprover-community/nng4)
+* **Cover Image:** Daniel Zhou, Nina Ma
 "
 
 Languages "English"
