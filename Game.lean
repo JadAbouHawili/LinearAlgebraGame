@@ -35,6 +35,11 @@ If you delete it, your progress will be lost!
 Warning: In most browsers, deleting cookies will also clear the local storage
 (or \"local site data\"). Make sure to download your game progress first!
 
+## Issues and Feedback
+
+If you encounter any bugs, have suggestions, or want to report issues,
+please file them at: https://github.com/ZRTMRH/LinearAlgebraGame/issues
+
 ## Credits
 
 * **Team:** Huiyu Chen, Adam Kern, Justin Morrill, and Letian Yang
