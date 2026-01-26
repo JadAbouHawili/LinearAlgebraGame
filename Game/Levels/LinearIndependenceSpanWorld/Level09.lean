@@ -271,7 +271,7 @@ Statement remove_redundant_span
   Hint "Now, you can prove that summing `fx'` over our set gives the correct value."
   Hint "We use a helper lemma that shows the sum equality."
   Hint "This lemma shows that fx' gives us x minus the contribution from w."
-  Hint (hidden := true) "Try `have fx'_sum : x - (fx w • w) = (sw ∪ (sx \\ \{{w}})).sum (fun v => fx' v • v) := fx_sum_equality K V x w sw sx fx fx' hw hfx hfx' set_eq`"
+  Hint (hidden := true) "Try `have fx'_sum : x - (fx w • w) = (sw ∪ (sx \\ \{{w}})).sum (fun v => fx' v • v) := LinearAlgebraGame.fx_sum_equality K V x w sw sx fx fx' hw hfx hfx' set_eq`"
   have fx'_sum : x - (fx w • w) = (sw ∪ (sx \ {w})).sum (fun v => fx' v • v) :=
     LinearAlgebraGame.fx_sum_equality K V x w sw sx fx fx' hw hfx hfx' set_eq
 
@@ -284,7 +284,7 @@ Statement remove_redundant_span
 
   Hint "Prove the sum equality by expanding definitions."
   Hint "This lemma shows that fw' reconstructs exactly the fx w • w term we need."
-  Hint (hidden := true) "Try `have fw'_sum : fx w • w = (sw ∪ (sx \\ \{{w}})).sum (fun v => fw' v • v) := fw_sum_equality K V w sw sx fx fw fw' hfw hfw'`"
+  Hint (hidden := true) "Try `have fw'_sum : fx w • w = (sw ∪ (sx \\ \{{w}})).sum (fun v => fw' v • v) := LinearAlgebraGame.fw_sum_equality K V w sw sx fx fw fw' hfw hfw'`"
   have fw'_sum : fx w • w = (sw ∪ (sx \ {w})).sum (fun v => fw' v • v) :=
     LinearAlgebraGame.fw_sum_equality K V w sw sx fx fw fw' hfw hfw'
 

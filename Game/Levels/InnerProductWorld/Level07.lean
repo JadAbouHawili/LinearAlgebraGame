@@ -36,6 +36,14 @@ TheoremDoc LinearAlgebraGame.Cauchy_Schwarz as "Cauchy_Schwarz" in "Inner Produc
 variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V]  [InnerProductSpace_v V]
 open Function Set VectorSpace Real InnerProductSpace_v Complex
 
+/--
+If `a² ≤ b²` and `b ≥ 0`, then `a ≤ b`. This is useful for converting squared inequalities
+back to regular inequalities when working with norms.
+
+**Usage:** Use the full name `LinearAlgebraGame.le_of_sq_le_sq` when applying this theorem.
+-/
+TheoremDoc LinearAlgebraGame.le_of_sq_le_sq as "le_of_sq_le_sq" in "Inner Product"
+
 -- Helper theorem: taking square roots preserves inequalities for non-negative numbers
 theorem le_of_sq_le_sq {a : ℝ} {b : ℝ} (h : a^2 ≤ b ^2 ) (hb : 0≤ b) : a ≤ b :=
   le_abs_self a |>.trans <| abs_le_of_sq_le_sq h hb
