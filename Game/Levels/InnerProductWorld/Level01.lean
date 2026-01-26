@@ -91,7 +91,7 @@ TheoremDoc LinearAlgebraGame.inner_add_left as "inner_add_left" in "Inner Produc
 For any vectors `v, w`, and a scalar `a`, ⟪a • v, w⟫ = a * ⟪v, w⟫. This means that scalar multiplication
 commutes with the inner product.
 
-**Usage:** Use the full name `LinearAlgebraGame.inner_smul_left` when applying this theorem.
+**Usage:** Use `InnerProductSpace_v.inner_smul_left` when applying this theorem.
 -/
 TheoremDoc LinearAlgebraGame.inner_smul_left as "inner_smul_left" in "Inner Product"
 
