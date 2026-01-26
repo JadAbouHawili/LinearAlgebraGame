@@ -13,6 +13,10 @@ In this level, we prove that the norm of a vector is zero if and only if it is t
 idea of the proof is to use the `inner_self_eq_zero` axiom, which requires cancelling out the square
 roots.
 
+## Important: Namespace Prefix
+When using inner product axioms in this world, you must use the full namespace prefix `LinearAlgebraGame.`.
+For example, use `LinearAlgebraGame.inner_self_eq_zero` instead of just `inner_self_eq_zero`.
+
 ## The `apply_fun` tactic
 The `apply_fun` tactic is used to apply functions to both sides of an equality. This only works in your
 hypotheses, not in the goal. The syntax is `apply_fun (fun x => f x) at h`. If `h : a = b` is a proof,

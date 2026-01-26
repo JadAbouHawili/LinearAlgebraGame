@@ -38,6 +38,11 @@ Note that the norm is called `norm_v`, which is what you should use if you try t
 def norm_v (v : V) : ℝ := Real.sqrt ⟪v, v⟫.re
 ```
 
+## Important: Namespace Prefix
+When using inner product axioms (like `inner_self_eq_zero`, `inner_self_nonneg`, etc.) in your proofs,
+you must use the full namespace prefix `LinearAlgebraGame.`. For example, write
+`LinearAlgebraGame.inner_self_eq_zero v` instead of just `inner_self_eq_zero v`.
+
 ## The Goal
 This first level requires you to prove that `0 ≤ ‖v‖`. Since norm is defined as the square root of a
 nonnegative real number, it is inherenetly positive.
@@ -56,33 +61,45 @@ TheoremDoc Real.sqrt_nonneg as "sqrt_nonneg" in "ℝ"
 
 /--
 For any vector `v`, the imaginary part of `⟪v, v⟫` is zero. Equivalently, `⟪v, v⟫` is real.
+
+**Usage:** Use the full name `LinearAlgebraGame.inner_self_im_zero` when applying this theorem.
 -/
 TheoremDoc LinearAlgebraGame.inner_self_im_zero as "inner_self_im_zero" in "Inner Product"
 
 /--
 For any vector `v` the real part of `⟪v, v⟫` is nonnegative.
+
+**Usage:** Use the full name `LinearAlgebraGame.inner_self_nonneg` when applying this theorem.
 -/
 TheoremDoc LinearAlgebraGame.inner_self_nonneg as "inner_self_nonneg" in "Inner Product"
 
 /--
-For any vector `v`, `⟪v, v⟫ = 0` if and only if `v` is the zero vector
+For any vector `v`, `⟪v, v⟫ = 0` if and only if `v` is the zero vector.
+
+**Usage:** Use the full name `LinearAlgebraGame.inner_self_eq_zero` when applying this theorem.
 -/
 TheoremDoc LinearAlgebraGame.inner_self_eq_zero as "inner_self_eq_zero" in "Inner Product"
 
 /--
-For any vectors `u, v, w`, ⟪(u + v), w⟫ = ⟪u, w⟫ + ⟪v, w⟫. That is, inner products distribute over addition
+For any vectors `u, v, w`, ⟪(u + v), w⟫ = ⟪u, w⟫ + ⟪v, w⟫. That is, inner products distribute over addition.
+
+**Usage:** Use the full name `LinearAlgebraGame.inner_add_left` when applying this theorem.
 -/
 TheoremDoc LinearAlgebraGame.inner_add_left as "inner_add_left" in "Inner Product"
 
 /--
 For any vectors `v, w`, and a scalar `a`, ⟪a • v, w⟫ = a * ⟪v, w⟫. This means that scalar multiplication
 commutes with the inner product.
+
+**Usage:** Use the full name `LinearAlgebraGame.inner_smul_left` when applying this theorem.
 -/
 TheoremDoc LinearAlgebraGame.inner_smul_left as "inner_smul_left" in "Inner Product"
 
 /--
 For any vectors `v, w`, `⟪v, w⟫ = conj ⟪w, v⟫`. This means that the inner product commutes if you take
 the conjugate.
+
+**Usage:** Use the full name `LinearAlgebraGame.inner_conj_symm` when applying this theorem.
 -/
 TheoremDoc LinearAlgebraGame.inner_conj_symm as "inner_conj_symm" in "Inner Product"
 
