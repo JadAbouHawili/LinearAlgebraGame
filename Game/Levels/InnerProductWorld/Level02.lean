@@ -60,7 +60,7 @@ NewTheorem Real.sq_sqrt Complex.ext LinearAlgebraGame.inner_self_nonneg LinearAl
 TheoremTab "ℂ"
 
 variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [InnerProductSpace_v V]
-open Function Set VectorSpace Real InnerProductSpace_v Complex
+open Function Set VectorSpace Real InnerProductSpace_v Complex LinearAlgebraGame
 
 -- Helper theorem: norm squared equals real part of inner product with itself
 theorem norm_sq_eq (v : V) :  ‖v‖^2 = ⟪v,v⟫.re := by
@@ -79,27 +79,27 @@ Statement norm_zero_v (v: V): norm_v v = 0 ↔ v = 0 := by
   Hint "Now, try to remove the square root"
   Hint (hidden := true) "Try `apply_fun (fun x => x^2) at {h}`"
   apply_fun (fun x => x^2) at h
-  Hint (hidden := true) "Try `rw[sq_sqrt (LinearAlgebraGame.inner_self_nonneg v)] at {h}`"
-  rw[sq_sqrt (LinearAlgebraGame.inner_self_nonneg v)] at h
+  Hint (hidden := true) "Try `rw[sq_sqrt (inner_self_nonneg v)] at {h}`"
+  rw[sq_sqrt (inner_self_nonneg v)] at h
   Hint (hidden := true) "Try `simp at h`"
   simp at h
 
   Hint "Now, try to use some of the theorems we know"
-  Hint (hidden := true) "Try `apply (LinearAlgebraGame.inner_self_eq_zero v).1`"
-  apply (LinearAlgebraGame.inner_self_eq_zero v).1
+  Hint (hidden := true) "Try `apply (inner_self_eq_zero v).1`"
+  apply (inner_self_eq_zero v).1
   Hint (hidden := true) "Try `apply Complex.ext`"
   apply Complex.ext
   Hint (hidden := true) "Try `exact {h}`"
   exact h
-  Hint (hidden := true) "Try `exact LinearAlgebraGame.inner_self_im_zero v`"
-  exact LinearAlgebraGame.inner_self_im_zero v
+  Hint (hidden := true) "Try `exact inner_self_im_zero v`"
+  exact inner_self_im_zero v
 
   Hint (hidden := true) "Try `intro h`"
   intro h
   Hint (hidden := true) "Try `rw [{h}]`"
   rw [h]
-  Hint (hidden := true) "Try `rw [(LinearAlgebraGame.inner_self_eq_zero 0).2]`"
-  rw [(LinearAlgebraGame.inner_self_eq_zero 0).2]
+  Hint (hidden := true) "Try `rw [(inner_self_eq_zero 0).2]`"
+  rw [(inner_self_eq_zero 0).2]
   Hint (hidden := true) "Try `simp`"
   simp
   Hint (hidden := true) "Try `rfl`"
