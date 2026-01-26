@@ -211,12 +211,6 @@ msgid "Now let's prove a fundamental property that every linear map must satisfy
 "**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints."
 msgstr ""
 
-#: Game.Levels.InnerProductWorld.Level01
-msgid "For any vector `v`, `⟪v, v⟫ = 0` if and only if `v` is the zero vector.\n"
-"\n"
-"**Usage:** Use the full name `LinearAlgebraGame.inner_self_eq_zero` when applying this theorem."
-msgstr ""
-
 #: Game.Levels.LinearMapsWorld.Level07
 msgid "If T is surjective, then every element of W is in the range of T."
 msgstr ""
@@ -418,6 +412,11 @@ msgstr ""
 msgid "The `constructor` tactic"
 msgstr ""
 
+#: Game.Levels.InnerProductWorld.Level01
+msgid "For any vectors `v, w`, and a scalar `a`, ⟪a • v, w⟫ = a * ⟪v, w⟫. This means that scalar multiplication\n"
+"commutes with the inner product."
+msgstr ""
+
 #: Game.Levels.TutorialWorld.Level05
 msgid "## Summary\n"
 "\n"
@@ -525,13 +524,6 @@ msgstr ""
 msgid "`normSq_eq_norm_sq` is a proof that `normSq z = ‖z‖ ^ 2`. It essentially unfolds the `normSq` definition."
 msgstr ""
 
-#: Game.Levels.InnerProductWorld.Level01
-msgid "For any vectors `v, w`, and a scalar `a`, ⟪a • v, w⟫ = a * ⟪v, w⟫. This means that scalar multiplication\n"
-"commutes with the inner product.\n"
-"\n"
-"**Usage:** Use `InnerProductSpace_v.inner_smul_left` when applying this theorem."
-msgstr ""
-
 #: Game.Levels.VectorSpaceWorld.Level01
 msgid "Vector space intro, zero scalar multiplication"
 msgstr ""
@@ -622,6 +614,21 @@ msgid "## Summary\n"
 "Tutorial World for more review!\n"
 "\n"
 "Click \"Leave World\" to return to the main menu."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level02
+msgid "## The Goal\n"
+"In this level, we prove that the norm of a vector is zero if and only if it is the zero vector. The\n"
+"idea of the proof is to use the `inner_self_eq_zero` axiom, which requires cancelling out the square\n"
+"roots.\n"
+"\n"
+"## The `apply_fun` tactic\n"
+"The `apply_fun` tactic is used to apply functions to both sides of an equality. This only works in your\n"
+"hypotheses, not in the goal. The syntax is `apply_fun (fun x => f x) at h`. If `h : a = b` is a proof,\n"
+"then this will change `h` to `h : f a = f b`. This tactic can be very helpful, as squaring a square root\n"
+"cancels out the operation.\n"
+"\n"
+"**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints."
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level03
@@ -992,6 +999,10 @@ msgid "## Summary\n"
 "Essential when working with fractions, division, or expressions with denominators in fields."
 msgstr ""
 
+#: Game.Levels.InnerProductWorld.Level01
+msgid "For any vectors `u, v, w`, ⟪(u + v), w⟫ = ⟪u, w⟫ + ⟪v, w⟫. That is, inner products distribute over addition"
+msgstr ""
+
 #: Game.Levels.LinearMapsWorld.Level05
 msgid "The range of any linear map is a subspace of the codomain."
 msgstr ""
@@ -1002,13 +1013,6 @@ msgstr ""
 
 #: Game.Levels.InnerProductWorld
 msgid "Inner Product World"
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level01
-msgid "For any vectors `v, w`, `⟪v, w⟫ = conj ⟪w, v⟫`. This means that the inner product commutes if you take\n"
-"the conjugate.\n"
-"\n"
-"**Usage:** Use the full name `LinearAlgebraGame.inner_conj_symm` when applying this theorem."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
@@ -1045,6 +1049,10 @@ msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
 msgid "`Finset.subset_union_left` is a proof that if `a b : Finset S` are sets, then `a ⊆ a ∪ b`."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level01
+msgid "For any vector `v`, the imaginary part of `⟪v, v⟫` is zero. Equivalently, `⟪v, v⟫` is real."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
@@ -1448,6 +1456,10 @@ msgid "In this level, we will learn the `unfold` and `apply` tactics. Our goal i
 "**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints."
 msgstr ""
 
+#: Game.Levels.InnerProductWorld.Level01
+msgid "For any vector `v`, `⟪v, v⟫ = 0` if and only if `v` is the zero vector"
+msgstr ""
+
 #: Game.Levels.LinearMapsWorld.Level11
 msgid "Linear Maps and Isomorphisms"
 msgstr ""
@@ -1532,50 +1544,6 @@ msgstr ""
 msgid "Zero is always in the null space of any linear map."
 msgstr ""
 
-#: Game.Levels.InnerProductWorld.Level01
-msgid "The first level of this world will introduce two new ideas, the inner product and the norm.\n"
-"The inner product is a way of taking two vectors, and multiplying them to get a complex number. There\n"
-"are five main axioms that make such a function a valid inner product. First, any vector's inner product\n"
-"with itself must be a nonnegative real number. Secondly, a vector's inner product with itself must\n"
-"equal zero if and only if the vector is itself 0. The third and fourth axioms are that you can distribute\n"
-"vector addition and commute vector multiplication through the first element of the product. Lastly, the\n"
-"inner product has conjugate symmetry, that is that `⟪u, v⟫ = conj ⟪v, u⟫. Also, note that in any inner\n"
-"product space, our field K must be a subfield of ℂ. For convenience we will assume K is equal to ℂ.\n"
-"This is what allows us to commute multiplication through the inner product.\n"
-"\n"
-"```\n"
-"-- Inner product space definition for complex vector spaces\n"
-"class InnerProductSpace_v (V : Type) [AddCommGroup V] [VectorSpace ℂ V] where\n"
-"  inner : V → V → ℂ\n"
-"  inner_self_im_zero : ∀ (v : V), (inner v v).im = 0\n"
-"  inner_self_nonneg : ∀ (v : V), 0 ≤ (inner v v).re\n"
-"  inner_self_eq_zero : ∀ (v : V), inner v v = 0 ↔ v = 0\n"
-"  inner_add_left : ∀ (u v w : V), inner (u + v) w = inner u w + inner v w\n"
-"  inner_smul_left : ∀ (a : ℂ) (v w : V), inner (a • v) w = a * inner v w\n"
-"  inner_conj_symm : ∀ (v w : V), inner v w = conj (inner w v)\n"
-"```\n"
-"\n"
-"Once we have the inner product, vector norms are easy to define. We simply let `‖v‖ = sqrt ⟪v, v⟫.re`,\n"
-"which means that the norm of `v` is the square root of it's inner product with itself (we take `.re`)\n"
-"to make sure that `⟪v, v⟫` is a real number, although we already guarantee this with the first axiom).\n"
-"Note that the norm is called `norm_v`, which is what you should use if you try to `unfold`.\n"
-"\n"
-"```\n"
-"def norm_v (v : V) : ℝ := Real.sqrt ⟪v, v⟫.re\n"
-"```\n"
-"\n"
-"## Important: Namespace Prefix\n"
-"When using inner product axioms (like `inner_self_eq_zero`, `inner_self_nonneg`, etc.) in your proofs,\n"
-"you must use the full namespace prefix `LinearAlgebraGame.`. For example, write\n"
-"`LinearAlgebraGame.inner_self_eq_zero v` instead of just `inner_self_eq_zero v`.\n"
-"\n"
-"## The Goal\n"
-"This first level requires you to prove that `0 ≤ ‖v‖`. Since norm is defined as the square root of a\n"
-"nonnegative real number, it is inherenetly positive.\n"
-"\n"
-"**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints."
-msgstr ""
-
 #: Game.Levels.InnerProductWorld.Level03
 msgid "`sq_eq_sq` is a proof that if `a` and `b` are nonnegative, `a^2 = b^2` if and only if `a = b`. If you\n"
 "have hypotheses `h1 : 0 ≤ a`, `h2 : 0 ≤ b`, then `sq_eq_sq h1 h2` is a proof that `a ^ 2 = b ^ 2 ↔ a = b`."
@@ -1592,12 +1560,6 @@ msgstr ""
 
 #: GameServer.RpcHandlers
 msgid "level completed with warnings… 🎭"
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level01
-msgid "For any vector `v` the real part of `⟪v, v⟫` is nonnegative.\n"
-"\n"
-"**Usage:** Use the full name `LinearAlgebraGame.inner_self_nonneg` when applying this theorem."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level05
@@ -1699,6 +1661,11 @@ msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level06
 msgid "Orthogonal Decomposition"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level01
+msgid "For any vectors `v, w`, `⟪v, w⟫ = conj ⟪w, v⟫`. This means that the inner product commutes if you take\n"
+"the conjugate."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
@@ -1951,12 +1918,6 @@ msgid "`add_right_cancel` is a proof that `a + b = c + b → a = c`. You can tel
 "equation by `apply add_right_cancel (b := ????)`."
 msgstr ""
 
-#: Game.Levels.InnerProductWorld.Level01
-msgid "For any vector `v`, the imaginary part of `⟪v, v⟫` is zero. Equivalently, `⟪v, v⟫` is real.\n"
-"\n"
-"**Usage:** Use the full name `LinearAlgebraGame.inner_self_im_zero` when applying this theorem."
-msgstr ""
-
 #: Game.Levels.LinearIndependenceSpanWorld.Level08
 msgid "If you have some set s, where you know `h : i ∈ s`, then `sum_eq_sum_diff_singleton_add h` is a proof that\n"
 "`(Finset.sum s fun x => f x) = (Finset.sum (s \\ {i}) fun x => f x) + f i`"
@@ -2118,25 +2079,6 @@ msgid "This is the \"boss level\" of the Linear Independence and Span World. Thi
 "system. However, in general, try to follow your intuition without blindly following the hints."
 msgstr ""
 
-#: Game.Levels.InnerProductWorld.Level02
-msgid "## The Goal\n"
-"In this level, we prove that the norm of a vector is zero if and only if it is the zero vector. The\n"
-"idea of the proof is to use the `inner_self_eq_zero` axiom, which requires cancelling out the square\n"
-"roots.\n"
-"\n"
-"## Important: Namespace Prefix\n"
-"When using inner product axioms in this world, you must use the full namespace prefix `LinearAlgebraGame.`.\n"
-"For example, use `LinearAlgebraGame.inner_self_eq_zero` instead of just `inner_self_eq_zero`.\n"
-"\n"
-"## The `apply_fun` tactic\n"
-"The `apply_fun` tactic is used to apply functions to both sides of an equality. This only works in your\n"
-"hypotheses, not in the goal. The syntax is `apply_fun (fun x => f x) at h`. If `h : a = b` is a proof,\n"
-"then this will change `h` to `h : f a = f b`. This tactic can be very helpful, as squaring a square root\n"
-"cancels out the operation.\n"
-"\n"
-"**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints."
-msgstr ""
-
 #: Game.Levels.VectorSpaceWorld.Level03
 msgid "Scaling by -1"
 msgstr ""
@@ -2197,6 +2139,45 @@ msgstr ""
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
 msgid "`sum_eq_sum_diff_singleton_add` is a proof that if you have some set `s`, with `h : i ∈ s`, then\n"
 "`Finset.sum s (fun x => f x) = Finset.sum (s / {i}) (fun x => f x) + f i. The syntax is `sum_eq_sum_diff_singleton_add h f`."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level01
+msgid "The first level of this world will introduce two new ideas, the inner product and the norm.\n"
+"The inner product is a way of taking two vectors, and multiplying them to get a complex number. There\n"
+"are five main axioms that make such a function a valid inner product. First, any vector's inner product\n"
+"with itself must be a nonnegative real number. Secondly, a vector's inner product with itself must\n"
+"equal zero if and only if the vector is itself 0. The third and fourth axioms are that you can distribute\n"
+"vector addition and commute vector multiplication through the first element of the product. Lastly, the\n"
+"inner product has conjugate symmetry, that is that `⟪u, v⟫ = conj ⟪v, u⟫. Also, note that in any inner\n"
+"product space, our field K must be a subfield of ℂ. For convenience we will assume K is equal to ℂ.\n"
+"This is what allows us to commute multiplication through the inner product.\n"
+"\n"
+"```\n"
+"-- Inner product space definition for complex vector spaces\n"
+"class InnerProductSpace_v (V : Type) [AddCommGroup V] [VectorSpace ℂ V] where\n"
+"  inner : V → V → ℂ\n"
+"  inner_self_im_zero : ∀ (v : V), (inner v v).im = 0\n"
+"  inner_self_nonneg : ∀ (v : V), 0 ≤ (inner v v).re\n"
+"  inner_self_eq_zero : ∀ (v : V), inner v v = 0 ↔ v = 0\n"
+"  inner_add_left : ∀ (u v w : V), inner (u + v) w = inner u w + inner v w\n"
+"  inner_smul_left : ∀ (a : ℂ) (v w : V), inner (a • v) w = a * inner v w\n"
+"  inner_conj_symm : ∀ (v w : V), inner v w = conj (inner w v)\n"
+"```\n"
+"\n"
+"Once we have the inner product, vector norms are easy to define. We simply let `‖v‖ = sqrt ⟪v, v⟫.re`,\n"
+"which means that the norm of `v` is the square root of it's inner product with itself (we take `.re`)\n"
+"to make sure that `⟪v, v⟫` is a real number, although we already guarantee this with the first axiom).\n"
+"Note that the norm is called `norm_v`, which is what you should use if you try to `unfold`.\n"
+"\n"
+"```\n"
+"def norm_v (v : V) : ℝ := Real.sqrt ⟪v, v⟫.re\n"
+"```\n"
+"\n"
+"## The Goal\n"
+"This first level requires you to prove that `0 ≤ ‖v‖`. Since norm is defined as the square root of a\n"
+"nonnegative real number, it is inherenetly positive.\n"
+"\n"
+"**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level01
@@ -2333,6 +2314,10 @@ msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level01
 msgid "`mul_le_mul_of_nonneg_right` allows multiplying inequalities by nonnegative values on the right."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level01
+msgid "For any vector `v` the real part of `⟪v, v⟫` is nonnegative."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
@@ -2815,13 +2800,6 @@ msgstr ""
 msgid "Linear Maps Preserve Linear Combinations"
 msgstr ""
 
-#: Game.Levels.InnerProductWorld.Level07
-msgid "If `a² ≤ b²` and `b ≥ 0`, then `a ≤ b`. This is useful for converting squared inequalities\n"
-"back to regular inequalities when working with norms.\n"
-"\n"
-"**Usage:** Use the full name `LinearAlgebraGame.le_of_sq_le_sq` when applying this theorem."
-msgstr ""
-
 #: Game.Levels.TutorialWorld.Level02
 msgid "You now know the two most basic tactics in Lean! Again, you can click on `rw` on the right hand side\n"
 "to see more about the tactic.\n"
@@ -2838,12 +2816,6 @@ msgstr ""
 msgid "`coe_union` is a proof that `↑(a ∪ b) = ↑a ∪ ↑b`. The `↑` means type casting, which in this case\n"
 "specifically means that if `a` is a `Finset`, then `↑a` is a `Set` containing the same elements. This\n"
 "theorem shows that type casting passes through unions."
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level01
-msgid "For any vectors `u, v, w`, ⟪(u + v), w⟫ = ⟪u, w⟫ + ⟪v, w⟫. That is, inner products distribute over addition.\n"
-"\n"
-"**Usage:** Use the full name `LinearAlgebraGame.inner_add_left` when applying this theorem."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level11
