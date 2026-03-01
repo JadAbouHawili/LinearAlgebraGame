@@ -25,7 +25,7 @@ you have finished the level.
 
 ## Example
 
-If `h : ∃ (a : ℝ), a * a = 0` is a hypothesis, thatn `cases' h with a ha` will create a variable
+If `h : ∃ (a : ℝ), a * a = 0` is a hypothesis, then `cases' h with a ha` will create a variable
 `a : Nat` and a hypothesis `ha : a * a = 0`
 
 -/

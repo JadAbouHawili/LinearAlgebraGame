@@ -40,7 +40,7 @@ goal into two subgoals: one where you have a hypothesis `hv : v = 0`, and anothe
 
 ### The `funext` tactic
 The `funext` tactic lets you prove statements about functions. It works similarly to the `intro` tactic,
-where you introduce an arbitrary object, but instead of introducing from a `∀` statment, it works if
+where you introduce an arbitrary object, but instead of introducing from a `∀` statement, it works if
 you have a goal of the form `f = g`, where `funext x` will change the goal to the form `f x = g x`, and
 give you an arbitrary `x` in the domain of `f` and `g`.
 
@@ -176,7 +176,7 @@ TheoremDoc Finset.notMem_union as "notMem_union" in "Sets"
 `linear_combination_unique` is a proof that representation as a linear combination of a linearly independent
 set of vectors is unique. It takes in two subsets of a linearly independent set, along with two functions
 representing the linear combinations. The functions must be zero outside of the sets, and their sums
-must be equal. In this case, this prooves that functions will be equal.
+must be equal. In this case, this proves that functions will be equal.
 -/
 TheoremDoc LinearAlgebraGame.linear_combination_unique as "linear_combination_unique" in "Vector Spaces"
 

@@ -259,7 +259,7 @@ Statement remove_redundant_span
 
   Hint "Now, let's consider the function we will be summing. To get a sum of `x`, we need two parts:
   the sum over `S` getting `x`, and the sum over `S \\ \{{w}}` to get `w`. This can be thought of as
-  two seperate functions. The first function will be similar to `fx`, but since we do not know what
+  two separate functions. The first function will be similar to `fx`, but since we do not know what
   `fx` is outside of `sx`, we must make this function `0` outside of `sx`. We can define this first
   function with a `let` statement"
   Hint "Mathematical insight: We're decomposing x = Σ(fx v • v) into two parts: contributions from S\\\{{w}} and from w itself."

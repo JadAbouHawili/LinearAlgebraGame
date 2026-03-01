@@ -165,7 +165,7 @@ Statement linear_independent_insert_of_not_in_span
   (hS : linear_independent_v K V S)
   (hv_not_span : v ∉ span K V S):
   linear_independent_v K V (S ∪ {v}) := by
-    Hint "First, unfold the definitions, intro the variables and hypotheses we need, and simp where nescessary"
+    Hint "First, unfold the definitions, intro the variables and hypotheses we need, and simp where necessary"
     Hint "Linear independence means: if a linear combination equals zero, all coefficients must be zero."
     Hint (hidden := true) "Try `unfold linear_independent_v at *`"
     unfold linear_independent_v at *
@@ -178,7 +178,7 @@ Statement linear_independent_insert_of_not_in_span
     Hint (hidden := true) "Try `simp at hv_not_span`"
     simp at hv_not_span
 
-    Hint "We want to prove two seperate cases: v ∈ s and v ∉ s. If v ∉ s, then we know s ⊆ S, so since S
+    Hint "We want to prove two separate cases: v ∈ s and v ∉ s. If v ∉ s, then we know s ⊆ S, so since S
     is linearly independent, so is s. If v ∈ s, then we have more work to do. "
     Hint "Strategy: Split based on whether the new vector v appears in our linear combination."
     Hint (hidden := true) "Try `by_cases hvIns : v ∈ s`"
