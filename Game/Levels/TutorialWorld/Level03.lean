@@ -66,7 +66,7 @@ taking proofs of `P` to proofs of `Q`. In Lean, this means that we take an arbit
 say `h: P` and we must construct a proof of `Q` from it.
 
 ### Intro
-This idea is exatly what the `intro` tactic does. If the goal is of the form `P → Q`, `intro h` will
+This idea is exactly what the `intro` tactic does. If the goal is of the form `P → Q`, `intro h` will
 create a new hypothesis `h: P`, and change the goal into `Q`.
 
 ### Exact

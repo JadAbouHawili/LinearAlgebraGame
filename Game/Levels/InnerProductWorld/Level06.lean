@@ -10,7 +10,7 @@ Title "Orthogonal Decomposition"
 Introduction "
 One of the most important theorems in linear algebra is orthogonal decomposition. This allows you to
 represent a vector as a scalar multiple of one vector, along with a vector orthogonal to that vector.
-This includes the concepts of projections and othogonal components.
+This includes the concepts of projections and orthogonal components.
 
 ## The Goal
 In this level, we are given two vectors, `u` and `v`. `u` is the vector we want to rewrite, and `v`
@@ -25,7 +25,7 @@ is trivial, since we are adding and subtracting the same vector to `u` on the ri
 
 /--
 `ortho_decom` is a proof that given vectors `u v : V` and `h : v ≠ 0`, then `orthogonal (u - (⟪u,v⟫ / (‖v‖^2)) • v) v`.
-This allows you to rewrite `u` as a scalar multiple of `v` added to a vector orthogonal to `v`. 
+This allows you to rewrite `u` as a scalar multiple of `v` added to a vector orthogonal to `v`.
 -/
 TheoremDoc LinearAlgebraGame.ortho_decom as "ortho_decom" in "Inner Product"
 

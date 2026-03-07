@@ -42,7 +42,7 @@ b = a + c. In this level, we have decided to use the natural numbers, although t
 clearly also true when working with real numbers. This is because the theorem \"le_iff_exists_add\"
 does not work with the real numbers, so the proof would be slightly different.
 
-We have this statment as a theorem, \"le_iff_exists_add\".
+We have this statement as a theorem, \"le_iff_exists_add\".
 
 However, note that this theorem will rewrite the goal to have a `∃` symbol. In this case, we have to
 find a number that satisfies a certain property. Once you find such a number, you can use the `use`

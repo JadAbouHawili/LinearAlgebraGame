@@ -57,7 +57,7 @@ and a function `f : V → K`, such that `x` is the sum over `s` of `f(v) • v`.
 DefinitionDoc is_linear_combination as "is_linear_combination"
 
 /--
-`Finset.sum` is how we difine summing over a set. It uses Mathlib's `Finset` Type, which means that we
+`Finset.sum` is how we define summing over a set. It uses Mathlib's `Finset` Type, which means that we
 can only sum over arbitrary finite sets. The syntax is as follows: With a additive group or field `K`, some Type `T`,
 some `s : Finset T`, and some `f : T → K`, `Finset.sum s (fun x => f x)` sums `f x` over all `x ∈ s`.
 -/

@@ -42,12 +42,12 @@ NewTactic induction
 NewTheorem Nat.add_succ
 
 Introduction "
-The `induction` tactic is a powerful tool to help you to prove statments involving natural numbers.
+The `induction` tactic is a powerful tool to help you to prove statements involving natural numbers.
 It splits a proof into two cases: a base case and an inductive step. The base case is the smallest
 natural number you need to prove the proof for. The inductive step proves the theorem for all other
 numbers. In the inductive step, you can assume the theorem holds for some value `n`, and must then
 prove that it holds for `n + 1`, also written as `Nat.succ n`, the successor of `n`. Induction can
-also be used to prove theorems about objects indexed my natural numbers, such as vectors whose
+also be used to prove theorems about objects indexed by natural numbers, such as vectors whose
 dimension can be described by a natural number.
 
 The syntax for the `induction` tactic in Lean 4 is `induction n with | zero => ... | succ n h => ...`.

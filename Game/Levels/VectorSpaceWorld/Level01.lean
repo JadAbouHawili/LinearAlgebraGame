@@ -28,8 +28,8 @@ NewTactic symm
 Introduction "
 ## Vector Space Definition
 
-We define a vector space `V` over a field `K` as an abelian group with four key axioms. 
-In this game, `VectorSpace K V` is built on Mathlib's `Module K V` over a field, which already contains 
+We define a vector space `V` over a field `K` as an abelian group with four key axioms.
+In this game, `VectorSpace K V` is built on Mathlib's `Module K V` over a field, which already contains
 all the vector space properties:
 
 ```
@@ -38,7 +38,7 @@ abbrev VectorSpace (K V : Type) [Field K] [AddCommGroup V] := Module K V
 
 The four fundamental vector space axioms are:
 - **Distributivity over vector addition:** `a • (x + y) = a • x + a • y`
-- **Distributivity over scalar addition:** `(a + b) • x = a • x + b • x`  
+- **Distributivity over scalar addition:** `(a + b) • x = a • x + b • x`
 - **Associativity:** `(a * b) • x = a • (b • x)`
 - **Identity:** `1 • x = x`
 
@@ -62,7 +62,7 @@ The first step of a normal proof would be writing `0 • w` as `(0 + 0) • w`, 
 to get it as `0 • w + 0 • w`. Lastly, cancelling out a `0 • w` on each side gets `0 = 0 • w`.
 
 However, this proof relies on our assumptions and constructs the goal from them. This can be done in
-Lean, however, it requires using the `have` tactic, and is unnescessarily complex. In Lean, proofs are
+Lean, however, it requires using the `have` tactic, and is unnecessarily complex. In Lean, proofs are
 often done backwards, working from the goal and creating the hypotheses.
 
 Doing the proof backwards thus must first involve adding `0 • w` to both sides of the goal, undoing
@@ -100,7 +100,7 @@ V, and those `0`s are different. To specify which `0` you are talking about, wri
 
 ### Note on simp and linarith
 
-In this world, we are primarilly proving simple statements about vector spaces. This is exactly what
+In this world, we are primarily proving simple statements about vector spaces. This is exactly what
 the `simp` and `linarith` tactics are meant to do. In fact, the `simp` tactic alone would be able to
 solve the first three levels of this world. Because of this, you will not be able to use those tactics
 in this world.
@@ -114,7 +114,7 @@ abbrev VectorSpace (K V : Type) [Field K] [AddCommGroup V] := Module K V
 
 -- Educational theorem statements for the vector space axioms
 -- These show the explicit properties that make something a vector space
-theorem smul_add_explicit {K V : Type} [Field K] [AddCommGroup V] [VectorSpace K V] 
+theorem smul_add_explicit {K V : Type} [Field K] [AddCommGroup V] [VectorSpace K V]
   (a : K) (x y : V) : a • (x + y) = a • x + a • y := smul_add a x y
 
 theorem add_smul_explicit {K V : Type} [Field K] [AddCommGroup V] [VectorSpace K V]
@@ -126,7 +126,7 @@ theorem mul_smul_explicit {K V : Type} [Field K] [AddCommGroup V] [VectorSpace K
 theorem one_smul_explicit {K V : Type} [Field K] [AddCommGroup V] [VectorSpace K V]
   (x : V) : (1 : K) • x = x := one_smul K x
 /--
-A vector space is a space over a field K with an abelian group V. In this game, `VectorSpace K V` 
+A vector space is a space over a field K with an abelian group V. In this game, `VectorSpace K V`
 is an educational alias for Mathlib's `Module K V` over a field. It has four main properties:
 - Distributivity over vector addition,
 - Distributivity over scalar addition,
