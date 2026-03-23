@@ -48,7 +48,7 @@ NewTheorem Set.eq_of_subset_of_subset
 open VectorSpace Set
 variable (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V]
 
-/-- If a set $A$ spans the whole space $V$, then any superset of $A$ also spans $V`.-/
+/-- If a set $A$ spans the whole space $V$, then any superset of $A$ also spans $V$.-/
 Statement superset_span_full {A B T: Set V} (hT: ∀ (x : V), x ∈ T)(hA : T = span K V A) (hAsubB : A ⊆ B) :
     T = span K V B := by
   Hint (hidden := true) "Try `apply Set.eq_of_subset_of_subset`"
