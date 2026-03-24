@@ -29,7 +29,19 @@ This allows you to rewrite `u` as a scalar multiple of `v` added to a vector ort
 -/
 TheoremDoc LinearAlgebraGame.ortho_decom as "ortho_decom" in "Inner Product"
 
-NewTheorem LinearAlgebraGame.inner_self_nonneg LinearAlgebraGame.inner_self_eq_zero
+/--
+`inner_minus_left` extends linearity of the inner product in the first argument to subtraction:
+`⟪u - v, w⟫ = ⟪u, w⟫ - ⟪v, w⟫`.
+-/
+TheoremDoc LinearAlgebraGame.inner_minus_left as "inner_minus_left" in "Inner Product"
+
+/--
+`inner_self_real` states that in a complex inner product space, `⟪v,v⟫` is always a real number:
+`⟪v,v⟫ = (⟪v,v⟫.re : ℂ)`.
+-/
+TheoremDoc LinearAlgebraGame.inner_self_real as "inner_self_real" in "Inner Product"
+
+NewTheorem LinearAlgebraGame.inner_self_nonneg LinearAlgebraGame.inner_self_eq_zero LinearAlgebraGame.inner_minus_left LinearAlgebraGame.inner_self_real
 
 variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [InnerProductSpace_v V]
 open Function Set VectorSpace Real InnerProductSpace_v Complex
