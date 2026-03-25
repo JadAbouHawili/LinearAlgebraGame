@@ -44,11 +44,17 @@ back to regular inequalities when working with norms.
 -/
 TheoremDoc LinearAlgebraGame.le_of_sq_le_sq as "le_of_sq_le_sq" in "Inner Product"
 
+/--
+`inner_zero_right_v` states that the inner product of any vector with the zero vector is zero:
+`⟪v, 0⟫ = 0`.
+-/
+TheoremDoc LinearAlgebraGame.inner_zero_right_v as "inner_zero_right_v" in "Inner Product"
+
 -- Helper theorem: taking square roots preserves inequalities for non-negative numbers
 theorem le_of_sq_le_sq {a : ℝ} {b : ℝ} (h : a^2 ≤ b ^2 ) (hb : 0≤ b) : a ≤ b :=
   le_abs_self a |>.trans <| abs_le_of_sq_le_sq h hb
 
-NewTheorem LinearAlgebraGame.norm_zero_v LinearAlgebraGame.pythagorean LinearAlgebraGame.inner_self_nonneg LinearAlgebraGame.inner_self_eq_zero LinearAlgebraGame.sca_mul LinearAlgebraGame.ortho_decom LinearAlgebraGame.norm_nonneg_v mul_le_mul_of_nonneg_right div_mul_cancel sq_nonneg LinearAlgebraGame.le_of_sq_le_sq
+NewTheorem LinearAlgebraGame.norm_zero_v LinearAlgebraGame.pythagorean LinearAlgebraGame.inner_self_nonneg LinearAlgebraGame.inner_self_eq_zero LinearAlgebraGame.sca_mul LinearAlgebraGame.ortho_decom LinearAlgebraGame.norm_nonneg_v LinearAlgebraGame.inner_zero_right_v mul_le_mul_of_nonneg_right div_mul_cancel sq_nonneg LinearAlgebraGame.le_of_sq_le_sq
 
 /-- Helper lemma: The norm of a nonzero vector is nonzero -/
 lemma norm_nonzero_of_nonzero {V : Type} [AddCommGroup V] [VectorSpace ℂ V]  [InnerProductSpace_v V]
