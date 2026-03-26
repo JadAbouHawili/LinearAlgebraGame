@@ -86,9 +86,7 @@ Statement surjective_iff_range_eq (T : V → W) :
 Conclusion "
 You've connected surjectivity with the range!
 
-You've now learned the fundamental concepts of linear maps: definition, null space, range, and the basic properties they satisfy. These form the foundation for understanding more advanced topics like the rank-nullity theorem and isomorphisms.
-
-Congratulations on completing LinearMapsWorld!
+With injectivity and surjectivity now defined, we're ready to explore deeper properties of linear maps — how they interact with dimensions and when they become invertible.
 "
 
 end LinearAlgebraGame

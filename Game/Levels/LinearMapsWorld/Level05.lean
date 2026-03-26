@@ -41,6 +41,8 @@ The range of a linear map is a subspace.
 -/
 TheoremDoc LinearAlgebraGame.range_is_subspace as "range_is_subspace" in "Linear Maps"
 
+NewTheorem LinearAlgebraGame.linear_map_preserves_zero
+
 /--
 The range of any linear map is a subspace of the codomain.
 -/
@@ -53,14 +55,11 @@ Statement range_is_subspace (T : V → W) (hT : is_linear_map_v K V W T) :
   · -- Non-empty
     Hint (hidden := true) "Try `use 0`"
     use 0
+    Hint "We need to find a vector that T maps to 0. Remember that linear maps preserve zero!"
     Hint (hidden := true) "Try `use 0`"
     use 0
-    Hint (hidden := true) "Try `have h := hT.2 (0 : K) (0 : V)`"
-    have h := hT.2 (0 : K) (0 : V)
-    Hint (hidden := true) "Try `simp only [zero_smul, smul_zero] at h`"
-    simp only [zero_smul, smul_zero] at h
-    Hint (hidden := true) "Try `exact h`"
-    exact h
+    Hint (hidden := true) "Try `exact linear_map_preserves_zero K V W T hT`"
+    exact linear_map_preserves_zero K V W T hT
   Hint (hidden := true) "Try `constructor`"
   constructor
   Hint "For closure under addition, if w₁ = T(v₁) and w₂ = T(v₂), then w₁ + w₂ = T(v₁ + v₂)."

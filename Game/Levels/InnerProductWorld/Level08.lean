@@ -20,6 +20,7 @@ The triangle inequality is a cornerstone of normed spaces. For any vectors $u$ a
 
 ## Key idea
 - Expand $\\|u+v\\|^2$ using the inner product.
+- Use `add_sq` to expand $(\\|u\\| + \\|v\\|)^2 = \\|u\\|^2 + 2\\|u\\|\\|v\\| + \\|v\\|^2$.
 - Bound the cross term $2\\,\\Re\\,\\langle u,v\\rangle$ using the Cauchy–Schwarz inequality.
 - Finish by taking square roots, using nonnegativity of norm.
 
@@ -35,7 +36,18 @@ This ensures that the norm defines a proper distance on the vector space.
 -/
 TheoremDoc LinearAlgebraGame.triangle_v as "Triangle Inequality" in "Norms"
 
-NewTheorem LinearAlgebraGame.inner_add_left LinearAlgebraGame.inner_conj_symm LinearAlgebraGame.Cauchy_Schwarz LinearAlgebraGame.norm_nonneg_v LinearAlgebraGame.norm_sq_eq LinearAlgebraGame.le_of_sq_le_sq
+/--
+The inner product expansion: `⟪u+v, u+v⟫.re = ⟪u,u⟫.re + ⟪v,v⟫.re + 2*⟪u,v⟫.re`.
+This expands the squared norm of a sum using the inner product.
+-/
+TheoremDoc LinearAlgebraGame.inner_product_expansion as "inner_product_expansion" in "Inner Product"
+
+/--
+The cross term bound: `⟪u,v⟫.re ≤ ‖u‖ * ‖v‖`.
+The real part of the inner product is bounded by the product of the norms,
+which follows from the Cauchy–Schwarz inequality.
+-/
+TheoremDoc LinearAlgebraGame.cross_term_bound as "cross_term_bound" in "Inner Product"
 
 variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [InnerProductSpace_v V]
 open Function Set VectorSpace Real InnerProductSpace_v Complex
@@ -48,11 +60,13 @@ lemma inner_product_expansion (u v : V) :
   rw [InnerProductSpace_v.inner_conj_symm v u, Complex.conj_re]
   ring
 
-lemma cross_term_bound (u v : V) : 
-  ⟪u,v⟫.re ≤ ‖u‖ * ‖v‖ := 
-le_trans (re_le_abs ⟪u,v⟫) (by 
+lemma cross_term_bound (u v : V) :
+  ⟪u,v⟫.re ≤ ‖u‖ * ‖v‖ :=
+le_trans (re_le_abs ⟪u,v⟫) (by
   have cs := Cauchy_Schwarz u v
   rwa [norm_inner_eq_abs] at cs)
+
+NewTheorem LinearAlgebraGame.inner_add_left LinearAlgebraGame.inner_conj_symm LinearAlgebraGame.Cauchy_Schwarz LinearAlgebraGame.norm_nonneg_v LinearAlgebraGame.norm_sq_eq LinearAlgebraGame.le_of_sq_le_sq LinearAlgebraGame.inner_product_expansion LinearAlgebraGame.cross_term_bound
 
 Statement triangle_v (u v : V) : ‖u+v‖ ≤ ‖u‖ + ‖v‖ := by
   Hint "We'll prove the squared version first, then take square roots."
