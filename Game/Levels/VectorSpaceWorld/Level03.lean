@@ -60,7 +60,8 @@ Statement neg_one_smul_v (v : V) : (-1 : K) • v = -v := by
   Hint "Start by adding v to both sides to cancel out the -v on the right. This transforms our goal into showing (-1) • v + v = -v + v."
   Hint (hidden := true) "Try `apply add_right_cancel (b := v)`"
   apply add_right_cancel (b := v)
-  Hint "We need to rewrite the second v as 1 • v. Use nth_rw to target only the second occurrence of v (the one being added, not the one being scaled)."
+  Hint "We need to rewrite the second v as 1 • v. Use nth_rw to target only the second occurrence of
+  v (the one being added, not the one being scaled). This would be `nth_rw 2 [...]`"
   Hint (hidden := true) "Try `nth_rw 2 [(one_smul K v).symm]`"
   nth_rw 2 [(one_smul K v).symm]
   Hint "Now factor out the v using add_smul in reverse: (-1) • v + (1) • v = (-1 + 1) • v."
