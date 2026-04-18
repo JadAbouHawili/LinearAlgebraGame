@@ -67,7 +67,7 @@ Statement linear_independent_empty : linear_independent_v K V (∅ : Set V) := b
   Hint (hidden := true) "Try `intros s f hs sum_zero v hv`"
   intros _s f hs _sum_zero v hv
   Hint "We now have a hypothesis `{hv}: v ∈ {_s}` and `{hs} : ↑{_s} ⊆ ∅`. This may be a contradiction,
-  so maybe we can chang eour goal to `False` and prove that"
+  so maybe we can change our goal to `False` and prove that"
   Hint (hidden := true) "Try `exfalso`"
   exfalso
   Hint "If you can figure out a way to get a proof of the form `{v} ∈ ∅`, that statement is equivalent

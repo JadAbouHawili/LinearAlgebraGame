@@ -48,7 +48,7 @@ give you an arbitrary `x` in the domain of `f` and `g`.
 This level requires multiple new theorems, particularly ones about Finsets and sums. There are two theorems
 about vector spaces that can be proven quite easily, but they are still nice to have without needing
 to prove them first. Instead of explaining them all here, you can look at them on the right side of
-the screen. The new theorems are: `coe_union`, `union_subset`, `sub_smul`, 'sum_add_distrib', 'sum_sub_distrib',
+the screen. The new theorems are: `coe_union`, `union_subset`, `sub_smul`, `sum_add_distrib`, `sum_sub_distrib`,
 `subset_union_left`, `subset_union_right`, `sum_subset`, `sub_eq_zero`, and `notMem_union`.
 If you need more theorems, you can either prove them in lemmas, or if you want, you can go to the world
 select menu and turn \"Rules\" to \"none\", which should allow you to use any tactic or theorem in Lean.
@@ -180,7 +180,8 @@ must be equal. In this case, this proves that functions will be equal.
 -/
 TheoremDoc LinearAlgebraGame.linear_combination_unique as "linear_combination_unique" in "Vector Spaces"
 
-NewTheorem Finset.coe_union Finset.sum_add_distrib Finset.sum_sub_distrib Finset.sum_subset sub_smul sub_eq_zero Finset.notMem_union
+NewTheorem Finset.coe_union Finset.sum_add_distrib Finset.sum_sub_distrib Finset.sum_subset
+sub_smul sub_eq_zero Finset.notMem_union LinearAlgebraGame.sum_diff_eq_zero_of_equal_combinations
 
 NewTactic by_cases funext specialize
 
@@ -201,7 +202,7 @@ f = g := by
 
   Hint "Now, we can split into cases where either x ∈ (s ∪ t) or not."
   Hint "This case split is crucial: if x is in the union, we'll use linear independence; if not, both functions are zero."
-  Hint (hidden := true) "Try `by_cases h : x ∈ (s ∪ t)`"
+  Hint (hidden := true) (strict:=true) "Try `by_cases h : x ∈ (s ∪ t)`"
   by_cases h : x ∈ (s ∪ t)
   Hint "Case 1: x ∈ (s ∪ t). Let's unfold the definition of linear independence."
   Hint (hidden := true) "Try `unfold linear_independent_v at hS`"
@@ -226,7 +227,7 @@ f = g := by
   Hint "We need to show that the sum of the difference function equals zero."
   Hint "This follows from our helper lemma about equal linear combinations."
   Hint "The key idea: if Σf = Σg, then Σ(f-g) = 0."
-  Hint (hidden := true) "Try `have lemmaSumDiffEqZero := sum_diff_eq_zero_of_equal_combinations K V s t f g hf0 hg0 heq`"
+  Hint (hidden := true) (strict:=true)"Try `have lemmaSumDiffEqZero := sum_diff_eq_zero_of_equal_combinations K V s t f g hf0 hg0 heq`"
   have lemmaSumDiffEqZero := sum_diff_eq_zero_of_equal_combinations K V s t f g hf0 hg0 heq
 
   Hint "Now, we simply have to prove the requirements of hS"
