@@ -21,7 +21,8 @@ Now, we are able to understand the definition of linear combinations:
 
 ```
 def is_linear_combination (S : Set V) (x : V) : Prop :=
-  ∃ (s : Finset V) (f : V → K), (↑s ⊆ S) ∧ (x = Finset.sum s (fun v => f v • v))
+∃ (s : Finset V) (f : V → K),
+  (↑s ⊆ S) ∧ (x = Finset.sum s (fun v => f v • v))
 ```
 
 ### The Goal
