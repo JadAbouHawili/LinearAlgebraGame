@@ -181,24 +181,26 @@ Statement linear_independent_insert_of_not_in_span
     Hint "We want to prove two separate cases: v ∈ s and v ∉ s. If v ∉ s, then we know s ⊆ S, so since S
     is linearly independent, so is s. If v ∈ s, then we have more work to do. "
     Hint "Strategy: Split based on whether the new vector v appears in our linear combination."
-    Hint (hidden := true) "Try `by_cases hvIns : v ∈ s`"
+    Hint (hidden := true) (strict:=true) "Try `by_cases hvIns : v ∈ s`"
     by_cases hvIns : v ∈ s
 
-    Hint "Now, we want to split hf into two, breaking off \{{v}} so we have a sum over a subset of S"
+    Hint "Now, we want to split {hf} into two, breaking off \{{v}} so we have a sum over a subset of S"
     Hint "We can rewrite the sum as: ∑(s\\\{{v}}) + f(v)•v = 0. This separation is key to our proof."
-    Hint (hidden := true) "Try `rw [sum_eq_sum_diff_singleton_add hvIns] at hf`"
+    Hint (hidden := true) "Try `rw [sum_eq_sum_diff_singleton_add {hvIns}] at {hf}`"
     rw [sum_eq_sum_diff_singleton_add hvIns] at hf
 
     Hint "Now, that we have a sum over `(s \\ \{{v}})`, we want to show `↑(s \\ \{{v}}) ⊆ S`."
     Hint "**Mathematical Intuition**: Elements in s \\ \{{v}} must be in S since they can't equal v."
     Hint "We use a helper lemma that proves: if s ⊆ S ∪ \{{v}}, then s \\ \{{v}} ⊆ S."
-    Hint (hidden := true) "Try `have subset : ↑(s \\ \{{v}}) ⊆ S := subset_diff_singleton_of_union K V S v s hs`"
+    Hint (hidden := true) "Try `have subset : ↑(s \\ \{{v}}) ⊆ S := subset_diff_singleton_of_union K
+    V S v s {hs}`"
     have subset : ↑(s \ {v}) ⊆ S := subset_diff_singleton_of_union K V S v s hs
 
     Hint "Now, we can prove our important lemma, that `f v = 0`."
     Hint "We'll use proof by contradiction. If f v ≠ 0, we can express v as a linear combination of elements in S."
     Hint "But this contradicts our assumption that v ∉ span(S)! Therefore f(v) must be 0."
-    Hint (hidden := true) "Try `have lemma_fv_zero : f v = 0 := zero_coeff_from_not_in_span K V S v s f hv_not_span hvIns subset hf`"
+    Hint (hidden := true) "Try `have lemma_fv_zero : f v = 0 := zero_coeff_from_not_in_span K V S v
+    s f hv_not_span {hvIns} subset hf`"
     have lemma_fv_zero : f v = 0 := zero_coeff_from_not_in_span K V S v s f hv_not_span hvIns subset hf
 
     Hint "Now, consider two cases: `w = v` or not. If `w = v`, our lemma is our goal. If not,
@@ -206,25 +208,25 @@ Statement linear_independent_insert_of_not_in_span
     Hint "Since f(v) = 0, the equation becomes: ∑(s\\\{{v}}) f(w)•w = 0, which involves only vectors from S."
     Hint (hidden := true) "Try `by_cases hw2 : w = v`"
     by_cases hw2 : w = v
-    Hint (hidden := true) "Try `rw [hw2]`"
+    Hint (hidden := true) "Try `rw [{hw2}]`"
     rw[hw2]
     Hint (hidden := true) "Try `exact lemma_fv_zero`"
     exact lemma_fv_zero
 
     Hint "We can use our lemma to show that the sum of `f` over `s \\ \{{v}}` is equal to 0"
     Hint "Substituting f(v) = 0 simplifies our equation to a sum over S only."
-    Hint (hidden := true) "Try `rw[lemma_fv_zero] at hf`"
+    Hint (hidden := true) "Try `rw[lemma_fv_zero] at {hf}`"
     rw[lemma_fv_zero] at hf
-    Hint (hidden := true) "Try `simp at hf`"
+    Hint (hidden := true) "Try `simp at {hf}`"
     simp at hf
 
     Hint "Show that w is in s but not equal to v."
-    Hint (hidden := true) "Try `have hwInS : w ∈ s \\ \{{v}} := by (simp; exact ⟨hw, hw2⟩)`"
+    Hint (hidden := true) "Try `have hwInS : w ∈ s \\ \{{v}} := by (simp; exact ⟨{hw}, {hw2}⟩)`"
     have hwInS : w ∈ s \ {v} := by (simp; exact ⟨hw, hw2⟩)
 
     Hint "Now, we can apply all of our hypotheses to close the goal"
     Hint "Since S is linearly independent and we have a zero sum over s\\\{{v}} ⊆ S, all coefficients (including f(w)) are zero."
-    Hint (hidden := true) "Try `exact hS (s \\ \{{v}}) f subset hf w hwInS`"
+    Hint (hidden := true) "Try `exact {hS} (s \\ \{{v}}) f subset {hf} w {hwInS}`"
     exact hS (s \ {v}) f subset hf w hwInS
 
     -- Case 2: v ∉ s
@@ -235,12 +237,12 @@ Statement linear_independent_insert_of_not_in_span
     · -- Use the sufficient condition
       Hint "Apply linear independence to finish the proof."
       Hint "Since s ⊆ S and S is linearly independent, the zero sum implies all coefficients are zero."
-      Hint (hidden := true) "Try `exact hS s f s_subset_S hf w hw`"
+      Hint (hidden := true) "Try `exact {hS} s f s_subset_S {hf} w {hw}`"
       exact hS s f s_subset_S hf w hw
     -- Prove the sufficient condition
     Hint (hidden := true) "Try `intro u hu_in_s`"
     intro u hu_in_s
-    Hint (hidden := true) "Try `cases' hs hu_in_s with hu_in_S hu_eq_v`"
+    Hint (hidden := true) "Try `cases' {hs} {hu_in_s} with hu_in_S hu_eq_v`"
     cases' hs hu_in_s with hu_in_S hu_eq_v
     Hint (hidden := true) "For the first case, try `exact hu_in_S`"
     · exact hu_in_S
@@ -250,7 +252,7 @@ Statement linear_independent_insert_of_not_in_span
       rw [hu_eq_v] at hu_in_s
       Hint (hidden := true) "Try `exfalso`"
       exfalso
-      Hint (hidden := true) "Try `exact hvIns hu_in_s`"
+      Hint (hidden := true) "Try `exact {hvIns} hu_in_s`"
       exact hvIns hu_in_s
 
     -- The proof is completed by the suffices approach above

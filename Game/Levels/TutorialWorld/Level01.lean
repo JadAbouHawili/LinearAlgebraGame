@@ -43,8 +43,6 @@ From this, we have to prove our goal, that `x=x`.
 
 The first tactic we will use is the `rfl` tactic. `rfl` stands for \"reflexivity\". `rfl` will solve
 goals when the left side of an equation is the same as the right side, at least up to definitions.
-
-**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 Statement (x : ℝ) : x = x := by

@@ -147,8 +147,6 @@ Writing `rw[h]` will rewrite `y` as `x + 7` in the goal.
 
 Also note that the `rw` tactic will automatically attempt the `rfl` tactic after it rewrites, so if
 after the rewrite the goal is of the form `X = X`, it will automatically be solved.
-
-**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 Statement (x y : ℝ) (h : y = x + 7) : 2 * y = 2 * (x + 7) := by
